@@ -3,8 +3,9 @@
       <div class="footer" >
         <img src="../assets/logo.png" width="40px">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
       <div style="float: right;margin-right: 50px">
-        <el-button type="text">退出</el-button>
-        <span>2020年2月2日</span>
+        <span style="color:#186EC5 ;font-size: 14px;margin-right: 20px">2020年2月2日</span>
+
+        <el-button type="text" icon="el-icon-delete">退出</el-button>
       </div>
       </div>
       <div class="list">
@@ -73,13 +74,14 @@
 <style scoped>
 .footer{
   /*width: 900px;*/
+  margin-left: 50px;
 }
   .body{
     width: 100%;
     /*background-color: #5daf34;*/
     height: 900px;
     margin: 0px auto;
-    background-image: url("../assets/back.png");
+    /*background-image: url("../assets/back.png");*/
     background-repeat:no-repeat;
     background-position:center;
   }
