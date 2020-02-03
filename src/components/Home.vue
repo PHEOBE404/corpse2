@@ -1,5 +1,6 @@
 <template>
     <div class="body">
+<!--      <img src="../assets/5945057_0_0.jpg" width="1430px"style="float:left;">-->
       <div class="footer" >
         <img src="../assets/logo.png" width="40px">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
       <div style="float: right;margin-right: 50px">
@@ -72,20 +73,21 @@
 </script>
 
 <style scoped>
-.footer{
-  /*width: 900px;*/
-  margin-left: 50px;
-}
+
   .body{
     width: 100%;
     /*background-color: #5daf34;*/
     height: 900px;
     margin: 0px auto;
-    /*background-image: url("../assets/back.png");*/
+    background-image: url("../assets/5945057_0_0.jpg");
     background-repeat:no-repeat;
-    background-position:center;
+    background-position:top center;
   }
-
+  .footer{
+    /*width: 900px;*/
+    margin-left: 50px;
+    /*float: right;*/
+  }
   .menu{
 width: 700px;
     margin: 0 auto;
