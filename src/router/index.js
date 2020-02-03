@@ -4,6 +4,7 @@ import Login from "../components/Login";
 import Home from "../components/Home";
 import CompanySearch from "../components/CompanySearch";
 import CompanyBase from "../components/CompanyBase";
+import RouterBar from "../components/RouterBar";
 
 Vue.use(Router)
 
@@ -24,6 +25,24 @@ export default new Router({
     },{
       path: '/companybase/:id',
       component: CompanyBase
-    },
+    },{
+    path:'/corpse',
+      component:RouterBar,
+
+      children:[
+
+        {
+          path:'',
+          component:CompanySearch
+        },
+        {
+          path:'companysearch',
+          component:CompanySearch
+        },{
+          path: 'companybase/',
+          component: CompanyBase
+        }
+      ]
+    }
   ]
 })

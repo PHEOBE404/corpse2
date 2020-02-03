@@ -51,7 +51,7 @@
           alt1:function () {
             alert("进入企业信息模块");
             this.moveMenu();
-            this.$router.push({path:'/companysearch'})
+            this.$router.push({path:'/corpse/companysearch'})
 
           },
         al:function(){

@@ -1,42 +1,5 @@
 <template>
     <div>
-<!--      <div class="header">-->
-<!--        <span>返回</span>-->
-<!--      </div>-->
-<!--      <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">-->
-<!--        <el-radio-button :label="false">展开</el-radio-button>-->
-<!--        <el-radio-button :label="true">收起</el-radio-button>-->
-<!--      </el-radio-group>-->
-      <div class="menubar">
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">选项4</span>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-      </el-menu>
-      </div>
       <div class="sear_input"  v-if="show_item">
         <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%">
 
@@ -105,7 +68,7 @@
         name: "CompanySearch",
       data(){
           return{
-            isCollapse: true,
+            isCollapse: !false,
             select_tpye:'',
             select_key:'',
             show_item:!false,
@@ -159,7 +122,12 @@
 
 <style scoped>
   .menubar{
-    float: left;
+    /*float: left;*/
+    margin-top: 100px;
+    /*margin-left: 20px;*/
+    position:fixed;
+    top:20px;
+    left:15px;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
@@ -172,7 +140,7 @@
 }
 .sear_input_later{
   width: 600px;
-  margin: 50px auto;
+  margin: 80px auto;
 }
   .header{
     background-color:#f0f0f0 ;
