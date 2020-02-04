@@ -21,7 +21,9 @@
     </el-menu>
   </div>
     <div class="footer">
-      <img src="../assets/user.png" width="30px">
+      <img src="../assets/user.png" width="30px" style="margin-top: 10px">
+        <span >用户8462336</span>
+
 
     </div>
 <router-view></router-view>
@@ -59,7 +61,7 @@
     left:15px;
   }
   .footer{
-    margin-right: 210px;
+    margin-left: 90%;
     width: 650px;
     /*margin-top: 80px;*/
     display: inline-block;
