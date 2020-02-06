@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="menubar">
-    <el-menu default-active="/corpse/companysearch" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse"router>
+    <el-menu :default-active=activebar class="el-menu-vertical-demo" @click="handleOpen" @close="handleClose" :collapse="isCollapse"router>
       <el-menu-item index="/corpse/companysearch">
         <i class="el-icon-location"></i>
         <span slot="title">企业信息查询</span>
@@ -36,12 +36,16 @@
       data(){
           return{
             isCollapse: !false,
+            activebar:'/corpse/companysearch'
 
           }
       },
       methods:{
         handleOpen(key, keyPath) {
           console.log(key, keyPath);
+          this.activebar=key.index;
+          console.log(key.index);
+
         },
         handleClose(key, keyPath) {
           console.log(key, keyPath);

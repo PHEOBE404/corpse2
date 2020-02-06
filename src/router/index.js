@@ -27,6 +27,9 @@ export default new Router({
       path: '/companybase/:id',
       component: CompanyBase
     },{
+      path: '/companybase/:id',
+      component: CompanyBase
+    },{
     path:'/corpse',
       component:RouterBar,
 
