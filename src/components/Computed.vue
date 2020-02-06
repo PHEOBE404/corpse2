@@ -1,7 +1,14 @@
 <template>
     <div>
-      <div class="cardgroup">
-          <router-link to="">
+      <div class="step">
+        <el-steps :active="0" align-center>
+          <el-step title="选择分析模型" icon="el-icon-upload"></el-step>
+          <el-step title="输入企业信息" icon="el-icon-edit"></el-step>
+          <el-step title="查看数据报表" icon="el-icon-picture"></el-step>
+        </el-steps>
+      </div>
+      <div class="cardgroup" @click="hide">
+          <router-link to="/mulinput/default">
             <el-card class="box-card" v-for="o in 3" :key="o">
 
           <div  class="text item">
@@ -17,8 +24,15 @@
 </template>
 
 <script>
-    export default {
-        name: "Computed"
+  import $ from 'jquery'
+
+  export default {
+        name: "Computed",
+    methods:{
+          hide(){
+            $(".cardgroup").fadeOut();
+          }
+    }
     }
 </script>
 
@@ -42,4 +56,8 @@ margin: 100px auto;
   display: inline-block;
   margin: 20px;
 }
+  .step{
+    width: 800px;
+    margin: 10px auto;
+  }
 </style>
