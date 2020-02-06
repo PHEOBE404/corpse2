@@ -5,6 +5,7 @@ import Home from "../components/Home";
 import CompanySearch from "../components/CompanySearch";
 import CompanyBase from "../components/CompanyBase";
 import RouterBar from "../components/RouterBar";
+import Computed from "../components/Computed";
 
 Vue.use(Router)
 
@@ -39,8 +40,8 @@ export default new Router({
           path:'companysearch',
           component:CompanySearch
         },{
-          path: 'companybase/',
-          component: CompanyBase
+          path: 'computed',
+          component: Computed
         }
       ]
     }

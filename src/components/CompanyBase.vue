@@ -71,9 +71,33 @@
         <template>
           <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
             <el-tab-pane label="数据分析" name="first">用户管理</el-tab-pane>
-            <el-tab-pane label="企业特征" name="second">配置管理</el-tab-pane>
-            <el-tab-pane label="企业预警" name="third">角色管理</el-tab-pane>
-            <el-tab-pane label="3D企业" name="fourth">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="企业特征" name="second">
+
+              <div id="radioCont">
+              </div>
+              <div id="radioText">
+
+
+                <el-collapse v-model="activeNames" @change="handleChange">
+                  <el-collapse-item :name=index v-for="(item,index) in bbb"  >
+                    <template slot="title">
+                      <img src="../assets/边框.png" width="16px" height="20px" style="margin-left: 10px;margin-right: 10px">
+                                     <div  class="itemback">       <h3>{{item.k}}</h3>
+                                     </div>
+                    </template>
+                    {{item.v}}
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+
+
+            </el-tab-pane>
+            <el-tab-pane label="企业预警" name="third">
+              <div>
+
+            </div>
+            </el-tab-pane>
+            <el-tab-pane label="3D企业" name="fourth">建设中</el-tab-pane>
           </el-tabs>
         </template>
       </div>
@@ -90,15 +114,41 @@
         name: "CompanyBase",
       data(){
           return{
-            activeName2: 'first',
+            activeName2: 'second',
             li:this.$route.params.id,//可以返回当前企业id
             isCollapse: !false,
+            figure:null,//接收后台的数据
+            figure_text:null,
+            activeNames: [0,1,2,3,4,5],
+            bbb:[ //放维度描述
+              {
+                k:'企业规模',
+                v:'企业规模指数为1.66，属于小型企业'
+
+              }, {
+                k:'创新能力',
+                v:'创新能力指数为3，处于中等水平'
+              },{
+                k:'盈利能力',
+                v:'盈利能力指数为0.37，处于较低水平'
+              },{
+                k:'发展能力',
+                v:'发展能力为2.92，处于中等水平'
+              },{
+                k:'营运能力',
+                v:'营运能力为3.63，处于中等偏上水平'
+              },{
+                k:'偿清能力',
+                v:'偿清能力指数为3.97，处于良好水平'
+              },
+            ]
 
           }
       },
     mounted(){
       // alert($(".warn").text());
 
+      this.init_radio();
       if ($(".warn").text()=="僵尸企业") {
             $(".warn").addClass("isred");
           }
@@ -109,6 +159,106 @@
       },
 
     methods:{
+      init_radio: function () {
+        var echarts = require('echarts');
+
+        var myChart_1 = echarts.init(document.getElementById('radioCont'));
+        myChart_1.setOption({
+          title: {
+            text: '企业六维特征',
+            textStyle:{
+              color:'#1A6FC9',
+            },
+            padding:[5,300]
+          },
+          tooltip: {},
+          legend: { //图例内容,点击能取消/显示图
+            data: []//跟下面的data要对应
+          },
+          radar: {
+            center:['50%','55%'],
+            name: { //六个角上的文字标签
+              // backgroundColor:'red',
+              textStyle: {
+                color: '#000',
+                fontSize:16,
+                lineHeight:24,
+                // backgroundColor: '#f0f0f0',
+                borderColor:'#1A6FC9',
+                borderWidth:1,
+                borderRadius: 3,//标签圆角
+                padding: [3, 10], //标签长宽
+                shadowColor: 'rgba(0, 0, 0, 0.3)',
+                shadowBlur: 1
+              }
+            },
+            axisLine:{
+              // show:false
+              lineStyle:{
+                color:'#d9eeec',
+                width:2
+              },
+
+
+            },
+            splitLine:{
+              // show:false,
+              lineStyle:{
+                color:'#d9eeec',
+                width:2
+              },
+            },
+            splitArea:{
+              areaStyle:{
+              color:['#ffffff','#d9eeec',],
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 4
+
+              },
+            },
+
+            indicator: [ //各个角的最大值
+              {name: '企业规模', max: 5},
+              {name: '创新能力', max: 5},
+              {name: '盈利能力', max: 5},
+              {name: '发展能力', max: 5},
+              {name: '营运能力', max: 5},
+              {name: '偿清能力', max: 5}
+            ]
+          },
+
+          series: [{
+            name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            // areaStyle: {normal: {}},
+            data: [
+              {
+                value: [1.66,3,1.30,2.92,3.63,3.97],
+                name: this.li+'号企业',
+                label: {
+                  show: true,
+                  formatter: function(params) {
+                    return params.value;
+                  },
+                  distance:8,
+                  position:'inside',
+                  fontSize:18
+                }
+              },
+
+            ],
+            itemStyle:{
+              color:'#3c70a4'
+            },
+            areaStyle:{
+              opacity: 0.5
+            }
+
+
+          }]
+        })
+      },
+
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
@@ -117,8 +267,10 @@
       },
       handleClick(tab, event) {
         console.log(tab, event);
+      },
+      handleChange(val) {
+        console.log(val);
       }
-
     }
     }
 </script>
@@ -193,17 +345,27 @@
     color: red;
   }
   .tab{
-    width: 800px;
+    width: 1080px;
     height: 500px;
-    background-color: #99a9bf;
+    /*background-color: #99a9bf;*/
     margin-left: 200px;
   }
   .bord{
-    width: 8px;
+    width: 7px;
     height: 22px;
     background-color: #1A6FC9;
     color: #1A6FC9;
     margin-right: 5px;
     display: inline-block;
+  }
+  #radioCont{
+    margin-top: 20px;
+    width: 700px;
+    height: 680px;
+    float: left;
+  }
+  .itemback{
+    /*background-image: url("../assets/边框.png");*/
+    /*background-color: #d1dbe5;*/
   }
 </style>

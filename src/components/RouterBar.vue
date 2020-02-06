@@ -6,7 +6,7 @@
         <i class="el-icon-location"></i>
         <span slot="title">企业信息查询</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="/corpse/computed">
         <i class="el-icon-menu"></i>
         <span slot="title">僵尸企业测评</span>
       </el-menu-item>
