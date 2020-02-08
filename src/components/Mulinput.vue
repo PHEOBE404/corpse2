@@ -1,6 +1,31 @@
 <template>
     <div>
+      <div class="menubar">
+        <el-menu :default-active=activebar class="el-menu-vertical-demo" @click="handleOpen" @close="handleClose" :collapse="isCollapse"router>
+          <el-menu-item index="/corpse/companysearch">
+            <i class="el-icon-location"></i>
+            <span slot="title">企业信息查询</span>
+          </el-menu-item>
+          <el-menu-item index="/corpse/computed">
+            <i class="el-icon-menu"></i>
+            <span slot="title">僵尸企业测评</span>
+          </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-setting"></i>
+            <span slot="title">大数据分析</span>
+          </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-message"></i>
+            <span slot="title">个人中心</span>
+          </el-menu-item>
+        </el-menu>
+      </div>
+      <div class="footer">
+        <img src="../assets/user.png" width="30px" style="margin-top: 10px">
+        <span >用户8462336</span>
 
+
+      </div>
       <div class="step">
         <el-steps :active="1" align-center>
           <el-step title="1.选择分析模型" icon="el-icon-upload"></el-step>
@@ -8,17 +33,29 @@
           <el-step title="3.查看数据报表" icon="el-icon-picture"></el-step>
         </el-steps>
       </div>
+      <div class="inputtype">
+        <div style="margin-top: 20px">
+          <span>请选择企业信息的输入方式：</span>
+          <el-radio-group v-model="radio4" size="medium" @change="changeradio">
+
+            <el-radio-button label="单个输入" ></el-radio-button>
+            <el-radio-button label="多个输入"></el-radio-button>
+            <el-radio-button label="文件上传"></el-radio-button>
+          </el-radio-group>
+        </div>
+      </div>
       <div class="tab">
       <template>
         <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="多个输入" name="first" >
+          <el-tab-pane label="" name="second" >
 <!--            <span slot="label" style="width: 290px"><i class="el-icon-date"></i> 我的行程</span>-->
-<div style="width: 600px;margin: 0 auto">
+<div style="width: 600px;margin: 0 auto" v-if="show02">
 折叠面板收纳
 </div>
           </el-tab-pane>
-          <el-tab-pane label="文件上传" name="second">
-            <div style="width: 300px;margin: 0 auto">
+
+          <el-tab-pane label="" name="three">
+            <div style="width:200px;margin: 0 auto" v-if="show03">
               <el-upload
                 class="upload-demo"
                 ref="upload"
@@ -33,8 +70,9 @@
               </el-upload>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="单个输入" name="three">
-            <div class="colla">
+
+          <el-tab-pane label="" name="first">
+            <div class="colla" v-if="show01">
               <el-collapse v-model="activeNames" @change="handleChange">
                 <el-collapse-item title="基本信息表" name="1">
                   <div style="width: 90%;margin: 0 auto">
@@ -237,6 +275,12 @@
       data() {
 
         return {
+          isCollapse: !false,
+          activebar:'/corpse/computed',
+          show01:true,
+          show02:false,
+          show03:false,
+          radio4: '单个输入',
           activeNames: ['1'],
           radio: '',
           options_area: [
@@ -287,7 +331,8 @@
             value: '7',
             label: '商业服务'
           }],
-          options_industry_company_type:[{
+          options_industry_company_type:[
+            {
           value: '1',
           label: '农民专业合作社'
         }, {
@@ -303,7 +348,7 @@
           value: '5',
           label: '合伙企业'
         }],
-          activeName: 'three',
+          activeName: 'first',
           fileList: [{
             name: 'food.jpeg',
             url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
@@ -329,7 +374,8 @@
             brand: '',
             copyrightt: ''
           }],
-          tableData3: [{
+          tableData3: [
+            {
             id: '11',
             year: '2002',
             debt_financing_line: '2',
@@ -368,6 +414,43 @@
         }
       },
       methods: {
+        handleOpen(key, keyPath) {
+          console.log(key, keyPath);
+          this.activebar=key.index;
+          console.log(key.index);
+
+        },
+        handleClose(key, keyPath) {
+          console.log(key, keyPath);
+        },
+        changeradio(){
+          console.log("change");
+          console.log(this.radio4);
+          if (this.radio4 == "单个输入"){
+            this.show01=true;
+            this.show02=false;
+            this.show03=false;
+            this.activeName="first"
+
+          }if (this.radio4 == "多个输入"){
+            this.show01=false;
+            this.show02=true;
+            this.show03=false;
+            this.activeName="second"
+
+
+          }if (this.radio4 == "文件上传"){
+            this.show01=false;
+            this.show02=false;
+            this.show03=true;
+            this.activeName="three"
+
+
+          }
+
+
+
+        },
         handleChange(val) {
           console.log(val);
         },
@@ -403,6 +486,10 @@
 </script>
 
 <style scoped>
+  .inputtype{
+    width: 560px;
+    margin: 0 auto;
+  }
   .tb-edit .el-input {
     display: none
   }
@@ -431,11 +518,32 @@
     display: none
   }
   .step{
-    width: 800px;
+    /*margin-left: 150px;*/
+
+    width: 900px;
     margin: 50px auto;
   }
   .tab{
     width: 1200px;
+    margin: 0 auto;
+  }
+  .menubar{
+    /*float: left;*/
+    margin-top: 100px;
+    /*margin-left: 20px;*/
+    position:fixed;
+    top:20px;
+    left:15px;
+  }
+  .footer{
+    margin-left: 90%;
+    width: 650px;
+    /*margin-top: 80px;*/
+    display: inline-block;
+    /*float: right;*/
+  }
+  .colla{
+    width: 1100px;
     margin: 0 auto;
   }
 </style>

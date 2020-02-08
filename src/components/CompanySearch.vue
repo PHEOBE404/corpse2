@@ -1,5 +1,14 @@
 <template>
     <div>
+<!--      <el-container>-->
+<!--        <el-header>-->
+
+<!--        </el-header>-->
+<!--        <el-aside>-->
+
+<!--        </el-aside>-->
+<!--        <el-main></el-main>-->
+<!--      </el-container>-->
       <div class="sear_input"  v-if="show_item">
         <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%">
 
