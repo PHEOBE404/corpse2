@@ -12,7 +12,7 @@
       <template>
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="多个输入" name="first" >
-            <span slot="label" style="width: 290px"><i class="el-icon-date"></i> 我的行程</span>
+<!--            <span slot="label" style="width: 290px"><i class="el-icon-date"></i> 我的行程</span>-->
 <div style="width: 600px;margin: 0 auto">
 折叠面板收纳
 </div>
@@ -34,187 +34,195 @@
             </div>
           </el-tab-pane>
           <el-tab-pane label="单个输入" name="three">
-            <div style="width: 90%;margin: 0 auto">
-              <label>基本信息表</label>
-              <el-table :data="tableData1" class="tb-edit" style="width: 100%" highlight-current-row >
-                <el-table-column label="企业编号" >
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.id" placeholder="请输入内容" ></el-input> <span>{{scope.row.id}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="注册年份" >
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.year" placeholder="请输入内容" ></el-input> <span>{{scope.row.year}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="注册资本" label="注册资本">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.registered_capital" placeholder="请输入内容" ></el-input> <span>{{scope.row.registered_capital}}</span>
-                  </template>
-                </el-table-column>
+            <div class="colla">
+              <el-collapse v-model="activeNames" @change="handleChange">
+                <el-collapse-item title="基本信息表" name="1">
+                  <div style="width: 90%;margin: 0 auto">
+                    <el-table :data="tableData1" class="tb-edit" style="width: 100%" highlight-current-row >
+                      <el-table-column label="企业编号" >
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.id" placeholder="请输入内容" ></el-input> <span>{{scope.row.id}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column label="注册年份" >
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.year" placeholder="请输入内容" ></el-input> <span>{{scope.row.year}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="注册资本" label="注册资本">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.registered_capital" placeholder="请输入内容" ></el-input> <span>{{scope.row.registered_capital}}</span>
+                        </template>
+                      </el-table-column>
 
-                <el-table-column prop="区域" label="区域">
-                  <template scope="scope">
-<!--                    <el-input size="small" v-model="scope.row.area" placeholder="请输入内容" ></el-input> <span>{{scope.row.area}}</span>-->
-                    <el-select v-model="scope.row.area" placeholder="请选择">
-                      <el-option
-                        v-for="item in options_area"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.label">
-                      </el-option>
+                      <el-table-column prop="区域" label="区域">
+                        <template scope="scope">
+                          <!--                    <el-input size="small" v-model="scope.row.area" placeholder="请输入内容" ></el-input> <span>{{scope.row.area}}</span>-->
+                          <el-select v-model="scope.row.area" placeholder="请选择">
+                            <el-option
+                              v-for="item in options_area"
+                              :key="item.value"
+                              :label="item.label"
+                              :value="item.label">
+                            </el-option>
 
-                    </el-select>
-                  </template>
-                </el-table-column>
+                          </el-select>
+                        </template>
+                      </el-table-column>
 
-                <el-table-column prop="行业" label="行业">
-                  <template scope="scope">
-<!--                    <el-input size="small" v-model="scope.row.industry" placeholder="请输入内容" ></el-input> <span>{{scope.row.industry}}</span>-->
-                    <el-select v-model="scope.row.industry" placeholder="请选择">
-                      <el-option
-                        v-for="item in options_industry"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.label">
-                      </el-option>
+                      <el-table-column prop="行业" label="行业">
+                        <template scope="scope">
+                          <!--                    <el-input size="small" v-model="scope.row.industry" placeholder="请输入内容" ></el-input> <span>{{scope.row.industry}}</span>-->
+                          <el-select v-model="scope.row.industry" placeholder="请选择">
+                            <el-option
+                              v-for="item in options_industry"
+                              :key="item.value"
+                              :label="item.label"
+                              :value="item.label">
+                            </el-option>
 
-                    </el-select>
-<!--                    <span>{{scope.row.industry}}</span>-->
+                          </el-select>
+                          <!--                    <span>{{scope.row.industry}}</span>-->
 
-                  </template>
-                </el-table-column>
-
-
-
-
+                        </template>
+                      </el-table-column>
 
 
-                <el-table-column prop="企业类型" label="企业类型">
-                  <template scope="scope">
-<!--                    <el-input size="small" v-model="scope.row.company_type" placeholder="请输入内容" ></el-input> <span>{{scope.row.company_type}}</span>-->
-                    <el-select v-model="scope.row.company_type" placeholder="请选择">
-                      <el-option
-                        v-for="item in options_industry_company_type"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.label">
-                      </el-option>
 
-                    </el-select>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="控制人类型" label="控制人类型">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.controller_type" placeholder="请输入内容" ></el-input> <span>{{scope.row.controller_type }} %</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="控制人持股" label="控制人持股">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.controller_share" placeholder="请输入内容" ></el-input> <span>{{scope.row.controller_share}}</span>
-                  </template>
-                </el-table-column>
 
-              </el-table>
-<!--              <br>数据:{{tableData1}}-->
+
+
+                      <el-table-column prop="企业类型" label="企业类型">
+                        <template scope="scope">
+                          <!--                    <el-input size="small" v-model="scope.row.company_type" placeholder="请输入内容" ></el-input> <span>{{scope.row.company_type}}</span>-->
+                          <el-select v-model="scope.row.company_type" placeholder="请选择">
+                            <el-option
+                              v-for="item in options_industry_company_type"
+                              :key="item.value"
+                              :label="item.label"
+                              :value="item.label">
+                            </el-option>
+
+                          </el-select>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="控制人类型" label="控制人类型">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.controller_type" placeholder="请输入内容" ></el-input> <span>{{scope.row.controller_type }} %</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="控制人持股" label="控制人持股">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.controller_share" placeholder="请输入内容" ></el-input> <span>{{scope.row.controller_share}}</span>
+                        </template>
+                      </el-table-column>
+
+                    </el-table>
+                    <!--              <br>数据:{{tableData1}}-->
+                  </div>
+
+                </el-collapse-item>
+                <el-collapse-item title="知识产权表" name="2">
+                  <div style="width: 90%;margin: 0 auto">
+                    <el-table :data="tableData2" class="tb-edit" style="width: 100%" highlight-current-row >
+                      <el-table-column label="企业编号" >
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.id" placeholder="请输入内容" ></el-input>
+                          <span>{{scope.row.id}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column label="专利" >
+                        <template scope="scope">
+                          <!--                    <el-input size="small" v-model="scope.row.patentt" placeholder="请输入内容" ></el-input>-->
+                          <el-radio v-model="scope.row.patentt" label="1">有</el-radio>
+                          <el-radio v-model="scope.row.patentt" label="0">无</el-radio>
+                          <!--                    <span>{{scope.row.patentt}}</span>-->
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="商标" label="商标">
+                        <template scope="scope">
+                          <!--                    <el-input size="small" v-model="scope.row.brand" placeholder="请输入内容" ></el-input> <span>{{scope.row.brand}}</span>-->
+                          <el-radio v-model="scope.row.brand" label="1">有</el-radio>
+                          <el-radio v-model="scope.row.brand" label="0">无</el-radio>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="著作权" label="著作权">
+                        <template scope="scope">
+                          <!--                    <el-input size="small" v-model="scope.row.copyrightt" placeholder="请输入内容" ></el-input> <span>{{scope.row.copyrightt}}</span>-->
+                          <el-radio v-model="scope.row.copyrightt" label="1">有</el-radio>
+                          <el-radio v-model="scope.row.copyrightt" label="0">无</el-radio>
+                        </template>
+                      </el-table-column>
+
+
+                    </el-table>
+                    <!--              <br>数据:{{tableData2}}-->
+                  </div>
+
+                </el-collapse-item>
+                <el-collapse-item title="融资信息表" name="3">
+                  <div style="width: 90%;margin: 0 auto">
+                    <el-table :data="tableData3" class="tb-edit" style="width: 100%" highlight-current-row :span-method="objectSpanMethod"
+                              border >
+                      <el-table-column label="企业编号" >
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.id" placeholder="请输入内容" ></el-input> <span>{{scope.row.id}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column label="年份" >
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.year" placeholder="请输入内容" ></el-input> <span>{{scope.row.year}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="债权融资额度" label="债权融资额度">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.debt_financing_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.debt_financing_line}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="债权融资成本" label="债权融资成本">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.debt_financing_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.debt_financing_cost}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="股权融资额度" label="股权融资额度">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.equity_financing_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.equity_financing_line}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="股权融资成本" label="股权融资成本">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.equity_capital_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.equity_capital_cost}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="内部融资和贸易融资额度" label="内部融资和贸易融资额度">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.internal_and_trade_finance_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.internal_and_trade_finance_line}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="内部融资和贸易融资成本" label="内部融资和贸易融资成本">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.internal_and_trade_finance_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.internal_and_trade_finance_cost}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="项目融资和政策融资额度" label="项目融资和政策融资额度">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.project_financing_and_policy_financing_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.project_financing_and_policy_financing_line}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="项目融资和政策融资成本" label="项目融资和政策融资成本">
+                        <template scope="scope">
+                          <el-input size="small" v-model="scope.row.project_financing_and_policy_financing_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.project_financing_and_policy_financing_cost}}</span>
+                        </template>
+                      </el-table-column>
+
+
+                    </el-table>
+                    <!--              <br>数据:{{tableData3}}-->
+                  </div>
+                </el-collapse-item>
+              </el-collapse>
             </div>
             <br>
-            <div style="width: 90%;margin: 0 auto">
-              <label>知识产权信息表</label>
-              <el-table :data="tableData2" class="tb-edit" style="width: 100%" highlight-current-row >
-                <el-table-column label="企业编号" >
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.id" placeholder="请输入内容" ></el-input>
-                    <span>{{scope.row.id}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="专利" >
-                  <template scope="scope">
-<!--                    <el-input size="small" v-model="scope.row.patentt" placeholder="请输入内容" ></el-input>-->
-                    <el-radio v-model="scope.row.patentt" label="1">有</el-radio>
-                    <el-radio v-model="scope.row.patentt" label="0">无</el-radio>
-<!--                    <span>{{scope.row.patentt}}</span>-->
-                  </template>
-                </el-table-column>
-                <el-table-column prop="商标" label="商标">
-                  <template scope="scope">
-<!--                    <el-input size="small" v-model="scope.row.brand" placeholder="请输入内容" ></el-input> <span>{{scope.row.brand}}</span>-->
-                    <el-radio v-model="scope.row.brand" label="1">有</el-radio>
-                    <el-radio v-model="scope.row.brand" label="0">无</el-radio>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="著作权" label="著作权">
-                  <template scope="scope">
-<!--                    <el-input size="small" v-model="scope.row.copyrightt" placeholder="请输入内容" ></el-input> <span>{{scope.row.copyrightt}}</span>-->
-                    <el-radio v-model="scope.row.copyrightt" label="1">有</el-radio>
-                    <el-radio v-model="scope.row.copyrightt" label="0">无</el-radio>
-                  </template>
-                </el-table-column>
-
-
-              </el-table>
-<!--              <br>数据:{{tableData2}}-->
-            </div>
-            <br>
-            <div style="width: 90%;margin: 0 auto">
-              <label>融资信息表</label>
-              <el-table :data="tableData3" class="tb-edit" style="width: 100%" highlight-current-row :span-method="objectSpanMethod"
-                        border >
-                <el-table-column label="企业编号" >
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.id" placeholder="请输入内容" ></el-input> <span>{{scope.row.id}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="年份" >
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.year" placeholder="请输入内容" ></el-input> <span>{{scope.row.year}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="债权融资额度" label="债权融资额度">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.debt_financing_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.debt_financing_line}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="债权融资成本" label="债权融资成本">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.debt_financing_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.debt_financing_cost}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="股权融资额度" label="股权融资额度">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.equity_financing_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.equity_financing_line}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="股权融资成本" label="股权融资成本">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.equity_capital_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.equity_capital_cost}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="内部融资和贸易融资额度" label="内部融资和贸易融资额度">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.internal_and_trade_finance_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.internal_and_trade_finance_line}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="内部融资和贸易融资成本" label="内部融资和贸易融资成本">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.internal_and_trade_finance_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.internal_and_trade_finance_cost}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="项目融资和政策融资额度" label="项目融资和政策融资额度">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.project_financing_and_policy_financing_line" placeholder="请输入内容" ></el-input> <span>{{scope.row.project_financing_and_policy_financing_line}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="项目融资和政策融资成本" label="项目融资和政策融资成本">
-                  <template scope="scope">
-                    <el-input size="small" v-model="scope.row.project_financing_and_policy_financing_cost" placeholder="请输入内容" ></el-input> <span>{{scope.row.project_financing_and_policy_financing_cost}}</span>
-                  </template>
-                </el-table-column>
-
-
-              </el-table>
-<!--              <br>数据:{{tableData3}}-->
-            </div>
 
           </el-tab-pane>
         </el-tabs>
@@ -229,6 +237,7 @@
       data() {
 
         return {
+          activeNames: ['1'],
           radio: '',
           options_area: [
             {
@@ -359,6 +368,9 @@
         }
       },
       methods: {
+        handleChange(val) {
+          console.log(val);
+        },
         handleClick(tab, event) {
           console.log(tab, event);
         },
