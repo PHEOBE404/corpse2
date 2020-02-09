@@ -7,9 +7,9 @@
       </div>
       <div class="login">
         <h3 >用户登录</h3>
-        <el-input v-model="input" placeholder="请输入用户名" prefix-icon="el-icon-caret-right"></el-input>
+        <el-input v-model="input1" placeholder="请输入用户名" prefix-icon="el-icon-caret-right"></el-input>
         <br><br>
-        <el-input v-model="input" placeholder="请输入密码" prefix-icon="el-icon-caret-right"></el-input>
+        <el-input v-model="input2" type="password" placeholder="请输入密码" prefix-icon="el-icon-caret-right"></el-input>
         <br> <br>
         <router-link to='/home'>
         <el-button type="primary" icon="el-icon-circle-check" style="width: 90px;">登录</el-button>
@@ -28,7 +28,8 @@
   export default {
     data(){
       return{
-        input:''
+        input1:'',
+        input2:''
       }
 
 

@@ -21,8 +21,16 @@
     </el-menu>
   </div>
     <div class="footer">
-      <img src="../assets/user.png" width="30px" style="margin-top: 10px">
-        <span >用户8462336</span>
+<!--      <div class="footer" >-->
+        <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
+<!--        <div style="float: right;margin-right: 50px">-->
+          <span style="color:#186EC5 ;font-size: 14px;margin-left: 620px"></span>
+      <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">
+      <span >用户8462336</span>
+          <el-button type="text" icon="el-icon-delete">退出</el-button>
+<!--        </div>-->
+<!--      </div>-->
+
 
 
     </div>
@@ -41,6 +49,9 @@
           }
       },
       methods:{
+        toHome(){
+          this.$router.push({path:'/home/'})
+        },
         handleOpen(key, keyPath) {
           console.log(key, keyPath);
           this.activebar=key.index;
@@ -65,8 +76,8 @@
     left:15px;
   }
   .footer{
-    margin-left: 90%;
-    width: 650px;
+    margin-left: 5%;
+    width: 1350px;
     /*margin-top: 80px;*/
     display: inline-block;
     /*float: right;*/

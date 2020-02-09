@@ -1,5 +1,6 @@
 <template>
     <div>
+
       <div class="menubar">
         <el-menu :default-active=activebar class="el-menu-vertical-demo" @click="handleOpen" @close="handleClose" :collapse="isCollapse"router>
           <el-menu-item index="/corpse/companysearch">
@@ -20,9 +21,23 @@
           </el-menu-item>
         </el-menu>
       </div>
+<!--      <div class="footer">-->
+<!--        <img src="../assets/user.png" width="30px" style="margin-top: 10px">-->
+<!--        <span >用户8462336</span>-->
+
+
+<!--      </div>-->
       <div class="footer">
-        <img src="../assets/user.png" width="30px" style="margin-top: 10px">
+        <!--      <div class="footer" >-->
+        <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
+        <!--        <div style="float: right;margin-right: 50px">-->
+        <span style="color:#186EC5 ;font-size: 14px;margin-left: 620px"></span>
+        <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">
         <span >用户8462336</span>
+        <el-button type="text" icon="el-icon-delete">退出</el-button>
+        <!--        </div>-->
+        <!--      </div>-->
+
 
 
       </div>
@@ -50,11 +65,27 @@
           <el-tab-pane label="" name="second" >
 <!--            <span slot="label" style="width: 290px"><i class="el-icon-date"></i> 我的行程</span>-->
 <div style="width: 600px;margin: 0 auto" v-if="show02">
-折叠面板收纳
+建设中
 </div>
           </el-tab-pane>
 
           <el-tab-pane label="" name="three">
+            <div style="width: 700px;margin: 0 auto">注意！此处应同时提交三个文件：1.基本信息表，2.知识产权表，3.融资信息表 <br>
+              对应表格的数据项可移至 <el-tooltip placement="top" effect="light">
+                <div slot="content"style="font-size: 16px">
+                  1.企业信息表:<br/>
+                  ID	|	注册时间 |	注册资本	|	行业	|	区域	|	企业类型	|	控制人类型	|	控制人持股比例
+                  <br><br>
+                  2.知识产权表: <br>
+                  ID	|	专利	|	商标	|	著作权
+                  <br><br>
+                  3.融资信息表 <br>
+                  ID	|	年份	|	债权融资额度	|	债权融资成本	|	股权融资额度	|	股权融资成本	|	内部融资和贸易融资额度	|	内部融资和贸易融资成本	|	项目融资和政策融资额度	|	项目融资和政策融资成本
+                </div>
+                <el-button>此处</el-button>
+              </el-tooltip>查看
+
+            </div>
             <div style="width:200px;margin: 0 auto" v-if="show03">
               <el-upload
                 class="upload-demo"
@@ -64,10 +95,18 @@
                 :on-remove="handleRemove"
                 :file-list="fileList"
                 :auto-upload="false">
-                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+                <el-button slot="trigger" size="small" type="text" icon="el-icon-circle-plus-outline">选取文件</el-button>
                 <div slot="tip" class="el-upload__tip">请上传xlm、csv文件</div>
+
               </el-upload>
+              <el-button style="margin-top: 20px;" size="small" type="primary" @click="dialogVisible = true">提交</el-button>
+              <br>
+
+<!--              @click="submitUpload"-->
+            </div>
+
+            <div style="margin: 0 auto;width: 800px;color:#ff4d51" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业
+              点击<el-button type="text" @click="show_ans">详情</el-button>即可查看企业的详细分析数据。
             </div>
           </el-tab-pane>
 
@@ -261,11 +300,30 @@
               </el-collapse>
             </div>
             <br>
-
+            <div style="margin: 0 auto;width: 100px">
+            <el-button type="primary" @click="dialogVisible = true">提交<i class="el-icon-upload el-icon--right"></i></el-button>
+            </div>
+            <div style="margin: 0 auto;width: 800px" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业，
+              点击<el-button type="text" @click="show_ans">详情</el-button>即可查看企业的详细分析数据。
+            </div>
           </el-tab-pane>
         </el-tabs>
+
       </template>
       </div>
+
+      <el-dialog
+        title="提示"
+        :visible.sync="dialogVisible"
+        width="30%"
+        :before-close="handleClose">
+        <span>您输入的信息正在被计算，请稍后……</span> <br>
+        <span>点击“确定”，在当前页面即可查看测评结果！</span>
+        <span slot="footer" class="dialog-footer">
+<!--    <el-button @click="dialogVisible = false">取 消</el-button>-->
+    <el-button type="primary" @click="dialogVisible = false;ans=true">确 定</el-button>
+  </span>
+      </el-dialog>
     </div>
 </template>
 
@@ -275,6 +333,8 @@
       data() {
 
         return {
+          ans:false,
+          dialogVisible: false,
           isCollapse: !false,
           activebar:'/corpse/computed',
           show01:true,
@@ -349,71 +409,130 @@
           label: '合伙企业'
         }],
           activeName: 'first',
-          fileList: [{
-            name: 'food.jpeg',
+          fileList: [
+            {
+            name: '事例excel文件.xml',
             url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
             status: 'finished'
-          }, {
-            name: 'food2.jpeg',
-            url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            status: 'finished'
-          }],
+          },
+          //   {
+          //   name: 'food2.jpeg',
+          //   url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
+          //   status: 'finished'
+          // }
+          ],
           tableData1: [{
-            id: '11',
-            year: 'year',
-            registered_capital: 'registered_capital',
-            industry: '22',
-            area: 'area',
-            company_type: 'company_type',
-            controller_type: 'controller_type',
-            controller_share: 'controller_share'
+            // id: '11',
+            // year: 'year',
+            // registered_capital: 'registered_capital',
+            // industry: '22',
+            // area: 'area',
+            // company_type: 'company_type',
+            // controller_type: 'controller_type',
+            // controller_share: 'controller_share'
+            id: '',
+            year: '',
+            registered_capital: '',
+            industry: '',
+            area: '',
+            company_type: '',
+            controller_type: '',
+            controller_share: ''
           }],
           tableData2: [{
-            id: '11',
+            id: '',
             patentt: '',
             brand: '',
             copyrightt: ''
           }],
           tableData3: [
+          //   {
+          //   id: '11',
+          //   year: '2002',
+          //   debt_financing_line: '2',
+          //   debt_financing_cost:'111',
+          //   equity_financing_line:'222',
+          //   equity_capital_cost:'333',
+          //   internal_and_trade_finance_line:'444',
+          //   internal_and_trade_finance_cost:'555',
+          //   project_financing_and_policy_financing_line:'666',
+          //   project_financing_and_policy_financing_cost:'777'
+          // },{
+          //   id: '11',
+          //   year: '2003',
+          //   debt_financing_line: '2',
+          //   debt_financing_cost:'111',
+          //   equity_financing_line:'222',
+          //   equity_capital_cost:'333',
+          //   internal_and_trade_finance_line:'444',
+          //   internal_and_trade_finance_cost:'555',
+          //   project_financing_and_policy_financing_line:'666',
+          //   project_financing_and_policy_financing_cost:'777'
+          // },{
+          //   id: '11',
+          //   year: '2004',
+          //   debt_financing_line: '2',
+          //   debt_financing_cost:'111',
+          //   equity_financing_line:'222',
+          //   equity_capital_cost:'333',
+          //   internal_and_trade_finance_line:'444',
+          //   internal_and_trade_finance_cost:'555',
+          //   project_financing_and_policy_financing_line:'666',
+          //   project_financing_and_policy_financing_cost:'777'
+          // }
             {
-            id: '11',
-            year: '2002',
-            debt_financing_line: '2',
-            debt_financing_cost:'111',
-            equity_financing_line:'222',
-            equity_capital_cost:'333',
-            internal_and_trade_finance_line:'444',
-            internal_and_trade_finance_cost:'555',
-            project_financing_and_policy_financing_line:'666',
-            project_financing_and_policy_financing_cost:'777'
+            id: '',
+            year: '',
+            debt_financing_line: '',
+            debt_financing_cost:'',
+            equity_financing_line:'',
+            equity_capital_cost:'',
+            internal_and_trade_finance_line:'',
+            internal_and_trade_finance_cost:'',
+            project_financing_and_policy_financing_line:'',
+            project_financing_and_policy_financing_cost:''
           },{
-            id: '11',
-            year: '2003',
-            debt_financing_line: '2',
-            debt_financing_cost:'111',
-            equity_financing_line:'222',
-            equity_capital_cost:'333',
-            internal_and_trade_finance_line:'444',
-            internal_and_trade_finance_cost:'555',
-            project_financing_and_policy_financing_line:'666',
-            project_financing_and_policy_financing_cost:'777'
+            id: '',
+            year: '',
+            debt_financing_line: '',
+            debt_financing_cost:'',
+            equity_financing_line:'',
+            equity_capital_cost:'',
+            internal_and_trade_finance_line:'',
+            internal_and_trade_finance_cost:'',
+            project_financing_and_policy_financing_line:'',
+            project_financing_and_policy_financing_cost:''
           },{
-            id: '11',
-            year: '2004',
-            debt_financing_line: '2',
-            debt_financing_cost:'111',
-            equity_financing_line:'222',
-            equity_capital_cost:'333',
-            internal_and_trade_finance_line:'444',
-            internal_and_trade_finance_cost:'555',
-            project_financing_and_policy_financing_line:'666',
-            project_financing_and_policy_financing_cost:'777'
+            id: '',
+            year: '',
+            debt_financing_line: '',
+            debt_financing_cost:'',
+            equity_financing_line:'',
+            equity_capital_cost:'',
+            internal_and_trade_finance_line:'',
+            internal_and_trade_finance_cost:'',
+            project_financing_and_policy_financing_line:'',
+            project_financing_and_policy_financing_cost:''
           }
           ],
 
         }
       },
       methods: {
+        toHome(){
+          this.$router.push({path:'/home/'})
+        },
+        show_ans(){
+          alert("跳转至数据报表页面，与企业详细信息类似")
+        },
+        handleClose(done) {
+          this.$confirm('确认关闭？')
+            .then(_ => {
+
+              done();
+            })
+            .catch(_ => {});
+        },
         handleOpen(key, keyPath) {
           console.log(key, keyPath);
           this.activebar=key.index;
@@ -545,5 +664,12 @@
   .colla{
     width: 1100px;
     margin: 0 auto;
+  }
+  .footer{
+    margin-left: 5%;
+    width: 1350px;
+    /*margin-top: 80px;*/
+    display: inline-block;
+    /*float: right;*/
   }
 </style>

@@ -1,5 +1,6 @@
 <template>
     <div>
+
       <div class="step">
         <el-steps :active="0" align-center>
           <el-step title="1.选择分析模型" icon="el-icon-upload"></el-step>
@@ -12,22 +13,22 @@
             <el-card class="box-card" >
           <div  class="text item">
             {{'模型 1 ' }}
-            <img src="../assets/111.png" width="220px">
+            <img src="../assets/111.png" width="220px" class="imgg">
             <p>侧重大量数据处理，具有高并发计算能力</p>
           </div>
             </el-card>
-        <el-card class="box-card" >
-          <div  class="text item">
-            {{'模型 2'}}
-            <img src="../assets/222.png" width="220px">
-            <p>侧重数据准确率，实时生成新数据</p>
+<!--        <el-card class="box-card" >-->
+<!--          <div  class="text item">-->
+<!--            {{'模型 2'}}-->
+<!--            <img src="../assets/222.png" width="220px">-->
+<!--            <p>侧重数据准确率，实时生成新数据</p>-->
 
-          </div>
-            </el-card>
+<!--          </div>-->
+<!--            </el-card>-->
         <el-card class="box-card" >
           <div  class="text item">
-            {{'模型 3'  }}
-            <img src="../assets/333.png" height="270px">
+            {{'模型 2'  }}
+            <img src="../assets/333.png" height="270px" class="imgg">
             <p>侧重计算速度，实现数据快速计算</p>
 
           </div>
@@ -49,16 +50,16 @@
           }
     },
     mounted() {
-    $(".box-card").mouseenter(function () {
+    $(".imgg").mouseenter(function () {
       $(this).animate({
-        width:'+=50px',
-        height:'+=50px'
+        width:'+=20px',
+        height:'+=20px'
       })
     });
-    $(".box-card").mouseleave(function () {
+    $(".imgg").mouseleave(function () {
       $(this).animate({
-        width:'-=50px',
-        height:'-=50px'
+        width:'-=20px',
+        height:'-=20px'
       })
     });
         }
@@ -69,7 +70,7 @@
 .cardgroup{
 width: 1200px;
 margin: 100px auto;
-  margin-left: 250px;
+  margin-left: 420px;
 }
 .text {
   font-size: 14px;
@@ -89,4 +90,9 @@ margin: 100px auto;
     width: 800px;
     margin: 10px auto;
   }
+.footer{
+  /*width: 900px;*/
+  margin-left: 50px;
+  /*float: right;*/
+}
 </style>

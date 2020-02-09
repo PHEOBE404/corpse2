@@ -1,5 +1,19 @@
 <template>
     <div style="width: 100%">
+      <div class="footer">
+        <!--      <div class="footer" >-->
+        <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
+        <!--        <div style="float: right;margin-right: 50px">-->
+        <span style="color:#186EC5 ;font-size: 14px;margin-left: 620px"></span>
+        <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">
+        <span >用户8462336</span>
+        <el-button type="text" icon="el-icon-delete">退出</el-button>
+        <!--        </div>-->
+        <!--      </div>-->
+
+
+
+      </div>
       <div class="menubar">
         <el-menu default-active="/corpse/companysearch" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse"router>
           <el-menu-item index="/corpse/companysearch">
@@ -70,7 +84,7 @@
       <div class="tab">
         <template>
           <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
-            <el-tab-pane label="数据分析" name="first">用户管理</el-tab-pane>
+            <el-tab-pane label="数据分析" name="first">建设中</el-tab-pane>
             <el-tab-pane label="企业特征" name="second">
 
               <div id="radioCont">
@@ -81,7 +95,8 @@
                 <el-collapse v-model="activeNames" @change="handleChange">
                   <el-collapse-item :name=index v-for="(item,index) in bbb"  >
                     <template slot="title">
-                      <img src="../assets/边框.png" width="16px" height="20px" style="margin-left: 10px;margin-right: 10px">
+                      <i class="el-icon-caret-right"></i>
+<!--                      <img src="../assets/边框.png" width="16px" height="20px" style="margin-left: 10px;margin-right: 10px">-->
                                      <div  class="itemback">       <h3>{{item.k}}</h3>
                                      </div>
                     </template>
@@ -163,19 +178,135 @@
       },
 
     methods:{
+      toHome(){
+        this.$router.push({path:'/home/'})
+      },
           init_node:function(){
             const data = {
               // 点集
               nodes: [
                 {
                   id: 'node1', // String，该节点存在则必须，节点的唯一标识
-                  x: 100, // Number，可选，节点位置的 x 值
+                  x: 400, // Number，可选，节点位置的 x 值
                   y: 200, // Number，可选，节点位置的 y 值
+                  label:'预警',
+                  size:60,
+                  style:{
+                  fill:'#1A6FC9'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:18,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
                 },
                 {
                   id: 'node2', // String，该节点存在则必须，节点的唯一标识
-                  x: 300, // Number，可选，节点位置的 x 值
+                  x: 250, // Number，可选，节点位置的 x 值
                   y: 200, // Number，可选，节点位置的 y 值
+                  label:'资产总额警告',
+                  size:100,
+                  style:{
+                    fill:'#F56C6C'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:14,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
+
+
+                },{
+                  id: 'node3', // String，该节点存在则必须，节点的唯一标识
+                  x: 370, // Number，可选，节点位置的 x 值
+                  y: 70, // Number，可选，节点位置的 y 值
+                  label:'资本扩张能力警告',
+                  size:130,
+                  style:{
+                    fill:'#F56C6C'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:14,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
+                },{
+                  id: 'node4', // String，该节点存在则必须，节点的唯一标识
+                  x: 460, // Number，可选，节点位置的 x 值
+                  y: 150, // Number，可选，节点位置的 y 值
+                  label:'盈利能力',
+                  size:70,
+                  style:{
+                    fill:'#909399'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:14,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
+                },{
+                  id: 'node5', // String，该节点存在则必须，节点的唯一标识
+                  x: 560, // Number，可选，节点位置的 x 值
+                  y: 220, // Number，可选，节点位置的 y 值
+                  label:'负债额度',
+                  size:70,
+                  style:{
+                    fill:'#909399'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:14,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
+                },{
+                  id: 'node6', // String，该节点存在则必须，节点的唯一标识
+                  x: 480, // Number，可选，节点位置的 x 值
+                  y: 290, // Number，可选，节点位置的 y 值
+                  label:'偿债能力预警',
+                  size:110,
+                  style:{
+                    fill:'#F56C6C'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:14,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
+                },{
+                  id: 'node6', // String，该节点存在则必须，节点的唯一标识
+                  x: 360, // Number，可选，节点位置的 x 值
+                  y: 320, // Number，可选，节点位置的 y 值
+                  label:'创新能力',
+                  size:120,
+                  style:{
+                    fill:'#909399'
+                  },
+                  labelCfg:{
+                    shape:'circle',
+                    style:{
+                      fill:'#ffffff',
+                      fontSize:14,
+                      // backgroundColor:'#00ff00'
+                    }
+                  }
                 },
               ],
               // 边集
@@ -183,13 +314,71 @@
                 {
                   source: 'node1', // String，必须，起始点 id
                   target: 'node2', // String，必须，目标点 id
+
+                },{
+                  source: 'node1', // String，必须，起始点 id
+                  target: 'node3', // String，必须，目标点 id
+
+                },{
+                  source: 'node1', // String，必须，起始点 id
+                  target: 'node4', // String，必须，目标点 id
+
+                },{
+                  source: 'node1', // String，必须，起始点 id
+                  target: 'node5', // String，必须，目标点 id
+
+                },{
+                  source: 'node1', // String，必须，起始点 id
+                  target: 'node6', // String，必须，目标点 id
+
                 },
               ],
             };
             const graph = new G6.Graph({
               container: 'mountNode', // String | HTMLElement，必须，在 Step 1 中创建的容器 id 或容器本身
               width: 800, // Number，必须，图的宽度
-              height: 500, // Number，必须，图的高度
+              height: 500, // Number，必须，图的高度,
+              modes: {
+                default: [
+                  {
+                    type: 'tooltip',
+                    formatText(model) {
+                      var item="<div style=' padding: 10px 6px;\n" +
+                        "    background-color: rgba(255, 255, 255, 0.9);\n" +
+                        "    border: 1px solid #e2e2e2;\n" +
+                        "    border-radius: 4px;\n" +
+                        "color: white;" +
+                        "    background-color: black;'>" +
+                        "当前资本扩张能力低于安全值,<br>请关注营业利润增长率等数据"+
+                        "</div>";
+                      var text="当前资本扩张能力<br>低于安全值,请....";
+
+
+                      return item;
+                    },
+                  },
+                ],
+              },
+              defaultNode:{ //结点
+
+                labelCfg:{
+                  shape:'circle',
+                  style:{
+                    fill:'#fff',
+                    fontSize:20,
+                    // backgroundColor:'#00ff00'
+                  }
+                }
+              },
+              defaultEdge:{ //结点之间
+                shape: 'line-with-arrow',
+                labelCfg:{
+                  style:{
+                    // fill:'#ff0000',
+                    fontSize:20,
+                  }
+                }
+              }
             });
             graph.data(data); // 读取 Step 2 中的数据源到图上
             graph.render(); // 渲染图
@@ -312,6 +501,13 @@
 </script>
 
 <style scoped>
+  .g6-tooltip {
+    padding: 10px 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    background-color: black;
+  }
   .menubar{
     /*float: left;*/
     margin-top: 100px;
@@ -403,5 +599,12 @@
   .itemback{
     /*background-image: url("../assets/边框.png");*/
     /*background-color: #d1dbe5;*/
+  }
+  .footer{
+    margin-left: 5%;
+    width: 1350px;
+    /*margin-top: 80px;*/
+    display: inline-block;
+    /*float: right;*/
   }
 </style>
