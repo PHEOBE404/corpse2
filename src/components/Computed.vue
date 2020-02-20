@@ -12,9 +12,14 @@
           <router-link to="/mulinput/default">
             <el-card class="box-card" >
           <div  class="text item">
-            {{'模型 1 ' }}
-            <img src="../assets/111.png" width="220px" class="imgg">
-            <p>侧重大量数据处理，具有高并发计算能力</p>
+<!--            {{'模型 1 ' }}-->
+            <center>
+
+            <img src="../assets/111.png" width="140px" class="imgg" >
+            <h3>1号模型</h3>
+            <p>侧重大量数据处理</p>
+              <p>具有高并发计算能力</p>
+            </center>
           </div>
             </el-card>
 <!--        <el-card class="box-card" >-->
@@ -27,10 +32,14 @@
 <!--            </el-card>-->
         <el-card class="box-card" >
           <div  class="text item">
-            {{'模型 2'  }}
-            <img src="../assets/333.png" height="270px" class="imgg">
-            <p>侧重计算速度，实现数据快速计算</p>
+<!--            {{'模型 2'  }}--> <center>
+            <img src="../assets/333.png" height="140px" class="imgg" >
 
+            <h3>2号模型</h3>
+
+            <p>侧重计算速度</p>
+              <p>实现数据快速计算</p>
+            </center>
           </div>
             </el-card>
 
@@ -46,21 +55,28 @@
         name: "Computed",
     methods:{
           hide(){
-            $(".cardgroup").fadeOut();
+            // $(".cardgroup").fadeOut();
           }
     },
     mounted() {
-    $(".imgg").mouseenter(function () {
-      $(this).animate({
+    $(".box-card").mouseenter(function () {
+      $(this).find("img").animate({
         width:'+=20px',
         height:'+=20px'
-      })
+
+      },"fast");
+      $(this).parent().animate({
+        fontSize:'+=1px'
+      },"fast")
     });
-    $(".imgg").mouseleave(function () {
-      $(this).animate({
+    $(".box-card").mouseleave(function () {
+      $(this).find("img").animate({
         width:'-=20px',
         height:'-=20px'
-      })
+      },"fast");
+      $(this).parent().animate({
+        fontSize:'-=1px'
+      },"fast")
     });
         }
   }
@@ -73,7 +89,7 @@ margin: 100px auto;
   margin-left: 420px;
 }
 .text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .item {

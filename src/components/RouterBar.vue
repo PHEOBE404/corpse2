@@ -22,12 +22,15 @@
   </div>
     <div class="footer">
 <!--      <div class="footer" >-->
-        <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
+        <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
 <!--        <div style="float: right;margin-right: 50px">-->
-          <span style="color:#186EC5 ;font-size: 14px;margin-left: 620px"></span>
-      <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">
-      <span >用户8462336</span>
-          <el-button type="text" icon="el-icon-delete">退出</el-button>
+          <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
+      <i class="el-icon-monitor"></i>
+<!--      <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">-->
+      <span >用户84</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
+
+      <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>
+          <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>
 <!--        </div>-->
 <!--      </div>-->
 
@@ -76,7 +79,7 @@
     left:15px;
   }
   .footer{
-    margin-left: 5%;
+    margin-left: 1%;
     width: 1350px;
     /*margin-top: 80px;*/
     display: inline-block;

@@ -132,7 +132,7 @@
                         </template>
                       </el-table-column>
 
-                      <el-table-column prop="区域" label="区域" align="center" width="100">
+                      <el-table-column prop="区域" label="区域" align="center" width="110">
                         <template scope="scope">
                           <!--                    <el-input size="small" v-model="scope.row.area" placeholder=" " ></el-input> <span>{{scope.row.area}}</span>-->
                           <el-select v-model="scope.row.area" placeholder=" ">
@@ -213,12 +213,12 @@
                 <el-collapse-item title="知识产权表" name="2">
                   <div style="width: 60%;margin: 0 auto">
                     <el-table :data="tableData2" class="tb-edit" style="width: 100%" highlight-current-row >
-                      <el-table-column label="企业编号" align="center" width="100px">
+                      <el-table-column label="企业编号" align="center" width="110">
                         <template scope="scope">
                           <el-input size="small" v-model="compan_num" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="专利" align="center">
+                      <el-table-column label="专利" align="center" >
                         <template scope="scope">
                           <!--                    <el-input size="small" v-model="scope.row.patentt" placeholder=" " ></el-input>-->
                           <el-radio v-model="scope.row.patentt" label="1">有</el-radio>
@@ -251,32 +251,32 @@
                   <div style="width: 100%;margin: 0 auto">
                     <el-table :data="tableData3" class="tb-edit" style="width: 100%" highlight-current-row :span-method="objectSpanMethod"
                               border >
-                      <el-table-column label="企业编号" align="center">
+                      <el-table-column label="企业编号" align="center" width="100">
                         <template scope="scope">
                           <el-input size="small" v-model="compan_num" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="年份" align="center">
+                      <el-table-column label="年份" align="center" width="80">
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.year" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="债权融资额度" label="债权融资额度" align="center">
+                      <el-table-column prop="债权融资额度" label="债权融资额度" align="center" width="110">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.debt_financing_line" placeholder=" " > <span slot="suffix">万</span></el-input>
+                          <el-input size="small" v-model="scope.row.debt_financing_line" placeholder=" " > </el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="债权融资成本" label="债权融资成本" align="center">
+                      <el-table-column prop="债权融资成本" label="债权融资成本" align="center" width="110">
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.debt_financing_cost" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="股权融资额度" label="股权融资额度" align="center">
+                      <el-table-column prop="股权融资额度" label="股权融资额度" align="center" width="110">
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.equity_financing_line" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="股权融资成本" label="股权融资成本" align="center">
+                      <el-table-column prop="股权融资成本" label="股权融资成本" align="center" width="110">
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.equity_capital_cost" placeholder=" " ></el-input>
                         </template>
@@ -311,24 +311,24 @@
                   <div style="width: 100%;margin: 0 auto">
                     <el-table :data="tableData3" class="tb-edit" style="width: 100%" highlight-current-row :span-method="objectSpanMethod"
                               border >
-                      <el-table-column label="企业编号" align="center">
+                      <el-table-column label="企业编号" align="center" width="100">
                         <template scope="scope">
                           <el-input size="small" v-model="compan_num" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="年份" align="center">
+                      <el-table-column label="年份" align="center" width="80">
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.year" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="从业人数" label="从业人数" align="center">
+                      <el-table-column prop="从业人数" label="从业人数" align="center" width="110">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.debt_financing_line" placeholder=" " >
+                          <el-input size="small" v-model="scope.row.debt_financing_line" placeholder="" >
                             <span slot="suffix">人</span>
                           </el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="资产总额" label="资产总额" align="center">
+                      <el-table-column prop="资产总额" label="资产总额" align="center" >
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.debt_financing_cost" placeholder=" " ></el-input>
                         </template>
@@ -343,7 +343,7 @@
                           <el-input size="small" v-model="scope.row.equity_capital_cost" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column prop="主营业务收入" label="主营业务收入"  align="center">
+                      <el-table-column prop="主营业务收入" label="主营业务收入"  align="center" width="110">
                         <template scope="scope">
                           <el-input size="small" v-model="scope.row.internal_and_trade_finance_line" placeholder=" " ></el-input>
                         </template>
