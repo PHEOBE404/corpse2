@@ -21,21 +21,13 @@
     </el-menu>
   </div>
     <div class="footer">
-<!--      <div class="footer" >-->
         <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
-<!--        <div style="float: right;margin-right: 50px">-->
           <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
       <i class="el-icon-monitor"></i>
-<!--      <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">-->
-      <span >用户84</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
+      <span >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
 
       <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>
           <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>
-<!--        </div>-->
-<!--      </div>-->
-
-
-
     </div>
 <router-view></router-view>
   </div>

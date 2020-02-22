@@ -28,19 +28,15 @@
 
 <!--      </div>-->
       <div class="footer">
-        <!--      <div class="footer" >-->
-        <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
-        <!--        <div style="float: right;margin-right: 50px">-->
-        <span style="color:#186EC5 ;font-size: 14px;margin-left: 620px"></span>
-        <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">
-        <span >用户8462336</span>
-        <el-button type="text" icon="el-icon-delete">退出</el-button>
-        <!--        </div>-->
-        <!--      </div>-->
+        <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
+        <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
+        <i class="el-icon-monitor"></i>
+        <span >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
 
-
-
+        <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>
+        <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>
       </div>
+
       <div class="step">
         <el-steps :active="1" align-center>
           <el-step title="1.选择分析模型" icon="el-icon-upload"></el-step>
@@ -70,26 +66,38 @@
           </el-tab-pane>
 
           <el-tab-pane label="" name="three">
-            <div style="width: 700px;margin: 0 auto">注意！此处应同时提交三个文件：1.基本信息表，2.知识产权表，3.融资信息表 <br>
-              对应表格的数据项可移至 <el-tooltip placement="top" effect="light">
-                <div slot="content"style="font-size: 16px">
-                  1.企业信息表:<br/>
-                  ID	|	注册时间 |	注册资本	|	行业	|	区域	|	企业类型	|	控制人类型	|	控制人持股比例
-                  <br><br>
-                  2.知识产权表: <br>
-                  ID	|	专利	|	商标	|	著作权
-                  <br><br>
-                  3.融资信息表 <br>
-                  ID	|	年份	|	债权融资额度	|	债权融资成本	|	股权融资额度	|	股权融资成本	|	内部融资和贸易融资额度	|	内部融资和贸易融资成本	|	项目融资和政策融资额度	|	项目融资和政策融资成本
-                </div>
-                <el-button>此处</el-button>
-              </el-tooltip>查看
+            <div style="width: 400px;margin-left: 20px">
+
+              请按照格式要求提交文件： <br>
+              1.基本信息表: <br>
+              <img src="../assets/事例1.png" height="70px"/> <br><br>
+              2.知识产权表:<br>
+              <img src="../assets/事例2.png" height="70px"/> <br><br>
+              3.三年融资信息表： <br>
+              <img src="../assets/事例3.png" height="55px"/> <br><br>
+              3.三年财务报告表： <br>
+              <img src="../assets/事例4.png" height="60px"/> <br><br>
+
+<!--              对应表格的数据项可移至 <el-tooltip placement="top" effect="light">-->
+<!--                <div slot="content"style="font-size: 16px">-->
+<!--                  1.企业信息表:<br/>-->
+<!--                  ID	|	注册时间 |	注册资本	|	行业	|	区域	|	企业类型	|	控制人类型	|	控制人持股比例-->
+<!--                  <br><br>-->
+<!--                  2.知识产权表: <br>-->
+<!--                  ID	|	专利	|	商标	|	著作权-->
+<!--                  <br><br>-->
+<!--                  3.融资信息表 <br>-->
+<!--                  ID	|	年份	|	债权融资额度	|	债权融资成本	|	股权融资额度	|	股权融资成本	|	内部融资和贸易融资额度	|	内部融资和贸易融资成本	|	项目融资和政策融资额度	|	项目融资和政策融资成本-->
+<!--                </div>-->
+<!--                <el-button>此处</el-button>-->
+<!--              </el-tooltip>查看-->
 
             </div>
             <div style="width:200px;margin: 0 auto" v-if="show03">
               <el-upload
                 class="upload-demo"
                 ref="upload"
+                drag
                 action="https://jsonplaceholder.typicode.com/posts/"
                 :on-preview="handlePreview"
                 :on-remove="handleRemove"
@@ -108,6 +116,7 @@
             <div style="margin: 0 auto;width: 800px;color:#ff4d51" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业
               点击<el-button type="text" @click="show_ans">详情</el-button>即可查看企业的详细分析数据。
             </div>
+
           </el-tab-pane>
 
           <el-tab-pane label="" name="first">
@@ -421,7 +430,7 @@
           show01:true,
           show02:false,
           show03:false,
-          radio4: '单个输入',
+          radio4: '',
           activeNames: ['1'],
           radio: '',
           options_area: [
@@ -498,7 +507,7 @@
               label: '自然人'
             },
           ],
-          activeName: 'first',
+          activeName: '',
           fileList: [
             {
             name: '事例excel文件.xml',
@@ -760,7 +769,7 @@
     margin: 0 auto;
   }
   .footer{
-    margin-left: 5%;
+    margin-left: 1%;
     width: 1350px;
     /*margin-top: 80px;*/
     display: inline-block;
