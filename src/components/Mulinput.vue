@@ -60,8 +60,63 @@
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="" name="second" >
 <!--            <span slot="label" style="width: 290px"><i class="el-icon-date"></i> 我的行程</span>-->
-<div style="width: 600px;margin: 0 auto" v-if="show02">
-建设中
+<div style="width: 100%;margin: 0 auto" v-if="show02">
+  <el-row :gutter="50">
+    <el-col :span="8" >
+<!--      <el-card :body-style="{ padding: '0px' }">-->
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>企业编号：212311</span>
+
+              <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
+            </div>
+            <div  class=" item">
+
+            填写进度<el-progress :percentage="22"  :stroke-width="10" style="display:inline-block;width: 280px;margin-left: 15px"></el-progress>
+            </div>
+            <div  class="text item">
+              <i class="el-icon-document"> </i> 基本信息表
+              <el-progress :percentage="5" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+            </div><div  class="text item">
+            <i class="el-icon-document"> </i>  知识产权表
+            <el-progress :percentage="100"  status="success" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+
+            </div><div  class="text item">
+            <i class="el-icon-document"> </i>   三年融资情况表
+            <el-progress :percentage="10" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+
+          </div><div  class="text item">
+            <i class="el-icon-document"> </i> 三年财务报告表
+            <el-progress :percentage="34" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+
+          </div>
+          </el-card>
+    </el-col>
+    <el-col :span="8" >
+
+
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>企业编号：未编辑</span>
+            <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
+          </div>
+          填写进度<el-progress :percentage="0"></el-progress>
+
+          <div v-for="o in 4" :key="o" class="text item">
+            {{'列表内容 ' + o }}
+          </div>
+        </el-card>
+
+
+    </el-col>
+    <el-col :span="8">
+      <el-card class="box-card">
+        1
+      </el-card>
+
+    </el-col>
+  </el-row>
+
 </div>
           </el-tab-pane>
 
@@ -70,9 +125,9 @@
 
               请按照格式要求提交文件： <br>
               1.基本信息表: <br>
-              <img src="../assets/事例1.png" height="70px"/> <br><br>
+              <img src="../assets/事例1.png" height="60px"/> <br><br>
               2.知识产权表:<br>
-              <img src="../assets/事例2.png" height="70px"/> <br><br>
+              <img src="../assets/事例2.png" height="60px"/> <br><br>
               3.三年融资信息表： <br>
               <img src="../assets/事例3.png" height="55px"/> <br><br>
               3.三年财务报告表： <br>
@@ -93,7 +148,7 @@
 <!--              </el-tooltip>查看-->
 
             </div>
-            <div style="width:200px;margin: 0 auto" v-if="show03">
+            <div style="width:400px;margin: 0 auto" v-if="show03">
               <el-upload
                 class="upload-demo"
                 ref="upload"
@@ -103,11 +158,13 @@
                 :on-remove="handleRemove"
                 :file-list="fileList"
                 :auto-upload="false">
-                <el-button slot="trigger" size="small" type="text" icon="el-icon-circle-plus-outline">选取文件</el-button>
-                <div slot="tip" class="el-upload__tip">请上传xlm、csv文件</div>
+                <i class="el-icon-upload"></i>
+<!--                <el-button slot="trigger" size="small" type="text" >点此上传xlm、csv等格式的文件</el-button>-->
+<!--                <div slot="tip" class="el-upload__tip">请上传xlm、csv文件</div>-->
+                <div>点此上传xlm、csv等格式的文件</div>
 
               </el-upload>
-              <el-button style="margin-top: 20px;" size="small" type="primary" @click="dialogVisible = true">提交</el-button>
+              <el-button style="margin: 20px auto;" size="small" type="primary" @click="dialogVisible = true">提交</el-button>
               <br>
 
 <!--              @click="submitUpload"-->
@@ -422,6 +479,8 @@
       data() {
 
         return {
+          checkList: ['选中且禁用','复选框 A'],
+          currentDate: new Date(),
           compan_num:'',
           ans:false,
           dialogVisible: false,
@@ -509,11 +568,11 @@
           ],
           activeName: '',
           fileList: [
-            {
-            name: '事例excel文件.xml',
-            url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            status: 'finished'
-          },
+        //     {
+        //   // name: '事例excel文件.xml',
+        //   // url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
+        //   // status: 'finished'
+        // },
           //   {
           //   name: 'food2.jpeg',
           //   url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
@@ -774,5 +833,54 @@
     /*margin-top: 80px;*/
     display: inline-block;
     /*float: right;*/
+  }
+  .text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 400px;
+  }
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+
+  .clearfix:after {
+    clear: both
   }
 </style>
