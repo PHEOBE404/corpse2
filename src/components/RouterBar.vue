@@ -1,6 +1,8 @@
 <template>
   <div>
-  <div class="menubar">
+<!--    <img src="../assets/粒子.jpg" width="100%"style="position: fixed;">-->
+
+    <div class="menubar">
     <el-menu :default-active=activebar class="el-menu-vertical-demo" @click="handleOpen" @close="handleClose" :collapse="isCollapse"router>
       <el-menu-item index="/corpse/companysearch">
         <i class="el-icon-location"></i>

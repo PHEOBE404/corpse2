@@ -68,25 +68,25 @@
             <div slot="header" class="clearfix">
               <span>企业编号：212311</span>
 
-              <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
+              <el-button style="float: right; padding: 3px 0" type="text"  @click="EditCard">编辑信息</el-button>
             </div>
-            <div  class=" item">
+<!--            <div  class=" item">-->
 
-            填写进度<el-progress :percentage="22"  :stroke-width="10" style="display:inline-block;width: 280px;margin-left: 15px"></el-progress>
-            </div>
+<!--            填写进度<el-progress :percentage="22"  :stroke-width="10" style="display:inline-block;width: 280px;margin-left: 15px"></el-progress>-->
+<!--            </div>-->
             <div  class="text item">
-              <i class="el-icon-document"> </i> 基本信息表
-              <el-progress :percentage="5" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+              <i class="el-icon-s-flag"> </i> 基本信息表
+              <el-progress :percentage="65" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
             </div><div  class="text item">
-            <i class="el-icon-document"> </i>  知识产权表
+            <i class="el-icon-s-flag"> </i>  知识产权表
             <el-progress :percentage="100"  status="success" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
 
             </div><div  class="text item">
-            <i class="el-icon-document"> </i>   三年融资情况表
+            <i class="el-icon-s-flag"> </i>   三年融资情况表
             <el-progress :percentage="10" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
 
           </div><div  class="text item">
-            <i class="el-icon-document"> </i> 三年财务报告表
+            <i class="el-icon-s-flag"> </i> 三年财务报告表
             <el-progress :percentage="34" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
 
           </div>
@@ -100,24 +100,174 @@
             <span>企业编号：未编辑</span>
             <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
           </div>
-          填写进度<el-progress :percentage="0"></el-progress>
+          <div  class="text item">
+            <i class="el-icon-s-flag"> </i> 基本信息表
+            <el-progress :percentage="0" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+          </div><div  class="text item">
+          <i class="el-icon-s-flag"> </i>  知识产权表
+          <el-progress :percentage="0"   :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
 
-          <div v-for="o in 4" :key="o" class="text item">
-            {{'列表内容 ' + o }}
-          </div>
+        </div><div  class="text item">
+          <i class="el-icon-s-flag"> </i>   三年融资情况表
+          <el-progress :percentage="0" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+
+        </div><div  class="text item">
+          <i class="el-icon-s-flag"> </i> 三年财务报告表
+          <el-progress :percentage="0" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+
+        </div>
+
         </el-card>
 
 
     </el-col>
-    <el-col :span="8">
-      <el-card class="box-card">
-        1
-      </el-card>
+<!--    <el-col :span="8">-->
+<!--      <el-card class="box-card">-->
+<!--      </el-card>-->
 
-    </el-col>
+<!--    </el-col>-->
+        <el-col :span="8">
+
+    <div style="margin-top: 160px">
+      <a >
+      <img src="../assets/添加2.png" width="80">
+      </a>
+<!--      <el-button type="text" icon="el-icon-info"></el-button>-->
+      <el-tooltip content="若查询数量较多，建议使用文件上传." placement="right" effect="light">
+      <i class="el-icon-info" ></i>
+      </el-tooltip>
+    </div>
+        </el-col>
+
   </el-row>
-
+<!--<img src="../assets/数据.gif" width="500px">-->
 </div>
+            <el-dialog title="企业基本信息表" :visible.sync="editVisible01" width="500px">
+              <el-form ref="form" :model="form" label-width="90px" >
+                <el-form-item label="企业编号">
+                  <el-input v-model="form.id"   size="small" ></el-input>
+                </el-form-item>
+                <el-form-item label="注册年份">
+                  <el-input v-model="form.regist_date" size="small"></el-input>
+                </el-form-item>
+                <el-form-item label="注册资本">
+                  <el-input v-model="form.regist_capital" size="small"><span slot="suffix">万</span></el-input>
+                </el-form-item>
+                <el-form-item label="区域">
+                  <el-select v-model="form.area" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_area"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="行业">
+                  <el-select v-model="form.industry" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_industry"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="企业类型">
+                  <el-select v-model="form.company_type" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_industry_company_type"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="控制人类型">
+                  <el-select v-model="form.controller_type" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_industry_controller_type"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="控制人持股">
+                  <el-input v-model="form.regist_capital" size="small"> <span slot="suffix">%</span></el-input>
+                </el-form-item>
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible01 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(1)">下一步</el-button>
+            </span>
+            </el-dialog>
+            <el-dialog title="企业知识产权表" :visible.sync="editVisible02" width="500px">
+              <el-form ref="form" :model="form" label-width="90px" >
+
+                <el-form-item label="专利" >
+                  <el-radio v-model="form.patentt" label="1" >有</el-radio>
+                  <el-radio v-model="form.patentt" label="0">无</el-radio>
+                </el-form-item>
+                <el-form-item label="商标">
+                  <el-radio v-model="form.brand" label="1">有</el-radio>
+                  <el-radio v-model="form.brand" label="0">无</el-radio>
+                </el-form-item>
+                <el-form-item label="著作权">
+                  <el-radio v-model="form.copyrightt" label="1">有</el-radio>
+                  <el-radio v-model="form.copyrightt" label="0">无</el-radio>
+                </el-form-item>
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible02 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(2)">下一步</el-button>
+            </span>
+            </el-dialog>
+            <el-dialog title="三年融资情况表" :visible.sync="editVisible03" width="500px">
+              <el-form ref="form" :model="form" label-width="180px" >
+                <h4>2015年的融资情况表</h4>
+<!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+
+                <el-form-item label="债券融资额度">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="债券融资成本">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="股权融资额度">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="股权融资成本">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="内部融资和贸易融资额度">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="内部融资和贸易融资成本">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="项目融资和政策融资额度">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+                <el-form-item label="项目融资和政策融资成本">
+                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                </el-form-item>
+
+
+
+
+
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible03 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(3)">下一步</el-button>
+            </span>
+            </el-dialog>
+
           </el-tab-pane>
 
           <el-tab-pane label="" name="three">
@@ -479,6 +629,11 @@
       data() {
 
         return {
+          form: {},
+          editVisible01:false,
+          editVisible02:false,
+          editVisible03:false,
+          editVisible04:false,
           checkList: ['选中且禁用','复选框 A'],
           currentDate: new Date(),
           compan_num:'',
@@ -535,9 +690,6 @@
           },
           {
             value: '6',
-            label: '服务业'
-          },{
-            value: '7',
             label: '商业服务'
           }],
           options_industry_company_type:[
@@ -677,6 +829,27 @@
         }
       },
       methods: {
+        saveEdit(i){
+          if(i==1){
+          this.editVisible01 = false;
+          this.editVisible02 = true;
+          this.$set(this.tableData, this.idx, this.form);
+          } if(i==2){
+          this.editVisible02 = false;
+            this.editVisible03 = true;
+          this.$set(this.tableData, this.idx, this.form);
+          }if(i==3){
+          this.editVisible03 = false;
+            this.editVisible04 = true;
+          this.$set(this.tableData, this.idx, this.form);
+          }if(i==4){
+          this.editVisible04 = false;
+          this.$set(this.tableData, this.idx, this.form);
+          }
+        },
+        EditCard(){
+          this.editVisible01 = true;
+        },
         toHome(){
           this.$router.push({path:'/home/'})
         },

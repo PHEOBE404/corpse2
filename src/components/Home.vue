@@ -1,6 +1,6 @@
 <template>
     <div class="body">
-<!--      <img src="../assets/5945057_0_0.jpg" width="1430px"style="float:left;">-->
+      <img src="../assets/粒子.jpg" width="1580px"style="float:left;position: fixed;">
       <div class="footer">
         <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
         <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
@@ -17,23 +17,18 @@
 
         </div>
         <div class="menu">
-      <template style="float: left;" >
-        <el-carousel :interval="4000" type="card" height="400px">
+      <template style="" >
+        <el-carousel :interval="4000" type="card" height="300px">
           <el-carousel-item  class="choiceItem" >
             <img src="../assets/模块分类一.png" @click="alt1" width="100%">
-<!--                        <h3>企业信息 </h3>-->
-
           </el-carousel-item>
           <el-carousel-item  class="choiceItem" >
-<!--            <h3>僵尸测评 </h3>-->
             <img src="../assets/模块分类二.png" @click="al2"width="100%">
           </el-carousel-item>
           <el-carousel-item  class="choiceItem" >
-<!--            <h3> 大数据分析</h3>-->
             <img src="../assets/模块分类三.png" @click="al"width="100%">
           </el-carousel-item>
           <el-carousel-item  class="choiceItem" >
-<!--            <h3>个人中心 </h3>-->
             <img src="../assets/模块分类四.png" @click="al"width="100%">
           </el-carousel-item>
         </el-carousel>
@@ -82,13 +77,14 @@
 <style scoped>
 
   .body{
+    padding: 0;
     width: 100%;
     /*background-color: #5daf34;*/
     height: 900px;
     margin: 0px auto;
-    background-image: url("../assets/5945057_0_0.jpg");
+    /*background-image: url("../assets/城市.jpg");*/
     background-repeat:no-repeat;
-    background-position:top center;
+    background-position:center center;
   }
   .footer{
     /*width: 900px;*/
