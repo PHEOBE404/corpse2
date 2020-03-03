@@ -142,7 +142,7 @@
   </el-row>
 <!--<img src="../assets/数据.gif" width="500px">-->
 </div>
-            <el-dialog title="企业基本信息表" :visible.sync="editVisible01" width="500px">
+            <el-dialog title="企业基本信息表(1/4)" :visible.sync="editVisible01" width="500px">
               <el-form ref="form" :model="form" label-width="90px" >
                 <el-form-item label="企业编号">
                   <el-input v-model="form.id"   size="small" ></el-input>
@@ -206,7 +206,7 @@
                 <el-button type="primary" @click="saveEdit(1)">下一步</el-button>
             </span>
             </el-dialog>
-            <el-dialog title="企业知识产权表" :visible.sync="editVisible02" width="500px">
+            <el-dialog title="企业知识产权表(2/4)" :visible.sync="editVisible02" width="500px">
               <el-form ref="form" :model="form" label-width="90px" >
 
                 <el-form-item label="专利" >
@@ -227,39 +227,43 @@
                 <el-button type="primary" @click="saveEdit(2)">下一步</el-button>
             </span>
             </el-dialog>
-            <el-dialog title="三年融资情况表" :visible.sync="editVisible03" width="500px">
-              <el-form ref="form" :model="form" label-width="180px" >
-                <h4>2015年的融资情况表</h4>
-<!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+            <el-dialog title="三年融资情况表(3/4)" :visible.sync="editVisible03" width="1200px">
 
-                <el-form-item label="债券融资额度">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="债券融资成本">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="股权融资额度">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="股权融资成本">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="内部融资和贸易融资额度">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="内部融资和贸易融资成本">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="项目融资和政策融资额度">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-                <el-form-item label="项目融资和政策融资成本">
-                  <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
-                </el-form-item>
-
-
-
-
+              <el-form ref="form" :model="form" label-width="170px" label-position="left" size="small">
+                <el-row :gutter="20">
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h4>2015年的融资情况表</h4>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="债券融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="债券融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+                  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+                  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+                </el-row>
 
               </el-form>
               <span slot="footer" class="dialog-footer">
@@ -1055,5 +1059,32 @@
 
   .clearfix:after {
     clear: both
+  }
+  .el-row {
+    margin-bottom: 20px;
+  &:last-child {
+     margin-bottom: 0;
+   }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    /*background: #99a9bf;*/
+  }
+  .bg-purple {
+    /*background: #d3dce6;*/
+  }
+  .bg-purple-light {
+    /*background: #e5e9f2;*/
+  }
+  .grid-content {
+    border-radius: 4px;
+    border-width: 10px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
   }
 </style>
