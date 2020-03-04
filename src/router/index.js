@@ -20,7 +20,8 @@ export default new Router({
       component: Login
     }, {
       path: '/home',
-      component: Home
+      component: Home,
+      name:'home'
     },{
       path: '/companysearch',
       component: CompanySearch

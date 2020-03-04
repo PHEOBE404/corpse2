@@ -76,18 +76,18 @@
 <!--            </div>-->
             <div  class="text item">
               <i class="el-icon-s-flag"> </i> 基本信息表
-              <el-progress :percentage="65" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+              <el-progress :percentage="per1" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
             </div><div  class="text item">
             <i class="el-icon-s-flag"> </i>  知识产权表
-            <el-progress :percentage="100"  status="success" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+            <el-progress :percentage="per2"   :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
 
             </div><div  class="text item">
             <i class="el-icon-s-flag"> </i>   三年融资情况表
-            <el-progress :percentage="10" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+            <el-progress :percentage="per3" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
 
           </div><div  class="text item">
             <i class="el-icon-s-flag"> </i> 三年财务报告表
-            <el-progress :percentage="34" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+            <el-progress :percentage="per4" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
 
           </div>
           </el-card>
@@ -95,7 +95,7 @@
     <el-col :span="8" >
 
 
-        <el-card class="box-card">
+        <el-card class="box-card" v-if="secondd">
           <div slot="header" class="clearfix">
             <span>企业编号：未编辑</span>
             <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
@@ -130,7 +130,7 @@
 
     <div style="margin-top: 160px">
       <a >
-      <img src="../assets/添加2.png" width="80">
+      <img src="../assets/添加2.png" width="80" @click="addmore">
       </a>
 <!--      <el-button type="text" icon="el-icon-info"></el-button>-->
       <el-tooltip content="若查询数量较多，建议使用文件上传." placement="right" effect="light">
@@ -227,13 +227,13 @@
                 <el-button type="primary" @click="saveEdit(2)">下一步</el-button>
             </span>
             </el-dialog>
-            <el-dialog title="三年融资情况表(3/4)" :visible.sync="editVisible03" width="1200px">
+            <el-dialog title="三年融资情况表(4/4)" :visible.sync="editVisible03" width="1200px">
 
               <el-form ref="form" :model="form" label-width="170px" label-position="left" size="small">
                 <el-row :gutter="20">
                   <el-col :span="8">
                     <div class="grid-content bg-purple">
-                    <h4>2015年的融资情况表</h4>
+                    <h3>2015年的融资情况表</h3>
                     <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
                     <el-form-item label="债券融资额度">
                       <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
@@ -261,14 +261,68 @@
                     </el-form-item>
                     </div>
                   </el-col>
-                  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-                  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+                  <el-col :span="8"><div class="grid-content bg-purple">
+                    <h3>2016年的融资情况表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="债券融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="债券融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                  </div></el-col>
+                  <el-col :span="8"><div class="grid-content bg-purple">
+                    <h3>2017年的融资情况表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="债券融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="债券融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资额度">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资成本">
+                      <el-input size="small" v-model="form.debt_financing_line" placeholder=" " > </el-input>
+                    </el-form-item>
+                  </div></el-col>
                 </el-row>
 
               </el-form>
               <span slot="footer" class="dialog-footer">
                 <el-button @click="editVisible03 = false">取 消</el-button>
-                <el-button type="primary" @click="saveEdit(3)">下一步</el-button>
+                <el-button type="primary" @click="saveEdit(3)">完成</el-button>
             </span>
             </el-dialog>
 
@@ -277,14 +331,14 @@
           <el-tab-pane label="" name="three">
             <div style="width: 400px;margin-left: 20px">
 
-              请按照格式要求提交文件： <br>
+              <h3>请按照格式要求提交文件： </h3><br>
               1.基本信息表: <br>
               <img src="../assets/事例1.png" height="60px"/> <br><br>
               2.知识产权表:<br>
               <img src="../assets/事例2.png" height="60px"/> <br><br>
               3.三年融资信息表： <br>
               <img src="../assets/事例3.png" height="55px"/> <br><br>
-              3.三年财务报告表： <br>
+              4.三年财务报告表： <br>
               <img src="../assets/事例4.png" height="60px"/> <br><br>
 
 <!--              对应表格的数据项可移至 <el-tooltip placement="top" effect="light">-->
@@ -633,6 +687,11 @@
       data() {
 
         return {
+          secondd:false,
+          per1:0,
+          per2:0,
+          per3:0,
+          per4:0,
           form: {},
           editVisible01:false,
           editVisible02:false,
@@ -833,6 +892,9 @@
         }
       },
       methods: {
+        addmore(){
+          this.secondd=true;
+        },
         saveEdit(i){
           if(i==1){
           this.editVisible01 = false;
@@ -843,9 +905,15 @@
             this.editVisible03 = true;
           this.$set(this.tableData, this.idx, this.form);
           }if(i==3){
+            this.per1=100;
+            this.per2=100;
+            this.per3=100;
+            this.per4=100;
           this.editVisible03 = false;
             this.editVisible04 = true;
           this.$set(this.tableData, this.idx, this.form);
+
+
           }if(i==4){
           this.editVisible04 = false;
           this.$set(this.tableData, this.idx, this.form);
@@ -948,33 +1016,7 @@
     width: 560px;
     margin: 0 auto;
   }
-  /*.tb-edit .el-input {*/
-  /*  display: none*/
-  /*}*/
-  /*.tb-edit .current-row .el-input {*/
-  /*  display: block*/
-  /*}*/
-  /*.tb-edit .current-row .el-input+span {*/
-  /*  display: none*/
-  /*}*/
-  /*.tb-edit .select .option{*/
-  /*  display: none*/
-  /*}*/
-  /*.tb-edit .current-row  .el-option{*/
-  /*  display: block*/
-  /*}*/
-  /*.tb-edit .current-row  .el-select + .el-option+span {*/
-  /*  display: none*/
-  /*}*/
-  /*.tb-edit .option {*/
-  /*  display: none*/
-  /*}*/
-  /*.tb-edit .current-row .el-option +span{*/
-  /*  display: none*/
-  /*}*/
-  /*.tb-edit .current-row .el-select+span {*/
-  /*  display: none*/
-  /*}*/
+
   .step{
     /*margin-left: 150px;*/
 
@@ -1073,14 +1115,17 @@
     /*background: #99a9bf;*/
   }
   .bg-purple {
-    /*background: #d3dce6;*/
+    background: linen;
   }
   .bg-purple-light {
     /*background: #e5e9f2;*/
   }
   .grid-content {
+    width: 100%;
+    height:14px;
     border-radius: 4px;
-    border-width: 10px;
+    border-color: #ff4d51;
+    border-width: 8px;
     min-height: 36px;
   }
   .row-bg {

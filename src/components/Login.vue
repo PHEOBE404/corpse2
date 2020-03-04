@@ -1,21 +1,23 @@
 <template>
-  <div>
+  <div v-loading="loading"
+       element-loading-text="登录中"
+       element-loading-spinner="el-icon-loading"
+       element-loading-background="rgba(0, 0, 0, 0.8)">
+    <img src="../assets/粒子.jpg" height="100%"style="float:left;position: fixed;">
+
     <div class="bac">
       <!--<img src="../assets/登录页面（密码登录）.png" width="1500px" >-->
       <div class="body">
-        <img src="../assets/inputt.png" width="900">
+<!--        <img src="../assets/inputt.png" width="900">-->
       </div>
       <div class="login">
-        <h3 >用户登录</h3>
-        <el-input v-model="input1" placeholder="请输入用户名" prefix-icon="el-icon-caret-right"></el-input>
+        <h2 style="position: fixed;color: #fff;margin-top: -80px;margin-left: 50px">探·僵局查询系统</h2>
+        <el-input v-model="input1" placeholder="请输入用户名" prefix-icon="el-icon-user"style="width: 300px"></el-input>
         <br><br>
-        <el-input v-model="input2" type="password" placeholder="请输入密码" prefix-icon="el-icon-caret-right"></el-input>
+        <el-input v-model="input2" type="password" placeholder="请输入密码" prefix-icon="el-icon-lock" style="width: 300px"></el-input>
         <br> <br>
-        <router-link to='/home'>
-        <el-button type="primary" icon="el-icon-circle-check" style="width: 90px;">登录</el-button>
-        </router-link>
-
-        <el-button  icon="el-icon-circle-check" style="width: 90px;">注册</el-button>
+        <el-button type="primary"  style="width: 300px;position: fixed;" @click="login">登录</el-button>
+        <el-button   style="width: 300px;position: fixed;margin-top: 50px;margin-left: -0px">注册</el-button>
       </div>
 
     </div>
@@ -28,6 +30,7 @@
   export default {
     data(){
       return{
+        loading: false,
         input1:'',
         input2:''
       }
@@ -35,6 +38,23 @@
 
     },
     methods: {
+      login(){
+        // this.loading=true;
+
+        const loading = this.$loading({
+          lock: true,
+          text: '登录中',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
+        setTimeout(() => {
+          loading.close();
+          this.$router.push({path:'/home'});
+
+        }, 1200);
+
+
+      },
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
       }
@@ -56,8 +76,8 @@
 
   }
   .bac{
-    background-image: url("../assets/登录页面（密码登录）.png");
-    width: 1480px;
+    /*background-image: url("../assets/登录页面（密码登录）.png");*/
+    width: 100%;
     height: 900px;
     /*float: left;*/
 
@@ -67,8 +87,8 @@
     height: 300px;
     float: left;
     /*background-color: #5daf34;*/
-    margin-left: 700px;
-    margin-top: -670px;
+    margin-left: 570px;
+    margin-top: -630px;
     z-index: 3;
   }
 </style>

@@ -1,5 +1,10 @@
 <template>
-    <div style="width: 100%">
+  <div>
+  <div class="pre_fbx" v-if="pre_fbx" style="width: 100%;height: 800px;" @click="init_fbx">
+    <iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="100%" src="../static/fbx_big.html"></iframe>
+
+  </div>
+    <div style="width: 100%" v-if="!pre_fbx">
       <div class="footer">
         <!--      <div class="footer" >-->
         <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
@@ -38,7 +43,8 @@
       <h3>企业{{$route.params.id}}号</h3>
       </div>
       <div class="photo">
-
+<!--        <iframe src="home" ></iframe>-->
+        <iframe name="q" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="470" src="../static/fbx.html"></iframe>
       </div>
       <div class="baseInfo" >
         <el-row :gutter="20">
@@ -121,6 +127,7 @@
 
 <!--{{li}}-->
     </div>
+  </div>
 </template>
 
 <script>
@@ -132,6 +139,7 @@
       data(){
 
           return{
+            pre_fbx:true,
             activeName2: 'third',
             li:this.$route.params.id,//可以返回当前企业id
             isCollapse: !false,
@@ -168,16 +176,37 @@
 
       this.init_radio();
       this.init_node();
-      if ($(".warn").text()=="僵尸企业") {
-            $(".warn").addClass("isred");
-          }
+      // if ($(".warn").text()=="僵尸企业") {
+      //       $(".warn").addClass("isred");
+      //     }
       ;
-
+    // this.init_fbx();
     },
-      computed:{
-      },
 
+      computed:{
+
+      },
+created(){
+var iframe="<iframe  scrolling='no' width='100%'  src='../static/fbx_big.html'></iframe>"
+
+  // $("body").append(iframe);
+  // this.init_fbx();
+  setTimeout(() => {
+    this.pre_fbx=false;
+  }, 6200);
+},
     methods:{
+          init_fbx(){
+            console.log("222111112");
+
+            $(".pre_fbx").animate({
+                opacity:'0.3',
+                height:'+=850px',
+                width:'+=850px'
+            },9000
+              );
+            console.log("2222")
+          },
       toHome(){
         this.$router.push({path:'/home/'})
       },
@@ -519,9 +548,9 @@
   .photo{
     width: 350px;
     height: 420px;
-    background-color: #8c939d;
+    background-color: #00243A;
     margin-top: 0px;
-    background-image: url("../assets/主题.png");
+    /*background-image: url("../assets/主题.png");*/
     margin-left: 200px;
     display: inline-block;
   }
