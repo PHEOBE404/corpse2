@@ -1,21 +1,22 @@
 <template>
     <div>
+      <img src="../assets/城市.jpg" height="100%"  opacity="0.1" style="position: fixed;margin-top: -50px">
 
-      <div class="sear_input"  v-if="show_item">
+      <div class="sear_input"  v-if="show_item" style="position: fixed;margin-left: 500px">
         <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%">
 
         </el-input>
         <el-button slot="append" icon="el-icon-search" type="primary" @click="show_item=!show_item"></el-button>
 
       </div>
-      <div class="sear_input_later"  v-if="!show_item">
+      <div class="sear_input_later"  v-if="!show_item" style="position: fixed;margin-left: 440px;margin-top: 50px">
         <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%">
 
         </el-input>
         <el-button slot="append" icon="el-icon-search" type="primary" ></el-button>
 
       </div>
-      <div class="table" v-if="!show_item">
+      <div class="table" v-if="!show_item" style="position: fixed;margin-left: 340px;margin-top: 150px;height: 400px;background-color: #fff">
         <template>
           <el-table
             :data="tableData"

@@ -17,7 +17,7 @@
         <el-input v-model="input2" type="password" placeholder="请输入密码" prefix-icon="el-icon-lock" style="width: 300px"></el-input>
         <br> <br>
         <el-button type="primary"  style="width: 300px;position: fixed;" @click="login">登录</el-button>
-        <el-button   style="width: 300px;position: fixed;margin-top: 50px;margin-left: -0px">注册</el-button>
+        <el-button   style="width: 300px;position: fixed;margin-top: 40px;margin-left: -0px">注册</el-button>
       </div>
 
     </div>

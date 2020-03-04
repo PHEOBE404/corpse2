@@ -193,7 +193,7 @@ var iframe="<iframe  scrolling='no' width='100%'  src='../static/fbx_big.html'><
   // this.init_fbx();
   setTimeout(() => {
     this.pre_fbx=false;
-  }, 6200);
+  }, 5800);
 },
     methods:{
           init_fbx(){

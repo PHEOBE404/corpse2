@@ -46,13 +46,13 @@
         name: "Home",
       methods:{
           alt1:function () {
-            alert("进入企业信息模块");
+            // alert("进入企业信息模块");
             this.moveMenu();
             this.$router.push({path:'/corpse/companysearch'});
 
           },
         al2:function(){
-          alert("进入僵尸企业测评模块");
+          // alert("进入僵尸企业测评模块");
           this.moveMenu();
           this.$router.push({path:'/corpse/computed'});
 
