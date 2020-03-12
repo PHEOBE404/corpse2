@@ -27,7 +27,7 @@
             <img src="../assets/模块分类二.png" @click="al2"width="105%">
           </el-carousel-item>
           <el-carousel-item  class="choiceItem" >
-            <img src="../assets/模块分类三.png" @click="al"width="105%">
+            <img src="../assets/模块分类三.png" @click="al3"width="105%">
           </el-carousel-item>
           <el-carousel-item  class="choiceItem" >
             <img src="../assets/模块分类四.png" @click="al"width="105%">
@@ -56,6 +56,11 @@
           this.moveMenu();
           this.$router.push({path:'/corpse/computed'});
 
+        },
+        al3:function(){
+
+          this.moveMenu();
+          this.$router.push({path:'/bigdata'});
         },
         al:function(){
 

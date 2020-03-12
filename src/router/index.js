@@ -7,6 +7,7 @@ import CompanyBase from "../components/CompanyBase";
 import RouterBar from "../components/RouterBar";
 import Computed from "../components/Computed";
 import Mulinput from "../components/Mulinput";
+import BigData from "../components/BigData";
 
 Vue.use(Router)
 
@@ -25,7 +26,13 @@ export default new Router({
     },{
       path: '/companysearch',
       component: CompanySearch
-    },{
+    },
+    {
+      path: '/bigdata',
+      component: BigData
+
+    },
+    {
       path: '/companybase/:id',
       component: CompanyBase
     },{
