@@ -11,7 +11,7 @@
       <el-row>
         <el-col :span="6">
           <div class="grid-content bg-purple"id="hangyepaiming" style="height: 250px">
-<p style="line-height: 20px">僵尸企业行业比例排名</p>
+<p style="line-height: 20px;color: #fff;font-weight: 600">僵尸企业地域排名</p>
             <div style="width: 400px">
               <span class="numberBord" >No.1</span><span class="numberText">江西</span> <span class="numberRadio">34%</span>
               <el-progress percentage="80" status="exception" stroke-width=3 ></el-progress>
@@ -111,7 +111,7 @@ return{
                 text: '僵尸企业行业分布',
                 textStyle:{
                   color:'#fff',
-                  fontWeight:200,
+                  fontWeight:600,
                   fontFamily:'Microsoft YaHei',
                   fontSize:16,
                 },
@@ -505,7 +505,7 @@ return{
 
           var myChart_6 = echarts.init(document.getElementById('kongzhi1'));
           myChart_6.setOption({
-            backgroundColor: new echarts.graphic.RadialGradient(0.85, 0.13, 0.9, [{
+            backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
               offset: 0.0,
               color: '#0E9DBE'
             }, {
@@ -516,7 +516,7 @@ return{
               text: '僵尸企业控制人类型',
               textStyle:{
                 color:'#fff',
-                fontWeight:200,
+                fontWeight:600,
                 fontFamily:'Microsoft YaHei',
                 fontSize:16,
               },
@@ -604,7 +604,7 @@ data:[
               text: '僵尸企业企业类型',
               textStyle:{
                 color:'#fff',
-                fontWeight:200,
+                fontWeight:600,
                 fontFamily:'Microsoft YaHei',
                 fontSize:16,
               },
@@ -713,7 +713,7 @@ data:[
               text: '僵尸企业控制人类型变化',
               textStyle:{
                 color:'#fff',
-                fontWeight:200,
+                fontWeight:600,
                 fontFamily:'Microsoft YaHei',
                 fontSize:16,
               },
@@ -813,7 +813,7 @@ data:[
               text: '僵尸企业融资额度',
               textStyle:{
                 color:'#fff',
-                fontWeight:200,
+                fontWeight:600,
                 fontFamily:'Microsoft YaHei',
                 fontSize:16,
               },
@@ -858,6 +858,8 @@ data:[
             },
             yAxis: {
               type: 'value',
+              min:150,
+              max:1120,
               // data: ['交通运输业', '服务业', '工业', '社区服务', '零售业', '商业服务'],
               nameTextStyle:{
                 color:'#fff'
@@ -869,19 +871,21 @@ data:[
                 color:'#fff'
               }
             },
+
             series: [
               {
                 name: '债券融资',
                 type: 'line',
-                data: [235, 115, 1120],
+                data: [720, 806, 1120],
                 itemStyle: {//柱子的颜色
                   color:'#00CCFB',
                   opacity:0.8
                 },
-                barWidth:15,
+                // barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'left'
                 },
                 smooth: true
 
@@ -889,7 +893,7 @@ data:[
               {
                 name: '股权融资',
                 type: 'line',
-                data: [444, 543, 866],
+                data: [600, 625, 866],
                 itemStyle: {//柱子的颜色
                   color:'#ffff00',
                   opacity:0.8
@@ -897,7 +901,9 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'left'
+
                 },
                 smooth: true
 
@@ -905,7 +911,7 @@ data:[
               {
                 name: '内部融资和贸易融资',
                 type: 'line',
-                data: [345, 655, 741],
+                data: [245, 224, 544],
                 itemStyle: {//柱子的颜色
                   color:'#FF4200',
                   opacity:0.8
@@ -913,7 +919,9 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'bottom'
+
                 },
                 smooth: true
               },
@@ -928,11 +936,13 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'bottom'
                 },
                 smooth: true
 
               },
+
             ],
             textStyle:{
               // color:'#fff'
@@ -955,7 +965,7 @@ data:[
               text: '僵尸企业融资成本',
               textStyle:{
                 color:'#fff',
-                fontWeight:200,
+                fontWeight:600,
                 fontFamily:'Microsoft YaHei',
                 fontSize:16,
               },
@@ -1000,6 +1010,8 @@ data:[
             },
             yAxis: {
               type: 'value',
+              min:250,
+              max:800,
               nameTextStyle:{
                 color:'#fff'
               },
@@ -1022,7 +1034,9 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'left'
+
                 },
                 smooth: true
 
@@ -1030,7 +1044,7 @@ data:[
               {
                 name: '股权融资',
                 type: 'line',
-                data: [544, 512, 659],
+                data: [544, 512, 700],
                 itemStyle: {//柱子的颜色
                   color:'#ffff00',
                   opacity:0.8
@@ -1038,7 +1052,9 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'top'
+
                 },
                 smooth: true
 
@@ -1046,7 +1062,7 @@ data:[
               {
                 name: '内部融资和贸易融资',
                 type: 'line',
-                data: [324, 433, 454],
+                data: [324, 433, 320],
                 itemStyle: {//柱子的颜色
                   color:'#FF4200',
                   opacity:0.8
@@ -1054,14 +1070,16 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'bottom'
+
                 },
                 smooth: true
               },
               {
                 name: '项目融资和政策融资',
                 type: 'line',
-                data: [400, 499, 634],
+                data: [400, 499, 520],
                 itemStyle: {//柱子的颜色
                   color:'#7BC058',
                   opacity:0.8
@@ -1069,7 +1087,9 @@ data:[
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff'
+                  color:'#fff',
+                  position:'right'
+
                 },
                 smooth: true
 
@@ -1139,7 +1159,7 @@ data:[
               text: '僵尸企业注册时间分布',
               textStyle:{
                 color:'#fff',
-                fontWeight:200,
+                fontWeight:600,
                 fontFamily:'Microsoft YaHei',
                 fontSize:16,
               },
@@ -1272,6 +1292,7 @@ data:[
 </script>
 
 <style scoped>
+
   body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
   dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
   pre, /* text formatting elements 文本格式元素 */
@@ -1283,11 +1304,12 @@ data:[
   body,
   button, input, select, textarea /* for ie */ {
     font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
-    font-family:Microsoft YaHei
+    /*font-family:Microsoft YaHei*/
+    font-family: "Microsoft YaHei";
   }
   h1, h2, h3, h4, h5, h6 { font-size: 100%; }
   address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
-  code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+  code, kbd, pre, samp { font-family: "Microsoft YaHei"; } /* 统一等宽字体 */
   small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
 
   .el-col {
@@ -1316,6 +1338,10 @@ data:[
   .numberText{
     font-size: 12px;
     margin: 2px;
+    font-family: "Microsoft YaHei";
+    font-family: "微软雅黑 Light";
+    /*font-family: ;*/
+font-weight: bolder;
   }
   .numberRadio{
     font-size: 12px;
