@@ -585,7 +585,7 @@
                 </el-collapse-item>
                 <el-collapse-item title="三年财务报告表" name="4">
                   <div style="width: 100%;margin: 0 auto">
-                    <el-table :data="tableData3" class="tb-edit" style="width: 100%" highlight-current-row :span-method="objectSpanMethod"
+                    <el-table :data="tableData4" class="tb-edit" style="width: 100%" highlight-current-row :span-method="objectSpanMethod"
                               border >
                       <el-table-column label="企业编号" align="center" width="100">
                         <template scope="scope">
@@ -599,51 +599,51 @@
                       </el-table-column>
                       <el-table-column prop="从业人数" label="从业人数" align="center" width="110">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.debt_financing_line" placeholder="" >
+                          <el-input size="small" v-model="scope.row.staff_num" placeholder="" >
                             <span slot="suffix">人</span>
                           </el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="资产总额" label="资产总额" align="center" >
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.debt_financing_cost" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.assets_total" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="负债总额" label="负债总额" align="center">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.equity_financing_line" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.liabilities_total" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="营业总收入" label="营业总收入" align="center">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.equity_capital_cost" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.gross_revenue" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="主营业务收入" label="主营业务收入"  align="center" width="110">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.internal_and_trade_finance_line" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.main_business_income" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="利润总额" label="利润总额"  align="center">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.internal_and_trade_finance_cost" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.profit_total" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="净利润" label="净利润"  align="center">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.project_financing_and_policy_financing_line" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.net_profit" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="纳税总额" label="纳税总额"  align="center">
                         <template scope="scope">
-                          <el-input   size="small" v-model="scope.row.project_financing_and_policy_financing_cost" placeholder=" " >
+                          <el-input   size="small" v-model="scope.row.pay_taxes_total" placeholder=" " >
 <!--                            <span slot="suffix">万</span>-->
                           </el-input>
                         </template>
                       </el-table-column>
                       <el-table-column prop="所有者权益合计" label="所有者权益合计"  align="center">
                         <template scope="scope">
-                          <el-input size="small" v-model="scope.row.project_financing_and_policy_financing_cost" placeholder=" " ></el-input>
+                          <el-input size="small" v-model="scope.row.owner_equity_total" placeholder=" " ></el-input>
                         </template>
                       </el-table-column>
 
@@ -798,14 +798,7 @@
           // }
           ],
           tableData1: [{
-            // id: '11',
-            // year: 'year',
-            // registered_capital: 'registered_capital',
-            // industry: '22',
-            // area: 'area',
-            // company_type: 'company_type',
-            // controller_type: 'controller_type',
-            // controller_share: 'controller_share'
+
             id: this.compan_num,
             year: '',
             registered_capital: '',
@@ -822,40 +815,6 @@
             copyrightt: ''
           }],
           tableData3: [
-          //   {
-          //   id: '11',
-          //   year: '2002',
-          //   debt_financing_line: '2',
-          //   debt_financing_cost:'111',
-          //   equity_financing_line:'222',
-          //   equity_capital_cost:'333',
-          //   internal_and_trade_finance_line:'444',
-          //   internal_and_trade_finance_cost:'555',
-          //   project_financing_and_policy_financing_line:'666',
-          //   project_financing_and_policy_financing_cost:'777'
-          // },{
-          //   id: '11',
-          //   year: '2003',
-          //   debt_financing_line: '2',
-          //   debt_financing_cost:'111',
-          //   equity_financing_line:'222',
-          //   equity_capital_cost:'333',
-          //   internal_and_trade_finance_line:'444',
-          //   internal_and_trade_finance_cost:'555',
-          //   project_financing_and_policy_financing_line:'666',
-          //   project_financing_and_policy_financing_cost:'777'
-          // },{
-          //   id: '11',
-          //   year: '2004',
-          //   debt_financing_line: '2',
-          //   debt_financing_cost:'111',
-          //   equity_financing_line:'222',
-          //   equity_capital_cost:'333',
-          //   internal_and_trade_finance_line:'444',
-          //   internal_and_trade_finance_cost:'555',
-          //   project_financing_and_policy_financing_line:'666',
-          //   project_financing_and_policy_financing_cost:'777'
-          // }
             {
             id: this.compan_num,
             year: '2015',
@@ -891,10 +850,73 @@
             project_financing_and_policy_financing_cost:''
           }
           ],
+          tableData4: [
+            {
+            id: this.compan_num,
+            year: '2015',
+              staff_num: '',
+              assets_total:'',
+              liabilities_total:'',
+              gross_revenue:'',
+              main_business_income:'',
+              profit_total:'',
+              net_profit:'',
+              pay_taxes_total:'',
+              owner_equity_total:''
+          },  {
+            id: this.compan_num,
+            year: '2016',
+              staff_num: '',
+              assets_total:'',
+              liabilities_total:'',
+              gross_revenue:'',
+              main_business_income:'',
+              profit_total:'',
+              net_profit:'',
+              pay_taxes_total:'',
+              owner_equity_total:''
+          },  {
+            id: this.compan_num,
+            year: '2017',
+              staff_num: '',
+              assets_total:'',
+              liabilities_total:'',
+              gross_revenue:'',
+              main_business_income:'',
+              profit_total:'',
+              net_profit:'',
+              pay_taxes_total:'',
+              owner_equity_total:''
+          },
+          ],
 
         }
       },
       methods: {
+        singlehttp(){
+          this.$http.post("http://jsonplaceholder.typicode.com/posts",{
+            base:this.tableData1,
+            knowlege:this.tableData2,
+            finance:this.tableData3,
+            report:this.tableData4
+
+          })
+          //post成功后条用方法then
+            .then(function(data){//提交成功
+              console.log(data);
+              // this.submmited=true;
+
+            })
+        },
+        // singleaxios(){
+        //   var api = 'http://www.yixzm.cn/tools/api/get_region_by_ip?ip=101.224.127.236'
+        //   this.axios.get(api).then((response) => {
+        //     console.log(response.data)
+        //   }).catch(function (error) {
+        //     console.log(error)
+        //   })
+
+        // },
         visib_loading(){
           this.dialogVisible = true;
           setTimeout(() => {
@@ -1018,7 +1040,8 @@
       },
       mounted() {
         $("el-table-column").attr("align","center");
-        console.log("111")
+        console.log("111");
+        this.singleajax();
       }
     }
 </script>

@@ -12,34 +12,35 @@
         <el-col :span="6">
           <div class="grid-content bg-purple"id="hangyepaiming" style="height: 250px">
 <p style="line-height: 20px;color: #fff;font-weight: 600">僵尸企业地域排名</p>
-            <div style="width: 400px">
-              <span class="numberBord" >No.1</span><span class="numberText">江西</span> <span class="numberRadio">34%</span>
-              <el-progress percentage="80" status="exception" stroke-width=3 ></el-progress>
-            </div>
-            <div style="width: 400px">
-              <span class="numberBord" >No.2</span><span class="numberText">湖南</span> <span class="numberRadio">22%</span>
-              <el-progress percentage="70" status="exception" stroke-width=3></el-progress>
-            </div>
-            <div style="width: 400px">
-              <span class="numberBord" >No.3</span><span class="numberText">湖北</span> <span class="numberRadio">16%</span>
-              <el-progress percentage="64" status="exception" stroke-width=3></el-progress>
-            </div>
-            <div style="width: 400px">
-              <span style="font-size: 12px" >No.4</span><span class="numberText"> 江西</span> <span class="numberRadio">12%</span>
-              <el-progress percentage="40" status="success" show-text="false"stroke-width=3></el-progress>
-            </div>
-            <div style="width: 400px">
-              <span style="font-size: 12px" >No.5</span><span class="numberText"> 广东</span> <span class="numberRadio">10%</span>
-              <el-progress percentage="30" status="success" show-text="false"stroke-width=3></el-progress>
+<!--            <div style="width: 400px">-->
+<!--              <span class="numberBord" >No.1</span><span class="numberText">江西</span> <span class="numberRadio">34%</span>-->
+<!--              <el-progress percentage="80" status="exception" stroke-width=3 ></el-progress>-->
+<!--            </div>-->
+<!--            <div style="width: 400px">-->
+<!--              <span class="numberBord" >No.2</span><span class="numberText">湖南</span> <span class="numberRadio">22%</span>-->
+<!--              <el-progress percentage="70" status="exception" stroke-width=3></el-progress>-->
+<!--            </div>-->
+<!--            <div style="width: 400px">-->
+<!--              <span class="numberBord" >No.3</span><span class="numberText">湖北</span> <span class="numberRadio">16%</span>-->
+<!--              <el-progress percentage="64" status="exception" stroke-width=3></el-progress>-->
+<!--            </div>-->
+<!--            <div style="width: 400px">-->
+<!--              <span style="font-size: 12px" >No.4</span><span class="numberText"> 江西</span> <span class="numberRadio">12%</span>-->
+<!--              <el-progress percentage="40" status="success" show-text="false"stroke-width=3></el-progress>-->
+<!--            </div>-->
+<!--            <div style="width: 400px">-->
+<!--              <span style="font-size: 12px" >No.5</span><span class="numberText"> 广东</span> <span class="numberRadio">10%</span>-->
+<!--              <el-progress percentage="30" status="success" show-text="false"stroke-width=3></el-progress>-->
 
-            </div>
+<!--            </div>-->
 <!--            <div style="width: 400px">-->
 <!--              <span class="numberBord" >No.6</span><span class="numberText">福建</span> <span class="numberRadio">9%</span>-->
 <!--              <el-progress percentage="25" status="success" show-text="false"  stroke-width=3></el-progress>-->
 
 <!--            </div>-->
 
-        </div></el-col>
+        </div>
+        </el-col>
 <!--        <el-col :span="12"><div class="grid-content bg-purple-light" style="height: 10px"></div></el-col>-->
         <el-col :span="4"><div class="grid-content bg-purple" style="height: 250px;"id="shangbiao"></div></el-col>
         <el-col :span="4"><div class="grid-content bg-purple" style="height: 250px;" id="zhuzuo"></div></el-col>
@@ -75,12 +76,12 @@ return{
       mounted() {
           this.initHangYe();
           this.initDiTu();
-          this.initShangBiao();
+          this.initkongzhi3();
           this.initZhuZuo();
           this.initZhuanLi();
           this.initkongzhi1();
           this.initkongzhi2();
-          this.initLeixing();
+          this.initLeixing2();
           this.initrongzichengben();
           this.initrongziedu();
           this.initnianfen();
@@ -280,10 +281,10 @@ return{
 
             })
           },
-        initShangBiao(){
+        initkongzhi3(){
           var echarts = require('echarts');
 
-          var myChart_3 = echarts.init(document.getElementById('shangbiao'));
+          var myChart_3 = echarts.init(document.getElementById('leixing'));
           myChart_3.setOption({
             backgroundColor: new echarts.graphic.RadialGradient(0.48, 0.6, 0.2, [{
               offset: 0.0,
@@ -293,14 +294,17 @@ return{
               color: '#2F2F2F'
             }]),
             title: {
-              text: '商标',
+              text: '僵尸企业控制人类型分布',
               textStyle:{
-                color:'#e0e0e0',
+                color:'#fff',
+                fontWeight:600,
+                fontFamily:'Microsoft YaHei',
+                fontSize:16,
               },
 
               padding:[5,5],
-              left:'90',
-              top:'140'
+              // left:'90',
+              // top:'140'
             },
             tooltip: {
               trigger: 'item',
@@ -309,7 +313,7 @@ return{
             legend: { //图例内容,点击能取消/显示图
               orient: 'vertical',
               left: 1,
-              data: ['拥有', '未拥有'],
+              data: ['法人', '自然人'],
               bottom: 5,
               // left: 'center',
               textStyle:{
@@ -323,17 +327,24 @@ return{
                 type: 'pie',
                 radius: ['50%', '70%'],
                 avoidLabelOverlap: false,
-                width:'90%',
+                width:'80%',
+                height:'80%',
+                top:30,
+                left:30,
                 label: {
                   normal: {
-                    show: false,
-                    position: 'center'
+                    show: true,
+                    formatter:'{b}: {d}%',
+                    position: 'inside',
+                    textStyle:{
+                      fontSize:14
+                    }
                   },
                   emphasis: {
                     show: true,
                     textStyle: {
-                      fontSize: '28',
-                      fontWeight: 'bold'
+                      fontSize: '22',
+                      // fontWeight: 'bold'
                     }
                   }
                 },
@@ -343,7 +354,7 @@ return{
                   }
                 },
                 data: [
-                  {value: 160, name: '拥有',selected:'true',emphasis:{show:'true'},
+                  {value: 360, name: '自然人',emphasis:{show:'true'},
                     itemStyle: {//柱子的颜色
                       color:'#09ACD2',
                       opacity:0.8
@@ -351,9 +362,9 @@ return{
 
                   },
                   {value: 310,
-                    name: '未拥有',
+                    name: '法人',
                     itemStyle: {//柱子的颜色
-                      color:'#2E4043',
+                      color:'#FF4200',
                       opacity:0.8
                     }
                   },
@@ -368,63 +379,33 @@ return{
 
           var myChart_4 = echarts.init(document.getElementById('zhuzuo'));
           myChart_4.setOption({
+
             title: {
-              text: '著作',
+              text: '僵尸企业数量',
               textStyle:{
-                color:'#e0e0e0',
+                color:'#fff',
+                fontWeight:600,
+                fontFamily:'Microsoft YaHei',
+                fontSize:16,
               },
+
               padding:[5,5],
-              left:'90',
-              top:'140'
+              // left:'90',
+              // top:'140'
             },
             tooltip: {
-              trigger: 'item',
-              formatter: '{a} <br/>{b}: {c} ({d}%)'
+              formatter: '{a} <br/>{b} : {c}%'
             },
-
 
             series: [
               {
-                name: '知识产权',
-                type: 'pie',
-                radius: ['50%', '70%'],
-                avoidLabelOverlap: false,
-                width:'90%',
-                label: {
-                  normal: {
-                    show: false,
-                    position: 'center'
-                  },
-                  emphasis: {
-                    show: true,
-                    textStyle: {
-                      fontSize: '28',
-                      fontWeight: 'bold'
-                    }
-                  }
-                },
-                labelLine: {
-                  normal: {
-                    show: false
-                  }
-                },
-                data: [
-                  {value: 160, name: '拥有',selected:'true',emphasis:{show:'true'},
-                    itemStyle: {//柱子的颜色
-                      color:'#FF4200',
-                      // opacity:0.8
-                    }
+                name: '僵尸企业占比',
+                type: 'gauge',
+                radius:'90%',
 
-                  },
-                  {value: 310,
-                    name: '未拥有',
-                    itemStyle: {//柱子的颜色
-                      color:'#2E4043',
-                      opacity:0.8
-                    }
-                  },  ]
+                detail: {formatter: '{value}%'},
+                data: [{value: 30, name: '占比'}]
               }
-
             ]
           })
         },
@@ -513,7 +494,7 @@ return{
               color: '#2F2F2F'
             }]),
             title: {
-              text: '僵尸企业控制人类型',
+              text: '僵尸企业企业类型分布',
               textStyle:{
                 color:'#fff',
                 fontWeight:600,
@@ -522,9 +503,16 @@ return{
               },
               padding:[5,5]
             },
+            textStyle:{
+              // color:'#f00'
+            },
             angleAxis: {
               type: 'category',
-              data: ['自然人', '法人'],
+              data: ['农村专业合作社', '集体所有制企业','股份有限公司','有限责任公司','合伙企业'],
+              boundaryGap: true,
+              axisTick:{
+                interval:1,
+              },
               itemStyle:{
                 color:'#e0e0e0'
               },
@@ -535,12 +523,34 @@ return{
                 color:'#fff'
               },
               axisLabel:{
-                color:'#fff'
+                show:true,
+                color:'#fff',
+                margin:5
               }
             },
             radiusAxis: {
+              type:'value',
+              nameTextStyle:{
+                // color:'#fff'
+              },
+              min:2000,
+              axisLine: {
+                show:false,
+                lineStyle:{
+                  color:'#fff'
+                }
+          },
+
+              axisLabel:{
+                show:false,
+                margin:15,
+                textStyle:{
+                  color:'#f00'
+                }
+              }
             },
             polar: {
+              radius:'70%'
             },
             tooltip: {
               trigger: 'axis',
@@ -557,30 +567,106 @@ return{
               bottom: '3%',
               containLabel: true
             },
+            label:{
+              show:true,
+              color:'#fff',
+              itemStyle:{
+                color:'#fff'
+              },
+              // position:'top',
+              backgroundColor:'#ff0',
 
+
+            },
             series: [
               {
                 type: 'bar',
-                // data: [452, 323],
                 coordinateSystem: 'polar',
+                // width:'80px',
                 name: '个数',
-                stack: 'a',
+                label: {
+                  normal: {
+                    show: true,
+                    formatter:'{b}: {d}%',
+                    // position: 'inside',
+                    textStyle:{
+                      fontSize:14
+                    }
+                  },
+                  emphasis: {
+                    show: true,
+                    textStyle: {
+                      fontSize: '22',
+                      // fontWeight: 'bold'
+                    }
+                  }
+                },
+                label:{
+                  show:true,
+                  color:'#fff',
+                  // position:'left'
+                },
                 // itemStyle:{
                 //   color:'#ffff00'
                 // },
 data:[
   {
-    value:452,
+    value:2685,
     itemStyle:{
-      color:'#FF4200'
-    },
-  },{
-                  value:323,
-    itemStyle:{
-      color:'#0E9DBE',
+      color:'#127E98',
+      // opacity:0.8
+      opacity:0.9
 
     },
-  }
+    label:{
+      show:true,
+      color:'#fff'
+    }
+  },{
+                  value:2766,
+    itemStyle:{
+      color:'#0E9DBE',
+      opacity:0.9
+
+    },
+    label:{
+      show:true,
+      color:'#fff'
+    }
+  },{
+                  value:2753,
+
+    itemStyle:{
+      color:'#0F6276',
+      opacity:0.9
+
+    },
+    label:{
+      show:true,
+      color:'#fff'
+    }
+  },{
+                  value:2850,
+    itemStyle:{
+      color:'#0A4858',
+opacity:0.9
+    },
+    label:{
+      show:true,
+      color:'#fff'
+    }
+  },{
+                  value:2798,
+    itemStyle:{
+      color:'#08313B',
+      opacity:0.9
+
+    },
+    label:{
+      show:true,
+      color:'#fff'
+    }
+  },
 ]
               },
 
@@ -590,7 +676,7 @@ data:[
         },
         initLeixing: function () {
           var echarts = require('echarts');
-
+console.log("lllllllllllllllll");
           var myChart_7= echarts.init(document.getElementById('leixing'));
           myChart_7.setOption({
             // backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.3, 0.9, [{
@@ -601,7 +687,7 @@ data:[
             //   color: '#2F2F2F'
             // }]),
             title: {
-              text: '僵尸企业企业类型',
+              text: '僵尸企业类型',
               textStyle:{
                 color:'#fff',
                 fontWeight:600,
@@ -616,6 +702,7 @@ data:[
             },
             radar: {
               center:['50%','55%'],
+
               name: { //六个角上的文字标签
                 // backgroundColor:'red',
                 textStyle: {
@@ -1104,46 +1191,13 @@ data:[
         initnianfen(){
           var echarts = require('echarts');
           var myChart_11 = echarts.init(document.getElementById('nianfen'));
-          var data = [  //参数1：x轴；参数2：y轴；参数3：圆的面积；参数5：是否为僵尸企业，图例，什么值不重要
-            [[1997,90,90,'',120],
-              [1998,54,84,'',120],
-              [1999,30,77,'',120],
-              [2000,30,77,'',120],
-              [2001,35,77,'',120],
-              [2002,12,77,'',120],
-              [2003,45,77,'',120],
-              [2004,34,77,'',120],
-              [2005,89,77,'',120],
-              [2006,88,77,'',120],
-              [2007,120,77,'',120],
-              [2008,135,77,'',120],
-              [2009,120,77,'',120],
-              [2010,140,77,'',120],
-              [2011,90,80,'',120],
-              [2012,100,80,'',120],
-              [2013,40,80,'',120],
-              [2014,60,80,'',120],
-              [2015,80,80,'',120],
+          var data = [  //参数1：x轴；参数2：y轴；
+            [[1999,90],
+              [2013,130],
             ],
-            [[1997,205,1340,'',2015],
-              [1998,456,211,'',2015],
-              [1999,333,77,'',120],
-              [2000,330,77,'',120],
-              [2001,400,77,'',120],
-              [2002,500,77,'',120],
-              [2003,745,77,'',120],
-              [2004,700,77,'',120],
-              [2005,612,77,'',120],
-              [2006,600,77,'',120],
-              [2007,680,77,'',120],
-              [2008,590,77,'',120],
-              [2009,800,77,'',120],
-              [2010,820,77,'',120],
-              [2011,960,80,'',120],
-              [2012,920,80,'',120],
-              [2013,898,80,'',120],
-              [2014,840,80,'',120],
-              [2015,800,80,'',120],
+            [[1997,205],
+              [2005,456],
+
             ]
 
           ];
@@ -1232,7 +1286,7 @@ data:[
                 label: {
                   show: true,
                   formatter: function (param) {
-                    return param.data[3];
+                    // return param.data[0];
                   },
                   position: 'top'
                 }
@@ -1283,6 +1337,67 @@ data:[
             }
           })
         },
+        initLeixing2(){
+          var echarts = require('echarts');
+          var myChart_13= echarts.init(document.getElementById('shangbiao'));
+          myChart_13.setOption({
+            // backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.3, 0.9, [{
+            //   offset: 0,
+            //   color: '#0E9DBE'
+            // }, {
+            //   offset: 0.8,
+            //   color: '#2F2F2F'
+            // }]),
+            title: {
+              text: '僵尸企业控制人类型',
+              textStyle:{
+                color:'#fff',
+                fontWeight:600,
+                fontFamily:'Microsoft YaHei',
+                fontSize:16,
+              },
+              padding:[5,5]
+            },
+            xAxis: {
+              type: 'category',
+              data: ['法人', '自然人'],
+              nameTextStyle:{
+                color:'#fff',
+              },
+              textStyle:{
+                color:'#fff',
+
+              },
+              axisLabel:{
+                color:'#fff',
+                fontSize:16
+
+              }
+            },
+            yAxis: {
+              type: 'value',
+              nameTextStyle:{
+                color:'#fff'
+              },
+              textStyle:{
+                color:'#fff'
+              },
+              axisLabel:{
+                color:'#fff'
+              }
+            },
+            series: [{
+              data: [120, 200, 150, 80, 70, 110, 130],
+              type: 'bar',
+              barWidth:28,
+
+              textStyle:{
+                color:"#fff"
+              }
+            }]
+          });
+
+        } //no use
 
 
 
