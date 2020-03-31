@@ -1,52 +1,40 @@
 <template>
-    <div>
+    <div class="body">
 
-      <div class="menubar">
-        <el-menu :default-active=activebar class="el-menu-vertical-demo" @click="handleOpen" @close="handleClose" :collapse="isCollapse"router>
-          <el-menu-item index="/corpse/companysearch">
-            <i class="el-icon-location"></i>
-            <span slot="title">企业信息查询</span>
-          </el-menu-item>
-          <el-menu-item index="/corpse/computed">
-            <i class="el-icon-menu"></i>
-            <span slot="title">僵尸企业测评</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-setting"></i>
-            <span slot="title">大数据分析</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-message"></i>
-            <span slot="title">个人中心</span>
-          </el-menu-item>
-        </el-menu>
-      </div>
 <!--      <div class="footer">-->
 <!--        <img src="../assets/user.png" width="30px" style="margin-top: 10px">-->
 <!--        <span >用户8462336</span>-->
 
 
 <!--      </div>-->
+<!--      <div class="footer">-->
+<!--        <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>-->
+<!--        <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>-->
+<!--        <i class="el-icon-monitor"></i>-->
+<!--        <span >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>-->
+
+<!--        <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>-->
+<!--        <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>-->
+<!--      </div>-->
       <div class="footer">
-        <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
-        <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
-        <i class="el-icon-monitor"></i>
-        <span >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
+        <span >探僵局查询系统</span>
 
-        <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>
-        <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>
+        <div class="userfooter">
+          <!--    <span>2020年4月1日</span>-->
+          <span>{{currentTime}}</span>
+          <span>用户5988741</span>
+        </div>
+        <div class="rightmenu">
+          <span><a href="#">企业信息查询</a></span>
+          <span class="active"><a href="#">僵尸企业测评</a></span>
+          <span><a href="#">大数据分析</a></span>
+          <span><a href="#">个人中心</a></span>
+        </div>
       </div>
 
-      <div class="step">
-        <el-steps :active="1" align-center>
-          <el-step title="1.选择分析模型" icon="el-icon-upload"></el-step>
-          <el-step title="2.输入企业信息" icon="el-icon-edit"></el-step>
-          <el-step title="3.查看数据报表" icon="el-icon-picture"></el-step>
-        </el-steps>
-      </div>
       <div class="inputtype">
-        <div style="margin-top: 20px">
-          <span>请选择企业信息的输入方式：</span>
+        <div style="margin-top: 120px">
+          <span style="color: #FFFFFF">请选择企业信息的输入方式：</span>
           <el-radio-group v-model="radio4" size="medium" @change="changeradio">
 
             <el-radio-button label="单个输入" ></el-radio-button>
@@ -331,7 +319,7 @@
           </el-tab-pane>
 
           <el-tab-pane label="" name="three">
-            <div style="width: 400px;margin-left: 20px">
+            <div style="width: 400px;margin-left: 20px;display: none;">
 
               <h3>请按照格式要求提交文件： </h3><br>
               1.基本信息表: <br>
@@ -374,7 +362,7 @@
                 <div>点此上传xlm、csv等格式的文件</div>
 
               </el-upload>
-              <el-button style="width: 260px;margin-left: 50px" size="small" type="primary" @click="visib_loading">提交</el-button>
+              <el-button style="width: 100px;margin-left: 130px" size="small" type="primary" @click="visib_loading">提交</el-button>
               <br>
 
 <!--              @click="submitUpload"-->
@@ -791,11 +779,6 @@
         //   // url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
         //   // status: 'finished'
         // },
-          //   {
-          //   name: 'food2.jpeg',
-          //   url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-          //   status: 'finished'
-          // }
           ],
           tableData1: [{
 
@@ -1047,6 +1030,14 @@
 </script>
 
 <style scoped>
+  .body{
+
+    background-image: url("../assets/粒子92.png");
+    background-repeat: no-repeat;
+    /*width: 1816px;*/
+    background-position: center top;
+    height: 916px;
+  }
   .inputtype{
     width: 560px;
     margin: 0 auto;
@@ -1166,5 +1157,56 @@
   .row-bg {
     padding: 10px 0;
     background-color: #f9fafc;
+  }
+  .footer{
+    margin-left: 50px;
+    color: #FFFFFF;
+    font-family: 微软雅黑;
+  }
+  .rightmenu{
+    display: inline-block;
+    float: right;
+    border-width: 8px;
+    /*border-color: #5ACDFF;*/
+    background-color: #041A29;
+
+    font-size: 16px;
+  }
+  .rightmenu span{
+    width: 200px;
+    /*background-image: url("../assets/34118972.jpg.png");*/
+    border-width: 8px;
+    border-color: #5ACDFF;
+    border-radius: 2px;
+    padding: 6px;
+    line-height: 38px;
+
+  }
+  .rightmenu span a{
+    color: #FFFFFF;
+    text-decoration:none;
+    /*line-height: 28px;*/
+  }
+  .userfooter{
+    display: inline-block;
+    float: right;
+    border-width: 8px;
+    /*border-color: #5ACDFF;*/
+    background-color: #041A29;
+    padding-left: 40px;
+    font-size: 14px;
+  }
+  .userfooter span{
+    width: 200px;
+    border-width: 8px;
+    border-color: #5ACDFF;
+    border-radius: 2px;
+    padding: 6px;
+    line-height: 38px;
+
+  }
+  .active{
+    background-image: url("../assets/34118972.jpg.png");
+
   }
 </style>

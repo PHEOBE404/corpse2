@@ -5,7 +5,7 @@
           <div class="grid-content bg-purple" id="hangye" style="height: 250px">
 
         </div></el-col>
-        <el-col :span="12"><div class="grid-content bg-purple-light" style="height: 250px" id="ditu"></div></el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" style="height: 250px" id="ditu"></div></el-col>
         <el-col :span="6"><div class="grid-content bg-purple" style="height: 250px" id="nianfen"></div></el-col>
       </el-row>
       <el-row>
@@ -46,7 +46,7 @@
           <div style="color: #FFFFFF">
             <p style="color: #FFFFFF;font-family: 微软雅黑;font-weight: bolder">僵尸企业行业排名</p>
             <div class="table1">
-              <table border="0" cellspacing="8px" style="border-collapse:separate; border-spacing:12px 4px;" background="../assets/蓝框.png">
+              <table border="0"  align="center" style="border-collapse:separate; border-spacing:12px 2px;" >
                 <tr style="font-size: 14px;" >
                   <th >行业</th>
                   <th >数量</th>
@@ -55,39 +55,40 @@
                 </tr>
                 <tr></tr>
                 <tr>
-                  <td>工业</td>
+                  <td>&nbsp;&nbsp;&nbsp;工业</td>
                   <td>2185</td>
                   <td>23%</td>
-                  <td ><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"></td>
+                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
                   <td>商业服务</td>
                   <td>1685</td>
                   <td>20%</td>
-                  <td ><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"></td>
+                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
                   <td>交通运输</td>
                   <td>1560</td>
                   <td>19%</td>
-                  <td ><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"></td>
+                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr> <tr>
-                  <td>服务业</td>
+                  <td>&nbsp;&nbsp;服务业</td>
                   <td>1360</td>
                   <td>15%</td>
-                  <td ><img src="../assets/mons.png" width="24px"></td>
+                  <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr><tr>
-                  <td>零售业</td>
+                  <td>&nbsp;&nbsp;零售业</td>
                   <td>1153</td>
                   <td>17%</td>
-                  <td ><img src="../assets/mons.png" width="24px"></td>
+                  <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr><tr>
                   <td>社区服务</td>
                   <td>930</td>
                   <td>21%</td>
-                  <td ><img src="../assets/mons.png" width="24px"></td>
+                  <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
               </table>
+              <span class="numberBord"></span> <span class="numberBord" style="width: 110px;"></span> <span class="numberBord"></span>
             </div>
           </div>
         </div></el-col>
@@ -96,48 +97,52 @@
           <div style="color: #FFFFFF">
             <p style="color: #FFFFFF;font-family: 微软雅黑;font-weight: bolder">僵尸企业地区排名</p>
             <div class="table1">
-              <table border="0" cellspacing="8px"style="border-collapse:separate; border-spacing:15px 4px;" >
+
+              <table border="0" style="border-collapse:separate; border-spacing:15px 2px;" >
                 <tr style="font-size: 14px;" >
                   <th >地区</th>
                   <th >数量</th>
                   <th >占比</th>
                   <th >热度</th>
                 </tr>
+
                 <tr></tr>
                 <tr>
                   <td>福建</td>
-                  <td>2185</td>
-                  <td>23%</td>
-                  <td ><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"></td>
+                  <td>2585</td>
+                  <td>40%</td>
+                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
                   <td>湖北</td>
-                  <td>1685</td>
-                  <td>20%</td>
-                  <td ><img src="../assets/mons.png" width="24px"><img src="../assets/mons.png" width="24px"></td>
+                  <td>2385</td>
+                  <td>34%</td>
+                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
                   <td>湖南</td>
-                  <td>1560</td>
-                  <td>19%</td>
-                  <td > <img src="../assets/mons.png" width="24px"> </td>
+                  <td>2160</td>
+                  <td>29%</td>
+                  <td > <img src="../assets/lighting.png" width="24px"> </td>
                 </tr> <tr>
                 <td>广东</td>
                 <td>1360</td>
-                <td>15%</td>
-                <td > <img src="../assets/mons.png" width="24px">  </td>
+                <td>29%</td>
+                <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr><tr>
                 <td>广西</td>
-                <td>1153</td>
-                <td>17%</td>
-                <td > <img src="../assets/mons.png" width="24px">  </td>
+                <td>1353</td>
+                <td>25%</td>
+                <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr><tr>
                 <td>江西</td>
-                <td>930</td>
+                <td>1230</td>
                 <td>21%</td>
-                <td > <img src="../assets/mons.png" width="24px">  </td>
+                <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr>
               </table>
+              <span class="numberBord"></span> <span class="numberBord" style="width: 110px;"></span> <span class="numberBord"></span>
+
             </div>
           </div>
         </div></el-col>
@@ -205,7 +210,7 @@ return{
                 color: '#2F2F2F'
               }]),
               title: {
-                text: '僵尸企业行业分布',
+                text: '僵尸企业营业利润增长分布',
                 textStyle:{
                   color:'#fff',
                   fontWeight:600,
@@ -227,10 +232,16 @@ return{
                 trigger: 'axis',
                 axisPointer: {
                   type: 'shadow'
-                }
+                },
+                formatter: '年份：{a} <br/>营业利润增长为：{b}<br>企业数量为: {c}个 '
               },
               legend: { //图例内容,点击能取消/显示图
-                data: []//跟下面的data要对应
+                data: ['2015年','2016年','2017年',],//跟下面的data要对应
+                textStyle:{
+                  color:'#fff'
+                },
+                top:30,
+                left:110
               },
               grid: {
                 left: '3%',
@@ -239,6 +250,13 @@ return{
                 containLabel: true
               },
               xAxis: {
+                name:'（家）',
+                nameLocation:'end',
+                nameTextStyle:{
+                  color:'#fff',
+                  // backgroundColor:'#f00',
+                },
+                nameGap:-18,
                 type: 'value',
                 boundaryGap: [0, 0.01],
                 nameTextStyle:{
@@ -250,8 +268,15 @@ return{
 
               },
               yAxis: {
+                name:'(%）',
+                nameLocation:'end',
+                nameTextStyle:{
+                  color:'#fff',
+                  // backgroundColor:'#f00',
+                },
+                nameGap:8,
                 type: 'category',
-                data: ['交通运输业', '服务业', '工业', '社区服务', '零售业', '商业服务'],
+                data: ['0-20', '20-40', '40-60', '60-80', '80-100'],
                 nameTextStyle:{
                   color:'#fff'
                 },
@@ -264,25 +289,49 @@ return{
               },
               series: [
                 {
-                  name: '僵尸企业',
+                  name: '2015年',
                   type: 'bar',
-                  data: [235, 115, 1120, 300, 74, 411],
+                  data: [235, 1150, 420, 300, 74],
                   itemStyle: {//柱子的颜色
                     color:'#00CCFB',
                     opacity:0.8
                   },
-                  barWidth:15,
+                  barWidth:6,
                   label:{
-                    show:true,
+                    // show:true,
+                    color:'#fff'
+                  }
+
+                },  {
+                  name: '2016年',
+                  type: 'bar',
+                  data: [125, 980, 650, 400, 87],
+                  itemStyle: {//柱子的颜色
+                    color:'#FF4200',
+                    opacity:0.8
+                  },
+                  barWidth:6,
+                  label:{
+                    // show:true,
+                    color:'#fff'
+                  }
+
+                },  {
+                  name: '2017年',
+                  type: 'bar',
+                  data: [233, 1000, 665, 420, 65],
+                  itemStyle: {//柱子的颜色
+                    color:'#ffff00',
+                    opacity:0.8
+                  },
+                  barWidth:6,
+                  label:{
+                    // show:true,
                     color:'#fff'
                   }
 
                 },
-                // {
-                //   name: '2012年',
-                //   type: 'bar',
-                //   data: [19325, 23438, 31000, 121594, 134141, 681807]
-                // }
+
               ],
               textStyle:{
                 // color:'#fff'
@@ -295,14 +344,14 @@ return{
             var myChart_2 = echarts.init(document.getElementById('ditu'));
             window.onresize = myChart_2.resize;
             myChart_2.setOption({
-              backgroundColor: "#2f2f2f",
-              backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.4, 0.7, [{
-                offset: 0,
-                color: '#0E9DBE'
-              }, {
-                offset: 0.8,
-                color: '#2F2F2F'
-              }]),
+              // backgroundColor: "#2f2f2f",
+              // backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.4, 0.7, [{
+              //   offset: 0,
+              //   color: '#0E9DBE'
+              // }, {
+              //   offset: 0.8,
+              //   color: '#2F2F2F'
+              // }]),
               tooltip: {}, // 鼠标移到图里面的浮动提示框
               dataRange: {
                 show: true,
@@ -921,7 +970,8 @@ console.log("lllllllllllllllll");
               padding:[5,5]
             },
             tooltip: {
-              trigger: 'axis'
+              trigger: 'item',
+              formatter: '企业类型：{a} <br/>持股占比为{b}的企业数量为: {c}个 '
             },
             legend: {
               data: ['僵尸企业', '非僵尸企业'],
@@ -938,11 +988,24 @@ console.log("lllllllllllllllll");
             },
 
             xAxis: {
-              // name:'%',
+              name:'(%）',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:-8,
               type: 'category',
               data: ['0-20', '20-40', '40-60', '60-80', '80-100']
             },
             yAxis: {
+              name:'企业数量',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:12,
               type: 'value',
               max:1500,
             },
@@ -1025,6 +1088,13 @@ console.log("lllllllllllllllll");
               containLabel: true
             },
             xAxis: {
+              name:'年',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:0,
               type: 'category',
               boundaryGap: ['20%','10%'],
 
@@ -1038,6 +1108,13 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
+              name:'万元',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:8,
               type: 'value',
               min:150,
               max:1120,
@@ -1181,6 +1258,13 @@ console.log("lllllllllllllllll");
               containLabel: true
             },
             xAxis: {
+              name:'年',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:0,
               type: 'category',
               boundaryGap: ['20%','10%'],
 
@@ -1194,6 +1278,13 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
+              name:'万元',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:8,
               type: 'value',
               min:250,
               max:800,
@@ -1322,7 +1413,8 @@ console.log("lllllllllllllllll");
               trigger: 'axis',
               axisPointer: {
                 type: 'shadow'
-              }
+              },
+              formatter: '企业类型：{a} <br/>注册时间与资本: {c}<br>企业数量：783'
             },
             legend: { //图例内容,点击能取消/显示图
               right: 10,
@@ -1339,6 +1431,13 @@ console.log("lllllllllllllllll");
             },
             xAxis: {
               // data: data[0],
+              name:'年',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:-8,
               min:1990,
               max:2020,
 
@@ -1357,6 +1456,13 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
+              name:'注册资本(万元)',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:14,
               splitLine: {
                 lineStyle: {
                   type: 'dashed'
@@ -1483,6 +1589,7 @@ console.log("lllllllllllllllll");
               padding:[5,5]
             },
             xAxis: {
+
               type: 'category',
               data: ['湖北', '湖南','江西','广西','广东','福建',],
               nameTextStyle:{
@@ -1490,12 +1597,12 @@ console.log("lllllllllllllllll");
               },
               textStyle:{
                 color:'#fff',
-                fontSize:12,
+                fontSize:8,
 
               },
               axisLabel:{
                 color:'#fff',
-                fontSize:16
+                fontSize:12
 
               }
             },
@@ -1514,6 +1621,13 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
+              name:'(%）',
+              nameLocation:'end',
+              nameTextStyle:{
+                color:'#fff',
+                // backgroundColor:'#f00',
+              },
+              nameGap:8,
               type: 'value',
               max:100,
 
@@ -1524,6 +1638,7 @@ console.log("lllllllllllllllll");
                 color:'#fff'
               },
               axisLabel:{
+                show:true,
                 color:'#fff'
               }
             },
@@ -1539,6 +1654,10 @@ console.log("lllllllllllllllll");
 
               textStyle:{
                 color:"#fff"
+              },
+              label:{
+                show:true,
+                color:'#fff'
               }
             },{
               name:'非僵尸企业',
@@ -1552,6 +1671,10 @@ console.log("lllllllllllllllll");
               },
               textStyle:{
                 color:"#fff"
+              },
+              label:{
+                show:true,
+                color:'#fff'
               }
             },
             ]
@@ -1589,14 +1712,16 @@ console.log("lllllllllllllllll");
   .el-col {
     border-radius: 4px;
   }
-  .bg-purple-dark {
-    background: #2f2f2f;
-  }
+  /*.bg-purple-dark {*/
+  /*  background: #2f2f2f;*/
+  /*}*/
   .bg-purple {
     background: #2f2f2f;
+    /*background-image: url("../assets/lan1.png");*/
+    background-repeat: no-repeat;
   }
   .bg-purple-light {
-    background: #2f2f2f;
+    /*background: #2f2f2f;*/
   }
   .grid-content {
     /*border-radius: 4px;*/
@@ -1604,10 +1729,10 @@ console.log("lllllllllllllllll");
   }
   .row-bg {
     padding: 10px 0;
-    background-color: #2f2f2f;
+    /*background-color: #2f2f2f;*/
   }
   .numberBord{
-    width: 30px;height: 18px;display: inline-block;border:2px solid #00C1FB;border-radius: 4px;font-size: 12px
+    width: 50px;height: 1px;display: inline-block;border:1px solid #00C1FB;border-radius: 1px;font-size: 12px
   }
   .numberText{
     font-size: 12px;
@@ -1622,7 +1747,7 @@ font-weight: bolder;
     margin-left: 250px;
   }
 body{
-  background-color: #2f2f2f;
+  /*background-color: #2f2f2f;*/
   color: #f0f0f0;
   background-image: url("../assets/user.png");
 }
@@ -1634,10 +1759,16 @@ body{
     font-size: 12px;
     line-height: 2px;
     margin-top: 16px;
-    background-image: url("../assets/组1.png");
+    /*background-image: url("../assets/蓝框.png");*/
   }
   table tr {
     /*line-height: 2px;*/
     height: 0px;
+  }
+  #hangyeText{
+    /*background-image: url("../assets/lan2.png");*/
+    background-repeat: no-repeat;
+    /*margin: 10px;*/
+
   }
 </style>

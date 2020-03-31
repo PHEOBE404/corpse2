@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="body">
 <!--    <img src="../assets/粒子.jpg" width="100%"style="position: fixed;">-->
-
+<!--    <img src="../assets/粒子90.png" height="100%"style="float:left;position: fixed;">-->
     <div class="menubar">
     <el-menu :default-active=activebar class="el-menu-vertical-demo" @click="handleOpen" @close="handleClose" :collapse="isCollapse"router>
       <el-menu-item index="/corpse/companysearch">
         <i class="el-icon-location"></i>
         <span slot="title">企业信息查询</span>
       </el-menu-item>
-      <el-menu-item index="/corpse/computed">
+      <el-menu-item index="/corpse">
         <i class="el-icon-menu"></i>
         <span slot="title">僵尸企业测评</span>
       </el-menu-item>
@@ -23,7 +23,8 @@
     </el-menu>
   </div>
     <div class="footer">
-        <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
+        <img src="../assets/logo.png" width="20px" @click="toHome">
+      <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
           <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
       <i class="el-icon-monitor"></i>
       <span >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
@@ -64,6 +65,9 @@
 </script>
 
 <style scoped>
+  .body{
+    /*background-image: url("../assets/粒子.jpg");*/
+  }
   .menubar{
     /*float: left;*/
     margin-top: 100px;

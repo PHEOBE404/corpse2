@@ -1,6 +1,6 @@
 <template>
     <div class="body">
-      <img src="../assets/粒子.jpg" width="1580px"style="float:left;position: fixed;">
+<!--      <img src="../assets/粒子.jpg" width="1580px"style="float:left;position: fixed;">-->
       <div class="footer">
 <!--        <img src="../assets/logo.png" width="20px" @click="toHome">  -->
         <span style="font-family: '微软雅黑';font-size: 20px;color: #fff">探·僵局查询系统</span>
@@ -54,7 +54,7 @@
         al2:function(){
           // alert("进入僵尸企业测评模块");
           this.moveMenu();
-          this.$router.push({path:'/corpse/computed'});
+          this.$router.push({path:'/computed'});
 
         },
         al3:function(){
@@ -84,13 +84,14 @@
 
   .body{
     padding: 0;
-    width: 100%;
+    /*width: 100%;*/
     /*background-color: #5daf34;*/
-    height: 900px;
-    margin: 0px auto;
-    /*background-image: url("../assets/城市.jpg");*/
+    /*height: 900px;*/
+    /*margin: 0px auto;*/
+    background-image: url("../assets/粒子92.png");
+
     background-repeat:no-repeat;
-    background-position:center center;
+    background-position:center top;
   }
   .footer{
     /*width: 900px;*/

@@ -33,6 +33,10 @@ export default new Router({
 
     },
     {
+      path: '/computed',
+      component: Computed
+    },
+    {
       path: '/companybase/:id',
       component: CompanyBase
     },{
@@ -51,10 +55,11 @@ export default new Router({
         {
           path:'companysearch',
           component:CompanySearch
-        },{
-          path: 'computed',
-          component: Computed
-        }
+        },
+        // {
+        //   path: 'computed',
+        //   component: Computed
+        // }
       ]
     }
   ]
