@@ -1,8 +1,8 @@
 <template>
     <div class="body">
       <div class="footer">
-        <span class="title"><a href="">探僵局查询系统 </a></span>
-
+        <span class="title"><router-link to="/home">
+          <img src="../assets/logo-teng-full.png" width="240px"></router-link></span>
         <div class="userfooter">
           <span class="current_time">{{currentTime}}</span>
           <span class="user_a">用户5988741</span>

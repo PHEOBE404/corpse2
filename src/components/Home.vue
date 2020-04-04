@@ -1,7 +1,9 @@
 <template>
     <div class="body">
       <div class="footer">
-        <span >探僵局查询系统</span>
+          <span class="title"><a href="">
+          <img src="../assets/logo-teng-full.png" width="240px">
+         </a></span>
 
         <div class="userfooter">
           <!--    <span>2020年4月1日</span>-->
@@ -53,7 +55,7 @@
           alt1:function () {
             // alert("进入企业信息模块");
             this.moveMenu();
-            this.$router.push({path:'/corpse/companysearch'});
+            this.$router.push({path:'/companysearch'});
 
           },
         al2:function(){

@@ -4,7 +4,9 @@
 <!--    <iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="100%" src="../static/fbx_big.html"></iframe>-->
 <!--  </div>-->
     <div class="footer">
-      <span class="title"><a href="">探僵局查询系统 </a></span>
+     <span class="title"><router-link to="/home">
+          <img src="../assets/logo-teng-full.png" width="240px">
+         </router-link></span>
 
       <div class="userfooter">
         <span class="current_time">{{currentTime}}</span>
