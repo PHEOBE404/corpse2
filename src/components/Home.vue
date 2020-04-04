@@ -1,15 +1,14 @@
 <template>
     <div class="body">
-<!--      <img src="../assets/粒子.jpg" width="1580px"style="float:left;position: fixed;">-->
       <div class="footer">
-<!--        <img src="../assets/logo.png" width="20px" @click="toHome">  -->
-        <span style="font-family: '微软雅黑';font-size: 20px;color: #fff">探·僵局查询系统</span>
-        <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>
-        <i class="el-icon-s-custom"></i>
-        <span style="color: #fff;" >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>
+        <span >探僵局查询系统</span>
 
-        <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>
-        <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>
+        <div class="userfooter">
+          <!--    <span>2020年4月1日</span>-->
+          <span class="current_time">{{currentTime}}</span>
+          <span class="user_a">用户5988741</span>
+        </div>
+
       </div>
       <div class="list">
 <!--        <div class="user">-->
@@ -44,6 +43,12 @@
 
     export default {
         name: "Home",
+      data(){
+        return{
+          timer: "",//定义一个定时器的变量
+          currentTime: "----------------------", // 获取当前时间
+        }
+      },
       methods:{
           alt1:function () {
             // alert("进入企业信息模块");
@@ -76,12 +81,33 @@
             })
 
           }
-      }
+      },
+      created(){
+        var _this = this; //声明一个变量指向Vue实例this，保证作用域一致
+        this.timer = setInterval(function() {
+          _this.currentTime = //修改数据date
+            new Date().getFullYear() +
+            "年" +
+            (new Date().getMonth() + 1) +
+            "月" +
+            new Date().getDate() +
+            "日      " +
+            new Date().getHours() +
+            ":" +
+            new Date().getMinutes()
+
+        }, 1000);
+      },
+      beforeDestroy() {
+        if (this.timer) {
+          clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+        }
+      },
     }
 </script>
 
 <style scoped>
-
+  @import "../assets/basci.css";
   .body{
     padding: 0;
     /*width: 100%;*/
@@ -114,4 +140,8 @@ width: 550px;
     margin: 0 auto;
     /*background-color: #8c939d;*/
   }
+  .userfooter{
+    position: absolute;
+    left: 1070px
+     }
 </style>

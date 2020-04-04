@@ -8,6 +8,7 @@ import RouterBar from "../components/RouterBar";
 import Computed from "../components/Computed";
 import Mulinput from "../components/Mulinput";
 import BigData from "../components/BigData";
+import Me from "../components/Me";
 
 Vue.use(Router)
 
@@ -30,6 +31,10 @@ export default new Router({
     {
       path: '/bigdata',
       component: BigData
+
+    }, {
+      path: '/me',
+      component: Me
 
     },
     {

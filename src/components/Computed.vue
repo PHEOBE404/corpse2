@@ -1,20 +1,21 @@
 <template>
     <div class="body">
-<div class="footer">
-  <span >探僵局查询系统</span>
+      <div class="footer">
+        <span class="title"><a href="">
+          <img src="../assets/logo-su.png" width="100px">
+          探僵局查询系统 </a></span>
 
-  <div class="userfooter">
-<!--    <span>2020年4月1日</span>-->
-    <span>{{currentTime}}</span>
-    <span>用户5988741</span>
-  </div>
-  <div class="rightmenu">
-<span><a href="#">企业信息查询</a></span>
-<span class="active"><a href="#">僵尸企业测评</a></span>
-<span><a href="#">大数据分析</a></span>
-<span><a href="#">个人中心</a></span>
-  </div>
-</div>
+        <div class="userfooter">
+          <span class="current_time">{{currentTime}}</span>
+          <span class="user_a">用户5988741</span>
+        </div>
+        <div class="rightmenu">
+          <span><router-link to="/companysearch">企业信息查询</router-link></span>
+          <span class="active"><router-link to="/computed">僵尸企业测评</router-link></span>
+          <span><router-link  to="/bigdata">大数据分析</router-link ></span>
+          <span><router-link to="/me">个人中心</router-link></span>
+        </div>
+      </div>
       <h3 style="color: #FFFFFF;text-align: center;margin-top: 170px">请选择计算模型:</h3>
 <!--      <div class="step">-->
 <!--        <el-steps :active="0" align-center>-->
@@ -73,7 +74,7 @@
     data(){
           return{
             timer: "",//定义一个定时器的变量
-            currentTime: "--------------------------", // 获取当前时间
+            currentTime: "----------------------", // 获取当前时间
           }
     },
     methods:{
@@ -93,9 +94,7 @@
           "日      " +
           new Date().getHours() +
           ":" +
-          new Date().getMinutes() +
-          ":" +
-          new Date().getSeconds();
+          new Date().getMinutes()
       }, 1000);
     },
     beforeDestroy() {
@@ -128,6 +127,7 @@
 </script>
 
 <style scoped>
+@import "../assets/basci.css";
   *{
     margin: 0;
     padding: 0;
@@ -136,9 +136,8 @@
   .body{
     background-image: url("../assets/粒子92.png");
     background-repeat: no-repeat;
-    /*width: 1816px;*/
     background-position: center top;
-    height: 916px;
+    height: 740px;
   }
 .cardgroup{
 /*width: 1400px;*/
@@ -162,6 +161,7 @@ margin: 20px auto;
   background-color: #FFFFFF;
   background-color:transparent ;
   background-image: url("../assets/粒子92.png");
+  background-position: left center;
   border-width: 0;
   color: #FFFFFF;
 }
@@ -169,55 +169,5 @@ margin: 20px auto;
     width: 800px;
     margin: 10px auto;
   }
-.footer{
-  margin-left: 50px;
-  color: #FFFFFF;
-  font-family: 微软雅黑;
-}
-  .rightmenu{
-    display: inline-block;
-    float: right;
-    border-width: 8px;
-    /*border-color: #5ACDFF;*/
-    background-color: #041A29;
 
-    font-size: 16px;
-  }
-  .rightmenu span{
-    width: 200px;
-    /*background-image: url("../assets/34118972.jpg.png");*/
-    border-width: 8px;
-    border-color: #5ACDFF;
-    border-radius: 2px;
-    padding: 6px;
-    line-height: 38px;
-
-  }
-  .rightmenu span a{
-    color: #FFFFFF;
-    text-decoration:none;
-    /*line-height: 28px;*/
-  }
-  .userfooter{
-    display: inline-block;
-    float: right;
-    border-width: 8px;
-    /*border-color: #5ACDFF;*/
-    background-color: #041A29;
-padding-left: 40px;
-    font-size: 14px;
-  }
-  .userfooter span{
-    width: 200px;
-    border-width: 8px;
-    border-color: #5ACDFF;
-    border-radius: 2px;
-    padding: 6px;
-    line-height: 38px;
-
-  }
-  .active{
-    background-image: url("../assets/34118972.jpg.png");
-
-  }
 </style>

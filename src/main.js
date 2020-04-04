@@ -10,8 +10,8 @@ import echarts from 'echarts';
 import './my-theme/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
-Vue.use(VueAxios, axios)
+// Vue.prototype.$axios = axios;
+Vue.use(VueAxios, axios);
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 Vue.use(ElementUI);

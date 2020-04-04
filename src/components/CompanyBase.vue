@@ -1,50 +1,33 @@
 <template>
-  <div>
-  <div class="pre_fbx" v-if="pre_fbx" style="width: 100%;height: 800px;" @click="init_fbx">
-    <iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="100%" src="../static/fbx_big.html"></iframe>
+  <div class="body">
+<!--  <div class="pre_fbx" v-if="pre_fbx" style="width: 100%;height: 800px;" @click="init_fbx">-->
+<!--    <iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="100%" src="../static/fbx_big.html"></iframe>-->
+<!--  </div>-->
+    <div class="footer">
+      <span class="title"><a href="">探僵局查询系统 </a></span>
 
-  </div>
+      <div class="userfooter">
+        <span class="current_time">{{currentTime}}</span>
+        <span class="user_a">用户5988741</span>
+      </div>
+      <div class="rightmenu">
+        <span class="active"><router-link to="/companysearch">企业信息查询</router-link></span>
+        <span ><router-link to="/computed">僵尸企业测评</router-link></span>
+        <span><router-link  to="/bigdata">大数据分析</router-link ></span>
+        <span><router-link to="/me">个人中心</router-link></span>
+      </div>
+    </div>
+
     <div style="width: 100%" v-if="!pre_fbx">
-      <div class="footer">
-        <!--      <div class="footer" >-->
-        <img src="../assets/logo.png" width="30px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>
-        <!--        <div style="float: right;margin-right: 50px">-->
-        <span style="color:#186EC5 ;font-size: 14px;margin-left: 620px"></span>
-        <img src="../assets/user.png" width="30px" style="margin-top: 10px;margin-left: 180px">
-        <span >用户8462336</span>
-        <el-button type="text" icon="el-icon-delete">退出</el-button>
-        <!--        </div>-->
-        <!--      </div>-->
 
 
-
-      </div>
-      <div class="menubar">
-        <el-menu default-active="/corpse/companysearch" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse"router>
-          <el-menu-item index="/corpse/companysearch">
-            <i class="el-icon-location"></i>
-            <span slot="title">企业信息查询</span>
-          </el-menu-item>
-          <el-menu-item index="/corpse/computed">
-            <i class="el-icon-menu"></i>
-            <span slot="title">僵尸企业测评</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-setting"></i>
-            <span slot="title">大数据分析</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-message"></i>
-            <span slot="title">个人中心</span>
-          </el-menu-item>
-        </el-menu>
-      </div>
       <div class="id">
       <h3>企业{{$route.params.id}}号</h3>
       </div>
       <div class="photo">
+
 <!--        <iframe src="home" ></iframe>-->
-        <iframe name="q" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="470" src="../static/fbx.html"></iframe>
+<!--        <iframe name="q" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="470" src="../static/fbx.html"></iframe>-->
       </div>
       <div class="baseInfo" >
         <el-row :gutter="20">
@@ -139,7 +122,9 @@
       data(){
 
           return{
-            pre_fbx:true,
+            pre_fbx:false,
+            timer: "",//定义一个定时器的变量
+            currentTime: "----------------------", // 获取当前时间
             activeName2: 'third',
             li:this.$route.params.id,//可以返回当前企业id
             isCollapse: !false,
@@ -187,14 +172,32 @@
 
       },
 created(){
-var iframe="<iframe  scrolling='no' width='100%'  src='../static/fbx_big.html'></iframe>"
+//var iframe="<iframe  scrolling='no' width='100%'  src='../static/fbx_big.html'></iframe>"
 
   // $("body").append(iframe);
   // this.init_fbx();
-  setTimeout(() => {
-    this.pre_fbx=false;
-  }, 5800);
+  // setTimeout(() => {
+  //   this.pre_fbx=false;
+  // }, 5800);
+  var _this = this; //声明一个变量指向Vue实例this，保证作用域一致
+  this.timer = setInterval(function() {
+    _this.currentTime = //修改数据date
+      new Date().getFullYear() +
+      "年" +
+      (new Date().getMonth() + 1) +
+      "月" +
+      new Date().getDate() +
+      "日      " +
+      new Date().getHours() +
+      ":" +
+      new Date().getMinutes()
+  }, 1000);
 },
+    beforeDestroy() {
+      if (this.timer) {
+        clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+      }
+    },
     methods:{
           init_fbx(){
             console.log("222111112");
@@ -530,6 +533,15 @@ var iframe="<iframe  scrolling='no' width='100%'  src='../static/fbx_big.html'><
 </script>
 
 <style scoped>
+  @import "../assets/basci.css";
+  .body{
+    background-image: url("../assets/城市.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 740px;
+    color: #FFFFFF;
+    /*opacity: .5;*/
+  }
   .g6-tooltip {
     padding: 10px 6px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -550,9 +562,11 @@ var iframe="<iframe  scrolling='no' width='100%'  src='../static/fbx_big.html'><
     height: 420px;
     background-color: #00243A;
     margin-top: 0px;
-    /*background-image: url("../assets/主题.png");*/
+    background-image: url("../assets/数字粒子.gif");
+    background-repeat: no-repeat;
     margin-left: 200px;
     display: inline-block;
+    font-size: 58px;
   }
   .id{
     width: 200px;

@@ -3,7 +3,7 @@
        element-loading-text="登录中"
        element-loading-spinner="el-icon-loading"
        element-loading-background="rgba(0, 0, 0, 0.8)">
-    <img src="../assets/粒子.jpg" height="100%"style="float:left;position: fixed;">
+<!--    <img src="../assets/粒子.jpg" height="100%"style="float:left;position: fixed;">-->
 
     <div class="bac">
       <!--<img src="../assets/登录页面（密码登录）.png" width="1500px" >-->
@@ -76,11 +76,13 @@
 
   }
   .bac{
-    /*background-image: url("../assets/登录页面（密码登录）.png");*/
+    background-image: url("../assets/粒子92.png");
     width: 100%;
     height: 900px;
     /*float: left;*/
-
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 916px;
   }
   .login{
     width: 200px;

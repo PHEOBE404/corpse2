@@ -1,12 +1,28 @@
 <template>
-    <div>
+  <div class="body">
+    <div class="footer">
+      <span class="title"><a href="">探僵局查询系统 </a></span>
+
+      <div class="userfooter">
+        <span class="current_time">{{currentTime}}</span>
+        <span class="user_a">用户5988741</span>
+      </div>
+      <div class="rightmenu">
+        <span><router-link to="/companysearch">企业信息查询</router-link></span>
+        <span ><router-link to="/computed">僵尸企业测评</router-link></span>
+        <span class="active"><router-link  to="/bigdata">大数据分析</router-link ></span>
+        <span><router-link to="/me">个人中心</router-link></span>
+      </div>
+    </div>
+
+    <div class="content">
       <el-row >
         <el-col :span="6">
-          <div class="grid-content bg-purple" id="hangye" style="height: 250px">
+          <div class="grid-content bg-purple" id="hangye" style="height: 220px">
 
         </div></el-col>
-        <el-col :span="12"><div class="grid-content bg-purple" style="height: 250px" id="ditu"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple" style="height: 250px" id="nianfen"></div></el-col>
+        <el-col :span="12"><div class="grid-content bg-purple" style="height: 220px" id="ditu"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple" style="height: 220px" id="nianfen"></div></el-col>
       </el-row>
       <el-row>
         <el-col :span="6">
@@ -151,14 +167,15 @@
       </el-row>
 
       <el-row >
-        <el-col :span="6"><div class="grid-content bg-purple" id="leixing" style="height: 250px">
+        <el-col :span="6"><div class="grid-content bg-purple" id="leixing" style="height: 230px">
 
         </div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple-light" style="height: 250px" id="rongziedu"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple-light" style="height: 250px" id="rongzichengben"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple" id="kongzhi2" style="height: 250px;"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light" style="height: 230px" id="rongziedu"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light" style="height: 230px" id="rongzichengben"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple" id="kongzhi2" style="height: 230px;"></div></el-col>
       </el-row>
     </div>
+  </div>
 </template>
 
 <script>
@@ -171,8 +188,30 @@
       data(){
 
 return{
-  chart: null
+  chart: null,
+  timer: "",//定义一个定时器的变量
+  currentTime: "----------------------", // 获取当前时间
 }
+      },
+      created(){
+        var _this = this; //声明一个变量指向Vue实例this，保证作用域一致
+        this.timer = setInterval(function() {
+          _this.currentTime = //修改数据date
+            new Date().getFullYear() +
+            "年" +
+            (new Date().getMonth() + 1) +
+            "月" +
+            new Date().getDate() +
+            "日      " +
+            new Date().getHours() +
+            ":" +
+            new Date().getMinutes()
+        }, 1000);
+      },
+      beforeDestroy() {
+        if (this.timer) {
+          clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+        }
       },
       mounted() {
           this.initHangYe();
@@ -1689,7 +1728,7 @@ console.log("lllllllllllllllll");
 </script>
 
 <style scoped>
-
+  @import "../assets/basci.css";
   body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
   dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
   pre, /* text formatting elements 文本格式元素 */
@@ -1708,7 +1747,17 @@ console.log("lllllllllllllllll");
   address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
   code, kbd, pre, samp { font-family: "Microsoft YaHei"; } /* 统一等宽字体 */
   small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
-
+  .body{
+    padding: 0;
+    /*width: 100%;*/
+    /*background-color: #5daf34;*/
+    /*height: 900px;*/
+    /*margin: 0px auto;*/
+    /*background-image: url("../assets/粒子92.png");*/
+background-color: #041A29;
+    background-repeat:no-repeat;
+    background-position:center top;
+  }
   .el-col {
     border-radius: 4px;
   }
@@ -1770,5 +1819,9 @@ body{
     background-repeat: no-repeat;
     /*margin: 10px;*/
 
+  }
+
+  .content{
+    /*padding-top: px;*/
   }
 </style>

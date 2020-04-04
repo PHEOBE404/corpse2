@@ -1,40 +1,24 @@
 <template>
     <div class="body">
 
-<!--      <div class="footer">-->
-<!--        <img src="../assets/user.png" width="30px" style="margin-top: 10px">-->
-<!--        <span >用户8462336</span>-->
-
-
-<!--      </div>-->
-<!--      <div class="footer">-->
-<!--        <img src="../assets/logo.png" width="20px" @click="toHome">  <span style="font-family: '微软雅黑';font-size: 20px">探·僵局查询系统</span>-->
-<!--        <span style="color:#186EC5 ;font-size: 14px;margin-left: 1020px"></span>-->
-<!--        <i class="el-icon-monitor"></i>-->
-<!--        <span >墨鱼</span>           <span style="color:#186EC5 ;font-size: 14px;margin-left: 10px"></span>-->
-
-<!--        <el-button type="text" icon="el-icon-message" size="medium" style="width: 20px"></el-button>-->
-<!--        <el-button type="text" icon="el-icon-switch-button" size="large"></el-button>-->
-<!--      </div>-->
       <div class="footer">
-        <span >探僵局查询系统</span>
+        <span class="title"><a href="">探僵局查询系统 </a></span>
 
         <div class="userfooter">
-          <!--    <span>2020年4月1日</span>-->
-          <span>{{currentTime}}</span>
-          <span>用户5988741</span>
+          <span class="current_time">{{currentTime}}</span>
+          <span class="user_a">用户5988741</span>
         </div>
         <div class="rightmenu">
-          <span><a href="#">企业信息查询</a></span>
-          <span class="active"><a href="#">僵尸企业测评</a></span>
-          <span><a href="#">大数据分析</a></span>
-          <span><a href="#">个人中心</a></span>
+          <span><router-link to="/companysearch">企业信息查询</router-link></span>
+          <span class="active"><router-link to="/computed">僵尸企业测评</router-link></span>
+          <span ><router-link  to="/bigdata">大数据分析</router-link ></span>
+          <span><router-link to="/me">个人中心</router-link></span>
         </div>
       </div>
 
       <div class="inputtype">
         <div style="margin-top: 120px">
-          <span style="color: #FFFFFF">请选择企业信息的输入方式：</span>
+          <span style="color: #FFFFFF;font-weight: bolder">请选择企业信息的输入方式：</span>
           <el-radio-group v-model="radio4" size="medium" @change="changeradio">
 
             <el-radio-button label="单个输入" ></el-radio-button>
@@ -678,6 +662,9 @@
       data() {
 
         return {
+
+          timer: "",//定义一个定时器的变量
+          currentTime: "----------------------", // 获取当前时间
           secondd:false,
           per1:0,
           per2:0,
@@ -1025,18 +1012,39 @@
         $("el-table-column").attr("align","center");
         console.log("111");
         this.singleajax();
-      }
+      },
+      created(){
+        var _this = this; //声明一个变量指向Vue实例this，保证作用域一致
+        this.timer = setInterval(function() {
+          _this.currentTime = //修改数据date
+            new Date().getFullYear() +
+            "年" +
+            (new Date().getMonth() + 1) +
+            "月" +
+            new Date().getDate() +
+            "日      " +
+            new Date().getHours() +
+            ":" +
+            new Date().getMinutes()
+        }, 1000);
+      },
+      beforeDestroy() {
+        if (this.timer) {
+          clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+        }
+      },
     }
 </script>
 
 <style scoped>
+  @import "../assets/basci.css";
   .body{
-
+width: 100%;
     background-image: url("../assets/粒子92.png");
-    background-repeat: no-repeat;
-    /*width: 1816px;*/
+    background-repeat: repeat-y;
     background-position: center top;
-    height: 916px;
+    min-height: 740px;
+
   }
   .inputtype{
     width: 560px;
@@ -1069,8 +1077,14 @@
     /*float: right;*/
   }
   .colla{
-    width: 1100px;
+    width: 1120px;
     margin: 0 auto;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 6px;
+    /*border-width: 2px;*/
+    /*border-color: #5daf34;*/
   }
   .footer{
     margin-left: 1%;
@@ -1162,51 +1176,9 @@
     margin-left: 50px;
     color: #FFFFFF;
     font-family: 微软雅黑;
+    position: relative;
   }
-  .rightmenu{
-    display: inline-block;
-    float: right;
-    border-width: 8px;
-    /*border-color: #5ACDFF;*/
-    background-color: #041A29;
-
-    font-size: 16px;
-  }
-  .rightmenu span{
-    width: 200px;
-    /*background-image: url("../assets/34118972.jpg.png");*/
-    border-width: 8px;
-    border-color: #5ACDFF;
-    border-radius: 2px;
-    padding: 6px;
-    line-height: 38px;
-
-  }
-  .rightmenu span a{
-    color: #FFFFFF;
-    text-decoration:none;
-    /*line-height: 28px;*/
-  }
-  .userfooter{
-    display: inline-block;
-    float: right;
-    border-width: 8px;
-    /*border-color: #5ACDFF;*/
-    background-color: #041A29;
-    padding-left: 40px;
-    font-size: 14px;
-  }
-  .userfooter span{
-    width: 200px;
-    border-width: 8px;
-    border-color: #5ACDFF;
-    border-radius: 2px;
-    padding: 6px;
-    line-height: 38px;
-
-  }
-  .active{
-    background-image: url("../assets/34118972.jpg.png");
-
-  }
+.userfooter{
+  margin-right: -56px;
+}
 </style>

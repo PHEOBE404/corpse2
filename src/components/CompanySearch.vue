@@ -1,22 +1,30 @@
 <template>
-    <div>
-      <img src="../assets/城市.jpg" height="100%"  opacity="0.1" style="position: fixed;margin-top: -50px">
+    <div class="body">
+      <div class="footer">
+        <span class="title"><a href="">探僵局查询系统 </a></span>
 
+        <div class="userfooter">
+          <span class="current_time">{{currentTime}}</span>
+          <span class="user_a">用户5988741</span>
+        </div>
+        <div class="rightmenu">
+          <span class="active"> <router-link to="/companysearch">企业信息查询</router-link></span>
+          <span ><router-link to="/computed">僵尸企业测评</router-link></span>
+          <span><router-link  to="/bigdata">大数据分析</router-link ></span>
+          <span><router-link to="/me">个人中心</router-link></span>
+        </div>
+      </div>
       <div class="sear_input"  v-if="show_item" style="position: fixed;margin-left: 500px">
-        <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%">
-
-        </el-input>
-        <el-button slot="append" icon="el-icon-search" type="primary" @click="show_item=!show_item"></el-button>
+        <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%"></el-input>
+        <el-button slot="append" icon="el-icon-search" type="primary" @click="to_search"></el-button>
 
       </div>
       <div class="sear_input_later"  v-if="!show_item" style="position: fixed;margin-left: 440px;margin-top: 50px">
-        <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%">
-
-        </el-input>
+        <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%"></el-input>
         <el-button slot="append" icon="el-icon-search" type="primary" ></el-button>
 
       </div>
-      <div class="table" v-if="!show_item" style="position: fixed;margin-left: 340px;margin-top: 150px;height: 400px;background-color: #fff">
+      <div class="table" v-if="!show_item" >
         <template>
           <el-table
             :data="tableData"
@@ -66,14 +74,18 @@
 </template>
 
 <script>
+  import axios from 'axios';
     export default {
         name: "CompanySearch",
       data(){
           return{
             isCollapse: !false,
+            timer: "",//定义一个定时器的变量
+            currentTime: "----------------------", // 获取当前时间
             select_tpye:'',
             select_key:'',
             show_item:!false,
+            testdata:'',
             tableData: [
               {
               id: '489123',
@@ -92,7 +104,37 @@
             ]
           }
       },
+      created(){
+        var _this = this; //声明一个变量指向Vue实例this，保证作用域一致
+        this.timer = setInterval(function() {
+          _this.currentTime = //修改数据date
+            new Date().getFullYear() +
+            "年" +
+            (new Date().getMonth() + 1) +
+            "月" +
+            new Date().getDate() +
+            "日      " +
+            new Date().getHours() +
+            ":" +
+            new Date().getMinutes()
+        }, 1000);
+      },
+      beforeDestroy() {
+        if (this.timer) {
+          clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+        }
+      },
       methods:{
+        to_search(){
+          this.axios.get('http://47.98.131.111/zombie_dig/CompanyInfo/28').then((response)=>{
+            this.testdata=response;
+          }).catch((response)=>{
+            console.log(response);
+            this.show_item=!this.show_item;
+
+          })
+
+        },
         handleOpen(key, keyPath) {
           console.log(key, keyPath);
         },
@@ -123,6 +165,14 @@
 </script>
 
 <style scoped>
+  @import "../assets/basci.css";
+  .body{
+    background-image: url("../assets/城市.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 740px;
+    /*opacity: .5;*/
+  }
   .menubar{
     /*float: left;*/
     margin-top: 100px;
@@ -152,5 +202,12 @@
 .table{
   width: 760px;
   margin: 0 auto;
+  background-color: #FFFFFF;
+  padding: 8px;
+  position: fixed;
+  margin-left: 340px;
+  margin-top: 150px;
+  /*height: 400px;*/
+  border-radius: 4px;
 }
 </style>
