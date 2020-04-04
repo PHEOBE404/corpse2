@@ -3,7 +3,7 @@
       <div class="footer">
         <span class="title"><a href="">
           <img src="../assets/logo-su.png" width="100px">
-          探僵局查询系统 </a></span>
+          查询系统   </a></span>
 
         <div class="userfooter">
           <span class="current_time">{{currentTime}}</span>
