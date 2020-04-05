@@ -21,93 +21,156 @@
     </div>
 
     <div style="width: 100%" v-if="!pre_fbx">
+<div class="left_contain">
+  <div class="left_back">
+<!--    <i class="el-icon-back"></i>返回-->
+<!--    <el-button type="primary" icon="el-icon-back">返回</el-button>-->
+  </div>
+</div>
+      <div class="right_contain">
+        <div class="right_title1">企业画像信息 </div>
+        <div class="right_1">
 
-
-      <div class="id">
-      <h3>企业{{$route.params.id}}号</h3>
-      </div>
-      <div class="photo">
-
-<!--        <iframe src="home" ></iframe>-->
-<!--        <iframe name="q" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="470" src="../static/fbx.html"></iframe>-->
-      </div>
-      <div class="baseInfo" >
-        <el-row :gutter="20">
-          <el-col :span="4"><div class="grid-content bg-purple">
-            <span class="bord">1</span>企业名称</div></el-col>
-          <el-col :span="8"><div class="grid-content bg-purple">未命名</div></el-col>
-          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>所属地区</div></el-col>
-          <el-col :span="8"><div class="grid-content bg-purple">上海市</div></el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>注册时间</div></el-col>
-          <el-col :span="8"><div class="grid-content bg-purple">2005年</div></el-col>
-          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>企业类型</div></el-col>
-          <el-col :span="8"><div class="grid-content bg-purple">农民专业合作社</div></el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>注册资本</div></el-col>
-          <el-col :span="8"><div class="grid-content bg-purple">2050 万</div></el-col>
-          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>控制人类型</div></el-col>
-          <el-col :span="8"><div class="grid-content bg-purple">企业法人</div></el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>知识产权</div></el-col>
-          <el-col :span="16">
-            <div class="grid-content bg-purple">
-
-              <el-tag type="success">享有专利</el-tag>
-              <el-tag type="success">享有商标</el-tag>
-              <el-tag type="info">未享有著作权</el-tag>
-          </div></el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>僵尸企业测评结果</div></el-col>
-          <el-col :span="16">
-            <div class="grid-content bg-purple warn">僵尸企业</div></el-col>
-        </el-row>
-
-        <el-row :gutter="20">
-          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>企业安全测评结果</div></el-col>
-          <el-col :span="16"><div class="grid-content bg-purple ">不安全</div></el-col>
-        </el-row>
-      </div>
-      <div class="tab">
-        <template>
-          <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
-            <el-tab-pane label="数据分析" name="first">建设中</el-tab-pane>
-            <el-tab-pane label="企业特征" name="second">
-
-              <div id="radioCont">
-              </div>
-              <div id="radioText">
-
-
-                <el-collapse v-model="activeNames" @change="handleChange">
-                  <el-collapse-item :name=index v-for="(item,index) in bbb"  >
-                    <template slot="title">
-                      <i class="el-icon-caret-right"></i>
-<!--                      <img src="../assets/边框.png" width="16px" height="20px" style="margin-left: 10px;margin-right: 10px">-->
-                                     <div  class="itemback">       <h3>{{item.k}}</h3>
-                                     </div>
-                    </template>
-                    {{item.v}}
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-
-
-            </el-tab-pane>
-            <el-tab-pane label="企业预警" name="third">
-              <div>
-                <div id="mountNode"></div>
-
+        </div>
+        <div class="right_title2">企业基本信息 </div>
+        <div class="right_2">
+                  <el-row :gutter="5">
+                    <el-col :span="5"><div class="grid-content ">企业名称</div></el-col>
+                    <el-col :span="6"><div class=" bg-purple">未命名</div></el-col>
+                    <el-col :span="5"><div class="grid-content ">所属地区</div></el-col>
+                    <el-col :span="7"><div class=" bg-purple">上海市</div></el-col>
+                  </el-row>
+                  <el-row :gutter="5">
+                    <el-col :span="5"><div class="grid-content ">注册年份</div></el-col>
+                    <el-col :span="6"><div class=" bg-purple">2005年</div></el-col>
+                    <el-col :span="5"><div class="grid-content ">企业类型</div></el-col>
+                    <el-col :span="7"><div class=" bg-purple">农民专业合作社</div></el-col>
+                  </el-row>
+                  <el-row :gutter="5">
+                    <el-col :span="5"><div class="grid-content ">注册资本</div></el-col>
+                    <el-col :span="6"><div class=" bg-purple">2050 万</div></el-col>
+                    <el-col :span="5"><div class="grid-content ">控制人类型</div></el-col>
+                    <el-col :span="7"><div class=" bg-purple">企业法人</div></el-col>
+                  </el-row>
+        </div>
+        <div class="right_title3">企业标签 </div>
+        <div class="right_3">
+          <div style="margin-top: 5px;text-align: center">
+<!--            <p></p>-->
+            <el-radio-group v-model="radio6"  size="mini" fill="red">
+              <el-radio-button label="普通企业" disabled></el-radio-button>
+              <el-radio-button label="僵尸企业"></el-radio-button>
+            </el-radio-group>
+            <el-radio-group v-model="radio7"  size="mini">
+              <el-radio-button label="添加企业" disabled></el-radio-button>
+              <el-radio-button label="系统企业" ></el-radio-button>
+            </el-radio-group>
+            <div class="tag">
+              <ul>
+                <li><a >商标</a></li>
+                <li><a>著作权</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+                <li><a>交通运输业</a></li>
+              </ul>
             </div>
-            </el-tab-pane>
-            <el-tab-pane label="3D企业" name="fourth">建设中</el-tab-pane>
-          </el-tabs>
-        </template>
-      </div>
+          </div>
+        </div>
+    </div>
+
+<!--      <div class="id">-->
+<!--      <h3>企业{{$route.params.id}}号</h3>-->
+<!--      </div>-->
+<!--      <div class="photo">-->
+<!--&lt;!&ndash;        <iframe src="home" ></iframe>&ndash;&gt;-->
+<!--&lt;!&ndash;        <iframe name="q" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="470" src="../static/fbx.html"></iframe>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="baseInfo" >-->
+<!--        <el-row :gutter="20">-->
+<!--          <el-col :span="4"><div class="grid-content bg-purple">-->
+<!--            <span class="bord">1</span>企业名称</div></el-col>-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple">未命名</div></el-col>-->
+<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>所属地区</div></el-col>-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple">上海市</div></el-col>-->
+<!--        </el-row>-->
+<!--        <el-row :gutter="20">-->
+<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>注册时间</div></el-col>-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple">2005年</div></el-col>-->
+<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>企业类型</div></el-col>-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple">农民专业合作社</div></el-col>-->
+<!--        </el-row>-->
+<!--        <el-row :gutter="20">-->
+<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>注册资本</div></el-col>-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple">2050 万</div></el-col>-->
+<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>控制人类型</div></el-col>-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple">企业法人</div></el-col>-->
+<!--        </el-row>-->
+<!--        <el-row :gutter="20">-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>知识产权</div></el-col>-->
+<!--          <el-col :span="16">-->
+<!--            <div class="grid-content bg-purple">-->
+
+<!--              <el-tag type="success">享有专利</el-tag>-->
+<!--              <el-tag type="success">享有商标</el-tag>-->
+<!--              <el-tag type="info">未享有著作权</el-tag>-->
+<!--          </div></el-col>-->
+<!--        </el-row>-->
+<!--        <el-row :gutter="20">-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>僵尸企业测评结果</div></el-col>-->
+<!--          <el-col :span="16">-->
+<!--            <div class="grid-content bg-purple warn">僵尸企业</div></el-col>-->
+<!--        </el-row>-->
+
+<!--        <el-row :gutter="20">-->
+<!--          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>企业安全测评结果</div></el-col>-->
+<!--          <el-col :span="16"><div class="grid-content bg-purple ">不安全</div></el-col>-->
+<!--        </el-row>-->
+<!--      </div>-->
+<!--      <div class="tab">-->
+<!--        <template>-->
+<!--          <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">-->
+<!--            <el-tab-pane label="数据分析" name="first">建设中</el-tab-pane>-->
+<!--            <el-tab-pane label="企业特征" name="second">-->
+
+<!--              <div id="radioCont">-->
+<!--              </div>-->
+<!--              <div id="radioText">-->
+
+
+<!--                <el-collapse v-model="activeNames" @change="handleChange">-->
+<!--                  <el-collapse-item :name=index v-for="(item,index) in bbb"  >-->
+<!--                    <template slot="title">-->
+<!--                      <i class="el-icon-caret-right"></i>-->
+<!--&lt;!&ndash;                      <img src="../assets/边框.png" width="16px" height="20px" style="margin-left: 10px;margin-right: 10px">&ndash;&gt;-->
+<!--                                     <div  class="itemback">       <h3>{{item.k}}</h3>-->
+<!--                                     </div>-->
+<!--                    </template>-->
+<!--                    {{item.v}}-->
+<!--                  </el-collapse-item>-->
+<!--                </el-collapse>-->
+<!--              </div>-->
+
+
+<!--            </el-tab-pane>-->
+<!--            <el-tab-pane label="企业预警" name="third">-->
+<!--              <div>-->
+<!--                <div id="mountNode"></div>-->
+
+<!--            </div>-->
+<!--            </el-tab-pane>-->
+<!--            <el-tab-pane label="3D企业" name="fourth">建设中</el-tab-pane>-->
+<!--          </el-tabs>-->
+<!--        </template>-->
+<!--      </div>-->
 
 
 <!--{{li}}-->
@@ -124,6 +187,8 @@
       data(){
 
           return{
+            radio6: '僵尸企业',
+            radio7: '系统企业',
             pre_fbx:false,
             timer: "",//定义一个定时器的变量
             currentTime: "----------------------", // 获取当前时间
@@ -536,12 +601,17 @@ created(){
 
 <style scoped>
   @import "../assets/basci.css";
+  *{
+    margin: 0;
+    padding: 0;
+  }
   .body{
     background-image: url("../assets/城市.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     height: 740px;
     color: #FFFFFF;
+
     /*opacity: .5;*/
   }
   .g6-tooltip {
@@ -588,31 +658,39 @@ created(){
 
   }
   .el-row {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   &:last-child {
      margin-bottom: 0;
    }
   }
   .el-col {
-    border-radius: 4px;
+    /*border-radius: 4px;*/
+    background-color: #000000;
   }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
+
   .bg-purple {
-    /*background: #d3dce6;*/
-    font-size: 18px;
-    /*background-image: url("../assets/边框.png");*/
-    /*background-position: center right;*/
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+    font-size: 12px;
+    text-align: center;
+    /*border-radius: 2px;*/
+    min-height: 20px;
     border-color: black;
-    /*border*/
+    height: 20px;
+    background: #000000;
+    opacity: 80%;
+
+  }
+
+  .grid-content {
+    font-size: 12px;
+    text-align: center;
+    border-radius: 2px;
+    min-height: 20px;
+    border-width: 2px;
+    border-style:solid;
+    border-color: #1A6FC9;
+    /*height: 20px;*/
+    /*background-color: #2f2f2f;*/
+
   }
   .row-bg {
     padding: 10px 0;
@@ -652,4 +730,110 @@ created(){
     display: inline-block;
     /*float: right;*/
   }
+  .footer{
+    margin-left: 50px;
+    color: #FFFFFF;
+    font-family: 微软雅黑;
+    position: relative;
+  }
+  .userfooter{
+    margin-right: -56px;
+  }
+  .left_contain{
+    width: 76%;
+    height: 705px;
+    background-color: #5daf34;
+    background-image: url("../assets/art1.gif");
+    background-repeat: no-repeat;
+    /*-moz-transform:rotate(90deg);*/
+    /*-webkit-transform:rotate(90deg);*/
+    /*transform:rotate(90deg);*/
+    /*filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);*/
+    background-position: center;
+    background-size:cover;
+    display: inline-block;
+    float: left;
+    opacity: 90%;
+  }
+
+  .right_contain{
+    width: 24%;
+    height: 705px;
+    background-color: #041A29;
+    display: inline-block;
+    /*margin-left: 1%;*/
+    opacity: 95%;
+  }
+  .right_title1{
+    padding: 10px;
+    background-color: #000;
+    border-radius: 3px;
+    border-color: #2f2f2f;
+    text-align: center;
+  }
+  .right_1{
+    background-image: url("../assets/数字粒子.gif");
+    width: 100%;
+    height: 169px;
+    opacity: 80%;
+
+  }
+  .right_title2{
+    margin-top: 16px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 4px;
+    border-color: #2f2f2f;
+    text-align: center;
+    height: 20px;
+    opacity: 100%;
+    /*margin-top: 5px;*/
+  }
+  .right_2{
+    width: 100%;
+    /*height: 169px;*/
+    padding: 4px;
+  }  .right_title3{
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 4px;
+    border-color: #2f2f2f;
+    text-align: center;
+    height: 20px;
+    /*margin-top: 5px;*/
+  }
+  .right_3{
+    width: 100%;
+    /*height: 169px;*/
+    padding: 4px;
+  }
+  li{list-style:none}
+  .tag{
+    margin-top: 5px;
+    text-align:center ;
+    padding: 12px;
+  }
+  .tag ul li a{
+    float: left;
+    width: 150px;
+    margin: 3px;
+    /*background-color: #000000;*/
+    font-size: 12px;
+    line-height: 20px;
+    border: #1A6FC9 solid 2px;
+    border-radius: 2px;
+    transition: all .1s ease 0.1s;
+
+  }
+  .tag ul li a:hover{
+    background-color: #1A6FC9;
+    opacity: 90%;
+
+  }
+
+  el-tag{
+    width: 100px;
+    /*padding: 4px;*/
+  }
+
 </style>

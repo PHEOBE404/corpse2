@@ -126,8 +126,11 @@
       },
       methods:{
         to_search(){
-          this.axios.get('http://47.98.131.111/zombie_dig/CompanyInfo/28').then((response)=>{
+          this.axios.get('http://47.98.131.111/zombie_dig/CompanyInfo/').then((response)=>{
             this.testdata=response;
+            console.log(response);
+            this.show_item=!this.show_item;
+
           }).catch((response)=>{
             console.log(response);
             this.show_item=!this.show_item;
