@@ -114,7 +114,8 @@
     padding: 0;
     /*width: 100%;*/
     /*background-color: #5daf34;*/
-    /*height: 900px;*/
+    height: 740px;
+
     /*margin: 0px auto;*/
     background-image: url("../assets/粒子92.png");
 
@@ -129,7 +130,8 @@
   }
   .menu{
 width: 550px;
-    padding: 260px 380px;
+    padding: 0px 380px;
+    padding-top: 260px;
   }
   .list{
     margin: 0px auto;
