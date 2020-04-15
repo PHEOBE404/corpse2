@@ -606,10 +606,12 @@ created(){
     padding: 0;
   }
   .body{
-    background-image: url("../assets/城市.jpg");
+    /*background-image: url("../assets/城市.jpg");*/
     background-repeat: no-repeat;
     background-position: center top;
     height: 740px;
+    background-color: #041A29;
+
     color: #FFFFFF;
 
     /*opacity: .5;*/
@@ -742,7 +744,8 @@ created(){
   .left_contain{
     width: 76%;
     height: 705px;
-    background-color: #5daf34;
+    background-color: #041A29;
+
     background-image: url("../assets/art1.gif");
     background-repeat: no-repeat;
     /*-moz-transform:rotate(90deg);*/

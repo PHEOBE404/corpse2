@@ -171,6 +171,7 @@
   @import "../assets/basci.css";
   .body{
     background-image: url("../assets/城市.jpg");
+    background-color: black;
     background-repeat: no-repeat;
     background-position: center top;
     height: 740px;

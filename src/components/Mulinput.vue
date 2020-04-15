@@ -305,41 +305,17 @@
           </el-tab-pane>
 
           <el-tab-pane label="" name="three">
-            <div style="width: 400px;margin-left: 20px;display: none;">
 
-              <h3>请按照格式要求提交文件： </h3><br>
-              1.基本信息表: <br>
-              <img src="../assets/事例1.png" height="60px"/> <br><br>
-              2.知识产权表:<br>
-              <img src="../assets/事例2.png" height="60px"/> <br><br>
-              3.三年融资信息表： <br>
-              <img src="../assets/事例3.png" height="55px"/> <br><br>
-              4.三年财务报告表： <br>
-              <img src="../assets/事例4.png" height="60px"/> <br><br>
-
-<!--              对应表格的数据项可移至 <el-tooltip placement="top" effect="light">-->
-<!--                <div slot="content"style="font-size: 16px">-->
-<!--                  1.企业信息表:<br/>-->
-<!--                  ID	|	注册时间 |	注册资本	|	行业	|	区域	|	企业类型	|	控制人类型	|	控制人持股比例-->
-<!--                  <br><br>-->
-<!--                  2.知识产权表: <br>-->
-<!--                  ID	|	专利	|	商标	|	著作权-->
-<!--                  <br><br>-->
-<!--                  3.融资信息表 <br>-->
-<!--                  ID	|	年份	|	债权融资额度	|	债权融资成本	|	股权融资额度	|	股权融资成本	|	内部融资和贸易融资额度	|	内部融资和贸易融资成本	|	项目融资和政策融资额度	|	项目融资和政策融资成本-->
-<!--                </div>-->
-<!--                <el-button>此处</el-button>-->
-<!--              </el-tooltip>查看-->
-
-            </div>
             <div style="width:400px;margin: 0 auto" v-if="show03">
               <el-upload
                 class="upload-demo"
                 ref="upload"
                 drag
-                action="https://jsonplaceholder.typicode.com/posts/"
+                multiple
+                action="http://47.106.74.144/zombie_dig/File/"
                 :on-preview="handlePreview"
                 :on-remove="handleRemove"
+                :on-change="uphandleChange"
                 :file-list="fileList"
                 :auto-upload="false">
                 <i class="el-icon-upload"></i>
@@ -348,10 +324,9 @@
                 <div>点此上传xlm、csv等格式的文件</div>
 
               </el-upload>
-              <el-button style="width: 100px;margin-left: 130px" size="small" type="primary" @click="visib_loading">提交</el-button>
+              <el-button style="width: 100px;margin-left: 130px" size="small" type="primary" @click="visib_loading3">提交</el-button>
               <br>
 
-<!--              @click="submitUpload"-->
             </div>
 
             <div style="margin: 0 auto;width: 800px;color:#ff4d51" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业
@@ -658,13 +633,14 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import $ from 'jquery'
     export default {
       name: "Mulinput",
       data() {
 
         return {
-
+          submit:false,
           timer: "",//定义一个定时器的变量
           currentTime: "----------------------", // 获取当前时间
           secondd:false,
@@ -880,7 +856,7 @@
 
             })
         },
-        // singleaxios(){
+        singleaxios(){
         //   var api = 'http://www.yixzm.cn/tools/api/get_region_by_ip?ip=101.224.127.236'
         //   this.axios.get(api).then((response) => {
         //     console.log(response.data)
@@ -888,7 +864,7 @@
         //     console.log(error)
         //   })
 
-        // },
+        },
         visib_loading(){
           this.dialogVisible = true;
           setTimeout(() => {
@@ -897,6 +873,10 @@
 
 
           }, 2200);
+        },
+        visib_loading3(){
+          this.submit=true;
+console.log(this.submit);
         },
         addmore(){
           this.secondd=true;
@@ -975,9 +955,6 @@
 
 
           }
-
-
-
         },
         handleChange(val) {
           console.log(val);
@@ -987,12 +964,57 @@
         },
         submitUpload() {
           this.$refs.upload.submit();
+          console.log(this.fileList);
+
+        },
+        uphandleChange(file,fileList){
+          console.log(this.submit);
+          console.log(fileList.length);
+
+          if (fileList.length==4  ){
+            console.log(fileList[0]);
+            console.log(fileList[1]);
+            console.log(fileList[2]);
+            console.log(fileList[3]);
+
+            this.axios({
+              method: 'post',
+              url: 'http://47.106.74.144:8080/zombie_dig/File',
+              data: {
+                info_file: fileList[0],
+                year_report_file: fileList[3],
+                money_report_file: fileList[1],
+                intellectual_property_right_file: fileList[2],
+              },
+              headers:{
+                'content-type': 'multipart/form-data',
+                'token':window.localStorage['Authorization']
+              }
+            }).then(result => {
+              console.log("1111");
+              console.log(result);
+
+
+            }).catch(error => {
+              // alert('上传失败');
+              this.dialogVisible = true;
+              // console.log("1 异步调用返回失败,XMLHttpResponse.readyState:"+XMLHttpResponse.readyState);
+              // console.log("2 异步调用返回失败,XMLHttpResponse.status:"+XMLHttpResponse.status);
+              // console.log("3 异步调用返回失败,textStatus:"+textStatus);
+              // console.log("4 异步调用返回失败,errorThrown:"+errorThrown);
+
+              console.log(error);
+            });
+          }
         },
         handleRemove(file, fileList) {
           console.log(file, fileList);
+          console.log(file);
+
         },
         handlePreview(file) {
           console.log(file);
+          // console.log(this.fileList);
         },
         objectSpanMethod({row, column, rowIndex, columnIndex}) {
           if (columnIndex === 0) {
@@ -1013,7 +1035,7 @@
       mounted() {
         $("el-table-column").attr("align","center");
         console.log("111");
-        this.singleajax();
+        // this.singleajax();
       },
       created(){
         var _this = this; //声明一个变量指向Vue实例this，保证作用域一致

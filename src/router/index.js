@@ -71,4 +71,9 @@ export default new Router({
       ]
     }
   ]
+
 })
+
+// 导航守卫
+// 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
+

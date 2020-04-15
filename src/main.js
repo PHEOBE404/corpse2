@@ -10,7 +10,10 @@ import echarts from 'echarts';
 import './my-theme/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Vuex from 'vuex';
+import store from './store'
 // Vue.prototype.$axios = axios;
+Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
@@ -21,6 +24,23 @@ import $ from 'jquery'
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
+
+
+// 添加请求拦截器，在请求头中加token
+axios.interceptors.request.use(
+  config => {
+    if (localStorage.getItem('Authorization')) {
+      config.headers.Authorization = localStorage.getItem('Authorization');
+    }
+
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  });
+// localStorage.removeItem('Authorization');
+// this.$router.push('/login');
