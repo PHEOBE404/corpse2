@@ -308,67 +308,45 @@
           <el-tab-pane label="" name="three">
 
             <div style="width:400px;margin: 0 auto" v-if="show03">
-              <el-upload
-                class="upload-demo"
-                ref="upload"
-                drag
-                multiple
-                action="http://47.106.74.144/zombie_dig/File/"
-                :on-preview="handlePreview"
-                :on-remove="handleRemove"
-                :on-change="uphandleChange"
-                :file-list="fileList"
-                :auto-upload="false">
-                <i class="el-icon-upload"></i>
-<!--                <el-button slot="trigger" size="small" type="text" >点此上传xlm、csv等格式的文件</el-button>-->
-<!--                <div slot="tip" class="el-upload__tip">请上传xlm、csv文件</div>-->
-                <div>点此上传xlm、csv等格式的文件</div>
+              <el-button class="filter-item" style="margin-left: 10px;" type="primary" @click="openCsvDialog()" icon="el-icon-plus">
+                导入
+              </el-button>
+              <el-dialog
+                :title="csvTitle"
+                :visible.sync="csvVisible"
+                width="50%">
+                <div>
+                  <el-form ref="file" label-width="120px">
+                    <el-form-item label="CSV文件导入：">
+                      <el-upload
+                        class="upload-demo"
+                        ref="upload"
+                        drag
+                        accept=".csv"
+                        action=""
+                        :multiple="true"
+                        :limit="8"
+                        :auto-upload="false"
+                        :on-change="handleChange">
+                        <i class="el-icon-upload"></i>
+                        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                        <div class="el-upload__tip" slot="tip">只能上传csv文件</div>
+                      </el-upload>
+                    </el-form-item>
+                  </el-form>
+                </div>
+                <span slot="footer" class="dialog-footer">
+    <el-button @click="csvVisible = false">取消</el-button>
+    <el-button type="primary" @click="importCsv">导入</el-button>
+    </span>
+              </el-dialog>
 
-              </el-upload>
-              <input name="uploadFile"></input>
-              <input type="file"  name="uploadFile1" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
-              <input type="file" name="uploadFile2" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
-              <input type="file" name="uploadFile3" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
-              <input type="file" name="uploadFile4" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
-              <el-button style="width: 100px;margin-left: 130px" size="small" type="primary" @click="fileUpload">提交</el-button>
-              <br>
 
 
             </div>
 
 
-            <el-button class="filter-item" style="margin-left: 10px;" type="primary" @click="openCsvDialog()" icon="el-icon-plus">
-              导入
-            </el-button>
-            <el-dialog
-              :title="csvTitle"
-              :visible.sync="csvVisible"
-              width="50%">
-              <div>
-                <el-form ref="file" label-width="120px">
-                  <el-form-item label="CSV文件导入：">
-                    <el-upload
-                      class="upload-demo"
-                      ref="upload"
-                      drag
-                      accept=".csv"
-                      action=""
-                      :multiple="true"
-                      :limit="8"
-                      :auto-upload="false"
-                      :on-change="handleChange">
-                      <i class="el-icon-upload"></i>
-                      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-                      <div class="el-upload__tip" slot="tip">只能上传csv文件</div>
-                    </el-upload>
-                  </el-form-item>
-                </el-form>
-              </div>
-              <span slot="footer" class="dialog-footer">
-    <el-button @click="csvVisible = false">取消</el-button>
-    <el-button type="primary" @click="importCsv">导入</el-button>
-    </span>
-            </el-dialog>
+
 
 
 
@@ -904,23 +882,24 @@
       methods: {
         async importCsv() {
           if(Object.keys(this.file).length != 0) {
-            // const res = await this.$store.api.newReq('/xxx/xxxxxx/importcsv').upload(this.file);
-            // console.log(this.file);
+            console.log(this.file[0]);
+            console.log(this.file[1]);
+            console.log(this.file[2]);
+            console.log(this.file[3]);
             console.log(this.file);
             this.axios({
               method: 'post',
-              url: 'http://47.106.74.144:8080/zombie_dig/File',
-              data:{
-                info_file:this.file[0],
-                year_report_file:this.file[1],
-                money_report_file:this.file[2],
-                intellectual_property_right_file:this.file[3],
-              }
-              // this.file
-              ,
+              url: 'http://47.106.74.144:8080/zombie_dig/File/',
+              data: {
+                info_file: this.file[0],
+                year_report_file: this.file[3],
+                money_report_file: this.file[2],
+                intellectual_property_right_file: this.file[1],
+              },
               headers: {
                 'content-type': 'multipart/form-data',
-                'token': window.localStorage['Authorization']
+                'token': window.localStorage['Authorization'],
+
               }
             }).then(result => {
               console.log("1111");
@@ -928,7 +907,7 @@
             }).catch(error => {
               alert('上传失败');
               // this.dialogVisible = true;
-              // console.log(error);
+              console.log(error);
             });
           }
         },
@@ -951,7 +930,7 @@
           this.file = {};
           this.csvVisible = true;
           this.csvTitle = '导入CSV文件';
-          this.$refs.upload.clearFiles();
+          // this.$refs.upload.clearFiles();
         },
 
 
@@ -1110,58 +1089,6 @@ console.log(this.submit);
           this.$refs.upload.submit();
           console.log(this.fileList);
 
-        },
-
-        submitAddFile(){
-          if(0 == this.addArr.length){
-            this.$message({
-              type: 'info',
-              message: '请选择要上传的文件'
-            });
-            return;
-          }
-
-          var formData = new FormData();
-          formData.append('num', this.addType);
-          formData.append('linkId',this.addId);
-          formData.append('rfilename',this.addFileName);
-          for(var i=0;i<this.addArr.length;i++){
-            formData.append('fileUpload',this.addArr[i]);
-          }
-          let config = {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              'Authorization': this.token
-            }
-          };
-          this.axios.post(apidate.uploadEnclosure,formData,config)
-            .then((response) => {
-              if(response.data.info=="success"){this.$message({
-                type: 'success',
-                message: '附件上传成功!'
-              });
-              }
-            })
-        },
-
-        getFile(event){
-          var file = event.target.files;
-          for(var i = 0;i<file.length;i++){
-            //    上传类型判断
-            var imgName = file[i].name;
-            var idx = imgName.lastIndexOf(".");
-            if (idx != -1){
-              var ext = imgName.substr(idx+1).toUpperCase();
-              ext = ext.toLowerCase( );
-              if (ext!='csv' ){
-
-              }else{
-                this.addArr.push(file[i]);
-              }
-            }else{
-
-            }
-          }
         },
         uphandleChange(file,fileList){
           console.log(this.submit);
