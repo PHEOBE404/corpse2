@@ -316,7 +316,7 @@
                 :visible.sync="csvVisible"
                 width="50%">
                 <div>
-                  <el-form ref="file" label-width="120px">
+                  <el-form ref="file" label-width="120px" id="form1">
                     <el-form-item label="CSV文件导入：">
                       <el-upload
                         class="upload-demo"
@@ -326,7 +326,10 @@
                         action=""
                         :multiple="true"
                         :limit="8"
-                        :auto-upload="false"
+                        :on-success="successFun"
+                        :with-credentials="true"
+
+                      :auto-upload="false"
                         :on-change="handleChange">
                         <i class="el-icon-upload"></i>
                         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -874,18 +877,17 @@
           },
           ],
           uploadFile:[],
-          file:[],
+          file:undefined,
           csvVisible:false,
           csvTitle:'',
         }
       },
       methods: {
+        successFun(){
+
+        },
         async importCsv() {
           if(Object.keys(this.file).length != 0) {
-            console.log(this.file[0]);
-            console.log(this.file[1]);
-            console.log(this.file[2]);
-            console.log(this.file[3]);
             console.log(this.file);
             this.axios({
               method: 'post',
@@ -897,9 +899,8 @@
                 intellectual_property_right_file: this.file[1],
               },
               headers: {
-                'content-type': 'multipart/form-data',
+                'Content-Type': 'multipart/form-data',
                 'token': window.localStorage['Authorization'],
-
               }
             }).then(result => {
               console.log("1111");
@@ -912,17 +913,15 @@
           }
         },
 // 上传文件，获取文件流
-        handleChange(file,fileList) {
-          // this.$refs.upload.clearFiles();
-          //每次上传前都清空
-          // console.log(this.file);
-          // this.file = {};
+        handleChange: function (file, fileList) {
+          let formData;
+          formData = new window.FormData();
           //赋值
           // this.file.file=file.raw;
+          this.formData.append(file.name, file);
+          // this.file=fileList;
 
-          this.file=fileList;
-
-          console.log(file.raw);
+          console.log(file.name);
           console.log(this.file);
         },
 
