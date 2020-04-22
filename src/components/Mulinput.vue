@@ -19,6 +19,7 @@
       </div>
 
       <div class="inputtype">
+
         <div style="margin-top: 120px">
           <span style="color: #FFFFFF;font-weight: bolder">请选择企业信息的输入方式：</span>
           <el-radio-group v-model="radio4" size="medium" @change="changeradio">
@@ -324,10 +325,65 @@
                 <div>点此上传xlm、csv等格式的文件</div>
 
               </el-upload>
-              <el-button style="width: 100px;margin-left: 130px" size="small" type="primary" @click="visib_loading3">提交</el-button>
+              <input name="uploadFile"></input>
+              <input type="file"  name="uploadFile1" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
+              <input type="file" name="uploadFile2" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
+              <input type="file" name="uploadFile3" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
+              <input type="file" name="uploadFile4" multiple="multiplt"  style="margin-left:70px;" accept=".csv">
+              <el-button style="width: 100px;margin-left: 130px" size="small" type="primary" @click="fileUpload">提交</el-button>
               <br>
 
+
             </div>
+
+
+            <el-button class="filter-item" style="margin-left: 10px;" type="primary" @click="openCsvDialog()" icon="el-icon-plus">
+              导入
+            </el-button>
+            <el-dialog
+              :title="csvTitle"
+              :visible.sync="csvVisible"
+              width="50%">
+              <div>
+                <el-form ref="file" label-width="120px">
+                  <el-form-item label="CSV文件导入：">
+                    <el-upload
+                      class="upload-demo"
+                      ref="upload"
+                      drag
+                      accept=".csv"
+                      action=""
+                      :multiple="true"
+                      :limit="8"
+                      :auto-upload="false"
+                      :on-change="handleChange">
+                      <i class="el-icon-upload"></i>
+                      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                      <div class="el-upload__tip" slot="tip">只能上传csv文件</div>
+                    </el-upload>
+                  </el-form-item>
+                </el-form>
+              </div>
+              <span slot="footer" class="dialog-footer">
+    <el-button @click="csvVisible = false">取消</el-button>
+    <el-button type="primary" @click="importCsv">导入</el-button>
+    </span>
+            </el-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div style="margin: 0 auto;width: 800px;color:#ff4d51" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业
               点击<el-button type="text" @click="show_ans">详情</el-button>即可查看企业的详细分析数据。
@@ -640,6 +696,8 @@
       data() {
 
         return {
+          addArr:[],
+          addFileName:'',
           submit:false,
           timer: "",//定义一个定时器的变量
           currentTime: "----------------------", // 获取当前时间
@@ -837,10 +895,96 @@
               owner_equity_total:''
           },
           ],
-
+          uploadFile:[],
+          file:[],
+          csvVisible:false,
+          csvTitle:'',
         }
       },
       methods: {
+        async importCsv() {
+          if(Object.keys(this.file).length != 0) {
+            // const res = await this.$store.api.newReq('/xxx/xxxxxx/importcsv').upload(this.file);
+            // console.log(this.file);
+            console.log(this.file);
+            this.axios({
+              method: 'post',
+              url: 'http://47.106.74.144:8080/zombie_dig/File',
+              data:{
+                info_file:this.file[0],
+                year_report_file:this.file[1],
+                money_report_file:this.file[2],
+                intellectual_property_right_file:this.file[3],
+              }
+              // this.file
+              ,
+              headers: {
+                'content-type': 'multipart/form-data',
+                'token': window.localStorage['Authorization']
+              }
+            }).then(result => {
+              console.log("1111");
+              console.log(result);
+            }).catch(error => {
+              alert('上传失败');
+              // this.dialogVisible = true;
+              // console.log(error);
+            });
+          }
+        },
+// 上传文件，获取文件流
+        handleChange(file,fileList) {
+          // this.$refs.upload.clearFiles();
+          //每次上传前都清空
+          // console.log(this.file);
+          // this.file = {};
+          //赋值
+          // this.file.file=file.raw;
+
+          this.file=fileList;
+
+          console.log(file.raw);
+          console.log(this.file);
+        },
+
+        openCsvDialog() {
+          this.file = {};
+          this.csvVisible = true;
+          this.csvTitle = '导入CSV文件';
+          this.$refs.upload.clearFiles();
+        },
+
+
+        fileUpload: function () {
+          var _this = this;
+          var formData = new FormData();
+          formData.append("uploadFile", $("input[name='uploadFile1']"));
+          // formData.append("uploadFile", $("input[name='uploadFile2']")[0].files[0]);
+          // formData.append("uploadFile", $("input[name='uploadFile3']")[0].files[0]);
+          // formData.append("uploadFile", $("input[name='uploadFile4']")[0].files[0]);
+          console.log(formData);
+          console.log(formData[0]);
+          axios({
+            method: "post",
+            url: 'http://47.106.74.144:8080/zombie_dig/File',
+
+            data: formData,
+            headers: {
+              'Content-Type': 'multipart/form-data',  // 文件上传
+              // 'Content-Type': 'application/x-www-form-urlencoded',  // 表单
+              // 'Content-Type': 'application/json;charset=UTF-8'  // json
+              'token':window.localStorage['Authorization']
+
+            },
+          }).then(function (response) {
+            console.log(response);
+            alert(response.data.message);
+          }).catch(function (reason) {
+
+          })
+        },
+
+
         singlehttp(){
           this.$http.post("http://jsonplaceholder.typicode.com/posts",{
             base:this.tableData1,
@@ -956,9 +1100,9 @@ console.log(this.submit);
 
           }
         },
-        handleChange(val) {
-          console.log(val);
-        },
+        // handleChange(val) {
+        //   console.log(val);
+        // },
         handleClick(tab, event) {
           console.log(tab, event);
         },
@@ -966,6 +1110,58 @@ console.log(this.submit);
           this.$refs.upload.submit();
           console.log(this.fileList);
 
+        },
+
+        submitAddFile(){
+          if(0 == this.addArr.length){
+            this.$message({
+              type: 'info',
+              message: '请选择要上传的文件'
+            });
+            return;
+          }
+
+          var formData = new FormData();
+          formData.append('num', this.addType);
+          formData.append('linkId',this.addId);
+          formData.append('rfilename',this.addFileName);
+          for(var i=0;i<this.addArr.length;i++){
+            formData.append('fileUpload',this.addArr[i]);
+          }
+          let config = {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'Authorization': this.token
+            }
+          };
+          this.axios.post(apidate.uploadEnclosure,formData,config)
+            .then((response) => {
+              if(response.data.info=="success"){this.$message({
+                type: 'success',
+                message: '附件上传成功!'
+              });
+              }
+            })
+        },
+
+        getFile(event){
+          var file = event.target.files;
+          for(var i = 0;i<file.length;i++){
+            //    上传类型判断
+            var imgName = file[i].name;
+            var idx = imgName.lastIndexOf(".");
+            if (idx != -1){
+              var ext = imgName.substr(idx+1).toUpperCase();
+              ext = ext.toLowerCase( );
+              if (ext!='csv' ){
+
+              }else{
+                this.addArr.push(file[i]);
+              }
+            }else{
+
+            }
+          }
         },
         uphandleChange(file,fileList){
           console.log(this.submit);
@@ -998,11 +1194,6 @@ console.log(this.submit);
             }).catch(error => {
               // alert('上传失败');
               this.dialogVisible = true;
-              // console.log("1 异步调用返回失败,XMLHttpResponse.readyState:"+XMLHttpResponse.readyState);
-              // console.log("2 异步调用返回失败,XMLHttpResponse.status:"+XMLHttpResponse.status);
-              // console.log("3 异步调用返回失败,textStatus:"+textStatus);
-              // console.log("4 异步调用返回失败,errorThrown:"+errorThrown);
-
               console.log(error);
             });
           }
