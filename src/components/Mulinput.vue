@@ -890,6 +890,7 @@
           csvTitle:'',
           fd :new FormData(),
           fileData:'',
+          getFile:''
 
         }
       },
@@ -925,15 +926,7 @@
         },
 // 上传文件，获取文件流
         handleChange: function (file, fileList) {
-          // let formData;
-          // formData = new window.FormData();
-          //赋值
-          // this.file.file=file.raw;
-          // this.formData.append(file.name, file);
-          this.file=fileList;
 
-          console.log(file.name);
-          console.log(this.file);
         },
 
         openCsvDialog() {
@@ -1063,7 +1056,10 @@ console.log(this.submit);
           console.log(tab, event);
         },
 
-
+        genUrl(encoded, options) {
+          const dataBlob = new Blob([`\ufeff${encoded}`], { type: 'text/plain;charset=utf-8' });//返回的格式
+              return window.URL.createObjectURL(dataBlob);
+           },
         submitUpload() {
           this.$refs.upload.submit();
           axios.post("http://47.106.74.144:8080/zombie_dig/File/", this.fd, {
@@ -1074,6 +1070,12 @@ console.log(this.submit);
           }).then(res => {
             console.log('res');
             console.log(res);
+            const url = this.genUrl(res.data, {});//{}指的是表头，res.data.data.workhour_csv_data是后台返回来的数据
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "result.csv";
+            a.click();
+            window.URL.revokeObjectURL(url);
           })
             .catch(err => {
               console.log(err);
@@ -1095,7 +1097,7 @@ console.log(this.submit);
         },
         handleRemove(file, fileList) {
           console.log(file, fileList);
-          console.log(file);
+          // console.log(file);
 
         },
         handlePreview(file) {
