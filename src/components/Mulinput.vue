@@ -308,43 +308,6 @@
           <el-tab-pane label="" name="three">
 
             <div style="width:400px;margin: 0 auto" v-if="show03">
-              <el-button class="filter-item" style="margin-left: 10px;" type="primary" @click="openCsvDialog()" icon="el-icon-plus">
-                导入
-              </el-button>
-              <el-dialog
-                :title="csvTitle"
-                :visible.sync="csvVisible"
-                width="50%">
-                <div>
-                  <el-form ref="file" label-width="120px" id="form1">
-                    <el-form-item label="CSV文件导入：">
-                      <el-upload
-                        class="upload-demo"
-                        ref="upload"
-                        drag
-                        accept=".csv"
-                        action=""
-                        :multiple="true"
-                        :limit="8"
-                        :on-success="successFun"
-                        :with-credentials="true"
-                        :on-error="fileerr"
-                      :auto-upload="false"
-                        :on-change="handleChange">
-                        <i class="el-icon-upload"></i>
-                        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-                        <div class="el-upload__tip" slot="tip">只能上传csv文件</div>
-                      </el-upload>
-                    </el-form-item>
-                  </el-form>
-                </div>
-                <span slot="footer" class="dialog-footer">
-    <el-button @click="csvVisible = false">取消</el-button>
-    <el-button type="primary" @click="importCsv">导入</el-button>
-    </span>
-              </el-dialog>
-
-
 
               <el-upload
                 class="upload-demo2"
@@ -689,7 +652,6 @@
           headers: {
             Authorization:window.localStorage['Authorization']
           },
-          addArr:[],
           addFileName:'',
           submit:false,
           timer: "",//定义一个定时器的变量
@@ -886,11 +848,7 @@
           ],
           uploadFile:[],
           file:undefined,
-          csvVisible:false,
-          csvTitle:'',
           fd :new FormData(),
-          fileData:'',
-          getFile:''
 
         }
       },
@@ -1062,7 +1020,7 @@ console.log(this.submit);
            },
         submitUpload() {
           this.$refs.upload.submit();
-          axios.post("http://47.106.74.144:8080/zombie_dig/File/", this.fd, {
+          axios.post("http://47.106.74.144/zombie_dig/File/", this.fd, {
             // 加这里
             headers: {
               Authorization:window.localStorage['Authorization']
