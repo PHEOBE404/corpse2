@@ -56,7 +56,7 @@
         } else {
           this.axios({
             method: 'post',
-            url: 'http://47.106.74.144/zombie_dig/login',
+            url: 'http://47.106.74.144:8080/zombie_dig/login',
             data: {
               username: _this.username,    
               password: _this.password,

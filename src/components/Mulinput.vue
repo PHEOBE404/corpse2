@@ -328,7 +328,7 @@
                         :limit="8"
                         :on-success="successFun"
                         :with-credentials="true"
-
+                        :on-error="fileerr"
                       :auto-upload="false"
                         :on-change="handleChange">
                         <i class="el-icon-upload"></i>
@@ -346,17 +346,26 @@
 
 
 
+              <el-upload
+                class="upload-demo2"
+                multiple
+                with-credentials
+
+                ref="upload"
+                action="123"
+                :headers="headers"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :on-error="fileerr"
+                :before-upload="beforeUpload"
+                :file-list="fileList"
+                :auto-upload="false">
+                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+              </el-upload>
+
             </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -677,6 +686,9 @@
       data() {
 
         return {
+          headers: {
+            Authorization:window.localStorage['Authorization']
+          },
           addArr:[],
           addFileName:'',
           submit:false,
@@ -778,11 +790,7 @@
           ],
           activeName: '',
           fileList: [
-        //     {
-        //   // name: '事例excel文件.xml',
-        //   // url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-        //   // status: 'finished'
-        // },
+
           ],
           tableData1: [{
 
@@ -880,6 +888,9 @@
           file:undefined,
           csvVisible:false,
           csvTitle:'',
+          fd :new FormData(),
+          fileData:'',
+
         }
       },
       methods: {
@@ -898,10 +909,10 @@
                 money_report_file: this.file[2],
                 intellectual_property_right_file: this.file[1],
               },
-              headers: {
-                'Content-Type': 'multipart/form-data',
-                'token': window.localStorage['Authorization'],
-              }
+              // headers: {
+              //   'Content-Type': 'multipart/form-data',
+              //   'token': window.localStorage['Authorization'],
+              // }
             }).then(result => {
               console.log("1111");
               console.log(result);
@@ -914,12 +925,12 @@
         },
 // 上传文件，获取文件流
         handleChange: function (file, fileList) {
-          let formData;
-          formData = new window.FormData();
+          // let formData;
+          // formData = new window.FormData();
           //赋值
           // this.file.file=file.raw;
-          this.formData.append(file.name, file);
-          // this.file=fileList;
+          // this.formData.append(file.name, file);
+          this.file=fileList;
 
           console.log(file.name);
           console.log(this.file);
@@ -931,37 +942,6 @@
           this.csvTitle = '导入CSV文件';
           // this.$refs.upload.clearFiles();
         },
-
-
-        fileUpload: function () {
-          var _this = this;
-          var formData = new FormData();
-          formData.append("uploadFile", $("input[name='uploadFile1']"));
-          // formData.append("uploadFile", $("input[name='uploadFile2']")[0].files[0]);
-          // formData.append("uploadFile", $("input[name='uploadFile3']")[0].files[0]);
-          // formData.append("uploadFile", $("input[name='uploadFile4']")[0].files[0]);
-          console.log(formData);
-          console.log(formData[0]);
-          axios({
-            method: "post",
-            url: 'http://47.106.74.144:8080/zombie_dig/File',
-
-            data: formData,
-            headers: {
-              'Content-Type': 'multipart/form-data',  // 文件上传
-              // 'Content-Type': 'application/x-www-form-urlencoded',  // 表单
-              // 'Content-Type': 'application/json;charset=UTF-8'  // json
-              'token':window.localStorage['Authorization']
-
-            },
-          }).then(function (response) {
-            console.log(response);
-            alert(response.data.message);
-          }).catch(function (reason) {
-
-          })
-        },
-
 
         singlehttp(){
           this.$http.post("http://jsonplaceholder.typicode.com/posts",{
@@ -1078,51 +1058,40 @@ console.log(this.submit);
 
           }
         },
-        // handleChange(val) {
-        //   console.log(val);
-        // },
+
         handleClick(tab, event) {
           console.log(tab, event);
         },
+
+
         submitUpload() {
           this.$refs.upload.submit();
-          console.log(this.fileList);
-
-        },
-        uphandleChange(file,fileList){
-          console.log(this.submit);
-          console.log(fileList.length);
-
-          if (fileList.length==4  ){
-            console.log(fileList[0]);
-            console.log(fileList[1]);
-            console.log(fileList[2]);
-            console.log(fileList[3]);
-
-            this.axios({
-              method: 'post',
-              url: 'http://47.106.74.144:8080/zombie_dig/File',
-              data: {
-                info_file: fileList[0],
-                year_report_file: fileList[3],
-                money_report_file: fileList[1],
-                intellectual_property_right_file: fileList[2],
-              },
-              headers:{
-                'content-type': 'multipart/form-data',
-                'token':window.localStorage['Authorization']
-              }
-            }).then(result => {
-              console.log("1111");
-              console.log(result);
-
-
-            }).catch(error => {
-              // alert('上传失败');
-              this.dialogVisible = true;
-              console.log(error);
+          axios.post("http://47.106.74.144:8080/zombie_dig/File/", this.fd, {
+            // 加这里
+            headers: {
+              Authorization:window.localStorage['Authorization']
+            }
+          }).then(res => {
+            console.log('res');
+            console.log(res);
+          })
+            .catch(err => {
+              console.log(err);
             });
-          }
+        },
+        fileerr(err, file, fileList){
+          console.log(err);
+        },
+
+        beforeUpload(file){
+          var newname=file.name.split('.');
+          console.log(newname);
+
+          this.fd.append(newname[0],file);
+          console.log(file);
+          // 自己上传文件 想加什么都可以
+
+          return false // 返回false不会自动上传
         },
         handleRemove(file, fileList) {
           console.log(file, fileList);
