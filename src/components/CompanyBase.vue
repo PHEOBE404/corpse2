@@ -24,7 +24,108 @@
 <div class="left_contain">
   <div class="left_back">
 <!--    <i class="el-icon-back"></i>返回-->
-<!--    <el-button type="primary" icon="el-icon-back">返回</el-button>-->
+    <el-button type="default" icon="el-icon-back">返回</el-button>
+    <div class="submenu">
+
+      <div class="holderCircle">
+
+        <div class="dotCircle">
+			<span class="itemDot active itemDot1" data-tab="1" @click="showYujing">
+				<i class="fa fa-life-ring"></i>
+				<span class="forActive"></span>
+			</span>
+          <span class="itemDot itemDot2" data-tab="2">
+				<i class="fa fa-bomb"></i>
+				<span class="forActive"></span>
+			</span>
+          <span class="itemDot itemDot3" data-tab="3">
+				<i class="fa fa-heartbeat"></i>
+				<span class="forActive"></span>
+			</span>
+          <span class="itemDot itemDot4" data-tab="4">
+				<i class="fa fa-leaf"></i>
+				<span class="forActive"></span>
+			</span>
+        </div>
+        <div class="contentCircle">
+
+          <div class="CirItem active CirItem1" >
+            企业预警
+          </div>
+          <div class="CirItem CirItem2">
+            六维特征
+          </div>
+          <div class="CirItem CirItem3">
+            数据分析
+          </div>
+          <div class="CirItem CirItem4">
+            其他
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="YujingCont">
+      <el-dialog title="企业预警" :visible.sync="YujingVisible" custom-class="Yujingdialog" top="22px">
+        <div class="wordItemBox">
+          <p class="word">偿债能力预警</p> <span></span>
+          <hr>
+          <p class="translate">三年平均资产负债率与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">负债额度预警</p>
+          <hr>
+          <p class="translate">三年平均利息保障倍数与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">营运能力预警</p>
+          <hr>
+          <p class="translate">两年平均资本周转率与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">资本安全性预警</p>
+          <hr>
+          <p class="translate">两年平均资本积累率与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">资本扩张能力预警</p>
+          <hr>
+          <p class="translate">两年平均营业利润增长率与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">盈利前景预警</p>
+          <hr>
+          <p class="translate">两年平均净利润增长率与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">盈利能力预警</p>
+          <hr>
+          <p class="translate">三年平均总资产收益率与基准值的对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">创新能力预警</p>
+          <hr>
+          <p class="translate">专利、著作权、商标权相加与基准值对比</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">营业总收入预警</p>
+          <hr>
+          <p class="translate">两年平均营业总收入变化率与基准值的比较</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">资产总额预警</p>
+          <hr>
+          <p class="translate">两年平均资产总额变化率与基准值的比较</p>
+        </div>
+        <div class="wordItemBox">
+          <p class="word">员工规模预警</p>
+          <hr>
+          <p class="translate">两年平均从业人数变化率与基准值的比较</p>
+        </div>
+      </el-dialog>
+    </div>
   </div>
 </div>
       <div class="right_contain">
@@ -87,54 +188,6 @@
         </div>
     </div>
 
-<!--      <div class="id">-->
-<!--      <h3>企业{{$route.params.id}}号</h3>-->
-<!--      </div>-->
-<!--      <div class="photo">-->
-<!--&lt;!&ndash;        <iframe src="home" ></iframe>&ndash;&gt;-->
-<!--&lt;!&ndash;        <iframe name="q" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="470" src="../static/fbx.html"></iframe>&ndash;&gt;-->
-<!--      </div>-->
-<!--      <div class="baseInfo" >-->
-<!--        <el-row :gutter="20">-->
-<!--          <el-col :span="4"><div class="grid-content bg-purple">-->
-<!--            <span class="bord">1</span>企业名称</div></el-col>-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple">未命名</div></el-col>-->
-<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>所属地区</div></el-col>-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple">上海市</div></el-col>-->
-<!--        </el-row>-->
-<!--        <el-row :gutter="20">-->
-<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>注册时间</div></el-col>-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple">2005年</div></el-col>-->
-<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>企业类型</div></el-col>-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple">农民专业合作社</div></el-col>-->
-<!--        </el-row>-->
-<!--        <el-row :gutter="20">-->
-<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>注册资本</div></el-col>-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple">2050 万</div></el-col>-->
-<!--          <el-col :span="4"><div class="grid-content bg-purple"><span class="bord">1</span>控制人类型</div></el-col>-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple">企业法人</div></el-col>-->
-<!--        </el-row>-->
-<!--        <el-row :gutter="20">-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>知识产权</div></el-col>-->
-<!--          <el-col :span="16">-->
-<!--            <div class="grid-content bg-purple">-->
-
-<!--              <el-tag type="success">享有专利</el-tag>-->
-<!--              <el-tag type="success">享有商标</el-tag>-->
-<!--              <el-tag type="info">未享有著作权</el-tag>-->
-<!--          </div></el-col>-->
-<!--        </el-row>-->
-<!--        <el-row :gutter="20">-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>僵尸企业测评结果</div></el-col>-->
-<!--          <el-col :span="16">-->
-<!--            <div class="grid-content bg-purple warn">僵尸企业</div></el-col>-->
-<!--        </el-row>-->
-
-<!--        <el-row :gutter="20">-->
-<!--          <el-col :span="8"><div class="grid-content bg-purple"><span class="bord">1</span>企业安全测评结果</div></el-col>-->
-<!--          <el-col :span="16"><div class="grid-content bg-purple ">不安全</div></el-col>-->
-<!--        </el-row>-->
-<!--      </div>-->
 <!--      <div class="tab">-->
 <!--        <template>-->
 <!--          <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">-->
@@ -181,12 +234,14 @@
 <script>
   import $ from 'jquery'
   import G6 from '@antv/g6'
+  import "../assets/circle"
 
   export default {
         name: "CompanyBase",
       data(){
 
           return{
+            YujingVisible:true,
             radio6: '僵尸企业',
             radio7: '系统企业',
             pre_fbx:false,
@@ -226,8 +281,8 @@
     mounted(){
       // alert($(".warn").text());
 
-      this.init_radio();
-      this.init_node();
+      // this.init_radio();
+      // this.init_node();
       // if ($(".warn").text()=="僵尸企业") {
       //       $(".warn").addClass("isred");
       //     }
@@ -266,6 +321,10 @@ created(){
       }
     },
     methods:{
+      showYujing(){
+        console.log("yyyyy");
+        this.YujingVisible=true
+      },
           init_fbx(){
             console.log("222111112");
 
@@ -483,105 +542,105 @@ created(){
             graph.render(); // 渲染图
 
           },
-      init_radio: function () {
-        var echarts = require('echarts');
-
-        var myChart_1 = echarts.init(document.getElementById('radioCont'));
-        myChart_1.setOption({
-          title: {
-            text: '企业六维特征',
-            textStyle:{
-              color:'#1A6FC9',
-            },
-            padding:[5,300]
-          },
-          tooltip: {},
-          legend: { //图例内容,点击能取消/显示图
-            data: []//跟下面的data要对应
-          },
-          radar: {
-            center:['50%','55%'],
-            name: { //六个角上的文字标签
-              // backgroundColor:'red',
-              textStyle: {
-                color: '#000',
-                fontSize:16,
-                lineHeight:24,
-                // backgroundColor: '#f0f0f0',
-                borderColor:'#1A6FC9',
-                borderWidth:1,
-                borderRadius: 3,//标签圆角
-                padding: [3, 10], //标签长宽
-                shadowColor: 'rgba(0, 0, 0, 0.3)',
-                shadowBlur: 1
-              }
-            },
-            axisLine:{
-              // show:false
-              lineStyle:{
-                color:'#d9eeec',
-                width:2
-              },
-
-
-            },
-            splitLine:{
-              // show:false,
-              lineStyle:{
-                color:'#d9eeec',
-                width:2
-              },
-            },
-            splitArea:{
-              areaStyle:{
-              color:['#ffffff','#d9eeec',],
-                shadowColor: 'rgba(0, 0, 0, 0.5)',
-                shadowBlur: 4
-
-              },
-            },
-
-            indicator: [ //各个角的最大值
-              {name: '企业规模', max: 5},
-              {name: '创新能力', max: 5},
-              {name: '盈利能力', max: 5},
-              {name: '发展能力', max: 5},
-              {name: '营运能力', max: 5},
-              {name: '偿清能力', max: 5}
-            ]
-          },
-
-          series: [{
-            name: '预算 vs 开销（Budget vs spending）',
-            type: 'radar',
-            // areaStyle: {normal: {}},
-            data: [
-              {
-                value: [1.66,3,1.30,2.92,3.63,3.97],
-                name: this.li+'号企业',
-                label: {
-                  show: true,
-                  formatter: function(params) {
-                    return params.value;
-                  },
-                  distance:8,
-                  position:'inside',
-                  fontSize:18
-                }
-              },
-
-            ],
-            itemStyle:{
-              color:'#3c70a4'
-            },
-            areaStyle:{
-              opacity: 0.5
-            }
-
-
-          }]
-        })
-      },
+      // init_radio: function () {
+      //   var echarts = require('echarts');
+      //
+      //   // var myChart_1 = echarts.init(document.getElementById('radioCont'));
+      //   myChart_1.setOption({
+      //     title: {
+      //       text: '企业六维特征',
+      //       textStyle:{
+      //         color:'#1A6FC9',
+      //       },
+      //       padding:[5,300]
+      //     },
+      //     tooltip: {},
+      //     legend: { //图例内容,点击能取消/显示图
+      //       data: []//跟下面的data要对应
+      //     },
+      //     radar: {
+      //       center:['50%','55%'],
+      //       name: { //六个角上的文字标签
+      //         // backgroundColor:'red',
+      //         textStyle: {
+      //           color: '#000',
+      //           fontSize:16,
+      //           lineHeight:24,
+      //           // backgroundColor: '#f0f0f0',
+      //           borderColor:'#1A6FC9',
+      //           borderWidth:1,
+      //           borderRadius: 3,//标签圆角
+      //           padding: [3, 10], //标签长宽
+      //           shadowColor: 'rgba(0, 0, 0, 0.3)',
+      //           shadowBlur: 1
+      //         }
+      //       },
+      //       axisLine:{
+      //         // show:false
+      //         lineStyle:{
+      //           color:'#d9eeec',
+      //           width:2
+      //         },
+      //
+      //
+      //       },
+      //       splitLine:{
+      //         // show:false,
+      //         lineStyle:{
+      //           color:'#d9eeec',
+      //           width:2
+      //         },
+      //       },
+      //       splitArea:{
+      //         areaStyle:{
+      //         color:['#ffffff','#d9eeec',],
+      //           shadowColor: 'rgba(0, 0, 0, 0.5)',
+      //           shadowBlur: 4
+      //
+      //         },
+      //       },
+      //
+      //       indicator: [ //各个角的最大值
+      //         {name: '企业规模', max: 5},
+      //         {name: '创新能力', max: 5},
+      //         {name: '盈利能力', max: 5},
+      //         {name: '发展能力', max: 5},
+      //         {name: '营运能力', max: 5},
+      //         {name: '偿清能力', max: 5}
+      //       ]
+      //     },
+      //
+      //     series: [{
+      //       name: '预算 vs 开销（Budget vs spending）',
+      //       type: 'radar',
+      //       // areaStyle: {normal: {}},
+      //       data: [
+      //         {
+      //           value: [1.66,3,1.30,2.92,3.63,3.97],
+      //           name: this.li+'号企业',
+      //           label: {
+      //             show: true,
+      //             formatter: function(params) {
+      //               return params.value;
+      //             },
+      //             distance:8,
+      //             position:'inside',
+      //             fontSize:18
+      //           }
+      //         },
+      //
+      //       ],
+      //       itemStyle:{
+      //         color:'#3c70a4'
+      //       },
+      //       areaStyle:{
+      //         opacity: 0.5
+      //       }
+      //
+      //
+      //     }]
+      //   })
+      // },
 
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
@@ -601,6 +660,8 @@ created(){
 
 <style scoped>
   @import "../assets/basci.css";
+  @import "http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css";
+  @import "../assets/circlecss.css";
   *{
     margin: 0;
     padding: 0;
@@ -756,7 +817,7 @@ created(){
     background-size:cover;
     display: inline-block;
     float: left;
-    opacity: 90%;
+    opacity: 100%;
   }
 
   .right_contain{
@@ -838,5 +899,66 @@ created(){
     width: 100px;
     /*padding: 4px;*/
   }
+.submenu{
+  width: 1000px;
+  height: 600px;
+  /*background-color: #fff;*/
+  margin: 20px auto;
+}
 
+  .wordItemBox {
+    display: inline-block;
+    width: 290px;
+    border-radius: 10px;
+    background: #444;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+  }
+  .wordItemBox .word {
+    color: #fc0;
+    font-size: 22px;
+    line-height: 45px;
+    display: inline-block;
+    padding-right: 10px;
+    transition: color 0.35s;
+  }
+
+  hr {
+    height: 10px;
+    border: none;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: medium;
+    border-top: 1px groove #666;
+    border-top: 1px groove #ddd;
+  }
+  .wordItemBox .pronounce {
+    display: inline-block;
+  }
+
+  .el-dialog{
+    background: red !important;
+  }
+  .YujingCont{
+    background-color: #00c1fb;
+
+  }
+
+</style>
+<style>
+  .Yujingdialog .el-dialog__body {
+    background-color: #041A29 !important;
+    padding-top: 0px;
+  }
+ .el-dialog__header{
+    background: #041A29 !important;
+
+  }
+  .el-dialog__title{
+    color: #fff;
+
+  }
 </style>
