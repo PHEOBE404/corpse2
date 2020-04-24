@@ -31,19 +31,19 @@
 
         <div class="dotCircle">
 			<span class="itemDot active itemDot1" data-tab="1" @click="showYujing">
-				<i class="fa fa-life-ring"></i>
+				<i class="fa fa-life-ring"></i> <p>企业预警</p>
 				<span class="forActive"></span>
 			</span>
           <span class="itemDot itemDot2" data-tab="2" @click="showSixD">
-				<i class="fa fa-bomb"></i>
+				<i class="fa fa-bomb"></i>  <p>企业特征</p>
 				<span class="forActive"></span>
 			</span>
           <span class="itemDot itemDot3" data-tab="3">
-				<i class="fa fa-heartbeat"></i>
+				<i class="fa fa-heartbeat"></i> <p>数据分析</p>
 				<span class="forActive"></span>
 			</span>
           <span class="itemDot itemDot4" data-tab="4">
-				<i class="fa fa-leaf"></i>
+				<i class="fa fa-leaf"></i> <p>其他</p>
 				<span class="forActive"></span>
 			</span>
         </div>
@@ -136,9 +136,28 @@
         </el-dialog>
 
       </el-dialog>
-      <el-dialog title="企业特征" :visible.sync="SixDVisible" top="22px">
+      <el-dialog title="企业特征" :visible.sync="SixDVisible" top="22px" width="1300px">
                       <div id="radioContAfter">
                       </div>
+        <div class="radiolabel">
+          <table border="0"  align="center" style="border-collapse:separate; border-spacing:24px 12px;color: white;font-size: 14px" >
+            <tr style="font-size: 18px" >
+              <th >特征</th>
+              <th >说明</th>
+              <th >计算</th>
+              <th >结果</th>
+            </tr>
+            <tr></tr>
+            <tr  v-for="(item, index) in radiogroup">
+              <td> &nbsp&nbsp&nbsp&nbsp{{item.i1}} &nbsp&nbsp&nbsp&nbsp</td>
+              <td>{{item.i2}}</td>
+              <td>{{item.i3}}</td>
+              <td >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{item.i4}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp &nbsp&nbsp</td>
+            </tr>
+
+          </table>
+
+        </div>
       </el-dialog>
     </div>
   </div>
@@ -146,7 +165,16 @@
       <div class="right_contain">
         <div class="right_title1">企业画像信息 </div>
         <div class="right_1">
-
+          <div class="wrapper">
+            <div class="tagcloud fr">
+              <a href="#">僵尸企业</a>
+              <a href="#">债券融资</a>
+              <a href="#">竞争力弱</a>
+              <a href="#">偿债能力弱</a>
+              <a href="#">匀速发展</a>
+              <a href="#">交通运输业</a>
+            </div>
+          </div><!--wrapper-->
         </div>
         <div class="right_title2">企业基本信息 </div>
         <div class="right_2">
@@ -183,60 +211,19 @@
             </el-radio-group>
             <div class="tag">
               <ul>
-                <li><a >商标</a></li>
-                <li><a>著作权</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
-                <li><a>交通运输业</a></li>
+                <li v-for="(item, index) in labelgroup">
+                  <a >{{item}}</a>
+                </li>
+
+
               </ul>
             </div>
           </div>
         </div>
     </div>
-
-<!--      <div class="tab">-->
-<!--        <template>-->
-<!--          <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">-->
-<!--            <el-tab-pane label="数据分析" name="first">建设中</el-tab-pane>-->
-<!--            <el-tab-pane label="企业特征" name="second">-->
-
               <div id="radioCont">
                    </div>
-<!--              <div id="radioText">-->
-
-
-<!--                <el-collapse v-model="activeNames" @change="handleChange">-->
-<!--                  <el-collapse-item :name=index v-for="(item,index) in bbb"  >-->
-<!--                    <template slot="title">-->
-<!--                      <i class="el-icon-caret-right"></i>-->
-<!--&lt;!&ndash;                      <img src="../assets/边框.png" width="16px" height="20px" style="margin-left: 10px;margin-right: 10px">&ndash;&gt;-->
-<!--                                     <div  class="itemback">       <h3>{{item.k}}</h3>-->
-<!--                                     </div>-->
-<!--                    </template>-->
-<!--                    {{item.v}}-->
-<!--                  </el-collapse-item>-->
-<!--                </el-collapse>-->
-<!--              </div>-->
-
-
-<!--            </el-tab-pane>-->
-
 <!--            <el-tab-pane label="3D企业" name="fourth">建设中</el-tab-pane>-->
-<!--          </el-tabs>-->
-<!--        </template>-->
-<!--      </div>-->
-
-
-<!--{{li}}-->
     </div>
   </div>
 </template>
@@ -245,16 +232,56 @@
   import $ from 'jquery'
   import G6 from '@antv/g6'
   import "../assets/circle"
+  import "../assets/tagcloud"
   export default {
         name: "CompanyBase",
       data(){
 
           return{
+            radiogroup:[
+              {
+                i1:"企业规模",
+                i2:"三年平均从业人数、资产总额、营业总收入",
+                i3:"由三个指标聚类得到企业规模",
+                i4:"1"
+              },
+              {
+                i1:"创新能力",
+                i2:"专利、商标、著作权",
+                i3:"三个指标相加",
+               i4:"3.6"
+              },
+              {
+                i1:"盈利能力",
+                i2:"三年平均总资产收益率",
+                i3:"观察频率直方图后直接将总资产收益率映射到0-5区间内",
+                i4:"1.29"
+              },
+              {
+                i1:"发展能力",
+                i2:"三年平均净利润增长率",
+               i3:"观察频率直方图后直接将净利润增长率映射到0-5区间内",
+               i4:"3.34"
+              },
+              {
+                i1:"营运能力",
+                i2:"三年平均总资产周转率",
+                i3:"观察频率直方图后直接将净利润增长率映射到0-5区间内",
+                i4:"3.9"
+              },
+              {
+                i1:"偿债能力",
+                i2:"三年平均资产负债率",
+                i3:"观察频率直方图后直接将净利润增长率映射到0-5区间内",
+                i4:"4.17"
+              },
+            ],
+            labelgroup:["拥有商标","拥有著作权","交通运输业","发展速度慢","偿债能力弱","交通运输业","资本安全程度低","核心竞争力弱","纳税金额较多","债券融资","中型企业","中盈利","营运能力好","盈利前景一般"],
             wordtitle:["偿债能力预警","负债额度预警"],
             innerdialogtitle:'',
             innerVisible:false,
             YujingVisible:false,
-            SixDVisible:true,
+            SixDVisible:false,
             radio6: '僵尸企业',
             radio7: '系统企业',
             pre_fbx:false,
@@ -302,7 +329,15 @@
     // this.init_fbx();
       this.init_radio();
       $("#radioCont").hide();
-
+      tagcloud({
+        selector: ".tagcloud",  //元素选择器
+        fontsize: 14,       //基本字体大小, 单位px
+        radius: 50,         //滚动半径, 单位px
+        mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
+        ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
+        direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+        keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+      });
     },
 
       computed:{
@@ -348,11 +383,11 @@ created(){
     },
     methods:{
       showSixD(){
-        this.SixDVisible=true;
+
         $("#radioCont").show();
         console.log("5555");
         $("#radioContAfter").append($("#radioCont"));
-
+        this.SixDVisible=true;
 
 
       },
@@ -836,7 +871,7 @@ created(){
   }
   #radioCont{
     margin-top: 20px;
-    width: 600px;
+    width: 500px;
     height: 580px;
     float: left;
     /*background-color: #28a9e0;*/
@@ -1012,12 +1047,45 @@ created(){
     background-color: #00c1fb;
 
   }
-
+  .fr{ float: left; }
+  .wrapper{ width: 100%; height: 100%; margin: 0 auto; }
+  .wrapper p{ padding-top: 0px; line-height: 18px; color: #999; font-size: 14px; text-align: center;  }
+  .tagcloud { position: relative; margin-top:20px; width: 100%}
+  .tagcloud a{ position: absolute;  top: 0; left: 0;  display: block; padding: 11px 10px; color: #333; font-size: 16px; border: 1px solid #e6e7e8; border-radius: 18px; background-color: #f2f4f8; text-decoration: none; white-space: nowrap;
+    -o-box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
+    -ms-box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
+    -moz-box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
+    -webkit-box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
+    box-shadow: 6px 4px 8px 0 rgba(151,142,136,.34);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";/*兼容ie7/8*/
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=125, Strength=9);
+    /*strength是阴影大小，direction是阴影方位，单位为度，可以为负数，color是阴影颜色 （尽量使用数字）使用IE滤镜实现盒子阴影的盒子必须是行元素或以行元素显示（block或inline-block;）*/
+  }
+  .tagcloud a:hover{ color: #3385cf; }
+  .dotCircle p{
+    font-size: 14px;
+  }
+  .radiolabel{
+    width: 730px;
+    height: 450px;
+    margin: 40px;
+    margin-right: 5px;
+    /*margin-left: 5px;*/
+    padding-top: 40px;
+    background: rgba(0,0,0,0.2);
+    float: right;
+    display: inline-block;
+  }
+  .radioContAfter{
+    background-color: #3a8ee6;
+  }
 </style>
 <style>
  .el-dialog__body {
     background-color: #041A29 !important;
-    padding-top: 0px;
+   background: rgba(0,0,0,0.2);
+
+   padding-top: 0px;
     padding-right: 0px;
   }
  .el-dialog__header{

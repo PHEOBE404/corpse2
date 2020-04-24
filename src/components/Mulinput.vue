@@ -307,7 +307,7 @@
 
           <el-tab-pane label="" name="three">
 
-            <div style="width:400px;margin: 0 auto" v-if="show03">
+            <div style="width:400px;margin: 0 auto;text-align: center" v-if="show03">
 
               <el-upload
                 class="upload-demo2"
@@ -325,7 +325,7 @@
                 :auto-upload="false">
                 <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
                 <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                <div slot="tip" class="el-upload__tip" style="color: white">只能上传csv文件</div>
               </el-upload>
 
             </div>
@@ -626,17 +626,15 @@
       </div>
 
       <el-dialog
-        style="background-color: #000;opacity: 0.8"
         :visible.sync="dialogVisible"
-        width="30%"
+        width="400px"
         :before-close="handleClose">
-        <img src="../assets/_0.gif" width="600px" style="margin-left: -50px;margin-top: -60px">
-        <img src="../assets/_0.gif" width="600px" style="margin-left: -50px;margin-top: -10px">
+        <img src="../assets/_0.gif" width="400px" >
+<!--        <img src="../assets/_0.gif" width="600px" style="margin-left: -50px;margin-top: -10px">-->
 <!--        <span style="background-color: black">您输入的信息正在被计算，请稍后……</span>-->
-        <span slot="footer" class="" style="background-color: black">
+<!--        <span slot="footer" class="" style="background-color: black">-->
 <!--    <el-button @click="dialogVisible = false">取 消</el-button>-->
-    <el-button type="primary" @click="dialogVisible = false;ans=true">确 定</el-button>
-  </span>
+<!--  </span>-->
       </el-dialog>
     </div>
 </template>
@@ -1019,13 +1017,24 @@ console.log(this.submit);
               return window.URL.createObjectURL(dataBlob);
            },
         submitUpload() {
+          this.dialogVisible = true;
           this.$refs.upload.submit();
+          setTimeout(() => {
+            this.dialogVisible = false;
+            this.$message('文件已上传，请等待浏览器下载响应');
+
+          }, 1500);
           axios.post("http://47.106.74.144/zombie_dig/File/", this.fd, {
             // 加这里
             headers: {
               Authorization:window.localStorage['Authorization']
             }
           }).then(res => {
+            setTimeout(() => {
+              this.dialogVisible = false;
+              this.$message('文件已上传，请等待浏览器下载响应');
+
+            }, 100);
             console.log('res');
             console.log(res);
             const url = this.genUrl(res.data, {});//{}指的是表头，res.data.data.workhour_csv_data是后台返回来的数据
@@ -1251,4 +1260,27 @@ width: 100%;
 .userfooter{
   margin-right: -56px;
 }
+</style>
+<style>
+  .el-dialog__body {
+    background-color: #041A29 !important;
+    padding-top: 0px;
+    padding-right: 0px;
+    height: 200px;
+    padding: 0px;
+  }
+  .el-dialog__header{
+    background: #000 !important;
+    /*opacity: 0.001%;*/
+
+  }
+  .el-dialog__title{
+    color: #fff;
+    opacity: 0.001%;
+    background: #041A29 !important;
+
+  }
+  .el-dialog__body h4,h5{
+    color: white;
+  }
 </style>

@@ -1,14 +1,10 @@
-/*
-	create by nasir farhadi
-	email : nasirfarhadi92@gmail.com
-	Github : nasirfarhadi92
-*/
+
 
 .holderCircle {
 	width: 500px;
 	height: 500px;
 	border-radius: 100%;
-	margin: 60px auto;
+	margin: 30px auto;
 	position: relative;
 }
 /* .holderCircle::after{
