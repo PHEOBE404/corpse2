@@ -13,6 +13,7 @@ import Me from "../components/Me";
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
 
     {
