@@ -32,7 +32,7 @@
             <img src="../assets/模块分类三.png" @click="al3"width="105%">
           </el-carousel-item>
           <el-carousel-item  class="choiceItem" >
-            <img src="../assets/模块分类四.png" @click="al"width="105%">
+            <img src="../assets/模块分类四.png" @click="al4"width="105%">
           </el-carousel-item>
         </el-carousel>
       </template>
