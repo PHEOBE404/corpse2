@@ -18,7 +18,7 @@
         <br> <br>
         <el-button type="primary"  style="width: 300px;position: fixed;" @click="login">登录</el-button>
         <el-button   style="width: 300px;position: fixed;margin-top: 40px;margin-left: -0px">注册</el-button>
-      </div>
+      </div><p></p>
 
 
 
