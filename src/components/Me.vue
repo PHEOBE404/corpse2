@@ -1,8 +1,9 @@
 <template>
     <div class="body">
       <div class="footer">
-       <span class="title"><router-link to="/home">
+     <span class="title"><router-link to="/home">
           <img src="../assets/logo-teng-full.png" width="240px">
+
          </router-link></span>
 
         <div class="userfooter">
@@ -18,10 +19,10 @@
       </div>
 
       <div id="wrapper">
-        <div class="overlay"></div>
+<!--        <div class="overlay"></div>-->
 
         <!-- Sidebar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <nav  class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
           <ul class="nav sidebar-nav">
             <li class="sidebar-brand">
               <a href="#">
@@ -29,23 +30,20 @@
               </a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-fw fa-home"></i> 我的信息</a>
+              <a href="#" @click="showInfo"><i class="fa fa-fw fa-home"></i> 我的信息</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-fw fa-folder"></i> 我的测评</a>
+              <a href="#"  @click="showCompu"><i class="fa fa-fw fa-folder"></i> 我的测评</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-fw fa-file-o"></i> 设置</a>
+              <a href="#"  @click="showSet"><i class="fa fa-fw fa-cog"></i> 设置</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-fw fa-cog"></i> 退出</a>
+              <a href="#"  @click="exit"><i class="fa fa-fw fa-file-o"></i> 退出</a>
             </li>
-
-
           </ul>
         </nav>
         <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
           <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
@@ -54,23 +52,121 @@
             <span class="hamb-bottom"></span>
           </button>
           <div class="container">
-            <div class="row">
-              <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header">Awesome Bootstrap 3 Sidebar Navigation</h1>
-                <p class="lead">Originally authored by  maridlcrmn  on Bootsnipp and then converted to Less and customized further by j_holtslander who is building a collection of great Bootstrap 3 navbars.</p>
-                <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue.</p>
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
-                <p>Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-                <h3>A heading in the mix.</h3>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-                <blockquote>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue.</blockquote>
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+            <div class="myInfo">
+              <div class="user" style="width: 290px;float: left">
+                <div class="user__head">
+                  <div class="user__img">
+<!--                    <img src="img/user5.jpg" alt="">-->
+                  </div>
+                </div>
+                <div class="user__title">
+                  <h2>John Doe</h2>
+                  <p>Front-end Developer</p>
+                </div>
+                <div class="user__btns">
+                  <a href="add-project.html" class="user__btn user__btn--blue"><span>Post a project</span></a>
+                  <a href="add-job.html" class="user__btn user__btn--orange"><span>Post a job</span></a>
+                </div>
+                <ul class="user__stats">
+                  <li>
+                    <p>Following</p>
+                    <span>26</span>
+                  </li>
+                  <li>
+                    <p>Followers</p>
+                    <span>88</span>
+                  </li>
+                </ul>
+                <a href="#" class="sidebox__more">View profile</a>
               </div>
+
+              <!-- sidebox -->
+              <div class="sidebox" style="float: left;width: 500px;margin-left: 40px">
+                <h4 class="sidebox__title">历史测评</h4>
+                <div class="sidebox__content">
+
+                  <div class="sidebox__user">
+                    <a href="#" class="sidebox__user-img">
+
+                    </a>
+                    <div class="sidebox__user-title">
+                      <h5><a href="#">Andy Ramos</a></h5>
+                      <p>Secretary</p>
+                    </div>
+                    <button class="sidebox__user-btn" type="button">
+                      <i class="icon el-icon-view"></i>
+                    </button>
+                  </div>
+
+                  <div class="sidebox__user">
+                    <a href="#" class="sidebox__user-img">
+<!--                      <img src="img/user1.jpg" alt="">-->
+                    </a>
+                    <div class="sidebox__user-title">
+                      <h5><a href="#">Tony Young</a></h5>
+                      <p>Herbalist</p>
+                    </div>
+                    <button class="sidebox__user-btn" type="button">
+                      <i class="icon el-icon-view"></i>
+
+                    </button>
+                  </div>
+
+                  <div class="sidebox__user">
+                    <a href="#" class="sidebox__user-img">
+<!--                      <img src="img/user2.jpg" alt="">-->
+                    </a>
+                    <div class="sidebox__user-title">
+                      <h5><a href="#">Santiago Robinson</a></h5>
+                      <p>Fashion designer</p>
+                    </div>
+                    <button class="sidebox__user-btn" type="button">
+                      <i class="icon el-icon-view"></i>
+
+                    </button>
+                  </div>
+
+                  <div class="sidebox__user">
+                    <a href="#" class="sidebox__user-img">
+<!--                      <img src="img/user3.jpg" alt="">-->
+                    </a>
+                    <div class="sidebox__user-title">
+                      <h5><a href="#">Sophia Mendoza</a></h5>
+                      <p>Teaching assistant</p>
+                    </div>
+                    <button class="sidebox__user-btn" type="button">
+                      <i class="icon el-icon-view"></i>
+
+                    </button>
+                  </div>
+
+                  <div class="sidebox__user">
+                    <a href="#" class="sidebox__user-img">
+<!--                      <img src="img/user4.jpg" alt="">-->
+                      <i class="el-icon-tickets"></i>
+                    </a>
+                    <div class="sidebox__user-title">
+                      <h5><a href="#">Marsha Baldwin</a></h5>
+                      <p>Gardener</p>
+                    </div>
+                    <button class="sidebox__user-btn" type="button">
+                      <i class="icon el-icon-view"></i>
+
+                    </button>
+                  </div>
+                </div>
+                <a href="#" class="sidebox__more">View more</a>
+              </div>
+              <!-- end sidebox -->
+
+
             </div>
+            <div class="myCompu">myCompu</div>
+            <div class="mySet">mySet</div>
+            <div class="exit">exit</div>
           </div>
         </div>
         <!-- /#page-content-wrapper -->
-
       </div>
     </div>
 </template>
@@ -81,9 +177,18 @@
   import "../assets/icomoon.ttf"
   import "../assets/icomoon.woff"
   import $ from 'jquery'
+  import "../assets/jquery.mousewheel.min"
+
   import "../assets/jquery-1.8.3.min"
   import "../assets/bootstrap.min"
-  // import "../assets/bootstrap.min"
+  import "../assets/jquery-3.4.1.min"
+  // import "../assets/bootstrap.bundle.min"
+  import "../assets/owl.carousel.min"
+  import "../assets/wNumb"
+  import "../assets/nouislider.min"
+  import "../assets/select2.min"
+  // import "../assets/jquery.mCustomScrollbar.min"
+  import "../assets/main"
   export default {
         name: "Me",
       data(){
@@ -139,6 +244,41 @@
       $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
       });
+
+      $(".myInfo").show();
+      $(".myCompu").hide();
+      $(".mySet").hide();
+      $(".exit").hide();
+    },
+    methods:{
+      showInfo(){
+        $(".myInfo").show();
+        $(".myCompu").hide();
+        $(".mySet").hide();
+        $(".exit").hide();
+
+      },
+      showCompu(){
+        $(".myInfo").hide();
+        $(".myCompu").show();
+        $(".mySet").hide();
+        $(".exit").hide();
+
+      },
+      showSet(){
+        $(".myInfo").hide();
+        $(".myCompu").hide();
+        $(".mySet").show();
+        $(".exit").hide();
+
+      },
+      exit(){
+        $(".myInfo").hide();
+        $(".myCompu").hide();
+        $(".mySet").hide();
+        $(".exit").show();
+
+      },
     }
     }
 </script>
@@ -147,6 +287,14 @@
   @import "../assets/bootstrap.css";
   @import "../assets/basci.css";
   @import "../assets/style.css";
+  @import "../assets/bootstrap-reboot.min.css";
+  @import "../assets/bootstrap-grid.min.css";
+  @import "../assets/owl.carousel.min.css";
+  @import "../assets/nouislider.min.css";
+  @import "../assets/select2.min.css";
+  @import "../assets/jquery.mCustomScrollbar.min.css";
+  @import "../assets/ionicons.min.css";
+  @import "../assets/main.css";
 
   .body{
     /*background-image: url("../assets/粒子92.png");*/
@@ -155,4 +303,28 @@
     background-position: center top;
     height: 740px;
   }
+  .userfooter{
+    /*margin-right: 20px;*/
+    /*width: 300px;*/
+  }
+  .container{
+    color: white;
+  }
+  .footer{
+    z-index: 1000;
+  }
+  /*.title img{*/
+  /*  color: #ffffff;*/
+  /*  !*background-color: #041A29;*!*/
+  /*  line-height: 38px;*/
+  /*  font-size: 18px;*/
+  /*  text-decoration: none;*/
+  /*  padding-top: 4px;*/
+  /*  padding-bottom: 2px;*/
+  /*  transition: all .1s ease 0s;*/
+  /*}*/
+  /*.title  :hover{*/
+  /*  !*background-color:#041A29 ;*!*/
+  /*  opacity: 92%;*/
+  /*}*/
 </style>

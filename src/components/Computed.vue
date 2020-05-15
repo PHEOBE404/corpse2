@@ -32,19 +32,24 @@
             <center>
 
             <img src="../assets/111.png" width="140px" class="imgg" >
-            <h3>1号模型</h3>
-            <p>侧重大量数据处理</p>
-              <p>具有高并发计算能力</p>
+              <h3>XGBoost模型</h3>
+
+              <p>基于Boosting的集成学习模型</p>
+              <p>综合性能仅次于随机森林的模型</p>
+              <p>建议作为随机森林的后备模型使用</p>
+
             </center>
           </div>
             </el-card>
         <el-card class="box-card" >
           <div  class="text item">
             <center>
-            <img src="../assets/222.png" width="160px">
-            <h3>2号模型</h3>
-            <p>侧重数据准确率</p>
-              <p>实时生成新数据</p>
+            <img src="../assets/222.png" width="160px"><el-tag type="success" style="position: absolute;float: right;width: 40px;">推荐</el-tag>
+              <h3>随机森林模型</h3>
+              <p>综合性能最佳的模型</p>
+              <p>拥有最高的预测准确率和较快的预测速度</p>
+              <p>基于Bagging的集成学习模型</p>
+
             </center>
           </div>
             </el-card>
@@ -53,10 +58,11 @@
 <!--            {{'模型 2'  }}--> <center>
             <img src="../assets/333.png" height="140px" class="imgg" >
 
-            <h3>3号模型</h3>
 
-            <p>侧重计算速度</p>
-              <p>实现数据快速计算</p>
+            <h3>逻辑回归模型</h3>
+            <p>简单有效的机器学习模型</p>
+            <p>拥有最快的预测速度</p>
+            <p>同时在预测准确率上有较高保障</p>
             </center>
           </div>
             </el-card>
@@ -147,6 +153,14 @@ margin: 20px auto;
 }
 .text {
   font-size: 16px;
+}
+.text h3{
+  line-height: 36px;
+}
+.text p{
+  font-size: 12px;
+  line-height: 24px;
+  color: #99a9bf;
 }
 
 .item {

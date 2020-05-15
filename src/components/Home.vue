@@ -70,8 +70,9 @@
           this.moveMenu();
           this.$router.push({path:'/bigdata'});
         },
-        al:function(){
-
+        al4:function(){
+          this.moveMenu();
+          this.$router.push({path:'/me'});
         },
           moveMenu:function () {
             $(".menu").animate({//功能按钮进入侧边导航栏
