@@ -16,11 +16,75 @@
           <span class="active"><router-link to="/me">个人中心</router-link></span>
         </div>
       </div>
+
+      <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+          <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+              <a href="#">
+                个人中心
+              </a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-fw fa-home"></i> 我的信息</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-fw fa-folder"></i> 我的测评</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-fw fa-file-o"></i> 设置</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-fw fa-cog"></i> 退出</a>
+            </li>
+
+
+          </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+          </button>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2">
+                <h1 class="page-header">Awesome Bootstrap 3 Sidebar Navigation</h1>
+                <p class="lead">Originally authored by  maridlcrmn  on Bootsnipp and then converted to Less and customized further by j_holtslander who is building a collection of great Bootstrap 3 navbars.</p>
+                <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue.</p>
+                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+                <h3>A heading in the mix.</h3>
+                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                <blockquote>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue.</blockquote>
+                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+      </div>
     </div>
 </template>
 
 <script>
-    export default {
+  import "../assets/icomoon.eot"
+  import "../assets/icomoon.svg"
+  import "../assets/icomoon.ttf"
+  import "../assets/icomoon.woff"
+  import $ from 'jquery'
+  import "../assets/jquery-1.8.3.min"
+  import "../assets/bootstrap.min"
+  // import "../assets/bootstrap.min"
+  export default {
         name: "Me",
       data(){
         return{
@@ -48,11 +112,42 @@
           clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
         }
       },
+    mounted() {
+      var trigger = $('.hamburger'),
+        overlay = $('.overlay'),
+        isClosed = false;
+
+      trigger.click(function () {
+        hamburger_cross();
+      });
+
+      function hamburger_cross() {
+
+        if (isClosed == true) {
+          overlay.hide();
+          trigger.removeClass('is-open');
+          trigger.addClass('is-closed');
+          isClosed = false;
+        } else {
+          overlay.show();
+          trigger.removeClass('is-closed');
+          trigger.addClass('is-open');
+          isClosed = true;
+        }
+      }
+
+      $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+      });
+    }
     }
 </script>
 
 <style scoped>
+  @import "../assets/bootstrap.css";
   @import "../assets/basci.css";
+  @import "../assets/style.css";
+
   .body{
     /*background-image: url("../assets/粒子92.png");*/
     background-color: #19313D;
