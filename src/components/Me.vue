@@ -56,7 +56,6 @@
               <div class="user" style="width: 290px;float: left">
                 <div class="user__head">
                   <div class="user__img">
-<!--                    <img src="img/user5.jpg" alt="">-->
                   </div>
                 </div>
                 <div class="user__title">
@@ -91,7 +90,7 @@
                     </a>
                     <div class="sidebox__user-title">
                       <h5><a href="#">Andy Ramos</a></h5>
-                      <p>Secretary</p>
+                      <p>文件上传</p>
                     </div>
                     <button class="sidebox__user-btn" type="button">
                       <i class="icon el-icon-view"></i>
@@ -104,7 +103,7 @@
                     </a>
                     <div class="sidebox__user-title">
                       <h5><a href="#">Tony Young</a></h5>
-                      <p>Herbalist</p>
+                      <p>文件上传</p>
                     </div>
                     <button class="sidebox__user-btn" type="button">
                       <i class="icon el-icon-view"></i>
@@ -118,7 +117,7 @@
                     </a>
                     <div class="sidebox__user-title">
                       <h5><a href="#">Santiago Robinson</a></h5>
-                      <p>Fashion designer</p>
+                      <p>单个输入</p>
                     </div>
                     <button class="sidebox__user-btn" type="button">
                       <i class="icon el-icon-view"></i>
@@ -132,7 +131,7 @@
                     </a>
                     <div class="sidebox__user-title">
                       <h5><a href="#">Sophia Mendoza</a></h5>
-                      <p>Teaching assistant</p>
+                      <p>多个输入</p>
                     </div>
                     <button class="sidebox__user-btn" type="button">
                       <i class="icon el-icon-view"></i>
@@ -147,12 +146,64 @@
                     </a>
                     <div class="sidebox__user-title">
                       <h5><a href="#">Marsha Baldwin</a></h5>
-                      <p>Gardener</p>
+                      <p>文件上传</p>
                     </div>
                     <button class="sidebox__user-btn" type="button">
                       <i class="icon el-icon-view"></i>
 
                     </button>
+                  </div>
+                </div>
+                <a href="#" class="sidebox__more">View more</a>
+              </div>
+              <!-- end sidebox -->
+              <!-- sidebox -->
+              <div class="sidebox sidebox--desk" style="width: 300px;float:left;margin-left: 40px">
+                <h4 class="sidebox__title">Top jobs</h4>
+                <div class="sidebox__content">
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">Front-end Developer</a>
+                      <span>$25/hr</span>
+                    </div>
+                    <p class="sidebox__job-description">The generated Lorem Ipsum is therefore always free from repetition.
+                    </p>
+                  </div>
+
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">UI/UX Designer</a>
+                      <span>$20/hr</span>
+                    </div>
+                    <p class="sidebox__job-description">The generated Lorem Ipsum is therefore always free from repetition.
+                    </p>
+                  </div>
+
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">Back-end Developer</a>
+                      <span>$27/hr</span>
+                    </div>
+                    <p class="sidebox__job-description">The generated Lorem Ipsum is therefore always free from repetition.
+                    </p>
+                  </div>
+
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">Team Leader</a>
+                      <span>$38/hr</span>
+                    </div>
+                    <p class="sidebox__job-description">The generated Lorem Ipsum is therefore always free from repetition.
+                    </p>
+                  </div>
+
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">Senior Java Developer</a>
+                      <span>$35/hr</span>
+                    </div>
+                    <p class="sidebox__job-description">The generated Lorem Ipsum is therefore always free from repetition.
+                    </p>
                   </div>
                 </div>
                 <a href="#" class="sidebox__more">View more</a>
