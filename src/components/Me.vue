@@ -227,7 +227,7 @@
                   <div class="sidebox__job">
                     <div class="sidebox__job-title">
                       <a href="#">批量查询实时生成企业数据</a>
-                      <span>68元/月</span>
+                      <strong>68元/月</strong>
                     </div>
                     <p class="sidebox__job-description">同时生成多个企业数据报告
                     </p>
@@ -236,9 +236,18 @@
                   <div class="sidebox__job">
                     <div class="sidebox__job-title">
                       <a href="#">大数据分析投屏展示</a>
-                      <span>48元/月</span>
+                      <strong>48元/月</strong>
                     </div>
                     <p class="sidebox__job-description">应用于宣传推广需要
+                    </p>
+                  </div>
+
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">推荐查询企业</a>
+                      <strong>78元/月</strong>
+                    </div>
+                    <p class="sidebox__job-description">在未知企业ID时可查看推荐企业信息
                     </p>
                   </div>
                 </div>
@@ -461,41 +470,37 @@
 
             </div>
             <div class="mySet">
-              <div class="card" style="width: 800px;margin-left: 260px">
-              <div class="card-header">
-<!--                <h4 class="card-title"> 权限管理</h4>-->
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                    <th>权限</th>
-                    <th>拥有 </th>
-                    <th>描述</th>
-                    <th class="text-right"> 价格</th>
+
+
+              <div class="container2">
+                <div class="component">
+                  <table>
+                    <thead>
+                    <tr>
+                      <th>权限</th>
+                      <th>拥有</th>
+                      <th>描述</th>
+                      <th>价格</th>
+                      <th>操作</th>
+                    </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td> 文件上传批量测评企业</td><td> 是 </td><td>可实现大量企业数据同时测评 </td><td class="text-right"> 9.9元/月</td>
-                    </tr>
-                    <tr>
-                      <td> 查询系统企业信息</td><td> 是 </td><td>拥有系统企业查询权限 </td><td class="text-right"> 9.9元/月</td>
-                    </tr>
-                    <tr>
-                      <td> 单个查询实时生成企业数据</td><td> 是 </td><td>快速生成结果查询企业数据报告 </td><td class="text-right"> 9.9元/月</td>
-                    </tr>
-                    <tr>
-                      <td> 批量查询实时生成企业数据</td><td> 否 </td><td>同时生成多个企业数据报告 </td><td class="text-right"> 68元/月</td>
-                    </tr>
-                    <tr>
-                      <td> 大数据分析投屏展示</td><td> 否 </td><td>应用于宣传推广需要 </td><td class="text-right"> 48元/月</td>
-                    </tr>
-
+                    <tr><td class="user-name">文件上传批量测评企业</td><td class="user-email">是</td><td class="user-phone">可实现大量企业数据同时测评 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">查询系统企业信息</td><td class="user-email">是</td><td class="user-phone">拥有系统企业查询权限 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">单个查询实时生成企业数据</td><td class="user-email">是</td><td class="user-phone">快速生成结果查询企业数据报告 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">批量查询实时生成企业数据</td><td class="user-email">否</td><td class="user-phone">同时生成多个企业数据报告 </td><td class="user-mobile">68元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
+                    <tr><td class="user-name">大数据分析投屏展示</td><td class="user-email">否</td><td class="user-phone">应用于宣传推广需要 </td><td class="user-mobile">48元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
+                    <tr><td class="user-name">推荐查询企业</td><td class="user-email">否</td><td class="user-phone">在未知企业ID时可查看推荐企业信息  </td><td class="user-mobile">78元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
                     </tbody>
                   </table>
                 </div>
-              </div>
-            </div></div>
+
+              </div><!-- /container -->
+            </div>
+
+
+
+
             <div class="exit">exit</div>
           </div>
         </div>
@@ -515,13 +520,14 @@
   import "../assets/jquery-1.8.3.min"
   import "../assets/bootstrap.min"
   import "../assets/jquery-3.4.1.min"
-  // import "../assets/bootstrap.bundle.min"
   import "../assets/owl.carousel.min"
   import "../assets/wNumb"
   import "../assets/nouislider.min"
   import "../assets/select2.min"
-  // import "../assets/jquery.mCustomScrollbar.min"
   import "../assets/main"
+  // import "../assets/jquery.ba-throttle-debounce.min"
+  // import "../assets/jquery.stickyheader"
+
   export default {
         name: "Me",
       data(){
@@ -578,9 +584,9 @@
         $('#wrapper').toggleClass('toggled');
       });
 
-      $(".myInfo").show();
+      $(".myInfo").hide();
       $(".myCompu").hide();
-      $(".mySet").hide();
+      $(".mySet").show();
       $(".exit").hide();
     },
     methods:{
@@ -628,6 +634,9 @@
   @import "../assets/jquery.mCustomScrollbar.min.css";
   @import "../assets/ionicons.min.css";
   @import "../assets/main.css";
+  @import "../assets/component.css";
+  /*!*@import "../assets/demo.css";*!   改变footer*/
+  @import "../assets/normalize.css";
   /*@import "../assets/now-ui-dashboard.min.css";*/
 
   .body{
@@ -656,5 +665,23 @@
   .company__logo
   {
     margin-left: 10px;
+  }
+  .sidebox__job-title span{
+    color: #5daf34;
+  }
+  .sidebox__job-title strong{
+    color: #99a9bf;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+  .container2{
+    color: #7c8d87;
+  }
+  .toUser{
+    color: #5daf34;
+  }
+  .toBuy{
+    color: #3a8ee6;
   }
 </style>
