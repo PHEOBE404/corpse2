@@ -169,10 +169,10 @@
                 <ul class="t_btn">
 
                   <li>
-                    <button class="t_btn6">交通就业量</button>
+                    <button class="t_btn6">融资情况</button>
                   </li>
                   <li>
-                    <button class="t_btn7">湖南货运量</button>
+                    <button class="t_btn7">财务报告</button>
                   </li>
 
                 </ul>
@@ -203,9 +203,9 @@
                   <i class="b_r_line"></i>
                 </div>
                 <div class="main_title">
-                  湖南省高速公路
+                  融资情况
                 </div>
-                <div id="chart_2" class="chart" style="width:100%;height:568px;"></div>
+                <div id="chartRongZi" class="chart" style="width:100%;height:568px;"></div>
               </div>
 
               <div class="center_text t_cos3" style="display:none">
@@ -412,6 +412,7 @@
       ;
     // this.init_fbx();
       this.init_radio();
+      // this.chartRongZi();
       $("#radioCont").hide();
       tagcloud({
         selector: ".tagcloud",  //元素选择器
@@ -832,6 +833,15 @@ created(){
           // alert(params.name);//企业编号
 
         });
+      },
+      chartRongZi: function () {
+        var _this=this;
+        var echarts = require('echarts');
+        var myChart_2 = echarts.init(document.getElementById('chartRongZi'));
+        myChart_2.setOption({
+
+        });
+
       },
     }
     }
