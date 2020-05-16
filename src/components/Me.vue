@@ -2,7 +2,8 @@
     <div class="body">
       <div class="footer">
      <span class="title"><router-link to="/home">
-          <img src="../assets/logo-teng-full.png" width="240px">
+
+          <img src="../assets/103.png" width="310px">
 
          </router-link></span>
 
@@ -631,7 +632,7 @@
   @import "../assets/owl.carousel.min.css";
   @import "../assets/nouislider.min.css";
   @import "../assets/select2.min.css";
-  @import "../assets/jquery.mCustomScrollbar.min.css";
+  /*@import "../assets/jquery.mCustomScrollbar.min.css";*/
   @import "../assets/ionicons.min.css";
   @import "../assets/main.css";
   @import "../assets/component.css";

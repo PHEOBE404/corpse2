@@ -5,7 +5,8 @@
 <!--  </div>-->
     <div class="footer">
      <span class="title"><router-link to="/home">
-          <img src="../assets/logo-teng-full.png" width="240px">
+                  <img src="../assets/103.png" width="310px">
+
          </router-link></span>
 
       <div class="userfooter">
@@ -23,7 +24,7 @@
     <div style="width: 100%" v-if="!pre_fbx">
 <div class="left_contain">
   <div class="left_back">
-    <i class="el-icon-back">返回</i>
+<!--    <i class="el-icon-back">返回</i>-->
 <!--    <el-button type="default" icon="el-icon-back">返回</el-button>-->
     <div class="submenu">
 
@@ -38,7 +39,7 @@
 				<i class="fa fa-bomb"></i>  <p>企业特征</p>
 				<span class="forActive"></span>
 			</span>
-          <span class="itemDot itemDot3" data-tab="3">
+          <span class="itemDot itemDot3" data-tab="3" @click="showFenXi">
 				<i class="fa fa-heartbeat"></i> <p>数据分析</p>
 				<span class="forActive"></span>
 			</span>
@@ -159,6 +160,86 @@
 
         </div>
       </el-dialog>
+      <el-dialog title="数据分析" :visible.sync="FenXiVisible" top="22px" width="1300px">
+        <!--main-->
+        <div class="data_content">
+          <div class="data_main">
+            <div class="main_left fl">
+              <div class="left_1">
+                <ul class="t_btn">
+
+                  <li>
+                    <button class="t_btn6">交通就业量</button>
+                  </li>
+                  <li>
+                    <button class="t_btn7">湖南货运量</button>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+            <div class="main_center fl">
+
+              <div class="center_text t_cos1" style="display:block">
+                <!--左上边框-->
+                <div class="t_line_box">
+                  <i class="t_l_line"></i>
+                  <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                  <i class="t_r_line"></i>
+                  <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                  <i class="l_b_line"></i>
+                  <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                  <i class="r_b_line"></i>
+                  <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                  湖南省高速公路
+                </div>
+                <div id="chart_2" class="chart" style="width:100%;height:568px;"></div>
+              </div>
+
+              <div class="center_text t_cos3" style="display:none">
+                <!--左上边框-->
+                <div class="t_line_box">
+                  <i class="t_l_line"></i>
+                  <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                  <i class="t_r_line"></i>
+                  <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                  <i class="l_b_line"></i>
+                  <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                  <i class="r_b_line"></i>
+                  <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                  中国铁路
+                </div>
+                <div id="chart_4" class="chart" style="width:100%;height:778px;"></div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </el-dialog>
     </div>
   </div>
 </div>
@@ -233,6 +314,8 @@
   import G6 from '@antv/g6'
   import "../assets/circle"
   import "../assets/tagcloud"
+  import "../assets/jquery-3.4.1.min"
+  // import "../assets/bootstrap.min"
   export default {
         name: "CompanyBase",
       data(){
@@ -282,6 +365,7 @@
             innerVisible:false,
             YujingVisible:false,
             SixDVisible:false,
+            FenXiVisible:false,
             radio6: '僵尸企业',
             radio7: '系统企业',
             pre_fbx:false,
@@ -388,8 +472,6 @@ created(){
         console.log("5555");
         $("#radioContAfter").append($("#radioCont"));
         this.SixDVisible=true;
-
-
       },
       Yujinginfo(index){
         switch(index)
@@ -424,6 +506,10 @@ created(){
             printf("error\n");
             break;
         }
+      },
+      showFenXi(){
+        console.log("showFenXi");
+        this.FenXiVisible=true;
       },
       showYujing(){
         console.log("yyyyy");
@@ -755,6 +841,9 @@ created(){
   @import "../assets/basci.css";
   @import "http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css";
   @import "../assets/circlecss.css";
+  /*@import "../assets/base2.css";*/
+  @import "../assets/style2.css";
+
   *{
     margin: 0;
     padding: 0;
@@ -1079,6 +1168,56 @@ created(){
   .radioContAfter{
     background-color: #3a8ee6;
   }
+  .t_btn {
+    margin-top: 20px;
+  }
+
+  .t_btn li {
+    display: inline-block;
+    margin: 0 0px 20px 20px;
+  }
+
+  .t_btn button,
+  .t_a {
+    display: inline-block;
+    padding: 10px 5px;
+    width: 80px;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0 0 0.5em 0;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    background-color: #2C58A6;
+    border-color: #0263ff;
+    color: white;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2) inset !important;
+    margin-right: 0.5em;
+    border-radius: 4px;
+  }
+
+  .t_height {
+    line-height: 80px;
+    position: absolute;
+    right: 28px;
+    top: 0;
+  }
+  .center_text{
+    /*float: right;*/
+    /*width: 300px;*/
+  }
+  .t_line_box{
+    /*width: 200px;*/
+  }
+  .left_1{
+    height: 560px;
+  }
 </style>
 <style>
  .el-dialog__body {
@@ -1099,4 +1238,5 @@ created(){
  .el-dialog__body h4,h5{
    color: white;
  }
+
 </style>

@@ -4,7 +4,8 @@
       <div class="footer">
 
           <span class="title"><router-link to="/home">
-          <img src="../assets/logo-teng-full.png" width="240px">
+               <img src="../assets/103.png" width="310px">
+
          </router-link></span>
         <div class="userfooter">
           <span class="current_time">{{currentTime}}</span>

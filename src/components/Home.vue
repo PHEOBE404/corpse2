@@ -2,7 +2,8 @@
     <div class="body">
       <div class="footer">
           <span class="title"><a href="">
-          <img src="../assets/logo-teng-full.png" width="240px">
+                   <img src="../assets/103.png" width="310px">
+
          </a></span>
 
         <div class="userfooter">

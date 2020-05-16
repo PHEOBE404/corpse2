@@ -11,7 +11,7 @@
       <!--<img src="../assets/登录页面（密码登录）.png" width="1500px" >-->
 <!--        <img src="../assets/inputt.png" width="900">-->
       <div class="login">
-        <h2 style="position: fixed;color: #fff;margin-top: -80px;margin-left: 50px">探·僵局查询系统</h2>
+        <h2 style="position: fixed;color: #fff;margin-top: -80px;margin-left: 12px">探·僵局僵尸企业识别系统</h2>
         <el-input v-model="username" placeholder="请输入用户名" prefix-icon="el-icon-user"style="width: 300px"></el-input>
         <br><br>
         <el-input v-model="password" type="password" placeholder="请输入密码" prefix-icon="el-icon-lock" style="width: 300px"></el-input>

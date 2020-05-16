@@ -2,7 +2,9 @@
     <div class="body">
       <div class="footer">
         <span class="title"><router-link to="/home">
-          <img src="../assets/logo-teng-full.png" width="240px"></router-link></span>
+                 <img src="../assets/103.png" width="310px">
+
+        </router-link></span>
         <div class="userfooter">
           <span class="current_time">{{currentTime}}</span>
           <span class="user_a">用户5988741</span>
@@ -97,19 +99,36 @@
             testdata:'',
             tableData: [
               {
-              id: '489123',
+              id: '48913423',
               zone: '浙江',
               industry: '服务业'
             },{
-              id: '4823',
+              id: '48256863',
               zone: '江西',
               industry: '工业',
                 warn:'1'
             },{
-              id: '489',
+              id: '48567977',
               zone: '北京',
               industry: '服务业'
-            },
+            },{
+              id: '48234973',
+              zone: '湖南',
+              industry: '社区服务'
+            },{
+              id: '56474489',
+              zone: '浙江',
+              industry: '工业'
+            },{
+              id: '46743489',
+              zone: '广东',
+              industry: '商业服务',
+                warn:'1'
+              },{
+              id: '88744348',
+              zone: '广东',
+              industry: '服务员',
+              },
             ],
             timerNum:null,
             number:1,
