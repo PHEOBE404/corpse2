@@ -486,12 +486,18 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <tr><td class="user-name">查询添加企业</td><td class="user-email">是</td><td class="user-phone">可查看非官方提供的企业信息 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">查看企业六维特征分析</td><td class="user-email">是</td><td class="user-phone">提供六维特征图文分析 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">查看企业预警信息</td><td class="user-email">是</td><td class="user-phone">提供预警信息 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">提供多种僵尸企业测试模型</td><td class="user-email">是</td><td class="user-phone">针对不同数据量类型进行僵尸企业测评 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">文件上传批量测评企业</td><td class="user-email">是</td><td class="user-phone">可实现大量企业数据同时测评 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">查询系统企业信息</td><td class="user-email">是</td><td class="user-phone">拥有系统企业查询权限 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">单个查询实时生成企业数据</td><td class="user-email">是</td><td class="user-phone">快速生成结果查询企业数据报告 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">批量查询实时生成企业数据</td><td class="user-email">否</td><td class="user-phone">同时生成多个企业数据报告 </td><td class="user-mobile">68元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
                     <tr><td class="user-name">大数据分析投屏展示</td><td class="user-email">否</td><td class="user-phone">应用于宣传推广需要 </td><td class="user-mobile">48元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
                     <tr><td class="user-name">推荐查询企业</td><td class="user-email">否</td><td class="user-phone">在未知企业ID时可查看推荐企业信息  </td><td class="user-mobile">78元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
+                    <tr><td class="user-name">查看3D企业</td><td class="user-email">是</td><td class="user-phone">形成3维企业人物 </td><td class="user-mobile">109元/月</td><td class="toBuy"><el-button type="text">购买</el-button></td></tr>
+
                     </tbody>
                   </table>
                 </div>
@@ -632,13 +638,10 @@
   @import "../assets/owl.carousel.min.css";
   @import "../assets/nouislider.min.css";
   @import "../assets/select2.min.css";
-  /*@import "../assets/jquery.mCustomScrollbar.min.css";*/
   @import "../assets/ionicons.min.css";
   @import "../assets/main.css";
   @import "../assets/component.css";
-  /*!*@import "../assets/demo.css";*!   改变footer*/
   @import "../assets/normalize.css";
-  /*@import "../assets/now-ui-dashboard.min.css";*/
 
   .body{
     /*background-image: url("../assets/粒子92.png");*/

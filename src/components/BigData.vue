@@ -74,35 +74,35 @@
                 </tr>
                 <tr></tr>
                 <tr>
-                  <td>&nbsp;&nbsp;&nbsp;工业</td>
-                  <td>2185</td>
-                  <td>23%</td>
-                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
-                </tr>
-                <tr>
-                  <td>商业服务</td>
-                  <td>1685</td>
-                  <td>20%</td>
-                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
-                </tr>
-                <tr>
                   <td>交通运输</td>
-                  <td>1560</td>
-                  <td>19%</td>
+                  <td>2889</td>
+                  <td>23%</td>
                   <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;工业</td>
+                  <td>2655</td>
+                  <td>20%</td>
+                  <td ><img src="../assets/lighting.png" width="24px"></td>
+                </tr>
+                <tr>
+                  <td>商业服务业</td>
+                  <td>2651</td>
+                  <td>19%</td>
+                  <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr> <tr>
                   <td>&nbsp;&nbsp;服务业</td>
-                  <td>1360</td>
+                  <td>2642</td>
                   <td>15%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr><tr>
-                  <td>&nbsp;&nbsp;零售业</td>
-                  <td>1153</td>
+                  <td>社区服务</td>
+                  <td>2623 </td>
                   <td>17%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr><tr>
-                  <td>社区服务</td>
-                  <td>930</td>
+                  <td>&nbsp;&nbsp;零售业</td>
+                  <td>2612</td>
                   <td>21%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
@@ -122,41 +122,43 @@
                   <th >地区</th>
                   <th >数量</th>
                   <th >占比</th>
-                  <th >热度</th>
+<!--                  <th >热度</th>-->
                 </tr>
 
                 <tr></tr>
                 <tr>
-                  <td>福建</td>
-                  <td>2585</td>
-                  <td>40%</td>
-                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
-                </tr>
-                <tr>
-                  <td>湖北</td>
-                  <td>2385</td>
-                  <td>34%</td>
+                  <td>江西</td>
+                  <td>2483</td>
+                  <td>15.45%</td>
                   <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
-                  <td>湖南</td>
-                  <td>2160</td>
-                  <td>29%</td>
-                  <td > <img src="../assets/lighting.png" width="24px"> </td>
+                  <td>广西</td>
+                  <td>2322</td>
+                  <td>14.45%</td>
+                  <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
+                </tr>
+                <tr>
+                  <td>福建</td>
+                  <td>2315</td>
+                  <td>14.40%</td>
+                  <td > <img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr> <tr>
-                <td>广东</td>
-                <td>1360</td>
-                <td>29%</td>
+                <td>湖南</td>
+                <td>2253</td>
+                <td>14.02%</td>
+                <td > <img src="../assets/lighting.png" width="24px">  </td>
+              </tr>
+                <tr>
+
+                  <td>湖南</td>
+                  <td>2253</td>
+                  <td>14.02%</td>
                 <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr><tr>
-                <td>广西</td>
-                <td>1353</td>
-                <td>25%</td>
-                <td > <img src="../assets/lighting.png" width="24px">  </td>
-              </tr><tr>
-                <td>江西</td>
-                <td>1230</td>
-                <td>21%</td>
+                <td>山东</td>
+                <td>2245 </td>
+                <td>13.97%</td>
                 <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr>
               </table>
@@ -541,14 +543,14 @@ return{
                   }
                 },
                 data: [
-                  {value: 360, name: '自然人',emphasis:{show:'true'},
+                  {value: 7957, name: '自然人',emphasis:{show:'true'},
                     itemStyle: {//柱子的颜色
                       color:'#09ACD2',
                       opacity:0.8
                     }
 
                   },
-                  {value: 310,
+                  {value: 8115,
                     name: '法人',
                     itemStyle: {//柱子的颜色
                       color:'#FF4200',
@@ -1158,8 +1160,8 @@ console.log("lllllllllllllllll");
               },
               nameGap:8,
               type: 'value',
-              min:150,
-              max:1120,
+              // min:150,
+              // max:1120,
               // data: ['交通运输业', '服务业', '工业', '社区服务', '零售业', '商业服务'],
               nameTextStyle:{
                 color:'#fff'
@@ -1176,7 +1178,7 @@ console.log("lllllllllllllllll");
               {
                 name: '债券融资',
                 type: 'line',
-                data: [720, 806, 1120],
+                data: [11873.91, 13130.14, 14395.81],
                 itemStyle: {//柱子的颜色
                   color:'#00CCFB',
                   opacity:0.8
@@ -1184,7 +1186,7 @@ console.log("lllllllllllllllll");
                 // barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff',
+                  color:'#ffffff',
                   position:'left'
                 },
                 smooth: true
@@ -1193,7 +1195,7 @@ console.log("lllllllllllllllll");
               {
                 name: '股权融资',
                 type: 'line',
-                data: [600, 625, 866],
+                data: [17094.84, 20669.45, 22327.10],
                 itemStyle: {//柱子的颜色
                   color:'#ffff00',
                   opacity:0.8
@@ -1201,8 +1203,8 @@ console.log("lllllllllllllllll");
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff',
-                  position:'left'
+                  color:'#ffff00',
+                  position:'top'
 
                 },
                 smooth: true
@@ -1211,7 +1213,7 @@ console.log("lllllllllllllllll");
               {
                 name: '内部融资和贸易融资',
                 type: 'line',
-                data: [245, 224, 544],
+                data: [92673.45, 103252.44, 112412.89],
                 itemStyle: {//柱子的颜色
                   color:'#FF4200',
                   opacity:0.8
@@ -1228,7 +1230,7 @@ console.log("lllllllllllllllll");
               {
                 name: '项目融资和政策融资',
                 type: 'line',
-                data: [400, 499, 734],
+                data: [3504.41, 4032.67,  4387.18],
                 itemStyle: {//柱子的颜色
                   color:'#7BC058',
                   opacity:0.8
@@ -1328,8 +1330,8 @@ console.log("lllllllllllllllll");
               },
               nameGap:8,
               type: 'value',
-              min:250,
-              max:800,
+              // min:200,
+              // max:7000,
               nameTextStyle:{
                 color:'#fff'
               },
@@ -1344,27 +1346,9 @@ console.log("lllllllllllllllll");
               {
                 name: '债券融资',
                 type: 'line',
-                data: [461, 334, 660],
+                data: [950.40, 1051.84, 1156.08],
                 itemStyle: {//柱子的颜色
                   color:'#00CCFB',
-                  opacity:0.8
-                },
-                barWidth:15,
-                label:{
-                  show:true,
-                  color:'#fff',
-                  position:'left'
-
-                },
-                smooth: true
-
-              },
-              {
-                name: '股权融资',
-                type: 'line',
-                data: [544, 512, 700],
-                itemStyle: {//柱子的颜色
-                  color:'#ffff00',
                   opacity:0.8
                 },
                 barWidth:15,
@@ -1378,9 +1362,27 @@ console.log("lllllllllllllllll");
 
               },
               {
+                name: '股权融资',
+                type: 'line',
+                data: [728.68, 875.17, 957.35],
+                itemStyle: {//柱子的颜色
+                  color:'#ffff00',
+                  opacity:0.8
+                },
+                barWidth:15,
+                label:{
+                  show:true,
+                  color:'#ffff00',
+                  position:'left'
+
+                },
+                smooth: true
+
+              },
+              {
                 name: '内部融资和贸易融资',
                 type: 'line',
-                data: [324, 433, 320],
+                data: [5577.78, 6217.04, 6764.71],
                 itemStyle: {//柱子的颜色
                   color:'#FF4200',
                   opacity:0.8
@@ -1397,7 +1399,7 @@ console.log("lllllllllllllllll");
               {
                 name: '项目融资和政策融资',
                 type: 'line',
-                data: [400, 499, 520],
+                data: [213.48, 245.40, 266.33],
                 itemStyle: {//柱子的颜色
                   color:'#7BC058',
                   opacity:0.8
@@ -1405,8 +1407,8 @@ console.log("lllllllllllllllll");
                 barWidth:15,
                 label:{
                   show:true,
-                  color:'#fff',
-                  position:'right'
+                  color:'#7BC058',
+                  position:'bottom'
 
                 },
                 smooth: true

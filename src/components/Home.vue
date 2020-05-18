@@ -15,11 +15,7 @@
       </div>
 
       <div class="list">
-<!--        <div class="user">-->
-<!--&lt;!&ndash;          <h3>用户您好！</h3>&ndash;&gt;-->
-<!--          <img src="../assets/user.png" width="60px">-->
 
-<!--        </div>-->
         <div class="menu">
       <template style="" >
         <el-carousel :interval="4000" type="card" height="255px">
@@ -38,6 +34,9 @@
         </el-carousel>
       </template>
         </div>
+        <div style="color: white">
+          {{back}}
+        </div>
       </div>
     </div>
 </template>
@@ -49,9 +48,19 @@
         name: "Home",
       data(){
         return{
+          back:'12223',
           timer: "",//定义一个定时器的变量
           currentTime: "----------------------", // 获取当前时间
         }
+      },
+      mounted() {
+        this.axios.get('http://47.106.74.144/zombie_dig/get_industry_analysis_nums').then((response)=>{
+          this.back=response.data.data;
+          // console.log(response);
+
+        }).catch((response)=>{
+
+        })
       },
       methods:{
           alt1:function () {
@@ -116,11 +125,11 @@
   .body{
     padding: 0;
     /*width: 100%;*/
-    /*background-color: #5daf34;*/
+    background-color: #000000;
     height: 740px;
 
     /*margin: 0px auto;*/
-    background-image: url("../assets/粒子92.png");
+    /*background-image: url("../assets/粒子92.png");*/
 
     background-repeat:no-repeat;
     background-position:center top;
