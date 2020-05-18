@@ -76,34 +76,34 @@
                 <tr>
                   <td>交通运输</td>
                   <td>2889</td>
-                  <td>23%</td>
+                  <td>17.98%</td>
                   <td ><img src="../assets/lighting.png" width="24px"><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;工业</td>
                   <td>2655</td>
-                  <td>20%</td>
+                  <td>16.52%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
                 <tr>
                   <td>商业服务业</td>
                   <td>2651</td>
-                  <td>19%</td>
+                  <td>16.49%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr> <tr>
                   <td>&nbsp;&nbsp;服务业</td>
                   <td>2642</td>
-                  <td>15%</td>
+                  <td>16.44%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr><tr>
                   <td>社区服务</td>
-                  <td>2623 </td>
-                  <td>17%</td>
+                  <td>2623</td>
+                  <td>16.32%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr><tr>
                   <td>&nbsp;&nbsp;零售业</td>
                   <td>2612</td>
-                  <td>21%</td>
+                  <td>16.25%</td>
                   <td ><img src="../assets/lighting.png" width="24px"></td>
                 </tr>
               </table>
@@ -818,7 +818,7 @@ return{
                 // },
 data:[
   {
-    value:2685,
+    value:3376,
     itemStyle:{
       color:'#127E98',
       // opacity:0.8
@@ -830,7 +830,7 @@ data:[
       color:'#fff'
     }
   },{
-                  value:2766,
+                  value:3203,
     itemStyle:{
       color:'#0E9DBE',
       opacity:0.9
@@ -841,7 +841,7 @@ data:[
       color:'#fff'
     }
   },{
-                  value:2753,
+                  value:3167,
 
     itemStyle:{
       color:'#0F6276',
@@ -853,7 +853,7 @@ data:[
       color:'#fff'
     }
   },{
-                  value:2850,
+                  value:3220 ,
     itemStyle:{
       color:'#0A4858',
 opacity:0.9
@@ -863,7 +863,7 @@ opacity:0.9
       color:'#fff'
     }
   },{
-                  value:2798,
+                  value:3106,
     itemStyle:{
       color:'#08313B',
       opacity:0.9
@@ -1425,11 +1425,40 @@ console.log("lllllllllllllllll");
           var echarts = require('echarts');
           var myChart_11 = echarts.init(document.getElementById('nianfen'));
           var data = [  //参数1：x轴；参数2：y轴；
-            [[1999,90],
-              [2013,130],
+            [
+              [2000,1071,600],
+              [2001,1101,800],
+              [2002,1068,800],
+              [2003,1076,800],
+              [2004,1004,800],
+              [2005,1043,800],
+              [2006,1089,800],
+              [2007,1101,800],
+              [2008,1099,800],
+              [2009,1069,800],
+              [2010,1091,800],
+              [2011,1048,800],
+              [2012,1082,800],
+              [2013,1068,800],
+              [2014,1062,800],
             ],
-            [[1997,205],
-              [2005,456],
+            //非僵尸
+            [
+              [2000,800,1988],
+              [2001,600,2015],
+              [2002,600,2045],
+              [2003,600,1988],
+              [2004,600,1967],
+              [2005,600,1975],
+              [2006,600,2032],
+              [2007,600,1950],
+              [2008,600,1968],
+              [2009,600,1999],
+              [2010,600,1926],
+              [2011,600,1964],
+              [2012,600,1964],
+              [2013,600,2021],
+              [2014,600,2057],
 
             ]
 
@@ -1458,7 +1487,7 @@ console.log("lllllllllllllllll");
               axisPointer: {
                 type: 'shadow'
               },
-              formatter: '企业类型：{a} <br/>注册时间与资本: {c}<br>企业数量：783'
+              formatter: '企业类型：{a} <br/>注册时间与资本: {c}<br>企业数量：'
             },
             legend: { //图例内容,点击能取消/显示图
               right: 10,
@@ -1474,7 +1503,7 @@ console.log("lllllllllllllllll");
               containLabel: true
             },
             xAxis: {
-              // data: data[0],
+              data: data[0].data,
               name:'年',
               nameLocation:'end',
               nameTextStyle:{
@@ -1482,8 +1511,8 @@ console.log("lllllllllllllllll");
                 // backgroundColor:'#f00',
               },
               nameGap:-8,
-              min:1990,
-              max:2020,
+              min:1999,
+              max:2014,
 
               splitLine: {
                 lineStyle: {
@@ -1562,7 +1591,7 @@ console.log("lllllllllllllllll");
                 label: {
                   show: true,
                   formatter: function (param) {
-                    return param.data[3];
+                    // return param.data[3];
                   },
                   position: 'top'
                 }

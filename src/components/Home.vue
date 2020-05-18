@@ -54,7 +54,7 @@
         }
       },
       mounted() {
-        this.axios.get('http://47.106.74.144/zombie_dig/get_industry_analysis_nums').then((response)=>{
+        this.axios.get('http://47.106.74.144/zombie_dig/get_year_analysis_nums').then((response)=>{
           this.back=response.data.data;
           // console.log(response);
 
