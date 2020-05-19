@@ -855,32 +855,32 @@
         successFun(){
 
         },
-        async importCsv() {
-          if(Object.keys(this.file).length != 0) {
-            console.log(this.file);
-            this.axios({
-              method: 'post',
-              url: 'http://47.106.74.144:8080/zombie_dig/File/',
-              data: {
-                info_file: this.file[0],
-                year_report_file: this.file[3],
-                money_report_file: this.file[2],
-                intellectual_property_right_file: this.file[1],
-              },
-              // headers: {
-              //   'Content-Type': 'multipart/form-data',
-              //   'token': window.localStorage['Authorization'],
-              // }
-            }).then(result => {
-              console.log("1111");
-              console.log(result);
-            }).catch(error => {
-              alert('上传失败');
-              // this.dialogVisible = true;
-              console.log(error);
-            });
-          }
-        },
+        // async importCsv() {
+        //   if(Object.keys(this.file).length != 0) {
+        //     console.log(this.file);
+        //     this.axios({
+        //       method: 'post',
+        //       url: 'http://47.106.74.144:8080/zombie_dig/File/',
+        //       data: {
+        //         info_file: this.file[0],
+        //         year_report_file: this.file[3],
+        //         money_report_file: this.file[2],
+        //         intellectual_property_right_file: this.file[1],
+        //       },
+        //       // headers: {
+        //       //   'Content-Type': 'multipart/form-data',
+        //       //   'token': window.localStorage['Authorization'],
+        //       // }
+        //     }).then(result => {
+        //       console.log("1111");
+        //       console.log(result);
+        //     }).catch(error => {
+        //       alert('上传失败');
+        //       // this.dialogVisible = true;
+        //       console.log(error);
+        //     });
+        //   }
+        // },
 // 上传文件，获取文件流
         handleChange: function (file, fileList) {
 
