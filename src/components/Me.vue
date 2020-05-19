@@ -79,7 +79,7 @@
                     <span>74</span>
                   </li>
                 </ul>
-                <a href="#" class="sidebox__more" style="margin-top: 48px">更多</a>
+                <a href="#" class="sidebox__more" style="margin-top: 20px">更多</a>
               </div>
 
               <!-- sidebox -->
@@ -198,6 +198,14 @@
               <div class="sidebox sidebox--desk" style="width: 300px;float:left;margin-left: 40px;height: 510px;">
                 <h4 class="sidebox__title quanxian">权限情况</h4>
                 <div class="sidebox__content">
+                  <div class="sidebox__job">
+                    <div class="sidebox__job-title">
+                      <a href="#">大数据分析展示</a>
+                      <span>拥有</span>
+                    </div>
+                    <p class="sidebox__job-description">通过不同维度对大量企业信息进行分析
+                    </p>
+                  </div>
                   <div class="sidebox__job">
                     <div class="sidebox__job-title">
                       <a href="#">文件上传批量测评企业</a>
@@ -490,6 +498,7 @@
                     <tr><td class="user-name">查看企业六维特征分析</td><td class="user-email">是</td><td class="user-phone">提供六维特征图文分析 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">查看企业预警信息</td><td class="user-email">是</td><td class="user-phone">提供预警信息 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">提供多种僵尸企业测试模型</td><td class="user-email">是</td><td class="user-phone">针对不同数据量类型进行僵尸企业测评 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
+                    <tr><td class="user-name">大数据分析展示</td><td class="user-email">是</td><td class="user-phone">通过不同维度对大量企业信息进行分析 </td><td class="user-mobile">免费</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">文件上传批量测评企业</td><td class="user-email">是</td><td class="user-phone">可实现大量企业数据同时测评 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">查询系统企业信息</td><td class="user-email">是</td><td class="user-phone">拥有系统企业查询权限 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
                     <tr><td class="user-name">单个查询实时生成企业数据</td><td class="user-email">是</td><td class="user-phone">快速生成结果查询企业数据报告 </td><td class="user-mobile">9.9元/月</td><td class="toUser"><el-button type="text">使用</el-button></td></tr>
@@ -517,23 +526,9 @@
 </template>
 
 <script>
-  import "../assets/icomoon.eot"
-  import "../assets/icomoon.svg"
-  import "../assets/icomoon.ttf"
-  import "../assets/icomoon.woff"
-  import $ from 'jquery'
-  import "../assets/jquery.mousewheel.min"
 
-  import "../assets/jquery-1.8.3.min"
-  import "../assets/bootstrap.min"
-  import "../assets/jquery-3.4.1.min"
-  import "../assets/owl.carousel.min"
-  import "../assets/wNumb"
-  import "../assets/nouislider.min"
-  import "../assets/select2.min"
-  import "../assets/main"
-  // import "../assets/jquery.ba-throttle-debounce.min"
-  // import "../assets/jquery.stickyheader"
+  import $ from 'jquery'
+
 
   export default {
         name: "Me",
@@ -591,9 +586,9 @@
         $('#wrapper').toggleClass('toggled');
       });
 
-      $(".myInfo").hide();
+      $(".myInfo").show();
       $(".myCompu").hide();
-      $(".mySet").show();
+      $(".mySet").hide();
       $(".exit").hide();
     },
     methods:{
@@ -631,18 +626,13 @@
 
 <style scoped>
   @import "../assets/bootstrap.css";
-  @import "../assets/basci.css";
+
   @import "../assets/style.css";
   @import "../assets/bootstrap-reboot.min.css";
   @import "../assets/bootstrap-grid.min.css";
-  @import "../assets/owl.carousel.min.css";
-  @import "../assets/nouislider.min.css";
-  @import "../assets/select2.min.css";
-  @import "../assets/ionicons.min.css";
   @import "../assets/main.css";
   @import "../assets/component.css";
-  @import "../assets/normalize.css";
-
+  @import "../assets/basci.css";
   .body{
     /*background-image: url("../assets/粒子92.png");*/
     background-color: #19313D;
