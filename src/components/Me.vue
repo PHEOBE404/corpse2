@@ -191,7 +191,7 @@
                     </button>
                   </div>
                 </div>
-                <a href="#" class="sidebox__more">更多</a>
+                <a href="#" class="sidebox__more" @click="showCompu">更多</a>
               </div>
               <!-- end sidebox -->
               <!-- sidebox -->
@@ -260,7 +260,7 @@
                     </p>
                   </div>
                 </div>
-                <a href="#" class="sidebox__more">更多</a>
+                <a href="#" class="sidebox__more" @click="showSet">更多</a>
               </div>
               <!-- end sidebox -->
 
@@ -626,7 +626,6 @@
 
 <style scoped>
   @import "../assets/bootstrap.css";
-
   @import "../assets/style.css";
   @import "../assets/bootstrap-reboot.min.css";
   @import "../assets/bootstrap-grid.min.css";
@@ -643,6 +642,14 @@
   .userfooter{
     /*margin-right: 20px;*/
     /*width: 300px;*/
+  }
+  .footer,.title{
+    box-sizing: content-box;
+  }
+  .footer{
+    height: 38px;
+    margin-left: 0px;
+    padding-left: 50px;
   }
   .container{
     color: white;

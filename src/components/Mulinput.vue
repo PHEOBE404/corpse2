@@ -1053,14 +1053,12 @@ console.log(this.submit);
           console.log(err);
         },
 
-        beforeUpload(file){
+        beforeUpload(file){ //use
           var newname=file.name.split('.');
           console.log(newname);
 
           this.fd.append(newname[0],file);
           console.log(file);
-          // 自己上传文件 想加什么都可以
-
           return false // 返回false不会自动上传
         },
         handleRemove(file, fileList) {
@@ -1261,6 +1259,14 @@ width: 100%;
 .userfooter{
   margin-right: -56px;
 }
+  .footer,.title{
+    box-sizing: content-box;
+  }
+  .footer{
+    height: 38px;
+    margin-left: 0px;
+    padding-left: 50px;
+  }
 </style>
 <style>
   .el-dialog__body {
@@ -1284,4 +1290,5 @@ width: 100%;
   .el-dialog__body h4,h5{
     color: white;
   }
+
 </style>

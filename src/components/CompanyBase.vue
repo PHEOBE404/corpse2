@@ -1232,7 +1232,7 @@ created(){
 <style>
  .el-dialog__body {
     background-color: #041A29 !important;
-   background: rgba(0,0,0,0.2);
+   background: rgba(0,0,0,0.0);
 
    padding-top: 0px;
     padding-right: 0px;

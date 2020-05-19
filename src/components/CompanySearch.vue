@@ -104,7 +104,7 @@
               industry: '服务业'
             },{
               id: '48256863',
-              zone: '江西',
+              zone: '广西',
               industry: '工业',
                 warn:'1'
             },{
@@ -364,4 +364,12 @@
   /*height: 400px;*/
   border-radius: 4px;
 }
+  .footer,.title{
+    box-sizing: content-box;
+  }
+  .footer{
+    height: 38px;
+    margin-left: 0px;
+    padding-left: 50px;
+  }
 </style>

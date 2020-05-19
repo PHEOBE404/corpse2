@@ -184,5 +184,12 @@ margin: 20px auto;
     width: 800px;
     margin: 10px auto;
   }
-
+.footer,.title{
+  box-sizing: content-box;
+}
+.footer{
+  height: 38px;
+  margin-left: 0px;
+  padding-left: 50px;
+}
 </style>

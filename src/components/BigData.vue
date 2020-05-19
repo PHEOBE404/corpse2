@@ -399,8 +399,8 @@ return{
               tooltip: {}, // 鼠标移到图里面的浮动提示框
               dataRange: {
                 show: true,
-                min: 2150,
-                max: 2450,
+                min: 2180,
+                max: 2500,
                 text: ['High', 'Low'],
                 realtime: true,
                 calculable: true,
