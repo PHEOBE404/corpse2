@@ -42,7 +42,7 @@
 <!--      <el-card :body-style="{ padding: '0px' }">-->
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>企业编号：212311</span>
+              <span>企业编号：<el-input size="mini" style="width: 150px" v-model="number01"> </el-input></span>
 
               <el-button style="float: right; padding: 3px 0" type="text"  @click="EditCard">编辑信息</el-button>
             </div>
@@ -73,7 +73,8 @@
 
         <el-card class="box-card" v-if="secondd">
           <div slot="header" class="clearfix">
-            <span>企业编号：未编辑</span>
+            <span>企业编号：<el-input size="mini" style="width: 150px" v-model="number02"> </el-input></span>
+
             <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
           </div>
           <div  class="text item">
@@ -104,9 +105,9 @@
 <!--    </el-col>-->
         <el-col :span="8">
 
-    <div style="margin-top: 200px">
-      <a >
-      <img src="../assets/添加2.png" width="40" @click="addmore">
+    <div style="margin-top: 220px" class="addMoreCard">
+      <a href="#">
+      <img src="../assets/添加2.png" width="30px" @click="addmore">
       </a>
 <!--      <el-button type="text" icon="el-icon-info"></el-button>-->
 
@@ -116,7 +117,7 @@
   </el-row>
 <!--<img src="../assets/数据.gif" width="500px">-->
 </div>
-            <el-dialog title="企业基本信息表(1/4)" :visible.sync="editVisible01" width="500px">
+            <el-dialog title="企业基本信息表(1/4)" class="doubleDig" :visible.sync="editVisible01" width="500px">
               <el-form ref="form" :model="form" label-width="90px" >
                 <el-form-item label="企业编号">
                   <el-input v-model="form.id"   size="small" ></el-input>
@@ -180,7 +181,7 @@
                 <el-button type="primary" @click="saveEdit(1)">下一步</el-button>
             </span>
             </el-dialog>
-            <el-dialog title="企业知识产权表(2/4)" :visible.sync="editVisible02" width="500px">
+            <el-dialog title="企业知识产权表(2/4)"  class="doubleDig" :visible.sync="editVisible02" width="500px">
               <el-form ref="form" :model="form" label-width="90px" >
 
                 <el-form-item label="专利" >
@@ -201,7 +202,7 @@
                 <el-button type="primary" @click="saveEdit(2)">下一步</el-button>
             </span>
             </el-dialog>
-            <el-dialog title="三年融资情况表(4/4)" :visible.sync="editVisible03" width="1200px">
+            <el-dialog title="融资情况表(3/4)"  class="doubleDig" :visible.sync="editVisible03" width="1200px">
 
               <el-form ref="form" :model="form" label-width="170px" label-position="left" size="small">
                 <el-row :gutter="20">
@@ -296,11 +297,123 @@
               </el-form>
               <span slot="footer" class="dialog-footer">
                 <el-button @click="editVisible03 = false">取 消</el-button>
-                <el-button type="primary" @click="saveEdit(3)">完成</el-button>
+                <el-button type="primary" @click="saveEdit(3)">下一步</el-button>
+            </span>
+            </el-dialog>
+            <el-dialog title="年度报表(4/4)"  class="doubleDig" :visible.sync="editVisible04" width="1200px">
+
+              <el-form ref="form" :model="form" label-width="170px" label-position="left" size="small">
+                <el-row :gutter="20">
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2015年度报表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="从业人数">
+                      <el-input size="small" v-model="form2.debt_financing_1" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="资产总额">
+                      <el-input size="small" v-model="form2.debt_financing_2" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="负债总额">
+                      <el-input size="small" v-model="form2.debt_financing_3" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="营业总收入">
+                      <el-input size="small" v-model="form2.debt_financing_4" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="主营业务收入">
+                      <el-input size="small" v-model="form2.debt_financing_5" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="利润总额">
+                      <el-input size="small" v-model="form2.debt_financing_6" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="净利润">
+                      <el-input size="small" v-model="form2.debt_financing_7" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="纳税总额">
+                      <el-input size="small" v-model="form2.debt_financing_8" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="所有者权益合计">
+                      <el-input size="small" v-model="form2.debt_financing_9" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2016年度报表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="从业人数">
+                      <el-input size="small" v-model="form2.debt_financing_10" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="资产总额">
+                      <el-input size="small" v-model="form2.debt_financing_11" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="负债总额">
+                      <el-input size="small" v-model="form2.debt_financing_12" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="营业总收入">
+                      <el-input size="small" v-model="form2.debt_financing_13" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="主营业务收入">
+                      <el-input size="small" v-model="form2.debt_financing_14" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="利润总额">
+                      <el-input size="small" v-model="form2.debt_financing_15" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="净利润">
+                      <el-input size="small" v-model="form2.debt_financing_16" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="纳税总额">
+                      <el-input size="small" v-model="form2.debt_financing_17" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="所有者权益合计">
+                      <el-input size="small" v-model="form2.debt_financing_18" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2017年度报表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="从业人数">
+                      <el-input size="small" v-model="form2.debt_financing_19" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="资产总额">
+                      <el-input size="small" v-model="form2.debt_financing_20" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="负债总额">
+                      <el-input size="small" v-model="form2.debt_financing_21" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="营业总收入">
+                      <el-input size="small" v-model="form2.debt_financing_22" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="主营业务收入">
+                      <el-input size="small" v-model="form2.debt_financing_23" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="利润总额">
+                      <el-input size="small" v-model="form2.debt_financing_24" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="净利润">
+                      <el-input size="small" v-model="form2.debt_financing_25" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="纳税总额">
+                      <el-input size="small" v-model="form2.debt_financing_26" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="所有者权益合计">
+                      <el-input size="small" v-model="form2.debt_financing_27" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+
+                </el-row>
+
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible04 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(4)">完成</el-button>
             </span>
             </el-dialog>
 
-            <el-button type="primary" @click="visib_loading" style="width: 100px;margin-left: 500px;">提交</el-button> <el-tooltip content="若查询数量较多，建议使用文件上传." placement="right" effect="light">
+            <el-button type="primary" @click="openFullScreen2" style="width: 100px;margin-left: 500px;">提交</el-button> <el-tooltip content="若查询数量较多，建议使用文件上传." placement="right" effect="light">
             <i class="el-icon-info" ></i>
           </el-tooltip>
 
@@ -339,9 +452,7 @@
 
 
 
-            <div style="margin: 0 auto;width: 800px;color:#ff4d51" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业
-              点击<el-button type="text" @click="show_ans">详情</el-button>即可查看企业的详细分析数据。
-            </div>
+
 
           </el-tab-pane>
 
@@ -615,28 +726,16 @@
             </div>
             <br>
             <div style="margin: 0 auto;width: 100px">
-            <el-button type="primary" @click="visib_loading">提交</el-button>
+            <el-button type="primary" @click="openFullScreen1">提交</el-button>
             </div>
-            <div style="margin: 0 auto;width: 800px" v-if="ans">根据您输入的企业信息，判定该企业为：僵尸企业，
-              点击<el-button type="text" @click="show_ans">详情</el-button>即可查看企业的详细分析数据。
-            </div>
+
           </el-tab-pane>
         </el-tabs>
 
       </template>
       </div>
 
-      <el-dialog
-        :visible.sync="dialogVisible"
-        width="400px"
-        :before-close="handleClose">
-        <img src="../assets/_0.gif" width="400px" >
-<!--        <img src="../assets/_0.gif" width="600px" style="margin-left: -50px;margin-top: -10px">-->
-<!--        <span style="background-color: black">您输入的信息正在被计算，请稍后……</span>-->
-<!--        <span slot="footer" class="" style="background-color: black">-->
-<!--    <el-button @click="dialogVisible = false">取 消</el-button>-->
-<!--  </span>-->
-      </el-dialog>
+
     </div>
 </template>
 
@@ -648,6 +747,8 @@
       data() {
 
         return {
+          number01:"",
+          number02:"",
           headers: {
             Authorization:window.localStorage['Authorization']
           },
@@ -661,6 +762,7 @@
           per3:0,
           per4:0,
           form: {},
+          form2: {},
           editVisible01:false,
           editVisible02:false,
           editVisible03:false,
@@ -845,6 +947,7 @@
               owner_equity_total:''
           },
           ],
+          compuType:this.$route.params.type,//可以返回当前企业id
           uploadFile:[],
           file:undefined,
           fd :new FormData(),
@@ -852,6 +955,34 @@
         }
       },
       methods: {
+        openFullScreen1() {
+          const loading = this.$loading({
+            lock: true,
+            text: '正在测评……',
+            spinner: 'el-icon-loading',
+            background: 'rgba(0, 0, 0, 0.7)'
+          });
+          setTimeout(() => {
+            loading.close();
+            this.$message('僵尸企业测评已完成，用时1.58秒！');
+          }, 1580);
+
+
+        },
+        openFullScreen2() {
+          const loading = this.$loading({
+            lock: true,
+            text: '正在测评……',
+            spinner: 'el-icon-loading',
+            background: 'rgba(0, 0, 0, 0.7)'
+          });
+          setTimeout(() => {
+            loading.close();
+            this.$message('僵尸企业测评已完成，用时2.84秒！');
+          }, 2840);
+
+
+        },
         successFun(){
 
         },
@@ -917,20 +1048,15 @@
         //   })
 
         },
-        visib_loading(){
-          this.dialogVisible = true;
-          setTimeout(() => {
-           this.dialogVisible = false;
-            this.$message('僵尸企业测评已完成，用时0.58413秒！');
-
-
-          }, 2200);
+        visib_loading() {
         },
+
         visib_loading3(){
           this.submit=true;
 console.log(this.submit);
         },
         addmore(){
+
           this.secondd=true;
         },
         saveEdit(i){
@@ -943,12 +1069,16 @@ console.log(this.submit);
             this.editVisible03 = true;
           this.$set(this.tableData, this.idx, this.form);
           }if(i==3){
+          this.editVisible03 = false;
+            this.editVisible04 = true;
+          this.$set(this.tableData, this.idx, this.form);
+          }if(i==4){
             this.per1=100;
             this.per2=100;
             this.per3=100;
             this.per4=100;
           this.editVisible03 = false;
-            this.editVisible04 = true;
+            this.editVisible04 = false;
           this.$set(this.tableData, this.idx, this.form);
 
 
@@ -1054,10 +1184,32 @@ console.log(this.submit);
         },
 
         beforeUpload(file){ //use
+          //重命名测评文件**********
           var newname=file.name.split('.');
           console.log(newname);
 
           this.fd.append(newname[0],file);
+          //**************************end1
+
+          //匹配测评文件名
+          // var newname=file.name.split('.');
+          // console.log(newname);
+          // if (newname[0]=="111") {
+          //   this.fd.append("info_file",file);
+          // }
+          // else if (newname[0]=="222") {
+          //   this.fd.append("year_report_file",file);
+          //
+          // }
+          // else if(newname[0]=="333"){
+          //   this.fd.append("money_report_file",file);
+          //
+          // }
+          // else if(newname[0]=="444"){
+          //   this.fd.append("intellectual_property_right_file",file);
+          //
+          // }
+          //*end2
           console.log(file);
           return false // 返回false不会自动上传
         },
@@ -1244,7 +1396,7 @@ width: 100%;
     border-radius: 4px;
     border-color: #ff4d51;
     border-width: 8px;
-    min-height: 36px;
+    min-height: 28px;
   }
   .row-bg {
     padding: 10px 0;
@@ -1267,28 +1419,53 @@ width: 100%;
     margin-left: 0px;
     padding-left: 50px;
   }
+  .addMoreCard :hover{
+    opacity: 0.9;
+  }
 </style>
 <style>
-  .el-dialog__body {
-    background-color: #041A29 !important;
-    padding-top: 0px;
-    padding-right: 0px;
-    height: 200px;
-    padding: 0px;
-  }
-  .el-dialog__header{
-    background: #000 !important;
-    /*opacity: 0.001%;*/
+  /*.el-dialog__body .loadingg{*/
+  /*  background-color: #041A29 !important;*/
+  /*  padding-top: 0px;*/
+  /*  padding-right: 0px;*/
+  /*  height: 200px;*/
+  /*  padding: 0px;*/
+  /*}*/
+  /*.el-dialog__header .loadingg{*/
+  /*  background: #000 !important;*/
+  /*  opacity: 0.001%;*/
 
-  }
-  .el-dialog__title{
-    color: #fff;
-    opacity: 0.001%;
-    background: #041A29 !important;
+  /*}*/
+  /*.el-dialog__title{*/
+  /*  color: #fff;*/
+  /*  opacity: 0.001%;*/
+  /*  background: #041A29 !important;*/
 
-  }
-  .el-dialog__body h4,h5{
-    color: white;
-  }
+  /*}*/
+  /*.el-dialog__body h4,h5{*/
+  /*  color: white;*/
+  /*}*/
 
+
+  /*.el-dialog__body .doubleDig{*/
+  /*  background-color:white;*/
+  /*  padding-top: 0px;*/
+  /*  padding-right: 0px;*/
+  /*  height: auto;*/
+  /*  padding: 0px;*/
+  /*}*/
+  /*.el-dialog__header .doubleDig{*/
+  /*  background-color:white;*/
+
+  /*  !*opacity: 0.001%;*!*/
+
+  /*}*/
+  /*.el-dialog__title .doubleDig{*/
+  /*  color: initial;*/
+  /*  background-color:white;*/
+
+  /*}*/
+  /*.el-dialog__body h4,h5 .doubleDig{*/
+  /*  color: initial;*/
+  /*}*/
 </style>

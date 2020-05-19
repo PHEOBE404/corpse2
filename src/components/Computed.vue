@@ -26,7 +26,7 @@
 <!--        </el-steps>-->
 <!--      </div>-->
       <div class="cardgroup" @click="hide">
-          <router-link to="/mulinput/default">
+          <router-link to="/mulinput/XGBoost">
             <el-card class="box-card" >
           <div  class="text item">
 <!--            {{'模型 1 ' }}-->
@@ -42,6 +42,10 @@
             </center>
           </div>
             </el-card>
+          </router-link>
+
+        <router-link to="/mulinput/随机森林">
+
         <el-card class="box-card" >
           <div  class="text item">
             <center>
@@ -54,6 +58,9 @@
             </center>
           </div>
             </el-card>
+        </router-link>
+        <router-link to="/mulinput/逻辑回归">
+
         <el-card class="box-card" >
           <div  class="text item">
 <!--            {{'模型 2'  }}--> <center>
@@ -67,8 +74,9 @@
             </center>
           </div>
             </el-card>
+        </router-link>
 
-          </router-link>
+
       </div>
     </div>
 </template>
@@ -86,7 +94,7 @@
     },
     methods:{
           hide(){
-            // $(".cardgroup").fadeOut();
+
           }
     },
     created(){
