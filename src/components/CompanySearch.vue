@@ -99,35 +99,49 @@
             testdata:'',
             tableData: [
               {
-              id: '48913423',
-              zone: '浙江',
-              industry: '服务业'
-            },{
-              id: '48256863',
+              id: '64092',
               zone: '广西',
-              industry: '工业',
+              industry: '交通运输业',
                 warn:'1'
             },{
-              id: '48567977',
-              zone: '北京',
-              industry: '服务业'
+              id: '5997664',
+              zone: '广西',
+              industry: '零售业'
             },{
-              id: '48234973',
-              zone: '湖南',
-              industry: '社区服务'
-            },{
-              id: '56474489',
-              zone: '浙江',
-              industry: '工业'
-            },{
-              id: '46743489',
-              zone: '广东',
-              industry: '商业服务',
+              id: '5975647',
+              zone: '山东',
+              industry: '交通运输业'
+            },
+              {
+                id: '64925',
+                zone: '福建',
+                industry: '交通运输业',
                 warn:'1'
               },{
-              id: '88744348',
+              id: '5975649',
+              zone: '山东',
+              industry: '商业服务业',
+              },{
+              id: '5986674',
+              zone: '湖北',
+              industry: '交通运输业',
+              },{
+                id: '64162',
+                zone: '广西',
+                industry: '服务业',
+                warn:'1'
+              },{
+              id: '5986664',
               zone: '广东',
-              industry: '服务员',
+              industry: '零售业',
+              },{
+              id: '2275264',
+              zone: '湖北',
+              industry: '服务业',
+              },{
+              id: '2336043',
+              zone: '广东',
+              industry: '商业服务业',
               },
             ],
             timerNum:null,

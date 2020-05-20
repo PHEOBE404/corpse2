@@ -63,7 +63,7 @@
 <!--        <el-col :span="12"><div class="grid-content bg-purple-light" style="height: 10px"></div></el-col>-->
         <el-col :span="4"><div class="grid-content bg-purple" style="height: 250px;"id="hangyeText">
           <div style="color: #FFFFFF">
-            <p style="color: #FFFFFF;font-family: 微软雅黑;font-weight: bolder">僵尸企业行业排名</p>
+            <p style="color: #FFFFFF;font-family: 微软雅黑;font-weight: bolder">僵尸企业行业排名TOP6</p>
             <div class="table1">
               <table border="0"  align="center" style="border-collapse:separate; border-spacing:12px 2px;" >
                 <tr style="font-size: 14px;" >
@@ -114,7 +114,7 @@
         <el-col :span="4"><div class="grid-content bg-purple" style="height: 250px;" id="zhuzuo"></div></el-col>
         <el-col :span="4"><div class="grid-content bg-purple" style="height: 250px;" id="diquText">
           <div style="color: #FFFFFF">
-            <p style="color: #FFFFFF;font-family: 微软雅黑;font-weight: bolder">僵尸企业地区排名</p>
+            <p style="color: #FFFFFF;font-family: 微软雅黑;font-weight: bolder">僵尸企业地区排名TOP6</p>
             <div class="table1">
 
               <table border="0" style="border-collapse:separate; border-spacing:15px 2px;" >
@@ -277,10 +277,10 @@ return{
                 axisPointer: {
                   type: 'shadow'
                 },
-                formatter: '年份：{a} <br/>营业利润增长为：{b}<br>企业数量为: {c}个 '
+                formatter: '年份：{a} <br/>营业利润增长为：{b}%<br>企业数量为: {c}家 '
               },
               legend: { //图例内容,点击能取消/显示图
-                data: ['2015年','2016年','2017年',],//跟下面的data要对应
+                data: ['2015-2016年','2016-2017年'],//跟下面的data要对应
                 textStyle:{
                   color:'#fff'
                 },
@@ -320,7 +320,7 @@ return{
                 },
                 nameGap:8,
                 type: 'category',
-                data: ['0-20', '20-40', '40-60', '60-80', '80-100'],
+                data: ['0及以下', '0-50', '50-100', '100-500', '1000以上'],
                 nameTextStyle:{
                   color:'#fff'
                 },
@@ -333,48 +333,49 @@ return{
               },
               series: [
                 {
-                  name: '2015年',
+                  name: '2015-2016年',
                   type: 'bar',
-                  data: [235, 1150, 420, 300, 74],
+                  data: [7044, 2064, 1250, 3567, 1033,1114 ],
                   itemStyle: {//柱子的颜色
                     color:'#00CCFB',
                     opacity:0.8
                   },
-                  barWidth:6,
+                  barWidth:7,
                   label:{
                     // show:true,
                     color:'#fff'
                   }
 
                 },  {
-                  name: '2016年',
+                  name: '2016-2017年',
                   type: 'bar',
-                  data: [125, 980, 650, 400, 87],
+                  data: [7466, 1982, 1309, 3374, 986,955],
                   itemStyle: {//柱子的颜色
                     color:'#FF4200',
                     opacity:0.8
                   },
-                  barWidth:6,
-                  label:{
-                    // show:true,
-                    color:'#fff'
-                  }
-
-                },  {
-                  name: '2017年',
-                  type: 'bar',
-                  data: [233, 1000, 665, 420, 65],
-                  itemStyle: {//柱子的颜色
-                    color:'#ffff00',
-                    opacity:0.8
-                  },
-                  barWidth:6,
+                  barWidth:7,
                   label:{
                     // show:true,
                     color:'#fff'
                   }
 
                 },
+                // {
+                //   name: '2017年',
+                //   type: 'bar',
+                //   data: [233, 1000, 665, 420, 65],
+                //   itemStyle: {//柱子的颜色
+                //     color:'#ffff00',
+                //     opacity:0.8
+                //   },
+                //   barWidth:6,
+                //   label:{
+                //     // show:true,
+                //     color:'#fff'
+                //   }
+                //
+                // },
 
               ],
               textStyle:{
@@ -583,7 +584,7 @@ return{
               top:'190'
             },
             tooltip: {
-              formatter: '{a} <br/>{b} : {c}%<br/>数量：3421'
+              formatter: '{a} <br/>{b} : {c}%<br/>数量：16072家'
             },
 
             series: [
@@ -592,11 +593,11 @@ return{
                 type: 'gauge',
                 radius:'90%',
                 detail: {formatter: '{value}%'},
-                data: [{value: 32, name: '占比'}],
+                data: [{value: 34.9, name: '占比'}],
                 axisLine:{
                   show:true,
                   lineStyle:{
-                   color:[[0.32, '#FF4200'], [1, '#0E9DBE']]
+                   color:[[0.3498, '#FF4200'], [1, '#0E9DBE']]
                   }
                 },
                 splitLine:{
@@ -1040,7 +1041,7 @@ console.log("lllllllllllllllll");
               },
               nameGap:-8,
               type: 'category',
-              data: ['0-20', '20-40', '40-60', '60-80', '80-100']
+              data: ['<65', '65-75', '75-85', '85-95', '95-100']
             },
             yAxis: {
               name:'企业数量',
@@ -1051,14 +1052,15 @@ console.log("lllllllllllllllll");
               },
               nameGap:12,
               type: 'value',
-              max:1500,
+              // max:6100,
+              // min:3100
             },
             series: [
               {
                 name: '非僵尸企业',
                 type: 'line',
                 step: 'start',
-                data: [300, 500, 600, 550, 880, 1120, 900],
+                data: [9037, 5879, 6010, 5900, 3045],
                 barWidth:14,
                 itemStyle:{
                   color:'#09ACD2',
@@ -1070,7 +1072,7 @@ console.log("lllllllllllllllll");
                 name: '僵尸企业',
                 type: 'line',
                 step: 'end',
-                data: [80, 300, 400, 450, 400, 600, 700],
+                data: [4846, 3223, 3201, 3195, 1607],
                 barWidth:14,
                 itemStyle:{
                   color:'#FF4200',

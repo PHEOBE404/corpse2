@@ -43,13 +43,8 @@
           <el-card class="box-card">
             <div slot="header" class="clearfix">
               <span>企业编号：<el-input size="mini" style="width: 150px" v-model="number01"> </el-input></span>
-
-              <el-button style="float: right; padding: 3px 0" type="text"  @click="EditCard">编辑信息</el-button>
+              <el-button style="float: right; padding: 3px 0" type="text"  @click="EditCard(1)">编辑信息</el-button>
             </div>
-<!--            <div  class=" item">-->
-
-<!--            填写进度<el-progress :percentage="22"  :stroke-width="10" style="display:inline-block;width: 280px;margin-left: 15px"></el-progress>-->
-<!--            </div>-->
             <div  class="text item">
               <i class="el-icon-s-flag"> </i> 基本信息表
               <el-progress :percentage="per1" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
@@ -69,28 +64,25 @@
           </el-card>
     </el-col>
     <el-col :span="8" >
-
-
         <el-card class="box-card" v-if="secondd">
           <div slot="header" class="clearfix">
             <span>企业编号：<el-input size="mini" style="width: 150px" v-model="number02"> </el-input></span>
-
-            <el-button style="float: right; padding: 3px 0" type="text">编辑信息</el-button>
+            <el-button style="float: right; padding: 3px 0" type="text" @click="EditCard(2)">编辑信息</el-button>
           </div>
           <div  class="text item">
             <i class="el-icon-s-flag"> </i> 基本信息表
-            <el-progress :percentage="0" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+            <el-progress :percentage="per5" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
           </div><div  class="text item">
           <i class="el-icon-s-flag"> </i>  知识产权表
-          <el-progress :percentage="0"   :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
+          <el-progress :percentage="per6"   :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 45px"></el-progress>
 
         </div><div  class="text item">
           <i class="el-icon-s-flag"> </i>   三年融资情况表
-          <el-progress :percentage="0" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+          <el-progress :percentage="per7" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
 
         </div><div  class="text item">
           <i class="el-icon-s-flag"> </i> 三年财务报告表
-          <el-progress :percentage="0" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
+          <el-progress :percentage="per8" :stroke-width="6" style="display:inline-block;width: 222px;margin-left: 15px"></el-progress>
 
         </div>
 
@@ -412,6 +404,301 @@
                 <el-button type="primary" @click="saveEdit(4)">完成</el-button>
             </span>
             </el-dialog>
+            <el-dialog title="企业基本信息表(1/4)" class="doubleDig" :visible.sync="editVisible05" width="500px">
+              <el-form ref="form2" :model="form2" label-width="90px" >
+                <el-form-item label="企业编号">
+                  <el-input v-model="form2.id"   size="small" ></el-input>
+                </el-form-item>
+                <el-form-item label="注册年份">
+                  <el-input v-model="form2.regist_date" size="small"></el-input>
+                </el-form-item>
+                <el-form-item label="注册资本">
+                  <el-input v-model="form2.regist_capital" size="small"><span slot="suffix">万</span></el-input>
+                </el-form-item>
+                <el-form-item label="区域">
+                  <el-select v-model="form2.area" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_area"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="行业">
+                  <el-select v-model="form2.industry" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_industry"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="企业类型">
+                  <el-select v-model="form2.company_type" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_industry_company_type"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="控制人类型">
+                  <el-select v-model="form2.controller_type" placeholder=" " size="small">
+                    <el-option
+                      v-for="item in options_industry_controller_type"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.label">
+                    </el-option>
+
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="控制人持股">
+                  <el-input v-model="form2.interests" size="small"> <span slot="suffix">%</span></el-input>
+                </el-form-item>
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible05 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(5)">下一步</el-button>
+            </span>
+            </el-dialog>
+            <el-dialog title="企业知识产权表(2/4)"  class="doubleDig" :visible.sync="editVisible06" width="500px">
+              <el-form ref="form2" :model="form2" label-width="90px" >
+
+                <el-form-item label="专利" >
+                  <el-radio v-model="form2.patentt" label="1" >有</el-radio>
+                  <el-radio v-model="form2.patentt" label="0">无</el-radio>
+                </el-form-item>
+                <el-form-item label="商标">
+                  <el-radio v-model="form2.brand" label="1">有</el-radio>
+                  <el-radio v-model="form2.brand" label="0">无</el-radio>
+                </el-form-item>
+                <el-form-item label="著作权">
+                  <el-radio v-model="form2.copyrightt" label="1">有</el-radio>
+                  <el-radio v-model="form2.copyrightt" label="0">无</el-radio>
+                </el-form-item>
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible06 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(6)">下一步</el-button>
+            </span>
+            </el-dialog>
+            <el-dialog title="融资情况表(3/4)"  class="doubleDig" :visible.sync="editVisible07" width="1200px">
+
+              <el-form ref="form2" :model="form2" label-width="170px" label-position="left" size="small">
+                <el-row :gutter="20">
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2015年的融资情况表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="债券融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_1" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="债券融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_2" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_3" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_4" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_5" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_6" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_7" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_8" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+                  <el-col :span="8"><div class="grid-content bg-purple">
+                    <h3>2016年的融资情况表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="债券融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_11" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="债券融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_12" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_13" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_14" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_15" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_16" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_17" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_18" placeholder=" " > </el-input>
+                    </el-form-item>
+                  </div></el-col>
+                  <el-col :span="8"><div class="grid-content bg-purple">
+                    <h3>2017年的融资情况表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="债券融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_21" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="债券融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_22" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_23" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="股权融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_24" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_25" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="内部融资和贸易融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_26" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资额度">
+                      <el-input size="small" v-model="form2.debt_financing_27" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="项目融资和政策融资成本">
+                      <el-input size="small" v-model="form2.debt_financing_28" placeholder=" " > </el-input>
+                    </el-form-item>
+                  </div></el-col>
+                </el-row>
+
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible07 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(7)">下一步</el-button>
+            </span>
+            </el-dialog>
+            <el-dialog title="年度报表(4/4)"  class="doubleDig" :visible.sync="editVisible08" width="1200px">
+
+              <el-form ref="form2" :model="form2" label-width="170px" label-position="left" size="small">
+                <el-row :gutter="20">
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2015年度报表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="从业人数">
+                      <el-input size="small" v-model="form2.debt_financing_1" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="资产总额">
+                      <el-input size="small" v-model="form2.debt_financing_2" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="负债总额">
+                      <el-input size="small" v-model="form2.debt_financing_3" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="营业总收入">
+                      <el-input size="small" v-model="form2.debt_financing_4" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="主营业务收入">
+                      <el-input size="small" v-model="form2.debt_financing_5" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="利润总额">
+                      <el-input size="small" v-model="form2.debt_financing_6" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="净利润">
+                      <el-input size="small" v-model="form2.debt_financing_7" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="纳税总额">
+                      <el-input size="small" v-model="form2.debt_financing_8" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="所有者权益合计">
+                      <el-input size="small" v-model="form2.debt_financing_9" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2016年度报表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="从业人数">
+                      <el-input size="small" v-model="form2.debt_financing_10" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="资产总额">
+                      <el-input size="small" v-model="form2.debt_financing_11" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="负债总额">
+                      <el-input size="small" v-model="form2.debt_financing_12" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="营业总收入">
+                      <el-input size="small" v-model="form2.debt_financing_13" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="主营业务收入">
+                      <el-input size="small" v-model="form2.debt_financing_14" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="利润总额">
+                      <el-input size="small" v-model="form2.debt_financing_15" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="净利润">
+                      <el-input size="small" v-model="form2.debt_financing_16" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="纳税总额">
+                      <el-input size="small" v-model="form2.debt_financing_17" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="所有者权益合计">
+                      <el-input size="small" v-model="form2.debt_financing_18" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+                  <el-col :span="8">
+                    <div class="grid-content bg-purple">
+                    <h3>2017年度报表</h3>
+                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                    <el-form-item label="从业人数">
+                      <el-input size="small" v-model="form2.debt_financing_19" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="资产总额">
+                      <el-input size="small" v-model="form2.debt_financing_20" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="负债总额">
+                      <el-input size="small" v-model="form2.debt_financing_21" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="营业总收入">
+                      <el-input size="small" v-model="form2.debt_financing_22" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="主营业务收入">
+                      <el-input size="small" v-model="form2.debt_financing_23" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="利润总额">
+                      <el-input size="small" v-model="form2.debt_financing_24" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="净利润">
+                      <el-input size="small" v-model="form2.debt_financing_25" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="纳税总额">
+                      <el-input size="small" v-model="form2.debt_financing_26" placeholder=" " > </el-input>
+                    </el-form-item>
+                    <el-form-item label="所有者权益合计">
+                      <el-input size="small" v-model="form2.debt_financing_27" placeholder=" " > </el-input>
+                    </el-form-item>
+                    </div>
+                  </el-col>
+
+                </el-row>
+
+              </el-form>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="editVisible08 = false">取 消</el-button>
+                <el-button type="primary" @click="saveEdit(8)">完成</el-button>
+            </span>
+            </el-dialog>
 
             <el-button type="primary" @click="openFullScreen2" style="width: 100px;margin-left: 500px;">提交</el-button> <el-tooltip content="若查询数量较多，建议使用文件上传." placement="right" effect="light">
             <i class="el-icon-info" ></i>
@@ -421,7 +708,7 @@
 
           <el-tab-pane label="" name="three">
 
-            <div style="width:400px;margin: 0 auto;text-align: center" v-if="show03">
+            <div style="width:400px;margin: 100px auto;text-align: center" v-if="show03">
 
               <el-upload
                 class="upload-demo2"
@@ -438,8 +725,8 @@
                 :file-list="fileList"
                 :auto-upload="false">
                 <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-                <div slot="tip" class="el-upload__tip" style="color: white">只能上传csv文件</div>
+                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">提交</el-button>
+<!--                <div slot="tip" class="el-upload__tip" style="color: white">只能上传csv文件</div>-->
               </el-upload>
 
             </div>
@@ -761,12 +1048,20 @@
           per2:0,
           per3:0,
           per4:0,
+          per5:0,
+          per6:0,
+          per7:0,
+          per8:0,
           form: {},
           form2: {},
           editVisible01:false,
           editVisible02:false,
           editVisible03:false,
           editVisible04:false,
+          editVisible05:false,
+          editVisible06:false,
+          editVisible07:false,
+          editVisible08:false,
           checkList: ['选中且禁用','复选框 A'],
           currentDate: new Date(),
           compan_num:'',
@@ -955,6 +1250,22 @@
         }
       },
       methods: {
+        open() {
+          this.$confirm('僵尸企业测评已完成,是否查看结果？', '成功', {
+            confirmButtonText: '查看',
+            cancelButtonText: '稍后再看',
+            type: 'success'
+          }).then(() => {
+            // this.$router.push({path:'/companybase/:id'})
+            this.$router.push({path:'/companybase/100565'})
+
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '稍后可在【个人中心】查看历史测评记录'
+            });
+          });
+        },
         openFullScreen1() {
           const loading = this.$loading({
             lock: true,
@@ -964,8 +1275,8 @@
           });
           setTimeout(() => {
             loading.close();
-            this.$message('僵尸企业测评已完成，用时1.58秒！');
-          }, 1580);
+            this.open();
+          }, 800);
 
 
         },
@@ -978,8 +1289,13 @@
           });
           setTimeout(() => {
             loading.close();
-            this.$message('僵尸企业测评已完成，用时2.84秒！');
-          }, 2840);
+            // this.$message({
+            //   message: '僵尸企业测评已完成，用时2.84秒！',
+            //   type: 'success'
+            // });
+            this.open();
+
+          }, 1000);
 
 
         },
@@ -1082,19 +1398,40 @@ console.log(this.submit);
           this.$set(this.tableData, this.idx, this.form);
 
 
-          }if(i==4){
-          this.editVisible04 = false;
-          this.$set(this.tableData, this.idx, this.form);
+          }
+          if(i==5){
+            this.editVisible05 = false;
+            this.editVisible06 = true;
+            this.$set(this.tableData, this.idx, this.form);
+          } if(i==6){
+            this.editVisible06 = false;
+            this.editVisible07 = true;
+            this.$set(this.tableData, this.idx, this.form);
+          }if(i==7){
+            this.editVisible07 = false;
+            this.editVisible08 = true;
+            this.$set(this.tableData, this.idx, this.form);
+          }if(i==8){
+            this.per5=100;
+            this.per6=100;
+            this.per7=100;
+            this.per8=100;
+            this.editVisible08 = false;
+
+            this.$set(this.tableData, this.idx, this.form);
+
           }
         },
-        EditCard(){
-          this.editVisible01 = true;
+        EditCard(i){
+          if (i==1){
+            this.editVisible01 = true;
+          }
+          if (i==2){
+            this.editVisible05 = true;
+          }
         },
         toHome(){
           this.$router.push({path:'/home/'})
-        },
-        show_ans(){
-          alert("跳转至数据报表页面，与企业详细信息类似")
         },
         handleClose(done) {
           this.$confirm('确认关闭？')
@@ -1171,7 +1508,7 @@ console.log(this.submit);
             const url = this.genUrl(res.data, {});//{}指的是表头，res.data.data.workhour_csv_data是后台返回来的数据
             const a = document.createElement('a');
             a.href = url;
-            a.download = "result.csv";
+            a.download = "hello豌豆.csv";
             a.click();
             window.URL.revokeObjectURL(url);
           })
@@ -1185,30 +1522,30 @@ console.log(this.submit);
 
         beforeUpload(file){ //use
           //重命名测评文件**********
-          var newname=file.name.split('.');
-          console.log(newname);
-
-          this.fd.append(newname[0],file);
+          // var newname=file.name.split('.');
+          // console.log(newname);
+          //
+          // this.fd.append(newname[0],file);
           //**************************end1
 
           //匹配测评文件名
-          // var newname=file.name.split('.');
-          // console.log(newname);
-          // if (newname[0]=="111") {
-          //   this.fd.append("info_file",file);
-          // }
-          // else if (newname[0]=="222") {
-          //   this.fd.append("year_report_file",file);
-          //
-          // }
-          // else if(newname[0]=="333"){
-          //   this.fd.append("money_report_file",file);
-          //
-          // }
-          // else if(newname[0]=="444"){
-          //   this.fd.append("intellectual_property_right_file",file);
-          //
-          // }
+          var newname=file.name.split('.');
+          console.log(newname);
+          if (newname[0]=="base_test_sum") {
+            this.fd.append("info_file",file);
+          }
+          else if (newname[0]=="year_report_test_sum") {
+            this.fd.append("year_report_file",file);
+
+          }
+          else if(newname[0]=="money_report_test_sum"){
+            this.fd.append("money_report_file",file);
+
+          }
+          else if(newname[0]=="knowledge_test_sum"){
+            this.fd.append("intellectual_property_right_file",file);
+
+          }
           //*end2
           console.log(file);
           return false // 返回false不会自动上传
