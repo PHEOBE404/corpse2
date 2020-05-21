@@ -72,14 +72,14 @@
             <el-dialog title="企业预警" :visible.sync="YujingVisible" custom-class="Yujingdialog" top="22px" align="left">
               <div class="wordItemBox">
                 <p class="word">偿债能力预警</p> <a class="taga" href="###" @click="Yujinginfo(0)">
-                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等3</el-tag>
               </a>
                 <hr>
                 <p class="translate">三年平均资产负债率与基准值对比</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">负债额度预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">危险</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">安全</el-tag>
               </a>
                 <hr>
                 <p class="translate">三年平均利息保障倍数与基准值对比</p>
@@ -93,56 +93,56 @@
               </div>
               <div class="wordItemBox">
                 <p class="word">资本安全性预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">安全</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">中等3</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均资本积累率与基准值对比</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">资本扩张能力预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">安全</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">危险</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均营业利润增长率与基准值对比</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">盈利前景预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">安全</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">中等2</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均净利润增长率与基准值对比</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">盈利能力预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">危险</el-tag>
               </a>
                 <hr>
                 <p class="translate">三年平均总资产收益率与基准值的对比</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">创新能力预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">危险</el-tag>
               </a>
                 <hr>
                 <p class="translate">专利、著作权、商标权相加与基准值对比</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">营业总收入预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">危险</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">中等2</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均营业总收入变化率与基准值的比较</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">资产总额预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">危险</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">中等2</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均资产总额变化率与基准值的比较</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">员工规模预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">危险</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均从业人数变化率与基准值的比较</p>
@@ -374,37 +374,37 @@
             i1: "企业规模",
             i2: "三年平均从业人数、资产总额、营业总收入",
             i3: "由三个指标聚类得到企业规模",
-            i4: "1"
+            i4: "3"
           },
           {
             i1: "创新能力",
             i2: "专利、商标、著作权",
             i3: "三个指标相加",
-            i4: "3.6"
+            i4: "1"
           },
           {
             i1: "盈利能力",
             i2: "三年平均总资产收益率",
             i3: "观察频率直方图后直接将总资产收益率映射到0-5区间内",
-            i4: "1.29"
+            i4: "1.43"
           },
           {
             i1: "发展能力",
             i2: "三年平均净利润增长率",
             i3: "观察频率直方图后直接将净利润增长率映射到0-5区间内",
-            i4: "3.34"
+            i4: "2.27"
           },
           {
             i1: "营运能力",
             i2: "三年平均总资产周转率",
             i3: "观察频率直方图后直接将净利润增长率映射到0-5区间内",
-            i4: "3.9"
+            i4: "3.45"
           },
           {
             i1: "偿债能力",
             i2: "三年平均资产负债率",
             i3: "观察频率直方图后直接将净利润增长率映射到0-5区间内",
-            i4: "4.17"
+            i4: "4.77"
           },
         ],
         labelgroup: ["拥有商标", "拥有著作权", "交通运输业", "发展速度慢", "偿债能力弱", "交通运输业", "资本安全程度低", "核心竞争力弱", "纳税金额较多", "债券融资", "中型企业", "中盈利", "营运能力好", "盈利前景一般"],
@@ -852,7 +852,7 @@
             // areaStyle: {normal: {}},
             data: [
               {
-                value: [1, 3.6, 1.29, 3.34, 3.90, 4.17],
+                value: [3, 1, 1.43, 2.27, 3.45, 4.77],
                 name: this.li + '号企业',
                 label: {
                   show: true,
