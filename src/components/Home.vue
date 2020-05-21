@@ -54,8 +54,8 @@
       }
     },
     mounted() {
-      this.axios.get('http://47.106.74.144/zombie_dig/get_operation_profit_growth_rate').then((response) => {
-        this.back = response.data.data;
+      this.axios.get('http://47.106.74.144/zombie_dig/CompanyMoneyReport/?company=64092').then((response) => {
+        this.back = response.data;
         // console.log(response);
 
       }).catch((response) => {

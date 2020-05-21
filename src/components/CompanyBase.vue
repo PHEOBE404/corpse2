@@ -227,9 +227,9 @@
                         <i class="b_r_line"></i>
                       </div>
                       <div class="main_title">
-                        融资情况
+                      融资情况
                       </div>
-                      <div id="chartRongZi" class="chart" style="width:100%;height:568px;"></div>
+                      <div   id="chartRongZiAfter" class="chart" style="width:100%;height:568px;"></div>
                     </div>
 
                     <div class="center_text t_cos3" style="display:none">
@@ -273,11 +273,11 @@
           <div class="wrapper">
             <div class="tagcloud fr">
               <a href="#">僵尸企业</a>
-              <a href="#">债券融资</a>
-              <a href="#">竞争力弱</a>
-              <a href="#">偿债能力弱</a>
-              <a href="#">匀速发展</a>
-              <a href="#">交通运输业</a>
+              <a href="#">少额纳税</a>
+              <a href="#">核心竞争力较弱</a>
+              <a href="#">营运能力较强</a>
+              <a href="#">盈利前景渺茫</a>
+              <a href="#">员工数负增长</a>
             </div>
           </div><!--wrapper-->
         </div>
@@ -352,6 +352,8 @@
       </div>
       <div id="radioCont">
       </div>
+      <div id="chartRongZi">
+      </div>
       <!--            <el-tab-pane label="3D企业" name="fourth">建设中</el-tab-pane>-->
     </div>
   </div>
@@ -407,13 +409,13 @@
             i4: "4.77"
           },
         ],
-        labelgroup: ["拥有商标", "拥有著作权", "交通运输业", "发展速度慢", "偿债能力弱", "交通运输业", "资本安全程度低", "核心竞争力弱", "纳税金额较多", "债券融资", "中型企业", "中盈利", "营运能力好", "盈利前景一般"],
+        labelgroup: [ "交通运输业", "中型企业", "股权融资", "内部融资和贸易融资", "匀速发展", "偿债能力较好", "低盈利", "员工数负增长", "盈利前景渺茫", "资本安全程度正常", "营运能力较强", "核心竞争力较弱", "少额纳税", "2010年注册"],
         wordtitle: ["偿债能力预警", "负债额度预警"],
         innerdialogtitle: '',
         innerVisible: false,
         YujingVisible: false,
         SixDVisible: false,
-        FenXiVisible: false,
+        FenXiVisible: true,
         radio6: '僵尸企业',
         radio7: '系统企业',
         pre_fbx: false,
@@ -452,15 +454,15 @@
     },
     mounted() {
       // alert($(".warn").text());
-
       // this.init_node();
       // if ($(".warn").text()=="僵尸企业") {
       //       $(".warn").addClass("isred");
       //     }
-      ;
       // this.init_fbx();
       this.init_radio();
-      // this.chartRongZi();
+      // this.$nextTick(function () {
+        this.rongZi();
+      // });
       $("#radioCont").hide();
       tagcloud({
         selector: ".tagcloud",  //元素选择器
@@ -513,6 +515,123 @@
       }
     },
     methods: {
+      rongZi(){
+        var echarts = require('echarts');
+        var myChart_1= echarts.init(document.getElementById('chartRongZi'));
+
+
+        myChart_1.setOption({
+
+
+          xAxis: {
+
+            type: 'category',
+            data: ['债券融资额度', '债券融资成本','股权融资额度','股权融资成本','内部融资和贸易融资额度','内部融资和贸易融资成本','项目融资和政策融资额度','项目融资和政策融资成本'],
+            nameTextStyle:{
+              color:'#fff',
+            },
+            textStyle:{
+              color:'#fff',
+              fontSize:8,
+
+            },
+            axisLabel:{
+              color:'#fff',
+              fontSize:12
+
+            }
+          },
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'shadow'
+            }
+          },
+          legend: { //图例内容,点击能取消/显示图
+            data: ['2015年','2016年','2017年'],//跟下面的data要对应
+            textStyle:{
+              color:'#fff',
+            },
+            left:'60%',
+
+          },
+          yAxis: {
+            name:'(万元）',
+            nameLocation:'end',
+            nameTextStyle:{
+              color:'#fff',
+              // backgroundColor:'#f00',
+            },
+            nameGap:8,
+            type: 'value',
+            // max:100,
+
+            nameTextStyle:{
+              color:'#fff'
+            },
+            textStyle:{
+              color:'#fff'
+            },
+            axisLabel:{
+              show:true,
+              color:'#fff'
+            }
+          },
+          series: [{
+            name:'2015年',
+            data: [0, 0, 83232, 3329.28, 133.1712, 0,0,0],
+            type: 'bar',
+            barWidth:14,
+            itemStyle:{
+              color:'#FF4200',
+              opacity:0.9,
+            },
+
+            textStyle:{
+              color:"#fff"
+            },
+            label:{
+              show:true,
+              color:'#fff'
+            }
+          },{
+            name:'2016年',
+            data: [0, 0,0,0,224726.4,13483.584,0,0],
+            type: 'bar',
+            barWidth:14,
+            itemStyle:{
+              color:'#09ACD2',
+              opacity:0.9,
+            },
+            textStyle:{
+              color:"#fff"
+            },
+            label:{
+              show:true,
+              color:'#fff'
+            }
+          },{
+            name:'2017年',
+            data: [0,0,0,0,80110.8,4806.648,0,0],
+            type: 'bar',
+            barWidth:14,
+            itemStyle:{
+              color:'#ff0',
+              opacity:0.9,
+            },
+            textStyle:{
+              color:"#fff"
+            },
+            label:{
+              show:true,
+              color:'#fff'
+            }
+          },
+          ]
+        });
+
+      },
+
       showSixD() {
 
         $("#radioCont").show();
@@ -555,6 +674,9 @@
       },
       showFenXi() {
         console.log("showFenXi");
+        $("#chartRongZi").show();
+        console.log("5555");
+        $("#chartRongZiAfter").append($("#chartRongZi"));
         this.FenXiVisible = true;
       },
       showYujing() {
@@ -879,13 +1001,7 @@
 
         });
       },
-      chartRongZi: function () {
-        var _this = this;
-        var echarts = require('echarts');
-        var myChart_2 = echarts.init(document.getElementById('chartRongZi'));
-        myChart_2.setOption({});
 
-      },
     }
   }
 </script>
@@ -1351,6 +1467,10 @@
 
   .left_1 {
     height: 560px;
+  }
+  #chartRongZi{
+    width:790px;
+    height:500px;
   }
 </style>
 <style>
