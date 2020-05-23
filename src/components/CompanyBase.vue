@@ -36,15 +36,15 @@
 				<span class="forActive"></span>
 			</span>
                 <span class="itemDot itemDot2" data-tab="2" @click="showSixD">
-				<i class="fa fa-bomb"></i>  <p>企业特征</p>
+				<i class="fa fa-bomb"></i>  <p>六维特征</p>
 				<span class="forActive"></span>
 			</span>
                 <span class="itemDot itemDot3" data-tab="3" @click="showFenXi">
-				<i class="fa fa-heartbeat"></i> <p>数据分析</p>
+				<i class="fa fa-heartbeat"></i> <p>基本信息</p>
 				<span class="forActive"></span>
 			</span>
                 <span class="itemDot itemDot4" data-tab="4">
-				<i class="fa fa-leaf"></i> <p>其他</p>
+				<i class="fa fa-leaf"></i> <p>3D企业</p>
 				<span class="forActive"></span>
 			</span>
               </div>
@@ -57,10 +57,10 @@
                   六维特征
                 </div>
                 <div class="CirItem CirItem3">
-                  数据分析
+                  基本信息
                 </div>
                 <div class="CirItem CirItem4">
-                  其他
+                  3D企业
                 </div>
 
               </div>
@@ -159,7 +159,7 @@
               </el-dialog>
 
             </el-dialog>
-            <el-dialog title="企业特征" :visible.sync="SixDVisible" top="22px" width="1300px">
+            <el-dialog title="六维特征" :visible.sync="SixDVisible" top="22px" width="1300px">
               <div id="radioContAfter">
               </div>
               <div class="radiolabel">
@@ -184,7 +184,7 @@
 
               </div>
             </el-dialog>
-            <el-dialog title="数据分析" :visible.sync="FenXiVisible" top="22px" width="1300px">
+            <el-dialog title="基本信息" :visible.sync="FenXiVisible" top="22px" width="1300px">
               <!--main-->
               <div class="data_content">
                 <div class="data_main">
@@ -193,10 +193,13 @@
                       <ul class="t_btn">
 
                         <li>
-                          <button class="t_btn6">融资情况</button>
+                          <button class="t_btn6" @click="switchPage(1)">金融融资额度</button>
                         </li>
                         <li>
-                          <button class="t_btn7">财务报告</button>
+                          <button class="t_btn7" @click="switchPage(2)">金融融资成本</button>
+                        </li>
+                        <li>
+                          <button class="t_btn7" @click="switchPage(3)">年度报表</button>
                         </li>
 
                       </ul>
@@ -205,7 +208,7 @@
                   </div>
                   <div class="main_center fl">
 
-                    <div class="center_text t_cos1" style="display:block">
+                    <div class="center_text t_cos1" style="display:none">
                       <!--左上边框-->
                       <div class="t_line_box">
                         <i class="t_l_line"></i>
@@ -227,37 +230,252 @@
                         <i class="b_r_line"></i>
                       </div>
                       <div class="main_title">
-                      融资情况
+                      金融融资额度
                       </div>
-                      <div   id="chartRongZiAfter" class="chart" style="width:100%;height:568px;"></div>
+                      <div  id="chartRongZi1" class="chart chartRongZi" >
+                        <p class="edu">2015年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>债券融资额度</th>
+                            <th>股权融资额度</th>
+                            <th>内部融资和贸易融资额度</th>
+                            <th>项目融资和政策融资额度</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="债券融资额度">0</td>
+                            <td data-label="股权融资额度">83232</td>
+                            <td data-label="内部融资和贸易融资额度">133.1712</td>
+                            <td data-label="项目融资和政策融资额度">0</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+                        <p class="edu">2016年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>债券融资额度</th>
+                            <th>股权融资额度</th>
+                            <th>内部融资和贸易融资额度</th>
+                            <th>项目融资和政策融资额度</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="债券融资额度">0</td>
+                            <td data-label="股权融资额度">0</td>
+                            <td data-label="内部融资和贸易融资额度">224726.4</td>
+                            <td data-label="项目融资和政策融资额度">0</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+                        <p class="edu">2017年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>债券融资额度</th>
+                            <th>股权融资额度</th>
+                            <th>内部融资和贸易融资额度</th>
+                            <th>项目融资和政策融资额度</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="债券融资额度">0</td>
+                            <td data-label="股权融资额度">0</td>
+                            <td data-label="内部融资和贸易融资额度">80110.8</td>
+                            <td data-label="项目融资和政策融资额度">0</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+
+                      </div>
+                    </div>
+                    <div class="center_text t_cos2" style="display:none">
+                      <!--左上边框-->
+                      <div class="t_line_box">
+                        <i class="t_l_line"></i>
+                        <i class="l_t_line"></i>
+                      </div>
+                      <!--右上边框-->
+                      <div class="t_line_box">
+                        <i class="t_r_line"></i>
+                        <i class="r_t_line"></i>
+                      </div>
+                      <!--左下边框-->
+                      <div class="t_line_box">
+                        <i class="l_b_line"></i>
+                        <i class="b_l_line"></i>
+                      </div>
+                      <!--右下边框-->
+                      <div class="t_line_box">
+                        <i class="r_b_line"></i>
+                        <i class="b_r_line"></i>
+                      </div>
+                      <div class="main_title">
+                      金融融资成本
+                      </div>
+                      <div  id="chartRongZi2" class="chart chartRongZi" >
+                        <p class="edu">2015年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>债券融资成本</th>
+                            <th>股权融资成本</th>
+                            <th>内部融资和贸易融资成本</th>
+                            <th>项目融资和政策融资成本</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="债券融资成本">0</td>
+                            <td data-label="股权融资成本">3329.28</td>
+                            <td data-label="内部融资和贸易融资成本">0</td>
+                            <td data-label="项目融资和政策融资成本">0</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+                        <p class="edu">2016年</p>
+                        <table id="edu2016">
+                          <thead>
+                          <tr>
+                            <th>债券融资成本</th>
+                            <th>股权融资成本</th>
+                            <th>内部融资和贸易融资成本</th>
+                            <th>项目融资和政策融资成本</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="债券融资成本">0</td>
+                            <td data-label="股权融资成本">0</td>
+                            <td data-label="内部融资和贸易融资成本">13483.584</td>
+                            <td data-label="项目融资和政策融资成本">0</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+                        <p class="edu">2017年</p>
+                        <table id="edu2017">
+                          <thead>
+                          <tr>
+                            <th>债券融资成本</th>
+                            <th>股权融资成本</th>
+                            <th>内部融资和贸易融资成本</th>
+                            <th>项目融资和政策融资成本</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="债券融资成本">0</td>
+                            <td data-label="股权融资成本">0</td>
+                            <td data-label="内部融资和贸易融资成本">4806.648</td>
+                            <td data-label="项目融资和政策融资成本">0</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+
+                      </div>
+                    </div>
+                    <div class="center_text t_cos3" style="display:block">
+                      <!--左上边框-->
+                      <div class="t_line_box">
+                        <i class="t_l_line"></i>
+                        <i class="l_t_line"></i>
+                      </div>
+                      <!--右上边框-->
+                      <div class="t_line_box">
+                        <i class="t_r_line"></i>
+                        <i class="r_t_line"></i>
+                      </div>
+                      <!--左下边框-->
+                      <div class="t_line_box">
+                        <i class="l_b_line"></i>
+                        <i class="b_l_line"></i>
+                      </div>
+                      <!--右下边框-->
+                      <div class="t_line_box">
+                        <i class="r_b_line"></i>
+                        <i class="b_r_line"></i>
+                      </div>
+                      <div class="main_title">
+                      年度报表
+                      </div>
+                      <div   class="chart chartRongZi" >
+                        <p class="edu">2015年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>从业人数</th>
+                            <th>资产总额</th>
+                            <th>负债总额</th>
+                            <th>营业总收入</th>
+                            <th>主营业务收入</th>
+                            <th>利润总额</th>
+                            <th>净利润</th>
+                            <th>纳税总额</th>
+                            <th>所有者权益合计</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="从业人数">811</td>
+                            <td data-label="资产总额">173400</td>
+                            <td data-label="负债总额">329460</td>
+                            <td data-label="营业总收入">832320</td>
+                            <td data-label="主营业务收入">416160</td>
+                            <td data-label="利润总额">416160</td>
+                            <td data-label="净利润">-83232</td>
+                            <td data-label="纳税总额">0</td>
+                            <td data-label="所有者权益合计">-156060</td>
+                          </tr>
+
+                          </tbody>
+                        </table>  <p class="edu">2016年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>从业人数</th>
+                            <th>资产总额</th>
+                            <th>负债总额</th>
+                            <th>营业总收入</th>
+                            <th>主营业务收入</th>
+                            <th>利润总额</th>
+                            <th>净利润</th>
+                            <th>纳税总额</th>
+                            <th>所有者权益合计</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="从业人数">582</td>
+                            <td data-label="资产总额">208080</td>
+                            <td data-label="负债总额">329460</td>
+                            <td data-label="营业总收入">832320</td>
+                            <td data-label="主营业务收入">416160</td>
+                            <td data-label="利润总额">416160</td>
+                            <td data-label="净利润">-83232</td>
+                            <td data-label="纳税总额">0</td>
+                            <td data-label="所有者权益合计">-156060</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+
+
+                      </div>
                     </div>
 
-                    <div class="center_text t_cos3" style="display:none">
-                      <!--左上边框-->
-                      <div class="t_line_box">
-                        <i class="t_l_line"></i>
-                        <i class="l_t_line"></i>
-                      </div>
-                      <!--右上边框-->
-                      <div class="t_line_box">
-                        <i class="t_r_line"></i>
-                        <i class="r_t_line"></i>
-                      </div>
-                      <!--左下边框-->
-                      <div class="t_line_box">
-                        <i class="l_b_line"></i>
-                        <i class="b_l_line"></i>
-                      </div>
-                      <!--右下边框-->
-                      <div class="t_line_box">
-                        <i class="r_b_line"></i>
-                        <i class="b_r_line"></i>
-                      </div>
-                      <div class="main_title">
-                        中国铁路
-                      </div>
-                      <div id="chart_4" class="chart" style="width:100%;height:778px;"></div>
-                    </div>
 
 
                   </div>
@@ -352,9 +570,6 @@
       </div>
       <div id="radioCont">
       </div>
-      <div id="chartRongZi">
-      </div>
-      <!--            <el-tab-pane label="3D企业" name="fourth">建设中</el-tab-pane>-->
     </div>
   </div>
 </template>
@@ -371,6 +586,7 @@
     data() {
 
       return {
+
         radiogroup: [
           {
             i1: "企业规模",
@@ -399,13 +615,13 @@
           {
             i1: "营运能力",
             i2: "三年平均总资产周转率",
-            i3: "观察频率直方图后直接将净利润增长率映射到0-5区间内",
+            i3: "观察频率直方图后直接将资产周转率映射到0-5区间内",
             i4: "3.45"
           },
           {
             i1: "偿债能力",
             i2: "三年平均资产负债率",
-            i3: "观察频率直方图后直接将净利润增长率映射到0-5区间内",
+            i3: "观察频率直方图后直接将资产负债率映射到0-5区间内",
             i4: "4.77"
           },
         ],
@@ -460,9 +676,7 @@
       //     }
       // this.init_fbx();
       this.init_radio();
-      // this.$nextTick(function () {
-        this.rongZi();
-      // });
+
       $("#radioCont").hide();
       tagcloud({
         selector: ".tagcloud",  //元素选择器
@@ -515,123 +729,13 @@
       }
     },
     methods: {
-      rongZi(){
-        var echarts = require('echarts');
-        var myChart_1= echarts.init(document.getElementById('chartRongZi'));
-
-
-        myChart_1.setOption({
-
-
-          xAxis: {
-
-            type: 'category',
-            data: ['债券融资额度', '债券融资成本','股权融资额度','股权融资成本','内部融资和贸易融资额度','内部融资和贸易融资成本','项目融资和政策融资额度','项目融资和政策融资成本'],
-            nameTextStyle:{
-              color:'#fff',
-            },
-            textStyle:{
-              color:'#fff',
-              fontSize:8,
-
-            },
-            axisLabel:{
-              color:'#fff',
-              fontSize:12
-
-            }
-          },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'shadow'
-            }
-          },
-          legend: { //图例内容,点击能取消/显示图
-            data: ['2015年','2016年','2017年'],//跟下面的data要对应
-            textStyle:{
-              color:'#fff',
-            },
-            left:'60%',
-
-          },
-          yAxis: {
-            name:'(万元）',
-            nameLocation:'end',
-            nameTextStyle:{
-              color:'#fff',
-              // backgroundColor:'#f00',
-            },
-            nameGap:8,
-            type: 'value',
-            // max:100,
-
-            nameTextStyle:{
-              color:'#fff'
-            },
-            textStyle:{
-              color:'#fff'
-            },
-            axisLabel:{
-              show:true,
-              color:'#fff'
-            }
-          },
-          series: [{
-            name:'2015年',
-            data: [0, 0, 83232, 3329.28, 133.1712, 0,0,0],
-            type: 'bar',
-            barWidth:14,
-            itemStyle:{
-              color:'#FF4200',
-              opacity:0.9,
-            },
-
-            textStyle:{
-              color:"#fff"
-            },
-            label:{
-              show:true,
-              color:'#fff'
-            }
-          },{
-            name:'2016年',
-            data: [0, 0,0,0,224726.4,13483.584,0,0],
-            type: 'bar',
-            barWidth:14,
-            itemStyle:{
-              color:'#09ACD2',
-              opacity:0.9,
-            },
-            textStyle:{
-              color:"#fff"
-            },
-            label:{
-              show:true,
-              color:'#fff'
-            }
-          },{
-            name:'2017年',
-            data: [0,0,0,0,80110.8,4806.648,0,0],
-            type: 'bar',
-            barWidth:14,
-            itemStyle:{
-              color:'#ff0',
-              opacity:0.9,
-            },
-            textStyle:{
-              color:"#fff"
-            },
-            label:{
-              show:true,
-              color:'#fff'
-            }
-          },
-          ]
-        });
+      switchPage(index){
+        var classs=".t_cos"+index;
+        console.log(classs);
+        $(".center_text").hide();
+        $(classs).show();
 
       },
-
       showSixD() {
 
         $("#radioCont").show();
@@ -676,7 +780,6 @@
         console.log("showFenXi");
         $("#chartRongZi").show();
         console.log("5555");
-        $("#chartRongZiAfter").append($("#chartRongZi"));
         this.FenXiVisible = true;
       },
       showYujing() {
@@ -1024,6 +1127,7 @@
     background-position: center top;
     height: 740px;
     background-color: #041A29;
+    font-family: arial;
 
     color: #FFFFFF;
 
@@ -1428,7 +1532,7 @@
   .t_a {
     display: inline-block;
     padding: 10px 5px;
-    width: 80px;
+    width: 120px;
     border-style: solid;
     border-width: 0;
     cursor: pointer;
@@ -1468,10 +1572,59 @@
   .left_1 {
     height: 560px;
   }
-  #chartRongZi{
-    width:790px;
-    height:500px;
+  .chartRongZi{
+    /*width:790px;*/
+    /*height:500px;*/
+    /*background-color: #3a8ee6;*/
+    width:100%;
+    height:400px;
+    padding: 0px;
+    margin-top: 30px;
   }
+
+  table {
+    /*border: 1px solid #3a8ee6;*/
+    width: 90%;
+    margin:0;
+    padding:0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+    color: white;
+  }
+
+  table tr {
+    padding: 5px;
+  }
+
+  table th, table td {
+    padding: 8px 2px;
+    text-align: center;
+    /*border-top: 1px solid #3a8ee6;*/
+
+  }
+  table td {
+    padding: 10px 2px;
+    text-align: center;
+    border: 1px solid #3a8ee6;
+    border-left: none;
+    border-right: none;
+
+  }
+
+  table th {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+.edu{
+  font-size: 20px;
+  color: #99a9bf;
+  text-align: center;
+  margin-top: 20px;
+
+}
+
 </style>
 <style>
   .el-dialog__body {
