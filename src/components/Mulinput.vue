@@ -1508,7 +1508,7 @@ console.log(this.submit);
             const url = this.genUrl(res.data, {});//{}指的是表头，res.data.data.workhour_csv_data是后台返回来的数据
             const a = document.createElement('a');
             a.href = url;
-            a.download = "hello豌豆.csv";
+            a.download = "190408-hello豌豆.csv";
             a.click();
             window.URL.revokeObjectURL(url);
           })

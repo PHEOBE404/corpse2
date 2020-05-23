@@ -54,7 +54,7 @@
       }
     },
     mounted() {
-      this.axios.get('http://47.106.74.144/zombie_dig/CompanyMoneyReport/?company=64092').then((response) => {
+      this.axios.get('http://47.106.74.144/zombie_dig/get_area_analysis_nums').then((response) => {
         this.back = response.data;
         // console.log(response);
 

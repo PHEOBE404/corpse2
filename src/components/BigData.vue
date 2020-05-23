@@ -70,7 +70,7 @@
                   <th >行业</th>
                   <th >数量</th>
                   <th >占比</th>
-                  <th >热度</th>
+<!--                  <th >热度</th>-->
                 </tr>
                 <tr></tr>
                 <tr>
@@ -151,14 +151,14 @@
               </tr>
                 <tr>
 
-                  <td>湖南</td>
-                  <td>2253</td>
-                  <td>14.02%</td>
+                  <td>山东</td>
+                  <td>2245</td>
+                  <td>13.96%</td>
                 <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr><tr>
-                <td>山东</td>
-                <td>2245 </td>
-                <td>13.97%</td>
+                <td>广东</td>
+                <td>2241 </td>
+                <td>13.94%</td>
                 <td > <img src="../assets/lighting.png" width="24px">  </td>
               </tr>
               </table>
@@ -1154,7 +1154,7 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
-              name:'万元',
+              name:'元',
               nameLocation:'end',
               nameTextStyle:{
                 color:'#fff',
@@ -1324,7 +1324,7 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
-              name:'万元',
+              name:'元',
               nameLocation:'end',
               nameTextStyle:{
                 color:'#fff',
@@ -1861,5 +1861,8 @@ body{
 
   .content{
     /*padding-top: px;*/
+  }
+  .title{
+    height: 50.4px;
   }
 </style>

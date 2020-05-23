@@ -20,10 +20,22 @@
 
       </div>
       <div class="sear_input"  v-if="show_item" style="position: fixed;margin-left: 500px">
-        <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%"></el-input>
-        <el-button slot="append" icon="el-icon-search" type="primary" @click="to_search"></el-button>
+      <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%"></el-input>
+      <el-button slot="append" icon="el-icon-search" type="primary" @click="to_search"></el-button>
 
-      </div>
+    </div>
+<!--      <div class="sear_input"  v-if="show_item" style="position: fixed;margin-left: 500px">-->
+<!--        <el-col :span="12">-->
+<!--          <div class="sub-title">激活即列出输入建议</div>-->
+<!--          <el-autocomplete-->
+<!--            class="inline-input"-->
+<!--            v-model="state1"-->
+<!--            :fetch-suggestions="querySearch"-->
+<!--            placeholder="请输入内容"-->
+<!--            @select="handleSelect"-->
+<!--          ></el-autocomplete>-->
+<!--        </el-col>-->
+<!--    </div>-->
       <div class="sear_input_later"  v-if="!show_item" style="position: fixed;margin-left: 440px;margin-top: 50px">
         <el-input placeholder="请输入企业编号" v-model="select_key" class="input-with-select" style="width: 80%"></el-input>
         <el-button slot="append" icon="el-icon-search" type="primary" ></el-button>
@@ -90,6 +102,7 @@
         name: "CompanySearch",
       data(){
           return{
+            state1: '',
             isCollapse: !false,
             timer: "",//定义一个定时器的变量
             currentTime: "----------------------", // 获取当前时间
@@ -164,12 +177,34 @@
             new Date().getMinutes()
         }, 1000);
       },
+    mounted() {
+      this.restaurants = this.loadAll();
+    },
       beforeDestroy() {
         if (this.timer) {
           clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
         }
       },
       methods:{
+        querySearch(queryString, cb) {
+          var restaurants = this.restaurants;
+          var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+          // 调用 callback 返回建议列表的数据
+          cb(results);
+        },
+        loadAll() {
+          return [
+            { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
+            { "value": "Hot honey 首尔炸鸡（仙霞路）", "address": "上海市长宁区淞虹路661号" },
+            { "value": "新旺角茶餐厅", "address": "上海市普陀区真北路988号创邑金沙谷6号楼113" },
+            { "value": "泷千家(天山西路店)", "address": "天山西路438号" },
+
+
+          ];
+        },
+        handleSelect(item) {
+          console.log(item);
+        },
         startNumber(){
           if (this.timerNum) { //已经开始了
             this.stop();
@@ -295,7 +330,6 @@
     background-repeat: no-repeat;
     background-position: center top;
     height: 740px;
-    /*opacity: .5;*/
   }
   .ranNum a{
     color: #e4e4e4;
@@ -370,7 +404,8 @@
 .table{
   width: 760px;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+  opacity: 0.98;
   padding: 8px;
   position: fixed;
   margin-left: 340px;
