@@ -34,9 +34,9 @@
           </el-carousel>
         </template>
       </div>
-      <div style="color: white">
-        {{back}}
-      </div>
+<!--      <div style="color: white">-->
+<!--        {{back}}-->
+<!--      </div>-->
     </div>
   </div>
 </template>
@@ -130,7 +130,7 @@
     height: 740px;
 
     /*margin: 0px auto;*/
-    /*background-image: url("../assets/粒子92.png");*/
+    background-image: url("../assets/粒子92.png");
 
     background-repeat: no-repeat;
     background-position: center top;

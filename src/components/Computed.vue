@@ -44,7 +44,7 @@
             </el-card>
           </router-link>
 
-        <router-link to="/mulinput/随机森林">
+        <router-link to="/mulinput/RandomForest">
 
         <el-card class="box-card" >
           <div  class="text item">
@@ -59,7 +59,7 @@
           </div>
             </el-card>
         </router-link>
-        <router-link to="/mulinput/逻辑回归">
+        <router-link to="/mulinput/LogisticRegression">
 
         <el-card class="box-card" >
           <div  class="text item">

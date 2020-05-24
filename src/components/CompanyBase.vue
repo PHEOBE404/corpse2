@@ -40,10 +40,10 @@
 				<span class="forActive"></span>
 			</span>
                 <span class="itemDot itemDot3" data-tab="3" @click="showFenXi">
-				<i class="fa fa-heartbeat"></i> <p>基本信息</p>
+				<i class="fa fa-heartbeat"></i> <p>基础信息</p>
 				<span class="forActive"></span>
 			</span>
-                <span class="itemDot itemDot4" data-tab="4">
+                <span class="itemDot itemDot4" data-tab="4" @click="show3D">
 				<i class="fa fa-leaf"></i> <p>3D企业</p>
 				<span class="forActive"></span>
 			</span>
@@ -57,7 +57,7 @@
                   六维特征
                 </div>
                 <div class="CirItem CirItem3">
-                  基本信息
+                  基础信息
                 </div>
                 <div class="CirItem CirItem4">
                   3D企业
@@ -184,7 +184,7 @@
 
               </div>
             </el-dialog>
-            <el-dialog title="基本信息" :visible.sync="FenXiVisible" top="22px" width="1300px">
+            <el-dialog title="基础信息" :visible.sync="FenXiVisible" top="22px" width="1300px">
               <!--main-->
               <div class="data_content">
                 <div class="data_main">
@@ -192,6 +192,12 @@
                     <div class="left_1">
                       <ul class="t_btn">
 
+                        <li>
+                          <button class="t_btn6" @click="switchPage(4)">基础信息</button>
+                        </li>
+                        <li>
+                          <button class="t_btn6" @click="switchPage(5)">知识产权</button>
+                        </li>
                         <li>
                           <button class="t_btn6" @click="switchPage(1)">金融融资额度</button>
                         </li>
@@ -208,7 +214,7 @@
                   </div>
                   <div class="main_center fl">
 
-                    <div class="center_text t_cos1" style="display:none">
+                    <div class="center_text t_cos1" style="display:block">
                       <!--左上边框-->
                       <div class="t_line_box">
                         <i class="t_l_line"></i>
@@ -386,7 +392,7 @@
 
                       </div>
                     </div>
-                    <div class="center_text t_cos3" style="display:block">
+                    <div class="center_text t_cos3" style="display:none">
                       <!--左上边框-->
                       <div class="t_line_box">
                         <i class="t_l_line"></i>
@@ -440,7 +446,8 @@
                           </tr>
 
                           </tbody>
-                        </table>  <p class="edu">2016年</p>
+                        </table>
+                        <p class="edu">2016年</p>
                         <table >
                           <thead>
                           <tr>
@@ -459,13 +466,145 @@
                           <tr>
                             <td data-label="从业人数">582</td>
                             <td data-label="资产总额">208080</td>
-                            <td data-label="负债总额">329460</td>
-                            <td data-label="营业总收入">832320</td>
-                            <td data-label="主营业务收入">416160</td>
-                            <td data-label="利润总额">416160</td>
-                            <td data-label="净利润">-83232</td>
+                            <td data-label="负债总额">398820</td>
+                            <td data-label="营业总收入">749088</td>
+                            <td data-label="主营业务收入">299635</td>
+                            <td data-label="利润总额">74908.8</td>
+                            <td data-label="净利润">-74908.8</td>
                             <td data-label="纳税总额">0</td>
-                            <td data-label="所有者权益合计">-156060</td>
+                            <td data-label="所有者权益合计">-190740</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+                        <p class="edu">2017年</p>
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>从业人数</th>
+                            <th>资产总额</th>
+                            <th>负债总额</th>
+                            <th>营业总收入</th>
+                            <th>主营业务收入</th>
+                            <th>利润总额</th>
+                            <th>净利润</th>
+                            <th>纳税总额</th>
+                            <th>所有者权益合计</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="从业人数">467</td>
+                            <td data-label="资产总额">242760</td>
+                            <td data-label="负债总额">468180</td>
+                            <td data-label="营业总收入">267036</td>
+                            <td data-label="主营业务收入">186925</td>
+                            <td data-label="利润总额">26703.6</td>
+                            <td data-label="净利润">-26703.6</td>
+                            <td data-label="纳税总额">0</td>
+                            <td data-label="所有者权益合计">-225420</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+
+
+                      </div>
+                    </div>
+                    <div class="center_text t_cos4" style="display:none">
+                      <!--左上边框-->
+                      <div class="t_line_box">
+                        <i class="t_l_line"></i>
+                        <i class="l_t_line"></i>
+                      </div>
+                      <!--右上边框-->
+                      <div class="t_line_box">
+                        <i class="t_r_line"></i>
+                        <i class="r_t_line"></i>
+                      </div>
+                      <!--左下边框-->
+                      <div class="t_line_box">
+                        <i class="l_b_line"></i>
+                        <i class="b_l_line"></i>
+                      </div>
+                      <!--右下边框-->
+                      <div class="t_line_box">
+                        <i class="r_b_line"></i>
+                        <i class="b_r_line"></i>
+                      </div>
+                      <div class="main_title">
+                      基本信息
+                      </div>
+                      <div   class="chart chartRongZi chartBase" >
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>注册年份</th>
+                            <th>注册资本</th>
+                            <th>区域</th>
+                            <th>行业</th>
+                            <th>企业类型</th>
+                            <th>控制人类型</th>
+                            <th>控制人持股</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="注册年份">2010年</td>
+                            <td data-label="注册资本">173400</td>
+                            <td data-label="区域">广西省</td>
+                            <td data-label="行业">交通运输业</td>
+                            <td data-label="企业类型">集体所有制</td>
+                            <td data-label="控制人类型">企业法人</td>
+                            <td data-label="控制人持股">60%</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+
+
+                      </div>
+                    </div>
+                    <div class="center_text t_cos5" style="display:none">
+                      <!--左上边框-->
+                      <div class="t_line_box">
+                        <i class="t_l_line"></i>
+                        <i class="l_t_line"></i>
+                      </div>
+                      <!--右上边框-->
+                      <div class="t_line_box">
+                        <i class="t_r_line"></i>
+                        <i class="r_t_line"></i>
+                      </div>
+                      <!--左下边框-->
+                      <div class="t_line_box">
+                        <i class="l_b_line"></i>
+                        <i class="b_l_line"></i>
+                      </div>
+                      <!--右下边框-->
+                      <div class="t_line_box">
+                        <i class="r_b_line"></i>
+                        <i class="b_r_line"></i>
+                      </div>
+                      <div class="main_title">
+                      知识产权
+                      </div>
+                      <div   class="chart chartRongZi chartBase" >
+                        <table >
+                          <thead>
+                          <tr>
+                            <th>专利</th>
+                            <th>商标</th>
+                            <th>著作权</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td data-label="专利">无</td>
+                            <td data-label="商标">无</td>
+                            <td data-label="著作权">无</td>
                           </tr>
 
                           </tbody>
@@ -481,6 +620,15 @@
                   </div>
                 </div>
               </div>
+            </el-dialog>
+            <el-dialog title="3D企业" :visible.sync="D3Visible" top="22px" width="1300px" >
+                <div class="pre_fbx" style="width: 98%;height: 550px;" @click="init_fbx">
+                  <iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%" height="100%" src="../static/fbx_big.html"></iframe>
+                </div>
+<!--              <div style="width: 700px;height:500px;float: left;background-color: #0C0C0C">-->
+<!--                123456-->
+
+<!--              </div>-->
             </el-dialog>
           </div>
         </div>
@@ -631,7 +779,8 @@
         innerVisible: false,
         YujingVisible: false,
         SixDVisible: false,
-        FenXiVisible: true,
+        FenXiVisible: false,
+        D3Visible: false,
         radio6: '僵尸企业',
         radio7: '系统企业',
         pre_fbx: false,
@@ -733,7 +882,7 @@
         var classs=".t_cos"+index;
         console.log(classs);
         $(".center_text").hide();
-        $(classs).show();
+        $(classs).fadeIn(1200);
 
       },
       showSixD() {
@@ -778,9 +927,11 @@
       },
       showFenXi() {
         console.log("showFenXi");
-        $("#chartRongZi").show();
-        console.log("5555");
         this.FenXiVisible = true;
+      },
+      show3D(){
+        this.D3Visible = true;
+
       },
       showYujing() {
         console.log("yyyyy");
@@ -1581,7 +1732,12 @@
     padding: 0px;
     margin-top: 30px;
   }
-
+  .chartBase{
+    width:100%;
+    height:200px;
+    padding: 100px 0px;
+    margin-top: 30px;
+  }
   table {
     /*border: 1px solid #3a8ee6;*/
     width: 90%;
