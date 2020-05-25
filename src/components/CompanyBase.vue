@@ -72,7 +72,7 @@
             <el-dialog title="企业预警" :visible.sync="YujingVisible" custom-class="Yujingdialog" top="22px" align="left">
               <div class="wordItemBox">
                 <p class="word">偿债能力预警</p> <a class="taga" href="###" @click="Yujinginfo(0)">
-                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等3</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="warning" size="small">中等</el-tag>
               </a>
                 <hr>
                 <p class="translate">三年平均资产负债率与基准值对比</p>
@@ -93,7 +93,7 @@
               </div>
               <div class="wordItemBox">
                 <p class="word">资本安全性预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">中等3</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">中等</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均资本积累率与基准值对比</p>
@@ -107,7 +107,7 @@
               </div>
               <div class="wordItemBox">
                 <p class="word">盈利前景预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">中等2</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="info" size="small">中等</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均净利润增长率与基准值对比</p>
@@ -128,14 +128,14 @@
               </div>
               <div class="wordItemBox">
                 <p class="word">营业总收入预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">中等2</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">中等</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均营业总收入变化率与基准值的比较</p>
               </div>
               <div class="wordItemBox">
                 <p class="word">资产总额预警</p><a class="taga" href="###">
-                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">中等2</el-tag>
+                <el-tag color="rgba(0,0,0,0.001)" type="danger" size="small">中等</el-tag>
               </a>
                 <hr>
                 <p class="translate">两年平均资产总额变化率与基准值的比较</p>
@@ -214,7 +214,7 @@
                   </div>
                   <div class="main_center fl">
 
-                    <div class="center_text t_cos1" style="display:block">
+                    <div class="center_text t_cos1" style="display:none">
                       <!--左上边框-->
                       <div class="t_line_box">
                         <i class="t_l_line"></i>
@@ -240,7 +240,7 @@
                       </div>
                       <div  id="chartRongZi1" class="chart chartRongZi" >
                         <p class="edu">2015年</p>
-                        <table >
+                        <table class="baseTable">
                           <thead>
                           <tr>
                             <th>债券融资额度</th>
@@ -512,7 +512,7 @@
 
                       </div>
                     </div>
-                    <div class="center_text t_cos4" style="display:none">
+                    <div class="center_text t_cos4" style="display:block">
                       <!--左上边框-->
                       <div class="t_line_box">
                         <i class="t_l_line"></i>
@@ -1739,15 +1739,15 @@
     margin-top: 30px;
   }
   table {
-    /*border: 1px solid #3a8ee6;*/
-    width: 90%;
-    margin:0;
-    padding:0;
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin: 0 auto;
-    color: white;
-  }
+       /*border: 1px solid #3a8ee6;*/
+       width: 90%;
+       margin:0;
+       padding:0;
+       border-collapse: collapse;
+       border-spacing: 0;
+       margin: 0 auto;
+       color: white;
+     }
 
   table tr {
     padding: 5px;
@@ -1783,26 +1783,26 @@
 
 </style>
 <style>
-  .el-dialog__body {
-    background-color: #041A29 !important;
-    background: rgba(0, 0, 0, 0.0);
+  /*.el-dialog__body {*/
+  /*  background-color: #041A29 !important;*/
+  /*  background: rgba(0, 0, 0, 0.0);*/
 
-    padding-top: 0px;
-    padding-right: 0px;
-  }
+  /*  padding-top: 0px;*/
+  /*  padding-right: 0px;*/
+  /*}*/
 
-  .el-dialog__header {
-    background: #041A29 !important;
+  /*.el-dialog__header {*/
+  /*  background: #041A29 !important;*/
 
-  }
+  /*}*/
 
-  .el-dialog__title {
-    color: #fff;
+  /*.el-dialog__title {*/
+  /*  color: #fff;*/
 
-  }
+  /*}*/
 
-  .el-dialog__body h4, h5 {
-    color: white;
-  }
+  /*.el-dialog__body h4, h5 {*/
+  /*  color: white;*/
+  /*}*/
 
 </style>

@@ -303,7 +303,7 @@
               </div>
               <!-- end filter -->
               <!-- company -->
-                <div class="company" style="float: left;margin-left: 40px">
+                <div class="company deleteDemo" style="float: left;margin-left: 40px">
                   <div class="company__logo">
                     <img src="../assets/r3.png" alt="">
                   </div>
@@ -324,7 +324,7 @@
                       <a class="post__actions-btn post__actions-btn--green" href="#">
                         <i class="el-icon-more"></i>
                       </a>
-                      <a class="post__actions-btn post__actions-btn--red" href="#">
+                      <a class="post__actions-btn post__actions-btn--red" href="#" @click="deleteCard">
                         <i class="el-icon-delete"></i>
                       </a>
                     </div>
@@ -590,8 +590,13 @@
       $(".myCompu").hide();
       $(".mySet").hide();
       $(".exit").hide();
+
+
     },
     methods:{
+      deleteCard(){
+        $(".deleteDemo").fadeOut();
+      },
       showInfo(){
         $(".myInfo").show();
         $(".myCompu").hide();

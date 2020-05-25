@@ -1251,10 +1251,10 @@
       },
       methods: {
         open() {
-          this.$confirm('僵尸企业测评已完成,是否查看结果？', '成功', {
+          this.$confirm('结果为“僵尸企业”，是否查看详情？', '测评已完成', {
             confirmButtonText: '查看',
             cancelButtonText: '稍后再看',
-            type: 'success'
+            type: 'warning'
           }).then(() => {
             // this.$router.push({path:'/companybase/:id'})
             this.$router.push({path:'/companybase/100565'})
