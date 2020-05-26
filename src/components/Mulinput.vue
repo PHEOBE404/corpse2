@@ -590,109 +590,109 @@
             <el-dialog title="年度报表(4/4)"  class="doubleDig" :visible.sync="editVisible08" width="1200px">
 
               <el-form ref="form2" :model="form2" label-width="170px" label-position="left" size="small">
+
                 <el-row :gutter="20">
                   <el-col :span="8">
                     <div class="grid-content bg-purple">
-                    <h3>2015年度报表</h3>
-                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
-                    <el-form-item label="从业人数">
-                      <el-input size="small" v-model="form2.debt_financing_1" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="资产总额">
-                      <el-input size="small" v-model="form2.debt_financing_2" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="负债总额">
-                      <el-input size="small" v-model="form2.debt_financing_3" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="营业总收入">
-                      <el-input size="small" v-model="form2.debt_financing_4" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="主营业务收入">
-                      <el-input size="small" v-model="form2.debt_financing_5" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="利润总额">
-                      <el-input size="small" v-model="form2.debt_financing_6" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="净利润">
-                      <el-input size="small" v-model="form2.debt_financing_7" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="纳税总额">
-                      <el-input size="small" v-model="form2.debt_financing_8" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="所有者权益合计">
-                      <el-input size="small" v-model="form2.debt_financing_9" placeholder=" " > </el-input>
-                    </el-form-item>
+                      <h3>2015年度报表</h3>
+                      <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                      <el-form-item label="从业人数">
+                        <el-input size="small" v-model="form2.debt_financing_31" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="资产总额">
+                        <el-input size="small" v-model="form2.debt_financing_32" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="负债总额">
+                        <el-input size="small" v-model="form2.debt_financing_33" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="营业总收入">
+                        <el-input size="small" v-model="form2.debt_financing_34" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="主营业务收入">
+                        <el-input size="small" v-model="form2.debt_financing_35" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="利润总额">
+                        <el-input size="small" v-model="form2.debt_financing_36" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="净利润">
+                        <el-input size="small" v-model="form2.debt_financing_37" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="纳税总额">
+                        <el-input size="small" v-model="form2.debt_financing_38" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="所有者权益合计">
+                        <el-input size="small" v-model="form2.debt_financing_39" placeholder=" " > </el-input>
+                      </el-form-item>
                     </div>
                   </el-col>
                   <el-col :span="8">
                     <div class="grid-content bg-purple">
-                    <h3>2016年度报表</h3>
-                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
-                    <el-form-item label="从业人数">
-                      <el-input size="small" v-model="form2.debt_financing_10" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="资产总额">
-                      <el-input size="small" v-model="form2.debt_financing_11" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="负债总额">
-                      <el-input size="small" v-model="form2.debt_financing_12" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="营业总收入">
-                      <el-input size="small" v-model="form2.debt_financing_13" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="主营业务收入">
-                      <el-input size="small" v-model="form2.debt_financing_14" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="利润总额">
-                      <el-input size="small" v-model="form2.debt_financing_15" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="净利润">
-                      <el-input size="small" v-model="form2.debt_financing_16" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="纳税总额">
-                      <el-input size="small" v-model="form2.debt_financing_17" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="所有者权益合计">
-                      <el-input size="small" v-model="form2.debt_financing_18" placeholder=" " > </el-input>
-                    </el-form-item>
+                      <h3>2016年度报表</h3>
+                      <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                      <el-form-item label="从业人数">
+                        <el-input size="small" v-model="form2.debt_financing_40" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="资产总额">
+                        <el-input size="small" v-model="form2.debt_financing_41" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="负债总额">
+                        <el-input size="small" v-model="form2.debt_financing_42" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="营业总收入">
+                        <el-input size="small" v-model="form2.debt_financing_43" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="主营业务收入">
+                        <el-input size="small" v-model="form2.debt_financing_44" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="利润总额">
+                        <el-input size="small" v-model="form2.debt_financing_45" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="净利润">
+                        <el-input size="small" v-model="form2.debt_financing_46" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="纳税总额">
+                        <el-input size="small" v-model="form2.debt_financing_47" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="所有者权益合计">
+                        <el-input size="small" v-model="form2.debt_financing_48" placeholder=" " > </el-input>
+                      </el-form-item>
                     </div>
                   </el-col>
                   <el-col :span="8">
                     <div class="grid-content bg-purple">
-                    <h3>2017年度报表</h3>
-                    <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
-                    <el-form-item label="从业人数">
-                      <el-input size="small" v-model="form2.debt_financing_19" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="资产总额">
-                      <el-input size="small" v-model="form2.debt_financing_20" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="负债总额">
-                      <el-input size="small" v-model="form2.debt_financing_21" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="营业总收入">
-                      <el-input size="small" v-model="form2.debt_financing_22" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="主营业务收入">
-                      <el-input size="small" v-model="form2.debt_financing_23" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="利润总额">
-                      <el-input size="small" v-model="form2.debt_financing_24" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="净利润">
-                      <el-input size="small" v-model="form2.debt_financing_25" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="纳税总额">
-                      <el-input size="small" v-model="form2.debt_financing_26" placeholder=" " > </el-input>
-                    </el-form-item>
-                    <el-form-item label="所有者权益合计">
-                      <el-input size="small" v-model="form2.debt_financing_27" placeholder=" " > </el-input>
-                    </el-form-item>
+                      <h3>2017年度报表</h3>
+                      <!--                <el-input v-model="form.regist_capital" size="small" style="width: 100px;"><span slot="suffix"> </span></el-input><label>年的融资情况表</label>-->
+                      <el-form-item label="从业人数">
+                        <el-input size="small" v-model="form2.debt_financing_49" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="资产总额">
+                        <el-input size="small" v-model="form2.debt_financing_50" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="负债总额">
+                        <el-input size="small" v-model="form2.debt_financing_51" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="营业总收入">
+                        <el-input size="small" v-model="form2.debt_financing_52" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="主营业务收入">
+                        <el-input size="small" v-model="form2.debt_financing_53" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="利润总额">
+                        <el-input size="small" v-model="form2.debt_financing_54" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="净利润">
+                        <el-input size="small" v-model="form2.debt_financing_55" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="纳税总额">
+                        <el-input size="small" v-model="form2.debt_financing_56" placeholder=" " > </el-input>
+                      </el-form-item>
+                      <el-form-item label="所有者权益合计">
+                        <el-input size="small" v-model="form2.debt_financing_57" placeholder=" " > </el-input>
+                      </el-form-item>
                     </div>
                   </el-col>
 
                 </el-row>
-
               </el-form>
               <span slot="footer" class="dialog-footer">
                 <el-button @click="editVisible08 = false">取 消</el-button>
@@ -1013,7 +1013,7 @@
             </div>
             <br>
             <div style="margin: 0 auto;width: 100px">
-            <el-button type="primary" @click="openFullScreen1">提交</el-button>
+            <el-button type="primary" @click="openFullScreen1(1)">提交</el-button>
             </div>
 
           </el-tab-pane>
@@ -1250,8 +1250,8 @@
         }
       },
       methods: {
-        open() {
-          this.$confirm('结果为“僵尸企业”，是否查看详情？', '测评已完成', {
+        open1() {
+          this.$confirm('企业64092的测评结果为“僵尸企业”，是否查看详情？', '测评已完成', {
             confirmButtonText: '查看',
             cancelButtonText: '稍后再看',
             type: 'warning'
@@ -1266,7 +1266,24 @@
             });
           });
         },
-        openFullScreen1() {
+        open2() {
+          this.$confirm('企业64092的测评结果为“僵尸企业，企业2275264的测评结果为“正常企业”，是否查看详情？', '测评已完成', {
+
+            confirmButtonText: '查看',
+            cancelButtonText: '稍后再看',
+            type: 'warning'
+          }).then(() => {
+            // this.$router.push({path:'/companybase/:id'})
+            this.$router.push({path:'/companybase/100565'})
+
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '稍后可在【个人中心】查看历史测评记录'
+            });
+          });
+        },
+        openFullScreen1(i) {
           const loading = this.$loading({
             lock: true,
             text: '正在测评……',
@@ -1275,7 +1292,7 @@
           });
           setTimeout(() => {
             loading.close();
-            this.open();
+            this.open1();
           }, 800);
 
 
@@ -1293,7 +1310,7 @@
             //   message: '僵尸企业测评已完成，用时2.84秒！',
             //   type: 'success'
             // });
-            this.open();
+            this.open2();
 
           }, 1000);
 

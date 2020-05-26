@@ -1656,7 +1656,7 @@ console.log("lllllllllllllllll");
             //   color: '#2F2F2F'
             // }]),
             title: {
-              text: '地区纳税贡献分析',
+              text: '知识产权分析',
               textStyle:{
                 color:'#fff',
                 fontWeight:600,
@@ -1668,7 +1668,7 @@ console.log("lllllllllllllllll");
             xAxis: {
 
               type: 'category',
-              data: ['湖北', '湖南','江西','广西','广东','福建',],
+              data: ['0项', '1项','2项','3项'],
               nameTextStyle:{
                 color:'#fff',
               },
@@ -1698,15 +1698,15 @@ console.log("lllllllllllllllll");
 
             },
             yAxis: {
-              name:'(%）',
+              name:'家',
               nameLocation:'end',
               nameTextStyle:{
                 color:'#fff',
                 // backgroundColor:'#f00',
               },
-              nameGap:8,
+              nameGap:20,
               type: 'value',
-              max:100,
+               max:14000,
 
               nameTextStyle:{
                 color:'#fff'
@@ -1721,9 +1721,9 @@ console.log("lllllllllllllllll");
             },
             series: [{
               name:'僵尸企业',
-              data: [22, 35, 19, 23, 20, 16],
+              data: [13009, 4091, 10271, 2491],
               type: 'bar',
-              barWidth:14,
+              barWidth:22,
               itemStyle:{
                 color:'#FF4200',
                 opacity:0.9,
@@ -1738,9 +1738,9 @@ console.log("lllllllllllllllll");
               }
             },{
               name:'非僵尸企业',
-              data: [65, 54, 66, 74, 58, 70],
+              data: [7163, 2118, 5497, 1294],
               type: 'bar',
-              barWidth:14,
+              barWidth:22,
               itemStyle:{
             color:'#09ACD2',
                 opacity:0.9,
