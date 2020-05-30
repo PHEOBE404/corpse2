@@ -153,7 +153,7 @@
                 :visible.sync="innerVisible"
                 append-to-body>
                 <h4>得分：3</h4>
-                <h4>位于所有企业前25%-50%</h4>
+                <h4 style="line-height: 32px">位于所有企业前25%-50%</h4>
                 <h5>{{innerdialogtitle}}为利息保障倍数的表现，由三年平均资产负债率与基准值对比，三年中资产负债率大于基准值的年数得出</h5>
 
               </el-dialog>
@@ -164,19 +164,19 @@
               </div>
               <div class="radiolabel">
                 <table border="0" align="center"
-                       style="border-collapse:separate; border-spacing:24px 12px;color: white;font-size: 14px">
-                  <tr style="font-size: 18px">
-                    <th>特征</th>
-                    <th>说明</th>
-                    <th>计算</th>
-                    <th>结果</th>
+                       style="border-collapse:separate; border-spacing:24px 12px;color: white;font-size: 14px;border: none;">
+                  <tr style="font-size: 18px;border: none">
+                    <th style="border: none ;padding: 0;">特征</th>
+                    <th style="border: none">说明</th>
+                    <th style="border: none">计算</th>
+                    <th style="border: none">结果</th>
                   </tr>
                   <tr></tr>
-                  <tr v-for="(item, index) in radiogroup">
-                    <td> &nbsp&nbsp&nbsp&nbsp{{item.i1}} &nbsp&nbsp&nbsp&nbsp</td>
-                    <td>{{item.i2}}</td>
-                    <td>{{item.i3}}</td>
-                    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{item.i4}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp &nbsp&nbsp
+                  <tr v-for="(item, index) in radiogroup" style="border: none">
+                    <td style="border: none;padding: 0px;">{{item.i1}}</td>
+                    <td style="border: none">{{item.i2}}</td>
+                    <td style="border: none">{{item.i3}}</td>
+                    <td style="border: none">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{item.i4}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp &nbsp&nbsp
                     </td>
                   </tr>
 
@@ -1783,26 +1783,26 @@
 
 </style>
 <style>
-  /*.el-dialog__body {*/
-  /*  background-color: #041A29 !important;*/
-  /*  background: rgba(0, 0, 0, 0.0);*/
+  .el-dialog__body {
+    background-color: #041A29 !important;
+    background: rgba(0, 0, 0, 0.0);
 
-  /*  padding-top: 0px;*/
-  /*  padding-right: 0px;*/
-  /*}*/
+    padding-top: 0px;
+    padding-right: 0px;
+  }
 
-  /*.el-dialog__header {*/
-  /*  background: #041A29 !important;*/
+  .el-dialog__header {
+    background: #041A29 !important;
 
-  /*}*/
+  }
 
-  /*.el-dialog__title {*/
-  /*  color: #fff;*/
+  .el-dialog__title {
+    color: #fff;
 
-  /*}*/
+  }
 
-  /*.el-dialog__body h4, h5 {*/
-  /*  color: white;*/
-  /*}*/
+  .el-dialog__body h4, h5 {
+    color: white;
+  }
 
 </style>

@@ -17,7 +17,7 @@
         <span><router-link to="/me">个人中心</router-link></span>
       </div>
     </div>
-
+<div style="color: #041A29;font-size: 3px">1</div>
     <div class="content">
       <el-row >
         <el-col :span="6">
@@ -31,32 +31,7 @@
         <el-col :span="6">
           <div class="grid-content bg-purple"id="nashui" style="height: 250px">
 <p style="line-height: 20px;color: #fff;font-weight: 600">僵尸企业地域纳税排名</p>
-<!--            <div style="width: 400px">-->
-<!--              <span class="numberBord" >No.1</span><span class="numberText">江西</span> <span class="numberRadio">34%</span>-->
-<!--              <el-progress percentage="80" status="exception" stroke-width=3 ></el-progress>-->
-<!--            </div>-->
-<!--            <div style="width: 400px">-->
-<!--              <span class="numberBord" >No.2</span><span class="numberText">湖南</span> <span class="numberRadio">22%</span>-->
-<!--              <el-progress percentage="70" status="exception" stroke-width=3></el-progress>-->
-<!--            </div>-->
-<!--            <div style="width: 400px">-->
-<!--              <span class="numberBord" >No.3</span><span class="numberText">湖北</span> <span class="numberRadio">16%</span>-->
-<!--              <el-progress percentage="64" status="exception" stroke-width=3></el-progress>-->
-<!--            </div>-->
-<!--            <div style="width: 400px">-->
-<!--              <span style="font-size: 12px" >No.4</span><span class="numberText"> 江西</span> <span class="numberRadio">12%</span>-->
-<!--              <el-progress percentage="40" status="success" show-text="false"stroke-width=3></el-progress>-->
-<!--            </div>-->
-<!--            <div style="width: 400px">-->
-<!--              <span style="font-size: 12px" >No.5</span><span class="numberText"> 广东</span> <span class="numberRadio">10%</span>-->
-<!--              <el-progress percentage="30" status="success" show-text="false"stroke-width=3></el-progress>-->
 
-<!--            </div>-->
-<!--            <div style="width: 400px">-->
-<!--              <span class="numberBord" >No.6</span><span class="numberText">福建</span> <span class="numberRadio">9%</span>-->
-<!--              <el-progress percentage="25" status="success" show-text="false"  stroke-width=3></el-progress>-->
-
-<!--            </div>-->
 
         </div>
         </el-col>
